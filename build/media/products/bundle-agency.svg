@@ -1,0 +1,21 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='720' viewBox='0 0 1200 720'>
+  <defs>
+    <linearGradient id='g' x1='0%' y1='0%' x2='100%' y2='100%'>
+      <stop offset='0%' stop-color='#1e293b'/>
+      <stop offset='100%' stop-color='#0f172a'/>
+    </linearGradient>
+    <pattern id='dots' width='26' height='26' patternUnits='userSpaceOnUse'>
+      <circle cx='4' cy='4' r='2' fill='rgba(255,255,255,0.15)'/>
+    </pattern>
+  </defs>
+  <rect width='1200' height='720' fill='url(#g)'/>
+  <rect width='1200' height='720' fill='url(#dots)' opacity='0.4'/>
+  <rect x='80' y='90' width='1040' height='540' rx='28' fill='rgba(255,255,255,0.08)'/>
+  <text x='130' y='240' fill='#34d399' font-family='Be Vietnam Pro, sans-serif' font-size='32' font-weight='700' letter-spacing='2'>BUNDLE · AGENCY TIER</text>
+  <text x='130' y='330' fill='white' font-family='Be Vietnam Pro, sans-serif' font-size='80' font-weight='800'>PI AGENCY</text>
+  <text x='130' y='395' fill='rgba(255,255,255,0.85)' font-family='Be Vietnam Pro, sans-serif' font-size='26'>All 6 plugins · Unlimited sites · White-label</text>
+  <rect x='130' y='450' width='280' height='70' rx='35' fill='#34d399'/>
+  <text x='270' y='497' fill='#0f172a' font-family='Be Vietnam Pro, sans-serif' font-size='32' font-weight='800' text-anchor='middle'>Save 55%</text>
+  <text x='130' y='580' fill='rgba(255,255,255,0.95)' font-family='Be Vietnam Pro, sans-serif' font-size='46' font-weight='700'>+ 2M Pi tokens/năm</text>
+  <text x='1020' y='560' fill='rgba(255,255,255,0.85)' font-family='sans-serif' font-size='140' font-weight='700' text-anchor='middle'>🏢</text>
+</svg>

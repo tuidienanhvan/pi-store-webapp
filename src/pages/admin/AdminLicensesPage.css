@@ -1,0 +1,188 @@
+/* AdminLicensesPage.css */
+
+.licenses-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-6);
+}
+
+.licenses-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--s-4);
+}
+
+.licenses-header h1 {
+  margin: 0;
+  font-size: var(--fs-32);
+}
+
+.licenses-header p {
+  margin: 0;
+  color: var(--text-2);
+}
+
+/* --- Filter Toolbar --- */
+.licenses-toolbar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: var(--s-3);
+  align-items: flex-end;
+}
+
+/* Search input takes more space */
+.licenses-toolbar > *:first-child {
+  grid-column: span 2;
+}
+
+@media (min-width: 1400px) {
+  .licenses-toolbar {
+    grid-template-columns: 2fr repeat(6, 1fr) auto;
+  }
+  .licenses-toolbar > *:first-child {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .licenses-toolbar {
+    grid-template-columns: 1fr;
+  }
+  .licenses-toolbar > *:first-child {
+    grid-column: span 1;
+  }
+}
+
+/* --- Stats --- */
+.licenses-stats {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  font-size: var(--fs-14);
+  color: var(--text-2);
+}
+
+.licenses-stats strong {
+  color: var(--text-1);
+}
+
+/* --- Table Styles --- */
+.licenses-table-card {
+  padding: 0;
+  overflow: hidden;
+  border-radius: var(--r-4);
+}
+
+.licenses-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.licenses-table th {
+  background: var(--surface-2);
+  padding: var(--s-3) var(--s-4);
+  font-size: var(--fs-12);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-3);
+  border-bottom: 2px solid var(--hairline-strong);
+  white-space: nowrap;
+}
+
+.licenses-table td {
+  padding: var(--s-4);
+  border-bottom: 1px solid var(--hairline);
+  font-size: var(--fs-14);
+  color: var(--text-2);
+  vertical-align: middle;
+}
+
+/* Column specific widths/alignments */
+.licenses-table th:first-child,
+.licenses-table td:first-child {
+  width: 60px;
+  text-align: center;
+  color: var(--text-3);
+}
+
+.column-key {
+  min-width: 180px;
+}
+
+.column-status {
+  width: 100px;
+  text-align: center;
+}
+
+.column-keys {
+  width: 60px;
+  text-align: center;
+}
+
+.column-sites {
+  width: 80px;
+  text-align: center;
+}
+
+.column-actions {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.licenses-table tr:hover td {
+  background-color: var(--surface-2);
+}
+
+/* Inner cell components */
+.key-cell-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--s-1);
+  white-space: nowrap;
+}
+
+.key-cell-code {
+  font-family: monospace;
+  font-size: var(--fs-12);
+  border-radius: 4px;
+  padding: 2px 6px;
+  display: inline-block;
+}
+
+.key-cell-code.is-masked {
+  color: var(--text-3);
+  background: transparent;
+  padding: 0;
+}
+
+.key-cell-code.is-revealed {
+  color: var(--text-1);
+  background: var(--surface-2);
+}
+
+.row-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--s-1);
+}
+
+/* --- Pagination --- */
+.licenses-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--fs-14);
+  color: var(--text-2);
+  flex-wrap: wrap;
+  gap: var(--s-4);
+}
+
+.licenses-pagination__controls {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}

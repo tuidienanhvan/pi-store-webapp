@@ -1,0 +1,332 @@
+export const messages = {
+  vi: {
+    localeLabel: "Tiếng Việt",
+    nav: {
+      catalog: "Danh mục",
+      pricing: "Bảng giá",
+      docs: "Tài liệu",
+      about: "Về chúng tôi",
+      signin: "Đăng nhập",
+      cart: "Giỏ hàng",
+    },
+    hero: {
+      eyebrow: "PI ECOSYSTEM — GIẢI PHÁP TĂNG TRƯỞNG TOÀN DIỆN",
+      saleBadge: "Ưu đãi 20%",
+      title: "Nâng Tầm Website WordPress Với Hệ Sinh Thái Pi",
+      description:
+        "Giải pháp toàn diện từ AI, SEO đến Quản trị hệ thống. Giúp Agency và Doanh nghiệp vận hành website thông minh, hiệu quả và đột phá doanh thu.",
+      points: ["Giá tháng/năm hiển thị ngay trên card", "Search lớn, duyệt theo nhóm rõ ràng", "Lead form inline cho từng sản phẩm"],
+      ctaPrimary: "Mua theo danh mục",
+      ctaSecondary: "Xem sản phẩm nổi bật",
+      spotlight: "Deal nổi bật",
+      proofLabel: "Số liệu storefront",
+      metrics: {
+        products: "Sản phẩm",
+        plugins: "Plugin",
+        themes: "Theme",
+        featured: "Nổi bật",
+      },
+      sideTitle: "Sản phẩm chiến lược",
+      sideHint: "Được tin dùng bởi các Agency hàng đầu.",
+      promoCards: [
+        {
+          title: "Gói năm tối ưu hơn",
+          body: "Khách có thể chuyển nhanh giữa tháng và năm trước khi gửi lead.",
+        },
+        {
+          title: "Có demo và tư vấn",
+          body: "CTA được chia rõ thành xem chi tiết, demo và đăng ký tư vấn.",
+        },
+      ],
+    },
+    catalog: {
+      heading: "Sản phẩm đang mở bán",
+      resultCount: (count) => `${count} sản phẩm phù hợp`,
+      shelfTitle: "Danh mục plugin và theme",
+      shelfHint: "Duyệt nhanh như storefront thương mại điện tử, nhưng vẫn đủ chiều sâu cho sản phẩm số.",
+    },
+    filters: {
+      all: "Tất cả",
+      plugin: "Plugin",
+      theme: "Theme",
+      searchPlaceholder: "Tìm theo tên, tính năng, use case...",
+      stickyHint: "Lọc và tìm kiếm storefront",
+    },
+    pricing: {
+      monthly: "Gói tháng",
+      yearly: "Gói năm",
+      yearlyHint: "Thanh toán năm tối ưu chi phí hơn gói tháng.",
+      savePrefix: (percent) => `Tiết kiệm khoảng ${percent}%`,
+    },
+    card: {
+      detail: "Xem chi tiết",
+      demo: "Nhận demo",
+      consult: "Nhận tư vấn",
+      version: "Version",
+      statusReady: "Đang mở bán",
+    },
+    detail: {
+      breadcrumbHome: "Danh mục",
+      summaryLabel: "Giải pháp cho WordPress",
+      useCases: "Use case triển khai",
+      features: "Tính năng chính",
+      faq: "Câu hỏi thường gặp",
+      back: "Quay lại storefront",
+      primaryCta: "Đăng ký tư vấn sản phẩm này",
+      secondaryCta: "Xem demo",
+      docsCta: "Tài liệu",
+    },
+    lead: {
+      eyebrow: "Đăng ký tư vấn",
+      title: "Nhận báo giá, demo và lộ trình triển khai phù hợp",
+      description:
+        "Điền thông tin ngắn gọn để PI Ecosystem phản hồi với demo phù hợp, đề xuất gói tháng hoặc năm và cách triển khai thực tế cho website của bạn.",
+      name: "Họ và tên",
+      email: "Email",
+      phone: "Số điện thoại",
+      website: "Website hiện tại",
+      product: "Sản phẩm quan tâm",
+      productLocked: "Sản phẩm đang chọn",
+      message: "Mô tả nhu cầu",
+      submit: "Gửi yêu cầu tư vấn",
+      submitting: "Đang gửi yêu cầu...",
+      success: "Yêu cầu đã được gửi. PI Ecosystem sẽ liên hệ sớm.",
+      errorFallback: "Gửi yêu cầu thất bại, vui lòng thử lại.",
+      required: "Vui lòng nhập đầy đủ họ tên, email và số điện thoại.",
+      note: "Ví dụ: cần demo, timeline triển khai, số site dự kiến, hoặc ngân sách mong muốn.",
+    },
+    common: {
+      typeLabel: "Phân loại",
+      plugin: "Plugin",
+      theme: "Theme",
+      featured: "Nổi bật",
+      empty: "Không tìm thấy sản phẩm phù hợp",
+      emptyHint: "Thử đổi bộ lọc, từ khóa hoặc chu kỳ giá.",
+      loading: "Đang tải dữ liệu...",
+    },
+    seo: {
+      catalogTitle: "PI Ecosystem Store | Plugin và Theme WordPress",
+      catalogDescription:
+        "Storefront bán plugin và theme WordPress theo phong cách marketplace: giá tháng/năm rõ ràng, nhóm sản phẩm trực quan và CTA tư vấn nhanh.",
+      detailTitleSuffix: "| PI Ecosystem Store",
+    },
+    home: {
+      hero: {
+        badge: "✨ Pi Ecosystem v2 — Ra mắt Q2/2026",
+        title: "WordPress plugins thông minh hơn. Chi phí thấp hơn 80%.",
+        description: "7 plugin WP tách Free / Pro sạch sẽ. Pro tier chạy qua Pi AI Cloud tokens — mua 1 ví, dùng chung SEO Bot, Chatbot RAG, Leads scoring, Critical CSS…",
+        ctaPrimary: "Xem bảng giá",
+        ctaSecondary: "Duyệt plugin",
+        stat1: "Plugin v2",
+        stat2: "/ 100k tokens",
+        stat3: "Gross margin",
+        stat4: "AI providers",
+      },
+      productSpotlight: {
+        title: "Pi AI Cloud",
+        priceSuffix: "= 100k tokens",
+        features: [
+          "SEO Bot AI — title + meta",
+          "Chatbot AI + RAG",
+          "Leads scoring (ML)",
+          "Critical CSS generation"
+        ],
+        cta: "Chi tiết"
+      },
+      whyPi: {
+        title: "Tại sao chọn Pi?",
+        description: "Chúng tôi xây plugin WP kiểu SaaS — free đủ xài, Pro AI-powered, trả theo usage.",
+        items: [
+          { title: "Token economy", desc: "$9 = 100k tokens. 1 ví dùng chung cho mọi Pi Pro plugin. Không subscription riêng từng plugin." },
+          { title: "Logic server-side", desc: "AI prompts, scoring algorithm, schema library không bao giờ ship client. Không ai clone được." },
+          { title: "25 AI providers", desc: "Router tự chọn provider rẻ nhất (Groq → Gemini → Mistral → Claude fallback). Tiết kiệm 90% so với OpenAI." },
+          { title: "Vietnamese-first", desc: "Prompts + readability tuning cho tiếng Việt. Support Zalo trực tiếp. Yoast / Rank Math không có." }
+        ]
+      },
+      featured: {
+        title: "Sản phẩm nổi bật",
+        description: "Plugin + bundle phổ biến nhất.",
+        ctaAll: "Xem tất cả"
+      },
+      cta: {
+        title: "Sẵn sàng nâng tầm website?",
+        description: "Đăng ký miễn phí → nhận 1,000 tokens starter → test full stack ngay.",
+        primary: "Đăng ký miễn phí",
+        secondary: "Xem bảng giá"
+      }
+    },
+    footer: {
+      tagline: "WordPress plugins thông minh hơn. Trả qua token, không subscription cứng.",
+      products: "Sản phẩm",
+      docs: "Tài liệu",
+      support: "Hỗ trợ & Công ty",
+      copyright: (year) => `© ${year} Pi Ecosystem. Made with 🇻🇳 in Vietnam.`,
+      credit: "Plugin v2 + Pi AI Cloud — built on Railway + Vercel."
+    }
+  },
+  en: {
+    localeLabel: "English",
+    nav: {
+      catalog: "Catalog",
+      pricing: "Pricing",
+      docs: "Docs",
+      about: "About",
+      signin: "Sign in",
+      cart: "Cart",
+    },
+    hero: {
+      eyebrow: "PI ECOSYSTEM — BUILT FOR SCALE",
+      saleBadge: "20% OFF",
+      title: "Elevate Your WordPress Ecosystem With Pi",
+      description:
+        "Comprehensive solutions from AI and SEO to System Admin. Empowering Agencies and Businesses to operate smarter, faster, and more profitably.",
+      points: ["Monthly/yearly pricing on every card", "Large search and clear category browsing", "Inline lead flow for every product"],
+      ctaPrimary: "Browse catalog",
+      ctaSecondary: "View featured product",
+      spotlight: "Featured deal",
+      proofLabel: "Storefront metrics",
+      metrics: {
+        products: "Products",
+        plugins: "Plugins",
+        themes: "Themes",
+        featured: "Featured",
+      },
+      sideTitle: "Products in demand",
+      sideHint: "Tailored for a dedicated plugin and theme storefront.",
+      promoCards: [
+        {
+          title: "Yearly plans save more",
+          body: "Visitors can switch between monthly and yearly before sending a lead.",
+        },
+        {
+          title: "Demo and consult CTAs",
+          body: "Each product separates detail, demo, and consultation actions clearly.",
+        },
+      ],
+    },
+    catalog: {
+      heading: "Now selling",
+      resultCount: (count) => `${count} matching products`,
+      shelfTitle: "Plugin and theme catalog",
+      shelfHint: "Browse with marketplace clarity while keeping enough depth for digital products.",
+    },
+    filters: {
+      all: "All",
+      plugin: "Plugins",
+      theme: "Themes",
+      searchPlaceholder: "Search by name, feature, use case...",
+      stickyHint: "Storefront filters and search",
+    },
+    pricing: {
+      monthly: "Monthly",
+      yearly: "Yearly",
+      yearlyHint: "Yearly billing reduces total subscription cost.",
+      savePrefix: (percent) => `Save about ${percent}%`,
+    },
+    card: {
+      detail: "View details",
+      demo: "Request demo",
+      consult: "Get consultation",
+      version: "Version",
+      statusReady: "Now selling",
+    },
+    detail: {
+      breadcrumbHome: "Catalog",
+      summaryLabel: "Solution for WordPress",
+      useCases: "Implementation use cases",
+      features: "Core features",
+      faq: "Frequently asked questions",
+      back: "Back to storefront",
+      primaryCta: "Consult on this product",
+      secondaryCta: "Request demo",
+      docsCta: "Documentation",
+    },
+    lead: {
+      eyebrow: "Consultation request",
+      title: "Get pricing, a demo, and a deployment direction that fits your stack",
+      description:
+        "Share a short brief and PI Ecosystem will reply with a relevant demo, a monthly or yearly recommendation, and a practical rollout approach for your site.",
+      name: "Full name",
+      email: "Email",
+      phone: "Phone number",
+      website: "Current website",
+      product: "Interested product",
+      productLocked: "Selected product",
+      message: "Requirements",
+      submit: "Send consultation request",
+      submitting: "Sending request...",
+      success: "Request submitted successfully. PI Ecosystem will follow up soon.",
+      errorFallback: "Submission failed. Please try again.",
+      required: "Please fill in full name, email, and phone number.",
+      note: "Example: request a demo, rollout timeline, number of sites, or target budget.",
+    },
+    common: {
+      typeLabel: "Type",
+      plugin: "Plugin",
+      theme: "Theme",
+      featured: "Featured",
+      empty: "No matching products found",
+      emptyHint: "Try another filter, keyword, or billing cycle.",
+      loading: "Loading data...",
+    },
+    seo: {
+      catalogTitle: "PI Ecosystem Store | WordPress Plugins and Themes",
+      catalogDescription:
+        "Marketplace-style storefront for PI Ecosystem plugins and themes, with clear monthly/yearly pricing and faster demo or consultation actions.",
+      detailTitleSuffix: "| PI Ecosystem Store",
+    },
+    home: {
+      hero: {
+        badge: "✨ Pi Ecosystem v2 — Launch Q2/2026",
+        title: "Smarter WordPress plugins. 80% lower costs.",
+        description: "7 clean Free / Pro plugins. Pro tier runs on Pi AI Cloud tokens — one wallet for SEO Bot, Chatbot RAG, Leads scoring, Critical CSS…",
+        ctaPrimary: "View pricing",
+        ctaSecondary: "Browse plugins",
+        stat1: "Plugin v2",
+        stat2: "/ 100k tokens",
+        stat3: "Gross margin",
+        stat4: "AI providers",
+      },
+      productSpotlight: {
+        title: "Pi AI Cloud",
+        priceSuffix: "= 100k tokens",
+        features: [
+          "SEO Bot AI — title + meta",
+          "Chatbot AI + RAG",
+          "Leads scoring (ML)",
+          "Critical CSS generation"
+        ],
+        cta: "Details"
+      },
+      whyPi: {
+        title: "Why Pi?",
+        description: "We build WP plugins like SaaS — generous free tier, AI-powered Pro, pay-as-you-go.",
+        items: [
+          { title: "Token economy", desc: "$9 = 100k tokens. One wallet for all Pi Pro plugins. No separate subscriptions." },
+          { title: "Server-side logic", desc: "AI prompts, algorithms, and schema libraries never ship to client. Protected IP." },
+          { title: "25 AI providers", desc: "Automatic routing to cheapest provider (Groq → Gemini → Mistral → Claude). 90% cheaper than OpenAI." },
+          { title: "Vietnamese-first", desc: "Prompts tuned for Vietnamese content. Direct Zalo support. Optimized for local SEO." }
+        ]
+      },
+      featured: {
+        title: "Featured Products",
+        description: "Our most popular plugins and bundles.",
+        ctaAll: "View all"
+      },
+      cta: {
+        title: "Ready to elevate your website?",
+        description: "Sign up for free → get 1,000 starter tokens → test the full stack today.",
+        primary: "Sign up free",
+        secondary: "View pricing"
+      }
+    },
+    footer: {
+      tagline: "Smarter WordPress plugins. Powered by tokens, not subscriptions.",
+      products: "Products",
+      docs: "Docs",
+      support: "Support & Company",
+      copyright: (year) => `© ${year} Pi Ecosystem. Made with 🇻🇳 in Vietnam.`,
+      credit: "Plugin v2 + Pi AI Cloud — built on Railway + Vercel."
+    }
+  },
+};

@@ -1,0 +1,549 @@
+{
+  "baseUrl": "https://store.pi-ecosystem.com",
+  "products": {
+    "pi-ai-provider": {
+      "sortOrder": 10,
+      "status": "ready",
+      "featured": true,
+      "pricing": {
+        "currency": "VND",
+        "monthly": 319000,
+        "yearly": 3192000
+      },
+      "cta": {
+        "demoUrl": "https://thietkethicongnhadep.vn/",
+        "docsUrl": "#",
+        "contactUrl": "https://thietkethicongnhadep.vn/lien-he/"
+      },
+      "media": {
+        "cover": "/media/products/pi-ai-provider.png",
+        "og": "/og-default.webp"
+      },
+      "copy": {
+        "vi": {
+          "name": "Pi AI Provider",
+          "tagline": "Hạ Tầng AI Đa Model - Sẵn Sàng Cho Doanh Nghiệp",
+          "description": "Kết nối sức mạnh từ OpenAI (GPT-4o), Anthropic (Claude 3.5) và Google Gemini vào WordPress chỉ trong vài phút. Hỗ trợ Failover tự động và xoay vòng API key thông minh."
+        },
+        "en": {
+          "name": "Pi AI Provider",
+          "tagline": "Multi-provider AI backbone",
+          "description": "Connect 25 AI providers with automatic failover, key rotation, and unified request/response interfaces across your plugin stack."
+        }
+      },
+      "features": {
+        "vi": [
+          "Failover theo health score",
+          "Xoay vòng nhiều API key",
+          "Chuẩn hoá OpenAI, Anthropic, Gemini, Ollama",
+          "Giảm downtime cho tính năng AI"
+        ],
+        "en": [
+          "Health-score failover",
+          "Multi-key rotation",
+          "Unified OpenAI, Anthropic, Gemini, Ollama formats",
+          "Reduced AI feature downtime"
+        ]
+      },
+      "useCases": {
+        "vi": [
+          "Nền tảng cho SEO Bot và Chatbot",
+          "Triển khai AI cho nhiều website khách hàng",
+          "Giữ ổn định khi provider lỗi hoặc quá tải"
+        ],
+        "en": [
+          "Backbone for SEO bot and chatbot",
+          "AI layer for multi-client deployments",
+          "Stable output during provider outages"
+        ]
+      },
+      "faq": {
+        "vi": [
+          {
+            "q": "Plugin này có phụ thuộc nhà cung cấp AI cố định không?",
+            "a": "Không. Bạn có thể cấu hình nhiều nhà cung cấp và tự đặt thứ tự ưu tiên."
+          },
+          {
+            "q": "Có theo dõi trạng thái API theo thời gian thực không?",
+            "a": "Có. Hệ thống ghi nhận trạng thái key/provider để chuyển tuyến khi cần."
+          }
+        ],
+        "en": [
+          {
+            "q": "Is this plugin locked to one AI provider?",
+            "a": "No. You can configure multiple providers and prioritize them as needed."
+          },
+          {
+            "q": "Does it monitor API health in real time?",
+            "a": "Yes. Key/provider health is tracked for automatic routing decisions."
+          }
+        ]
+      }
+    },
+    "pi-seo": {
+      "sortOrder": 20,
+      "status": "ready",
+      "featured": true,
+      "pricing": {
+        "currency": "VND",
+        "monthly": 239000,
+        "yearly": 2392000
+      },
+      "cta": {
+        "demoUrl": "https://thietkethicongnhadep.vn/",
+        "docsUrl": "#",
+        "contactUrl": "https://thietkethicongnhadep.vn/lien-he/"
+      },
+      "media": {
+        "cover": "/media/products/pi-seo.png",
+        "og": "/og-default.webp"
+      },
+      "copy": {
+        "vi": {
+          "name": "Pi SEO",
+          "tagline": "Trợ Lý SEO Thông Minh & Tối Ưu Hóa Nội Dung AI",
+          "description": "Từ Technical SEO Audit đến Schema tự động và trợ lý viết bài AI (SEO Bot). Giải pháp All-in-one giúp website của bạn chiếm lĩnh thứ hạng tìm kiếm bền vững."
+        },
+        "en": {
+          "name": "Pi SEO",
+          "tagline": "Complete WordPress SEO toolkit",
+          "description": "From meta tags and schema to SEO audit and AI-assisted optimization, everything ships in one lightweight plugin."
+        }
+      },
+      "features": {
+        "vi": [
+          "Chấm điểm SEO 100 điểm",
+          "Sinh JSON-LD schema tự động",
+          "Tạo XML sitemap chuẩn",
+          "Hỗ trợ Instant Indexing"
+        ],
+        "en": [
+          "100-point SEO scoring",
+          "Automatic JSON-LD schema",
+          "Standards-compliant XML sitemap",
+          "Instant Indexing support"
+        ]
+      },
+      "useCases": {
+        "vi": [
+          "Website dịch vụ cần tăng tốc SEO onsite",
+          "Team content cần checklist rõ ràng",
+          "Agency tối ưu SEO cho nhiều dự án"
+        ],
+        "en": [
+          "Service websites improving on-page SEO",
+          "Content teams needing clear SEO checklists",
+          "Agencies managing multiple SEO projects"
+        ]
+      },
+      "faq": {
+        "vi": [
+          {
+            "q": "Pi SEO có thay thế plugin SEO phổ biến không?",
+            "a": "Có thể thay thế trong nhiều trường hợp khi bạn cần hệ thống gọn và tối ưu theo quy trình riêng."
+          },
+          {
+            "q": "Có hỗ trợ AI gợi ý title/description không?",
+            "a": "Có, thông qua lớp tích hợp AI provider của hệ Pi."
+          }
+        ],
+        "en": [
+          {
+            "q": "Can Pi SEO replace mainstream SEO plugins?",
+            "a": "Yes, especially when you need a lean setup customized for your own workflow."
+          },
+          {
+            "q": "Does it support AI title/description suggestions?",
+            "a": "Yes, via the integrated Pi AI layer."
+          }
+        ]
+      }
+    },
+    "pi-chatbot": {
+      "sortOrder": 30,
+      "status": "ready",
+      "featured": true,
+      "pricing": {
+        "currency": "VND",
+        "monthly": 279000,
+        "yearly": 2792000
+      },
+      "cta": {
+        "demoUrl": "https://thietkethicongnhadep.vn/",
+        "docsUrl": "#",
+        "contactUrl": "https://thietkethicongnhadep.vn/lien-he/"
+      },
+      "media": {
+        "cover": "/media/products/pi-chatbot.png",
+        "og": "/og-default.webp"
+      },
+      "copy": {
+        "vi": {
+          "name": "Pi Chatbot",
+          "tagline": "Chatbot AI Thế Hệ Mới - Chuyển Đổi Traffic Thành Leads",
+          "description": "Tự động phân loại ý định người dùng (Intent detection) và tư vấn chuyên sâu 24/7. Giải pháp tối ưu để lọc khách hàng tiềm năng và tăng tỷ lệ chuyển đổi trực tiếp."
+        },
+        "en": {
+          "name": "Pi Chatbot",
+          "tagline": "Context-aware AI chatbot",
+          "description": "Intent detection, skill routing, and inline lead capture to convert website traffic into qualified opportunities."
+        }
+      },
+      "features": {
+        "vi": [
+          "Intent detection theo ngữ cảnh",
+          "Skill routing theo kịch bản",
+          "Lưu hội thoại và thu lead",
+          "REST API để tích hợp frontend riêng"
+        ],
+        "en": [
+          "Contextual intent detection",
+          "Skill-based routing",
+          "Conversation log + lead capture",
+          "REST API for custom frontends"
+        ]
+      },
+      "useCases": {
+        "vi": [
+          "Trang dịch vụ cần tư vấn tự động 24/7",
+          "Sàng lọc lead trước khi chuyển sales",
+          "Hỗ trợ FAQ vận hành cho khách hàng"
+        ],
+        "en": [
+          "Service sites requiring 24/7 automated consultation",
+          "Pre-qualifying leads before sales handoff",
+          "Operational FAQ assistant for customers"
+        ]
+      },
+      "faq": {
+        "vi": [
+          {
+            "q": "Có thể gắn chatbot vào theme tuỳ chỉnh không?",
+            "a": "Có. Plugin cung cấp endpoint và widget để tích hợp vào nhiều layout."
+          }
+        ],
+        "en": [
+          {
+            "q": "Can it be integrated with a custom theme?",
+            "a": "Yes. It provides both endpoint and widget integration paths."
+          }
+        ]
+      }
+    },
+    "pi-dashboard": {
+      "sortOrder": 40,
+      "status": "ready",
+      "featured": false,
+      "pricing": {
+        "currency": "VND",
+        "monthly": 215000,
+        "yearly": 2152000
+      },
+      "cta": {
+        "demoUrl": "https://thietkethicongnhadep.vn/",
+        "docsUrl": "#",
+        "contactUrl": "https://thietkethicongnhadep.vn/lien-he/"
+      },
+      "media": {
+        "cover": "/media/products/pi-dashboard.png",
+        "og": "/og-default.webp"
+      },
+      "copy": {
+        "vi": {
+          "name": "Pi Dashboard",
+          "tagline": "Trung Tâm Quản Trị Hiện Đại & Dashboard Hợp Nhất",
+          "description": "Giao diện quản lý tập trung toàn bộ hệ sinh thái Pi. Thiết kế tối giản, tốc độ vượt trội giúp bạn kiểm soát mọi tính năng vận hành chỉ trong một khung nhìn."
+        },
+        "en": {
+          "name": "Pi Dashboard",
+          "tagline": "Modern WordPress admin command center",
+          "description": "A tab-based interface with AJAX loading and modular extension points to centralize your admin operations."
+        }
+      },
+      "features": {
+        "vi": [
+          "Bố cục tab rõ ràng",
+          "Command palette Ctrl+K",
+          "Khả năng mở rộng cho plugin khác",
+          "Thao tác quản trị nhanh"
+        ],
+        "en": [
+          "Clear tab-based layout",
+          "Ctrl+K command palette",
+          "Extensible plugin architecture",
+          "Faster admin workflows"
+        ]
+      },
+      "useCases": {
+        "vi": [
+          "Đội vận hành nhiều site WordPress",
+          "Xây hệ plugin nội bộ theo module",
+          "Đồng bộ thao tác quản trị cho team"
+        ],
+        "en": [
+          "Teams operating multiple WordPress sites",
+          "Internal modular plugin ecosystems",
+          "Standardized admin workflows"
+        ]
+      },
+      "faq": {
+        "vi": [],
+        "en": []
+      }
+    },
+    "pi-leads": {
+      "sortOrder": 50,
+      "status": "ready",
+      "featured": false,
+      "pricing": {
+        "currency": "VND",
+        "monthly": 199000,
+        "yearly": 1992000
+      },
+      "cta": {
+        "demoUrl": "https://thietkethicongnhadep.vn/",
+        "docsUrl": "#",
+        "contactUrl": "https://thietkethicongnhadep.vn/lien-he/"
+      },
+      "media": {
+        "cover": "/media/products/pi-leads.png",
+        "og": "/og-default.webp"
+      },
+      "copy": {
+        "vi": {
+          "name": "Pi Leads",
+          "tagline": "CRM lead pipeline cho WordPress",
+          "description": "Quản lý lead theo pipeline 5 giai đoạn, chấm điểm lead và đẩy webhook đến Zalo/Telegram/n8n để tăng tốc xử lý."
+        },
+        "en": {
+          "name": "Pi Leads",
+          "tagline": "Lead CRM pipeline for WordPress",
+          "description": "Manage leads in a 5-stage pipeline with lead scoring and webhook automation to Zalo, Telegram, and n8n."
+        }
+      },
+      "features": {
+        "vi": [
+          "Kanban 5 giai đoạn",
+          "Tự động chấm điểm lead",
+          "Webhook đa kênh",
+          "Theo dõi lead tập trung"
+        ],
+        "en": [
+          "5-stage Kanban pipeline",
+          "Automated lead scoring",
+          "Multi-channel webhooks",
+          "Centralized lead visibility"
+        ]
+      },
+      "useCases": {
+        "vi": [
+          "Doanh nghiệp dịch vụ cần CRM nhẹ",
+          "Agency muốn gom lead từ website",
+          "Đội sales cần quy trình rõ ràng"
+        ],
+        "en": [
+          "Service businesses needing lightweight CRM",
+          "Agencies consolidating web leads",
+          "Sales teams requiring clear process stages"
+        ]
+      },
+      "faq": {
+        "vi": [],
+        "en": []
+      }
+    },
+    "pi-performance": {
+      "sortOrder": 60,
+      "status": "ready",
+      "featured": false,
+      "pricing": {
+        "currency": "VND",
+        "monthly": 159000,
+        "yearly": 1592000
+      },
+      "cta": {
+        "demoUrl": "https://thietkethicongnhadep.vn/",
+        "docsUrl": "#",
+        "contactUrl": "https://thietkethicongnhadep.vn/lien-he/"
+      },
+      "media": {
+        "cover": "/media/products/pi-performance.png",
+        "og": "/og-default.webp"
+      },
+      "copy": {
+        "vi": {
+          "name": "Pi Performance",
+          "tagline": "Tối ưu tốc độ và Core Web Vitals",
+          "description": "Bộ tăng tốc gồm cache HTML, tối ưu ảnh, PWA và dọn dẹp core giúp website tải nhanh và ổn định hơn trên production."
+        },
+        "en": {
+          "name": "Pi Performance",
+          "tagline": "Speed and Core Web Vitals optimizer",
+          "description": "A performance suite with HTML cache, image optimization, PWA support, and core cleanup for faster production sites."
+        }
+      },
+      "features": {
+        "vi": [
+          "Nano cache HTML",
+          "Auto WebP",
+          "PWA cơ bản",
+          "Dọn dẹp thành phần WP không cần thiết"
+        ],
+        "en": [
+          "Nano HTML cache",
+          "Auto WebP conversion",
+          "Built-in PWA baseline",
+          "WordPress core cleanup"
+        ]
+      },
+      "useCases": {
+        "vi": [
+          "Website cần tăng tốc trước chiến dịch ads",
+          "Giảm TTFB và cải thiện trải nghiệm mobile",
+          "Nền tảng theme/plugin cần hiệu năng mặc định tốt"
+        ],
+        "en": [
+          "Sites preparing for paid traffic campaigns",
+          "Lowering TTFB and improving mobile UX",
+          "Better default performance for plugin/theme stacks"
+        ]
+      },
+      "faq": {
+        "vi": [],
+        "en": []
+      }
+    },
+    "pi-analytics": {
+      "sortOrder": 70,
+      "status": "ready",
+      "featured": false,
+      "pricing": {
+        "currency": "VND",
+        "monthly": 119000,
+        "yearly": 1192000
+      },
+      "cta": {
+        "demoUrl": "https://thietkethicongnhadep.vn/",
+        "docsUrl": "#",
+        "contactUrl": "https://thietkethicongnhadep.vn/lien-he/"
+      },
+      "media": {
+        "cover": "/media/products/pi-analytics.png",
+        "og": "/og-default.webp"
+      },
+      "copy": {
+        "vi": {
+          "name": "Pi Analytics",
+          "tagline": "Phân tích truy cập ưu tiên quyền riêng tư",
+          "description": "Theo dõi lượt truy cập và lượt xem bài viết mà không cần script bên thứ ba, phù hợp website cần tuân thủ quyền riêng tư."
+        },
+        "en": {
+          "name": "Pi Analytics",
+          "tagline": "Privacy-first traffic analytics",
+          "description": "Track visits and post views without third-party scripts, ideal for privacy-sensitive websites."
+        }
+      },
+      "features": {
+        "vi": [
+          "Không cookie tracking",
+          "Báo cáo ngày/tháng",
+          "Hash IP an toàn",
+          "Không phụ thuộc dịch vụ ngoài"
+        ],
+        "en": [
+          "No cookie tracking",
+          "Daily/monthly reports",
+          "Safe IP hashing",
+          "No external analytics dependency"
+        ]
+      },
+      "useCases": {
+        "vi": [
+          "Website nội địa cần nhẹ và sạch",
+          "Doanh nghiệp cần dữ liệu tại chỗ",
+          "Nền tảng muốn giảm script bên thứ ba"
+        ],
+        "en": [
+          "Lean local websites",
+          "Businesses keeping analytics in-house",
+          "Teams reducing third-party scripts"
+        ]
+      },
+      "faq": {
+        "vi": [],
+        "en": []
+      }
+    },
+    "saigonhouse-theme": {
+      "sortOrder": 80,
+      "status": "ready",
+      "featured": true,
+      "pricing": {
+        "currency": "VND",
+        "monthly": 399000,
+        "yearly": 3992000
+      },
+      "cta": {
+        "demoUrl": "https://thietkethicongnhadep.vn/",
+        "docsUrl": "#",
+        "contactUrl": "https://thietkethicongnhadep.vn/lien-he/"
+      },
+      "media": {
+        "cover": "/media/products/saigonhouse-theme.png",
+        "og": "/og-default.webp"
+      },
+      "copy": {
+        "vi": {
+          "name": "SaigonHouse Theme Pro",
+          "tagline": "Theme WordPress hiệu năng cao cho dịch vụ",
+          "description": "Theme production-ready với kiến trúc module, chuẩn SEO và tương thích sâu với hệ plugin PI để triển khai website bán hàng nhanh."
+        },
+        "en": {
+          "name": "SaigonHouse Theme Pro",
+          "tagline": "High-performance WordPress service theme",
+          "description": "A production-ready modular theme with SEO-friendly structure and deep compatibility with PI plugins."
+        }
+      },
+      "features": {
+        "vi": [
+          "Kiến trúc module dễ mở rộng",
+          "Hiệu năng tốt trên mobile",
+          "Tối ưu SEO kỹ thuật",
+          "Tương thích hệ plugin PI"
+        ],
+        "en": [
+          "Modular architecture",
+          "Strong mobile performance",
+          "Technical SEO baseline",
+          "Deep PI plugin compatibility"
+        ]
+      },
+      "useCases": {
+        "vi": [
+          "Website công ty dịch vụ cần launch nhanh",
+          "Kinh doanh plugin/theme dưới cùng hệ sinh thái",
+          "Dự án yêu cầu vừa thẩm mỹ vừa hiệu năng"
+        ],
+        "en": [
+          "Service-company websites needing fast launch",
+          "Selling plugins/themes within one ecosystem",
+          "Projects balancing aesthetics and performance"
+        ]
+      },
+      "faq": {
+        "vi": [
+          {
+            "q": "Theme có bắt buộc dùng đủ toàn bộ plugin PI không?",
+            "a": "Không bắt buộc, nhưng dùng trọn bộ sẽ khai thác tối đa khả năng mở rộng."
+          }
+        ],
+        "en": [
+          {
+            "q": "Is the theme tied to the full PI plugin suite?",
+            "a": "Not required, but the full suite unlocks the best integration benefits."
+          }
+        ]
+      }
+    }
+  }
+}

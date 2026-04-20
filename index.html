@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PI Ecosystem Store | Plugin & Theme WordPress</title>
+    <meta
+      name="description"
+      content="Storefront chính thức của PI Ecosystem: bán plugin và theme WordPress hiệu năng cao, hỗ trợ triển khai thực chiến."
+    />
+    <meta property="og:title" content="PI Ecosystem Store" />
+    <meta
+      property="og:description"
+      content="Khám phá plugin và theme WordPress của PI Ecosystem với giao diện chuyên nghiệp, hỗ trợ tư vấn triển khai."
+    />
+    <meta property="og:image" content="/og-default.webp" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="vi_VN" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Lexend:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="/logo-optimized.svg?v=20260417-2" />
+    <link rel="shortcut icon" href="/logo-optimized.svg?v=20260417-2" />
+    <script>
+      try {
+        if (localStorage.getItem('pi_theme') === 'dark' || (!('pi_theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <div id="modal-root"></div>
+    <div id="drawer-root"></div>
+  </body>
+</html>

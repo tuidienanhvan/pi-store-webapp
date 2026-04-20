@@ -1,0 +1,1147 @@
+{
+  "generatedAt": "2026-04-17T12:00:00.000Z",
+  "baseUrl": "https://store.pi-ecosystem.com",
+  "source": {
+    "pluginsRoot": "wp-content/plugins-v2",
+    "themeSlug": "saigonhouse-theme"
+  },
+  "totals": {
+    "products": 11,
+    "plugins": 11,
+    "themes": 0,
+    "featured": 5
+  },
+  "products": [
+    {
+      "id": "pi-ai-cloud",
+      "slug": "pi-ai-cloud",
+      "type": "plugin",
+      "version": "2.0.0",
+      "author": "Pi Ecosystem",
+      "status": "ready",
+      "featured": true,
+      "sortOrder": 5,
+      "pricing": {
+        "currency": "VND",
+        "monthly": {
+          "amount": null
+        },
+        "yearly": {
+          "amount": null,
+          "savingsPct": null
+        }
+      },
+      "cta": {
+        "demoUrl": "",
+        "docsUrl": "",
+        "contactUrl": "https://store.pi-ecosystem.com/contact"
+      },
+      "media": {
+        "cover": "/media/products/pi-ai-cloud.webp",
+        "og": "/og-default.webp"
+      },
+      "copy": {
+        "vi": {
+          "name": "Pi AI Cloud — Tokens",
+          "tagline": "Ví AI tokens dùng chung cho toàn bộ Pi Pro plugins",
+          "description": "Nạp 1 lần — dùng cho mọi tính năng AI: SEO Bot, Chatbot RAG, Leads scoring, Critical CSS. 225,000 VNĐ = 100,000 tokens. Tặng 1,000 tokens miễn phí khi đăng ký. 25 AI providers failover tự động (Groq, Gemini, Mistral, Claude…)."
+        },
+        "en": {
+          "name": "Pi AI Cloud — Tokens",
+          "tagline": "Shared AI wallet across all Pi Pro plugins",
+          "description": "Top up once — use for every AI feature: SEO Bot, Chatbot RAG, Leads scoring, Critical CSS. $9 = 100k tokens. 1,000 tokens free on signup. 25 AI providers failover automatically."
+        }
+      },
+      "features": {
+        "vi": [
+          "1 ví dùng chung cho mọi Pi Pro plugin",
+          "25 AI providers (Groq, Gemini, Mistral, Cohere, Claude)",
+          "Smart router chọn provider rẻ nhất cho mỗi task",
+          "Trả theo usage — không subscription cứng",
+          "Dashboard theo dõi token spending",
+          "Stripe checkout an toàn"
+        ],
+        "en": [
+          "One wallet for all Pi Pro plugins",
+          "25 AI providers (Groq, Gemini, Mistral, Cohere, Claude)",
+          "Smart router picks cheapest provider per task",
+          "Pay-as-you-go — no rigid subscription",
+          "Token spending dashboard",
+          "Secure Stripe checkout"
+        ]
+      },
+      "useCases": {
+        "vi": [
+          "Tự động SEO hàng loạt bài viết với AI Bot",
+          "Chatbot AI trả lời khách hàng 24/7",
+          "Chấm điểm lead quality bằng AI",
+          "Generate Critical CSS cho tốc độ site"
+        ],
+        "en": [
+          "Auto SEO bulk posts with AI Bot",
+          "24/7 AI chatbot for customer support",
+          "AI lead scoring",
+          "Generate Critical CSS for site speed"
+        ]
+      },
+      "faq": {
+        "vi": [
+          {
+            "q": "Token có hết hạn không?",
+            "a": "Không. Mua bao nhiêu xài bấy nhiêu, vĩnh viễn."
+          },
+          {
+            "q": "1 AI call tốn bao nhiêu token?",
+            "a": "Khoảng 100–2,000 tokens tùy độ dài. SEO title ~500 tokens, chatbot reply ~300."
+          },
+          {
+            "q": "Refund được không?",
+            "a": "Tokens prepaid không refund, nhưng có thể transfer qua license khác."
+          }
+        ],
+        "en": [
+          {
+            "q": "Do tokens expire?",
+            "a": "No. What you buy stays in wallet forever."
+          },
+          {
+            "q": "Tokens per AI call?",
+            "a": "~100–2,000 depending on length. SEO title ~500, chatbot reply ~300."
+          },
+          {
+            "q": "Refund policy?",
+            "a": "Prepaid tokens are non-refundable but transferable to other licenses."
+          }
+        ]
+      }
+    },
+    {
+      "id": "pi-seo-v2",
+      "slug": "pi-seo-v2",
+      "type": "plugin",
+      "version": "2.0.0",
+      "author": "Pi Ecosystem",
+      "status": "ready",
+      "featured": true,
+      "sortOrder": 10,
+      "pricing": {
+        "currency": "VND",
+        "monthly": {
+          "amount": 125000
+        },
+        "yearly": {
+          "amount": 1225000,
+          "savingsPct": 18
+        }
+      },
+      "cta": {
+        "demoUrl": "https://demo.piwebagency.com/pi-seo",
+        "docsUrl": "https://store.pi-ecosystem.com/docs/pi-seo",
+        "contactUrl": "https://store.pi-ecosystem.com/contact"
+      },
+      "media": {
+        "cover": "/media/products/pi-seo.webp",
+        "og": "/og-default.webp"
+      },
+      "copy": {
+        "vi": {
+          "name": "Pi SEO v2",
+          "tagline": "SEO toàn diện — 19 tính năng Free + 7 AI Pro",
+          "description": "Bộ công cụ SEO WordPress hoàn chỉnh. Free tier: meta tags, XML sitemap, 20+ JSON-LD schema, redirect manager, breadcrumb, TOC, import từ 7 SEO plugin khác. Pro tier: AI SEO Bot (tokens), audit 100 điểm, content NLP, Instant Indexing, PageSpeed Insights."
+        },
+        "en": {
+          "name": "Pi SEO v2",
+          "tagline": "Complete SEO toolkit — 19 Free modules + 7 Pro AI",
+          "description": "Complete WordPress SEO. Free: meta tags, XML sitemap, 20+ JSON-LD schema, redirect manager, breadcrumb, TOC, import from 7 SEO plugins. Pro: AI SEO Bot (tokens), 100-point audit, content NLP, Instant Indexing, PSI."
+        }
+      },
+      "features": {
+        "vi": [
+          "Meta tags (title, OG, Twitter, canonical)",
+          "XML sitemap + HTML sitemap shortcode",
+          "20+ JSON-LD schema templates",
+          "Redirect manager 301/302 + CSV I/O",
+          "Breadcrumb + Table of Contents",
+          "Import từ Yoast / Rank Math / AIOSEO / SEO Framework / SEO Press / Slim SEO / SureRank",
+          "🔒 Pro: AI SEO Bot generate title + description (tokens)",
+          "🔒 Pro: Audit 100-point scoring",
+          "🔒 Pro: Content NLP (readability + keyword density)",
+          "🔒 Pro: Google Instant Indexing + PageSpeed Insights",
+          "🔒 Agency: Bulk AI Rewrite 50 posts/job"
+        ],
+        "en": [
+          "Meta tags (title, OG, Twitter, canonical)",
+          "XML + HTML sitemap",
+          "20+ JSON-LD schema templates",
+          "Redirect manager + CSV I/O",
+          "Breadcrumb + TOC",
+          "Import from 7 SEO plugins",
+          "🔒 Pro: AI SEO Bot (tokens)",
+          "🔒 Pro: 100-point audit",
+          "🔒 Pro: Content NLP",
+          "🔒 Pro: Instant Indexing + PSI",
+          "🔒 Agency: Bulk AI Rewrite"
+        ]
+      },
+      "useCases": {
+        "vi": [
+          "Blog/news site cần meta SEO tự động",
+          "E-commerce cần Product schema + Breadcrumb",
+          "Agency migrate hàng loạt site từ Rank Math"
+        ],
+        "en": [
+          "Blog/news sites needing auto SEO",
+          "E-commerce needing Product schema",
+          "Agencies migrating bulk from Rank Math"
+        ]
+      },
+      "faq": {
+        "vi": [
+          {
+            "q": "Khác Yoast / Rank Math?",
+            "a": "Pro tier chạy AI qua Pi AI Cloud (tokens), thay vì subscription cứng. Giá ~1/3 Rank Math Pro."
+          },
+          {
+            "q": "Migrate từ Yoast dễ không?",
+            "a": "Có built-in importer. Tools → Import → Yoast → dry-run → import thực."
+          },
+          {
+            "q": "Cần internet không?",
+            "a": "Free tier 100% offline. Pro tier cần gọi Pi Backend."
+          }
+        ],
+        "en": [
+          {
+            "q": "vs Yoast / Rank Math?",
+            "a": "Pro tier runs AI via Pi AI Cloud (tokens). Price ~1/3 Rank Math Pro."
+          },
+          {
+            "q": "Easy migration from Yoast?",
+            "a": "Built-in importer. Tools → Import → Yoast → dry-run → real import."
+          },
+          {
+            "q": "Offline?",
+            "a": "Free tier: 100%. Pro tier needs backend."
+          }
+        ]
+      }
+    },
+    {
+      "id": "pi-chatbot-v2",
+      "slug": "pi-chatbot-v2",
+      "type": "plugin",
+      "version": "2.0.0",
+      "author": "Pi Ecosystem",
+      "status": "ready",
+      "featured": true,
+      "sortOrder": 20,
+      "pricing": {
+        "currency": "VND",
+        "monthly": {
+          "amount": 725000
+        },
+        "yearly": {
+          "amount": 7250000,
+          "savingsPct": 17
+        }
+      },
+      "cta": {
+        "demoUrl": "https://demo.piwebagency.com/pi-chatbot",
+        "docsUrl": "https://store.pi-ecosystem.com/docs/pi-chatbot",
+        "contactUrl": "https://store.pi-ecosystem.com/contact"
+      },
+      "media": {
+        "cover": "/media/products/pi-chatbot.webp",
+        "og": "/og-default.webp"
+      },
+      "copy": {
+        "vi": {
+          "name": "Pi Chatbot v2",
+          "tagline": "AI chatbot RAG + intent + lead capture",
+          "description": "Chat widget WP có AI. Free: widget + intent rules + lead capture. Pro: AI reply (tokens), RAG knowledge base (upload PDF/DOCX), multi-language, sentiment, smart handoff. Thay Tidio/Intercom với 1/3 giá."
+        },
+        "en": {
+          "name": "Pi Chatbot v2",
+          "tagline": "AI chatbot RAG + intent + lead capture",
+          "description": "WP chat widget with AI. Free: widget + rules + lead capture. Pro: AI reply (tokens), RAG KB, multi-language, sentiment, smart handoff. 1/3 price of Tidio/Intercom."
+        }
+      },
+      "features": {
+        "vi": [
+          "Floating chat widget tùy chỉnh màu/vị trí",
+          "Intent rule engine (không tốn token)",
+          "Auto lead capture từ email/phone trong message",
+          "Conversation log 7 ngày (custom table)",
+          "Rate limit IP-hashed 10 req/phút",
+          "🔒 Pro: AI reply (tokens)",
+          "🔒 Pro: RAG knowledge base (PDF/DOCX/TXT)",
+          "🔒 Pro: Multi-language auto-translate",
+          "🔒 Pro: Sentiment + smart handoff",
+          "🔒 Pro: White-label branding",
+          "🔒 Agency: Voice chat (STT + TTS)"
+        ],
+        "en": [
+          "Floating chat widget",
+          "Intent rule engine (no tokens)",
+          "Auto lead capture",
+          "Conversation log 7 days",
+          "Rate limit IP-hashed",
+          "🔒 Pro: AI reply (tokens)",
+          "🔒 Pro: RAG KB",
+          "🔒 Pro: Multi-language",
+          "🔒 Pro: Sentiment + handoff",
+          "🔒 Pro: White-label",
+          "🔒 Agency: Voice chat"
+        ]
+      },
+      "useCases": {
+        "vi": [
+          "E-commerce support 24/7 không cần nhân viên",
+          "SaaS onboarding guide tự động",
+          "Lead qualification trước khi chuyển sales"
+        ],
+        "en": [
+          "E-commerce 24/7 support",
+          "SaaS onboarding guide",
+          "Lead qualification before sales"
+        ]
+      },
+      "faq": {
+        "vi": [
+          {
+            "q": "Chatbot tiếng Việt có tốt không?",
+            "a": "Rất tốt. Prompts tuning riêng VN. Router ưu tiên Groq Llama 70B / Gemini 2.0."
+          },
+          {
+            "q": "RAG upload file gì?",
+            "a": "PDF, DOCX, TXT. Backend index chunks + semantic search trả top-k."
+          },
+          {
+            "q": "Token cho 1 reply?",
+            "a": "Trung bình 200–500. Dài + RAG có thể lên 2,000."
+          }
+        ],
+        "en": [
+          {
+            "q": "Vietnamese support?",
+            "a": "Excellent. VN-tuned prompts. Router prefers Groq Llama 70B / Gemini."
+          },
+          {
+            "q": "RAG formats?",
+            "a": "PDF, DOCX, TXT. Backend chunks + semantic search."
+          },
+          {
+            "q": "Tokens per reply?",
+            "a": "200–500 avg. Long+RAG may reach 2,000."
+          }
+        ]
+      }
+    },
+    {
+      "id": "pi-leads-v2",
+      "slug": "pi-leads-v2",
+      "type": "plugin",
+      "version": "2.0.0",
+      "author": "Pi Ecosystem",
+      "status": "ready",
+      "featured": true,
+      "sortOrder": 30,
+      "pricing": {
+        "currency": "VND",
+        "monthly": {
+          "amount": 99000
+        },
+        "yearly": {
+          "amount": 975000,
+          "savingsPct": 18
+        }
+      },
+      "cta": {
+        "demoUrl": "https://demo.piwebagency.com/pi-leads",
+        "docsUrl": "https://store.pi-ecosystem.com/docs/pi-leads",
+        "contactUrl": "https://store.pi-ecosystem.com/contact"
+      },
+      "media": {
+        "cover": "/media/products/pi-leads.png",
+        "og": "/og-default.webp"
+      },
+      "copy": {
+        "vi": {
+          "name": "Pi Leads v2",
+          "tagline": "Lead CRM với AI scoring + 5-stage Kanban",
+          "description": "Thay HubSpot Starter với 1/5 giá. Free: Lead CPT + Kanban + form handler + rule scoring + 1 webhook (Zalo/Telegram/n8n). Pro: AI scoring (tokens), company enrichment, email drip automation, CRM sync."
+        },
+        "en": {
+          "name": "Pi Leads v2",
+          "tagline": "Lead CRM with AI scoring + 5-stage Kanban",
+          "description": "HubSpot Starter alt at 1/5 price. Free: Lead CPT + Kanban + form handler + rule scoring + 1 webhook. Pro: AI scoring, enrichment, email drip, CRM sync."
+        }
+      },
+      "features": {
+        "vi": [
+          "Lead CPT + admin columns (Name/Phone/Stage/Score)",
+          "5-stage Kanban (New → Contacted → Quoted → Won → Lost)",
+          "AJAX contact form + shortcode [pi_leads_form]",
+          "Rule-based scoring 0-100 (business email/phone/keywords)",
+          "Webhook → Zalo / Telegram / n8n / Slack",
+          "Rate limit + IP hashing (GDPR)",
+          "🔒 Pro: AI scoring với LLM reasoning",
+          "🔒 Pro: Lead enrichment (company info từ domain)",
+          "🔒 Pro: Email drip automation",
+          "🔒 Pro: CRM sync (HubSpot/Zoho/Salesforce)",
+          "🔒 Agency: Calendar booking + A/B testing"
+        ],
+        "en": [
+          "Lead CPT + admin columns",
+          "5-stage Kanban",
+          "AJAX form shortcode",
+          "Rule-based scoring",
+          "Webhook destinations",
+          "Rate limit + IP hashing",
+          "🔒 Pro: AI scoring",
+          "🔒 Pro: Lead enrichment",
+          "🔒 Pro: Email drip",
+          "🔒 Pro: CRM sync",
+          "🔒 Agency: Calendar + A/B"
+        ]
+      },
+      "useCases": {
+        "vi": [
+          "Agency thu lead từ landing page",
+          "SaaS qualify trial users",
+          "B2B scoring + auto-route cho sales team"
+        ],
+        "en": [
+          "Agency lead gen",
+          "SaaS trial qualification",
+          "B2B scoring + routing"
+        ]
+      },
+      "faq": {
+        "vi": [
+          {
+            "q": "Free tier limit?",
+            "a": "100 leads/tháng. Pro unlimited."
+          },
+          {
+            "q": "AI scoring model?",
+            "a": "Backend Pi route — Claude Sonnet cho reasoning phức tạp, fallback Llama 70B."
+          },
+          {
+            "q": "CRM sync?",
+            "a": "Pro tier: HubSpot, Zoho, Salesforce qua OAuth."
+          }
+        ],
+        "en": [
+          {
+            "q": "Free tier limits?",
+            "a": "100 leads/mo. Pro unlimited."
+          },
+          {
+            "q": "AI model?",
+            "a": "Backend route — Claude Sonnet for reasoning, fallback Llama 70B."
+          },
+          {
+            "q": "CRM sync?",
+            "a": "Pro: HubSpot, Zoho, Salesforce OAuth."
+          }
+        ]
+      }
+    },
+    {
+      "id": "pi-analytics-v2",
+      "slug": "pi-analytics-v2",
+      "type": "plugin",
+      "version": "2.0.0",
+      "author": "Pi Ecosystem",
+      "status": "ready",
+      "featured": false,
+      "sortOrder": 40,
+      "pricing": {
+        "currency": "VND",
+        "monthly": {
+          "amount": 75000
+        },
+        "yearly": {
+          "amount": 725000,
+          "savingsPct": 19
+        }
+      },
+      "cta": {
+        "demoUrl": "https://demo.piwebagency.com/pi-analytics",
+        "docsUrl": "https://store.pi-ecosystem.com/docs/pi-analytics",
+        "contactUrl": "https://store.pi-ecosystem.com/contact"
+      },
+      "media": {
+        "cover": "/media/products/pi-analytics.png",
+        "og": "/og-default.webp"
+      },
+      "copy": {
+        "vi": {
+          "name": "Pi Analytics v2",
+          "tagline": "Privacy-first analytics — không cookie, GDPR/PDPA",
+          "description": "Alternative cho Google Analytics. Free: 30 ngày retention + daily reports + top pages + device breakdown. Pro: unlimited retention + real-time + funnels + heatmaps + weekly email PDF."
+        },
+        "en": {
+          "name": "Pi Analytics v2",
+          "tagline": "Privacy-first analytics — no cookies, GDPR/PDPA",
+          "description": "Google Analytics alternative. Free: 30-day retention + daily reports. Pro: unlimited + real-time + funnels + heatmaps + weekly PDF."
+        }
+      },
+      "features": {
+        "vi": [
+          "Pageviews + unique visitors",
+          "Post view counter",
+          "SHA-256 IP hashing (GDPR/PDPA compliant)",
+          "No cookies, no external services",
+          "Top pages + referrers + device breakdown",
+          "Dashboard widget trong wp-admin",
+          "🔒 Pro: Unlimited retention",
+          "🔒 Pro: Real-time dashboard",
+          "🔒 Pro: Goal funnels + custom events",
+          "🔒 Pro: Heatmaps (click tracking)",
+          "🔒 Pro: Email weekly PDF report",
+          "🔒 Agency: A/B testing + session recording + cohort"
+        ],
+        "en": [
+          "Pageviews + uniques",
+          "Post view counter",
+          "SHA-256 IP hashing",
+          "No cookies",
+          "Top pages + referrers + devices",
+          "Dashboard widget",
+          "🔒 Pro: Unlimited retention",
+          "🔒 Pro: Real-time",
+          "🔒 Pro: Funnels + custom events",
+          "🔒 Pro: Heatmaps",
+          "🔒 Pro: Weekly PDF",
+          "🔒 Agency: A/B + session rec + cohort"
+        ]
+      },
+      "useCases": {
+        "vi": [
+          "Blog cá nhân không muốn Google Analytics",
+          "Site EU / VN cần GDPR/PDPA compliance",
+          "Agency cần báo cáo không cookie banner"
+        ],
+        "en": [
+          "Personal blogs avoiding GA",
+          "GDPR/PDPA compliance sites",
+          "Cookie-free agency reports"
+        ]
+      },
+      "faq": {
+        "vi": [
+          {
+            "q": "Cần cookie banner không?",
+            "a": "Không. IP hash SHA-256 + không set cookie."
+          },
+          {
+            "q": "Data lưu ở đâu?",
+            "a": "WP DB custom table. Pro tier offload lên Pi Backend được."
+          },
+          {
+            "q": "Chính xác so với GA4?",
+            "a": "~95% vì không bị ad-blocker chặn."
+          }
+        ],
+        "en": [
+          {
+            "q": "Cookie banner?",
+            "a": "No. SHA-256 IP hash, no cookies."
+          },
+          {
+            "q": "Storage?",
+            "a": "WP DB table. Pro can offload to Pi Backend."
+          },
+          {
+            "q": "Accuracy vs GA4?",
+            "a": "~95%, not blocked by ad-blockers."
+          }
+        ]
+      }
+    },
+    {
+      "id": "pi-performance-v2",
+      "slug": "pi-performance-v2",
+      "type": "plugin",
+      "version": "2.0.0",
+      "author": "Pi Ecosystem",
+      "status": "ready",
+      "featured": false,
+      "sortOrder": 50,
+      "pricing": {
+        "currency": "VND",
+        "monthly": {
+          "amount": 75000
+        },
+        "yearly": {
+          "amount": 725000,
+          "savingsPct": 19
+        }
+      },
+      "cta": {
+        "demoUrl": "https://demo.piwebagency.com/pi-performance",
+        "docsUrl": "https://store.pi-ecosystem.com/docs/pi-performance",
+        "contactUrl": "https://store.pi-ecosystem.com/contact"
+      },
+      "media": {
+        "cover": "/media/products/pi-performance.png",
+        "og": "/og-default.webp"
+      },
+      "copy": {
+        "vi": {
+          "name": "Pi Performance v2",
+          "tagline": "Cache + WebP + PWA (Free) + CDN + Critical CSS (Pro)",
+          "description": "Thay WP Rocket với 1/2 giá. Free: Nano Cache + auto WebP + WP cleanup + basic PWA. Pro: Cloudflare CDN + Critical CSS (tokens) + image compression cloud + font optimization."
+        },
+        "en": {
+          "name": "Pi Performance v2",
+          "tagline": "Cache + WebP + PWA (Free) + CDN + Critical CSS (Pro)",
+          "description": "WP Rocket alt at 1/2 price. Free: Nano Cache + WebP + PWA + cleanup. Pro: CDN + Critical CSS (tokens) + image cloud + font opt."
+        }
+      },
+      "features": {
+        "vi": [
+          "Nano Cache (HTML transients, skip cart/checkout)",
+          "Auto WebP khi upload (GD)",
+          "WP core cleanup (emoji/oembed/version)",
+          "Basic PWA (manifest + service worker)",
+          "Minify + combine CSS/JS",
+          "🔒 Pro: CDN integration (Cloudflare purge)",
+          "🔒 Pro: Critical CSS (tokens, headless browser)",
+          "🔒 Pro: Image compression cloud",
+          "🔒 Pro: Font optimization (subset + preload)",
+          "🔒 Agency: Multisite network cache"
+        ],
+        "en": [
+          "Nano Cache",
+          "Auto WebP",
+          "WP cleanup",
+          "Basic PWA",
+          "Minify + combine",
+          "🔒 Pro: CDN integration",
+          "🔒 Pro: Critical CSS (tokens)",
+          "🔒 Pro: Image cloud",
+          "🔒 Pro: Font optimization",
+          "🔒 Agency: Multisite cache"
+        ]
+      },
+      "useCases": {
+        "vi": [
+          "Site hosting yếu cần cache + CDN",
+          "Blog ảnh nhiều cần auto WebP",
+          "Agency tối ưu Core Web Vitals hàng loạt"
+        ],
+        "en": [
+          "Weak hosting",
+          "Image-heavy blogs",
+          "Agency bulk CWV optimization"
+        ]
+      },
+      "faq": {
+        "vi": [
+          {
+            "q": "Xung đột WP Rocket?",
+            "a": "Chọn 1. Pi Performance thay được toàn bộ WP Rocket."
+          },
+          {
+            "q": "CDN cần gì?",
+            "a": "Cloudflare API token — paste vào Pi Backend admin."
+          },
+          {
+            "q": "Critical CSS token cost?",
+            "a": "~100 tokens/page. Refresh hàng tháng đủ."
+          }
+        ],
+        "en": [
+          {
+            "q": "Conflict with WP Rocket?",
+            "a": "Pick one. Pi Performance fully replaces."
+          },
+          {
+            "q": "CDN requirements?",
+            "a": "Cloudflare API token, server-side only."
+          },
+          {
+            "q": "Critical CSS cost?",
+            "a": "~100 tokens/page. Monthly refresh is enough."
+          }
+        ]
+      }
+    },
+    {
+      "id": "pi-dashboard-v2",
+      "slug": "pi-dashboard-v2",
+      "type": "plugin",
+      "version": "2.0.0",
+      "author": "Pi Ecosystem",
+      "status": "ready",
+      "featured": false,
+      "sortOrder": 60,
+      "pricing": {
+        "currency": "VND",
+        "monthly": {
+          "amount": 49000
+        },
+        "yearly": {
+          "amount": 475000,
+          "savingsPct": 19
+        }
+      },
+      "cta": {
+        "demoUrl": "https://demo.piwebagency.com/pi-dashboard",
+        "docsUrl": "https://store.pi-ecosystem.com/docs/pi-dashboard",
+        "contactUrl": "https://store.pi-ecosystem.com/contact"
+      },
+      "media": {
+        "cover": "/media/products/pi-dashboard.png",
+        "og": "/og-default.webp"
+      },
+      "copy": {
+        "vi": {
+          "name": "Pi Dashboard v2",
+          "tagline": "Admin UI hub — Ctrl+K command palette + dark mode",
+          "description": "Nền tảng hub cho hệ sinh thái Pi. Free: tab registration API + command palette (Ctrl+K) + dark mode + overview stats + admin bar integration. Pro: white-label + audit log + AI command palette."
+        },
+        "en": {
+          "name": "Pi Dashboard v2",
+          "tagline": "Admin UI hub — Ctrl+K palette + dark mode",
+          "description": "Platform for Pi ecosystem. Free: tab API + command palette + dark mode + stats. Pro: white-label + audit log + AI palette."
+        }
+      },
+      "features": {
+        "vi": [
+          "Tab registration API cho Pi plugins khác",
+          "Command palette (Ctrl+K) fuzzy navigate",
+          "Dark mode toggle (per-user)",
+          "Overview: token balance + posts/pages/users stats",
+          "Admin bar integration",
+          "🔒 Pro: White-label (logo + colors)",
+          "🔒 Pro: Audit log",
+          "🔒 Pro: AI command palette",
+          "🔒 Agency: Multi-admin collaboration"
+        ],
+        "en": [
+          "Tab registration API",
+          "Command palette (Ctrl+K)",
+          "Dark mode toggle",
+          "Overview stats",
+          "Admin bar integration",
+          "🔒 Pro: White-label",
+          "🔒 Pro: Audit log",
+          "🔒 Pro: AI command palette",
+          "🔒 Agency: Multi-admin"
+        ]
+      },
+      "useCases": {
+        "vi": [
+          "Agency muốn UI clean hơn wp-admin",
+          "Client deliverable white-label admin",
+          "Dev navigate nhanh bằng phím tắt"
+        ],
+        "en": [
+          "Cleaner UI than wp-admin",
+          "White-label client deliverable",
+          "Fast keyboard navigation"
+        ]
+      },
+      "faq": {
+        "vi": [
+          {
+            "q": "Thay wp-admin?",
+            "a": "Không. Là layer thêm, chạy song song."
+          },
+          {
+            "q": "Phím tắt?",
+            "a": "Ctrl+K (Win/Linux) hoặc ⌘+K (Mac)."
+          }
+        ],
+        "en": [
+          {
+            "q": "Replaces wp-admin?",
+            "a": "No. Add-on layer, coexists."
+          },
+          {
+            "q": "Shortcut?",
+            "a": "Ctrl+K or ⌘+K."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bundle-seo-suite",
+      "slug": "bundle-seo-suite",
+      "type": "plugin",
+      "version": "2.0.0",
+      "author": "Pi Ecosystem",
+      "status": "ready",
+      "featured": true,
+      "sortOrder": 100,
+      "pricing": {
+        "currency": "VND",
+        "monthly": {
+          "amount": 249000
+        },
+        "yearly": {
+          "amount": 2475000,
+          "savingsPct": 17
+        }
+      },
+      "cta": {
+        "demoUrl": "",
+        "docsUrl": "https://store.pi-ecosystem.com/docs/bundles",
+        "contactUrl": "https://store.pi-ecosystem.com/contact"
+      },
+      "media": {
+        "cover": "/media/products/bundle-seo-suite.svg",
+        "og": "/og-default.webp"
+      },
+      "copy": {
+        "vi": {
+          "name": "Pi SEO Suite",
+          "tagline": "3 plugin Pro + 100k tokens — tiết kiệm 25%",
+          "description": "Bundle dành cho blogger / SME: Pi SEO Pro + Analytics Pro + Performance Pro + 100,000 Pi AI tokens kèm theo. Đủ cho 1 website trong 1 năm, tiết kiệm 25% so với mua lẻ."
+        },
+        "en": {
+          "name": "Pi SEO Suite",
+          "tagline": "3 Pro plugins + 100k tokens — save 25%",
+          "description": "For bloggers / SMEs: Pi SEO Pro + Analytics Pro + Performance Pro + 100k Pi tokens. Enough for 1 site / year. Save 25%."
+        }
+      },
+      "features": {
+        "vi": [
+          "Pi SEO Pro (AI Bot + Audit + Schema Pro + PSI)",
+          "Pi Analytics Pro (funnels + heatmaps + unlimited retention)",
+          "Pi Performance Pro (CDN + Critical CSS + image cloud)",
+          "100,000 Pi AI tokens kèm theo",
+          "1 site license mỗi plugin",
+          "Email support (24h response)"
+        ],
+        "en": [
+          "Pi SEO Pro",
+          "Pi Analytics Pro",
+          "Pi Performance Pro",
+          "100,000 Pi AI tokens included",
+          "1 site per plugin",
+          "Email support (24h)"
+        ]
+      },
+      "useCases": {
+        "vi": [
+          "Blog cá nhân / SME 1 website",
+          "Freelancer deliver project SEO full stack",
+          "Tiết kiệm khi cần cả 3 plugin SEO core"
+        ],
+        "en": [
+          "Personal blog / 1-site SME",
+          "Freelancer SEO delivery",
+          "Saving on 3 core SEO plugins"
+        ]
+      },
+      "faq": {
+        "vi": [
+          {
+            "q": "Refund?",
+            "a": "Pro-rata trong 14 ngày đầu."
+          },
+          {
+            "q": "Tokens hết hạn?",
+            "a": "Không. Persistent forever."
+          }
+        ],
+        "en": [
+          {
+            "q": "Refund?",
+            "a": "Pro-rata within first 14 days."
+          },
+          {
+            "q": "Tokens expire?",
+            "a": "No. Persistent forever."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bundle-business",
+      "slug": "bundle-business",
+      "type": "plugin",
+      "version": "2.0.0",
+      "author": "Pi Ecosystem",
+      "status": "ready",
+      "featured": true,
+      "sortOrder": 110,
+      "pricing": {
+        "currency": "VND",
+        "monthly": {
+          "amount": 499000
+        },
+        "yearly": {
+          "amount": 4975000,
+          "savingsPct": 17
+        }
+      },
+      "cta": {
+        "demoUrl": "",
+        "docsUrl": "https://store.pi-ecosystem.com/docs/bundles",
+        "contactUrl": "https://store.pi-ecosystem.com/contact"
+      },
+      "media": {
+        "cover": "/media/products/bundle-business.svg",
+        "og": "/og-default.webp"
+      },
+      "copy": {
+        "vi": {
+          "name": "Pi Business Suite",
+          "tagline": "5 plugin Pro + 500k tokens — thay HubSpot Starter",
+          "description": "Bundle cho doanh nghiệp nhỏ: toàn bộ Pi SEO Suite + Pi Leads Pro + Pi Chatbot Pro + 500,000 tokens. Đủ quản lý web + CRM + AI chat. Tiết kiệm 40%."
+        },
+        "en": {
+          "name": "Pi Business Suite",
+          "tagline": "5 Pro plugins + 500k tokens — HubSpot Starter alt",
+          "description": "For small businesses: all Pi SEO Suite + Pi Leads Pro + Pi Chatbot Pro + 500k tokens. Web + CRM + AI chat. Save 40%."
+        }
+      },
+      "features": {
+        "vi": [
+          "Tất cả Pi SEO Suite (SEO + Analytics + Performance)",
+          "+ Pi Leads Pro (AI scoring + enrichment + email drip)",
+          "+ Pi Chatbot Pro (AI + RAG + multi-language)",
+          "500,000 Pi AI tokens kèm theo",
+          "1 site license mỗi plugin",
+          "Priority email support (12h response)"
+        ],
+        "en": [
+          "All of Pi SEO Suite",
+          "+ Pi Leads Pro",
+          "+ Pi Chatbot Pro",
+          "500,000 Pi AI tokens",
+          "1 site per plugin",
+          "Priority email support (12h)"
+        ]
+      },
+      "useCases": {
+        "vi": [
+          "Startup / SME 10-50 nhân viên",
+          "E-commerce shop cần SEO + chatbot + analytics",
+          "Agency gói deliverable 'full stack'"
+        ],
+        "en": [
+          "Startups/SMEs 10-50 staff",
+          "E-commerce with SEO + chatbot",
+          "Agency full-stack deliverable"
+        ]
+      },
+      "faq": {
+        "vi": [
+          {
+            "q": "So với HubSpot Starter?",
+            "a": "HubSpot Starter $240/năm chỉ CRM. Pi Business Suite $199/năm có CRM + SEO + AI chat + analytics."
+          },
+          {
+            "q": "Upgrade Agency?",
+            "a": "Pro-rata bất cứ lúc nào."
+          }
+        ],
+        "en": [
+          {
+            "q": "vs HubSpot?",
+            "a": "HubSpot Starter $240/yr for CRM only. Pi Business $199/yr = CRM + SEO + AI chat + analytics."
+          },
+          {
+            "q": "Upgrade?",
+            "a": "Pro-rata anytime."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bundle-agency",
+      "slug": "bundle-agency",
+      "type": "plugin",
+      "version": "2.0.0",
+      "author": "Pi Ecosystem",
+      "status": "ready",
+      "featured": false,
+      "sortOrder": 120,
+      "pricing": {
+        "currency": "VND",
+        "monthly": {
+          "amount": 1500000
+        },
+        "yearly": {
+          "amount": 14975000,
+          "savingsPct": 17
+        }
+      },
+      "cta": {
+        "demoUrl": "",
+        "docsUrl": "https://store.pi-ecosystem.com/docs/bundles",
+        "contactUrl": "https://store.pi-ecosystem.com/contact"
+      },
+      "media": {
+        "cover": "/media/products/bundle-agency.svg",
+        "og": "/og-default.webp"
+      },
+      "copy": {
+        "vi": {
+          "name": "Pi Agency",
+          "tagline": "Full Pro tier + Unlimited sites + 2M tokens",
+          "description": "Bundle cho agency / freelancer quản lý 10+ website: full Pro/Agency tier tất cả 6 plugin, unlimited sites, white-label, priority Zalo support, 2,000,000 Pi tokens/năm."
+        },
+        "en": {
+          "name": "Pi Agency",
+          "tagline": "Full Pro tier + Unlimited sites + 2M tokens",
+          "description": "For agencies managing 10+ sites: full Pro/Agency on all 6 plugins, unlimited sites, white-label, priority Zalo support, 2M tokens/year."
+        }
+      },
+      "features": {
+        "vi": [
+          "Tất cả 6 plugin tier Pro/Agency",
+          "Unlimited sites",
+          "2,000,000 Pi AI tokens mỗi năm",
+          "White-label (remove Pi branding)",
+          "Multi-site dashboard (quản lý 10+ site)",
+          "Priority Zalo direct support (4h response)",
+          "Early access tính năng beta"
+        ],
+        "en": [
+          "All 6 plugins Pro/Agency",
+          "Unlimited sites",
+          "2M Pi tokens per year",
+          "White-label",
+          "Multi-site dashboard",
+          "Priority Zalo support (4h)",
+          "Early access beta"
+        ]
+      },
+      "useCases": {
+        "vi": [
+          "Agency 10-100 client website",
+          "Freelancer stack đầy đủ deliver nhiều dự án",
+          "SaaS multi-tenant rebrand Pi"
+        ],
+        "en": [
+          "Agencies 10-100 client sites",
+          "Freelancer full-stack across projects",
+          "SaaS multi-tenant rebrand"
+        ]
+      },
+      "faq": {
+        "vi": [
+          {
+            "q": "White-label scope?",
+            "a": "Logo + colors + footer text. Client không thấy 'Pi' anywhere."
+          },
+          {
+            "q": "2M tokens đủ bao nhiêu site?",
+            "a": "10 site × 17k/tháng = 170k/tháng = 2M/năm."
+          }
+        ],
+        "en": [
+          {
+            "q": "White-label scope?",
+            "a": "Logo + colors + footer. No 'Pi' on client UI."
+          },
+          {
+            "q": "2M tokens = how many sites?",
+            "a": "10 × 17k/mo = 170k/mo = 2M/yr."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bundle-founder",
+      "slug": "bundle-founder",
+      "type": "plugin",
+      "version": "2.0.0",
+      "author": "Pi Ecosystem",
+      "status": "ready",
+      "featured": false,
+      "sortOrder": 130,
+      "pricing": {
+        "currency": "VND",
+        "monthly": {
+          "amount": null
+        },
+        "yearly": {
+          "amount": 24975000,
+          "savingsPct": null
+        }
+      },
+      "cta": {
+        "demoUrl": "",
+        "docsUrl": "https://store.pi-ecosystem.com/docs/bundles",
+        "contactUrl": "https://store.pi-ecosystem.com/contact"
+      },
+      "media": {
+        "cover": "/media/products/bundle-founder.svg",
+        "og": "/og-default.webp"
+      },
+      "copy": {
+        "vi": {
+          "name": "Pi Founder Lifetime",
+          "tagline": "Mua 1 lần — Agency trọn đời + tên vào About page",
+          "description": "Chỉ 50 suất đầu tiên. Full quyền lợi Pi Agency forever + 5,000,000 Pi tokens starter + tên anh/chị hiển thị trong trang About Pi Ecosystem + direct feature request line tới dev team."
+        },
+        "en": {
+          "name": "Pi Founder Lifetime",
+          "tagline": "One-time — Agency forever + name in About page",
+          "description": "Only 50 seats. Full Pi Agency forever + 5M starter tokens + your name in Pi About page + direct feature request line."
+        }
+      },
+      "features": {
+        "vi": [
+          "Pi Agency tier — forever (không bao giờ hết hạn)",
+          "5,000,000 Pi AI tokens starter",
+          "Tên anh/chị trong About page Pi Ecosystem",
+          "Early bird perks suốt đời",
+          "Direct feature request line",
+          "Limited: 50 suất duy nhất"
+        ],
+        "en": [
+          "Pi Agency tier — forever",
+          "5M Pi tokens starter",
+          "Your name in Pi About page",
+          "Lifetime early bird perks",
+          "Direct feature request line",
+          "Limited: 50 seats only"
+        ]
+      },
+      "useCases": {
+        "vi": [
+          "Early supporter ủng hộ Pi team từ ngày đầu",
+          "Agency lớn lock giá lifetime",
+          "Investor / advisor muốn recurring perks"
+        ],
+        "en": [
+          "Early supporters",
+          "Large agencies locking lifetime pricing",
+          "Investors / advisors"
+        ]
+      },
+      "faq": {
+        "vi": [
+          {
+            "q": "Sao chỉ 50 suất?",
+            "a": "Founder là early supporter tier — đóng forever khi đầy 50, không re-open."
+          },
+          {
+            "q": "Name in About?",
+            "a": "Trang About có section 'Pi Founders' list tên + website của founders."
+          }
+        ],
+        "en": [
+          {
+            "q": "Why 50 seats?",
+            "a": "Founder is early supporter — closes forever at 50. No re-open."
+          },
+          {
+            "q": "Name in About?",
+            "a": "About page has 'Pi Founders' section listing names + website links."
+          }
+        ]
+      }
+    }
+  ]
+}
