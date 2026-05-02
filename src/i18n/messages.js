@@ -14,7 +14,7 @@ export const messages = {
       saleBadge: "Ưu đãi 20%",
       title: "Nâng Tầm Website WordPress Với Hệ Sinh Thái Pi",
       description:
-        "Giải pháp toàn diện từ AI, SEO đến Quản trị hệ thống. Giúp Agency và Doanh nghiệp vận hành website thông minh, hiệu quả và đột phá doanh thu.",
+    "Giải pháp toàn diện từ AI, SEO đến Quản trị hệ thống. Giúp đội ngũ và doanh nghiệp vận hành website thông minh, hiệu quả và đột phá doanh thu.",
       points: ["Giá tháng/năm hiển thị ngay trên card", "Search lớn, duyệt theo nhóm rõ ràng", "Lead form inline cho từng sản phẩm"],
       ctaPrimary: "Mua theo danh mục",
       ctaSecondary: "Xem sản phẩm nổi bật",
@@ -27,7 +27,7 @@ export const messages = {
         featured: "Nổi bật",
       },
       sideTitle: "Sản phẩm chiến lược",
-      sideHint: "Được tin dùng bởi các Agency hàng đầu.",
+    sideHint: "Được tin dùng bởi các đội ngũ vận hành hàng đầu.",
       promoCards: [
         {
           title: "Gói năm tối ưu hơn",
@@ -112,15 +112,14 @@ export const messages = {
     },
     home: {
       hero: {
-        badge: "✨ Pi Ecosystem v2 — Ra mắt Q2/2026",
-        title: "WordPress plugins thông minh hơn. Chi phí thấp hơn 80%.",
-        description: "7 plugin WP tách Free / Pro sạch sẽ. Pro tier chạy qua Pi AI Cloud tokens — mua 1 ví, dùng chung SEO Bot, Chatbot RAG, Leads scoring, Critical CSS…",
-        ctaPrimary: "Xem bảng giá",
-        ctaSecondary: "Duyệt plugin",
-        stat1: "Plugin v2",
-        stat2: "/ 100k tokens",
-        stat3: "Gross margin",
-        stat4: "AI providers",
+        badge: "Early Access Beta",
+        title: "WordPress AI suite cho người Việt",
+        description: "Một Ecosystem. Bốn gói. Trả theo usage.",
+        ctaPrimary: "Bắt đầu miễn phí",
+        ctaSecondary: "Xem demo",
+        stat1: "Tokens free / tháng",
+        stat2: "Free tier",
+        stat3: "Made in Vietnam",
       },
       productSpotlight: {
         title: "Pi AI Cloud",
@@ -135,33 +134,33 @@ export const messages = {
       },
       whyPi: {
         title: "Tại sao chọn Pi?",
-        description: "Chúng tôi xây plugin WP kiểu SaaS — free đủ xài, Pro AI-powered, trả theo usage.",
+        description: "",
         items: [
-          { title: "Token economy", desc: "$9 = 100k tokens. 1 ví dùng chung cho mọi Pi Pro plugin. Không subscription riêng từng plugin." },
-          { title: "Logic server-side", desc: "AI prompts, scoring algorithm, schema library không bao giờ ship client. Không ai clone được." },
-          { title: "25 AI providers", desc: "Router tự chọn provider rẻ nhất (Groq → Gemini → Mistral → Claude fallback). Tiết kiệm 90% so với OpenAI." },
-          { title: "Vietnamese-first", desc: "Prompts + readability tuning cho tiếng Việt. Support Zalo trực tiếp. Yoast / Rank Math không có." }
+          { title: "Token economy", desc: "Pay-as-you-go" },
+          { title: "Server-side logic", desc: "Code never ships" },
+          { title: "Multi-provider AI", desc: "Auto failover routing" },
+          { title: "Made for VN", desc: "Vietnam NLP + Zalo" }
         ]
       },
       featured: {
-        title: "Sản phẩm nổi bật",
-        description: "Plugin + bundle phổ biến nhất.",
-        ctaAll: "Xem tất cả"
+        title: "4 gói giá",
+        description: "",
+        ctaAll: "So sánh đầy đủ"
       },
       cta: {
-        title: "Sẵn sàng nâng tầm website?",
-        description: "Đăng ký miễn phí → nhận 1,000 tokens starter → test full stack ngay.",
-        primary: "Đăng ký miễn phí",
+        title: "Sẵn sàng?",
+        description: "Free 5K tokens. No credit card.",
+        primary: "Đăng ký",
         secondary: "Xem bảng giá"
       }
     },
     footer: {
-      tagline: "WordPress plugins thông minh hơn. Trả qua token, không subscription cứng.",
+      tagline: "Hệ sinh thái WordPress thông minh. Trả qua token, không subscription cứng.",
       products: "Sản phẩm",
       docs: "Tài liệu",
       support: "Hỗ trợ & Công ty",
-      copyright: (year) => `© ${year} Pi Ecosystem. Made with 🇻🇳 in Vietnam.`,
-      credit: "Plugin v2 + Pi AI Cloud — built on Railway + Vercel."
+      copyright: (year) => ` ${year} Pi Ecosystem. Made in Vietnam.`,
+      credit: "Pi Ecosystem + Pi AI Cloud — built on Railway + Vercel."
     }
   },
   en: {
@@ -277,15 +276,14 @@ export const messages = {
     },
     home: {
       hero: {
-        badge: "✨ Pi Ecosystem v2 — Launch Q2/2026",
-        title: "Smarter WordPress plugins. 80% lower costs.",
-        description: "7 clean Free / Pro plugins. Pro tier runs on Pi AI Cloud tokens — one wallet for SEO Bot, Chatbot RAG, Leads scoring, Critical CSS…",
-        ctaPrimary: "View pricing",
-        ctaSecondary: "Browse plugins",
-        stat1: "Plugin v2",
-        stat2: "/ 100k tokens",
-        stat3: "Gross margin",
-        stat4: "AI providers",
+        badge: "Early Access Beta",
+        title: "WordPress AI suite for Vietnam",
+        description: "One Ecosystem. Four tiers. Pay-as-you-go.",
+        ctaPrimary: "Start for free",
+        ctaSecondary: "View demo",
+        stat1: "Free tokens / month",
+        stat2: "Free tier",
+        stat3: "Made in Vietnam",
       },
       productSpotlight: {
         title: "Pi AI Cloud",
@@ -300,33 +298,33 @@ export const messages = {
       },
       whyPi: {
         title: "Why Pi?",
-        description: "We build WP plugins like SaaS — generous free tier, AI-powered Pro, pay-as-you-go.",
+        description: "",
         items: [
-          { title: "Token economy", desc: "$9 = 100k tokens. One wallet for all Pi Pro plugins. No separate subscriptions." },
-          { title: "Server-side logic", desc: "AI prompts, algorithms, and schema libraries never ship to client. Protected IP." },
-          { title: "25 AI providers", desc: "Automatic routing to cheapest provider (Groq → Gemini → Mistral → Claude). 90% cheaper than OpenAI." },
-          { title: "Vietnamese-first", desc: "Prompts tuned for Vietnamese content. Direct Zalo support. Optimized for local SEO." }
+          { title: "Token economy", desc: "Pay-as-you-go" },
+          { title: "Server-side logic", desc: "Code never ships" },
+          { title: "Multi-provider AI", desc: "Auto failover routing" },
+          { title: "Made for VN", desc: "Vietnam NLP + Zalo" }
         ]
       },
       featured: {
-        title: "Featured Products",
-        description: "Our most popular plugins and bundles.",
-        ctaAll: "View all"
+        title: "4 tiers",
+        description: "",
+        ctaAll: "Compare features"
       },
       cta: {
-        title: "Ready to elevate your website?",
-        description: "Sign up for free → get 1,000 starter tokens → test the full stack today.",
-        primary: "Sign up free",
+        title: "Ready?",
+        description: "Free 5K tokens. No credit card.",
+        primary: "Sign up",
         secondary: "View pricing"
       }
     },
     footer: {
-      tagline: "Smarter WordPress plugins. Powered by tokens, not subscriptions.",
+      tagline: "Smarter WordPress ecosystem. Powered by tokens, not subscriptions.",
       products: "Products",
       docs: "Docs",
       support: "Support & Company",
-      copyright: (year) => `© ${year} Pi Ecosystem. Made with 🇻🇳 in Vietnam.`,
-      credit: "Plugin v2 + Pi AI Cloud — built on Railway + Vercel."
+      copyright: (year) => ` ${year} Pi Ecosystem. Made in Vietnam.`,
+      credit: "Pi Ecosystem + Pi AI Cloud — built on Railway + Vercel."
     }
   },
 };

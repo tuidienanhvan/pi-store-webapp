@@ -115,6 +115,15 @@ export const api = {
     complete: (payload) => request("POST", "/v1/ai/complete", { body: payload }),
   },
 
+  billing: {
+    subscribeCheckout: (payload) =>
+      request("POST", "/v1/billing/subscribe/checkout", { body: payload }),
+    changeTier: (new_tier) =>
+      request("PATCH", "/v1/billing/subscribe/change-tier", { body: { new_tier } }),
+    cancel: () => request("POST", "/v1/billing/subscribe/cancel"),
+    status: () => request("GET", "/v1/billing/subscribe/status"),
+  },
+
   // Updates server
   updates: {
     check: (plugin, current) =>
@@ -174,7 +183,7 @@ export const api = {
     updatePackage: (slug, payload) => request("PATCH", `/v1/admin/packages/${slug}`, { body: payload }),
     deletePackage: (slug) => request("DELETE", `/v1/admin/packages/${slug}`),
 
-    // License ↔ Package
+    // License  Package
     getLicensePackage: (id) => request("GET", `/v1/admin/licenses/${id}/package`),
     assignPackage: (id, payload) => request("POST", `/v1/admin/licenses/${id}/package`, { body: payload }),
     resetLicensePeriod: (id) => request("POST", `/v1/admin/licenses/${id}/package/reset-period`),

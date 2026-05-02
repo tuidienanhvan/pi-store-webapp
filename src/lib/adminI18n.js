@@ -267,7 +267,7 @@ export const ADMIN_T = {
     flag_signup: "Cho phép đăng ký account mới",
     flag_billing: "Bật top-up (Stripe checkout)",
     flag_marketplace: "Bật marketplace /catalog",
-    flag_maintenance: "🚧 Maintenance mode (block /v1/ai/complete)",
+    flag_maintenance: " Maintenance mode (block /v1/ai/complete)",
   },
   en: {
     loading: "Loading…",
@@ -506,7 +506,7 @@ export const ADMIN_T = {
     flag_signup: "Allow new account signup",
     flag_billing: "Enable top-up (Stripe checkout)",
     flag_marketplace: "Enable marketplace /catalog",
-    flag_maintenance: "🚧 Maintenance mode (block /v1/ai/complete)",
+    flag_maintenance: " Maintenance mode (block /v1/ai/complete)",
   },
 };
 

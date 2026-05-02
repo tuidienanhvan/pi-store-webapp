@@ -1,0 +1,7 @@
+@reference "../styles/index.css";
+
+.site-footer--shell {
+  padding-top: 64px;
+  padding-bottom: 48px;
+  margin-top: 64px;
+}

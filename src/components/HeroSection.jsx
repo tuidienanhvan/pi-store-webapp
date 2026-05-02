@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useLocale } from "../context/LocaleContext";
 import { getLocalizedProduct } from "../lib/catalog";
 import { Button, Card, Badge, Icon } from "./ui";
+import "./HeroSection.css";
 
 export function HeroSection({ featuredProduct, billingCycle, detailSearch = "" }) {
   const { dict, locale } = useLocale();

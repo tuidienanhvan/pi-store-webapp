@@ -1,3 +1,4 @@
+import './HomePage.css';
 import React from "react";
 import catalog from "../../data/catalog.generated.json";
 import { useLocale } from "../../context/LocaleContext";
@@ -9,10 +10,8 @@ import { HomeCTA } from "../../components/home/HomeCTA";
 export function HomePage() {
   const { dict, locale } = useLocale();
   const products = catalog?.products ?? [];
-  const featured = products
-    .filter((p) => p.featured)
-    .sort((a, b) => a.sortOrder - b.sortOrder)
-    .slice(0, 6);
+  const ecosystem = products.find(p => p.id === "pi-ecosystem");
+  const tiers = ecosystem?.tiers || [];
 
   const t = dict.home;
 
@@ -20,7 +19,7 @@ export function HomePage() {
     <div className="stack gap-24 pb-32">
       <HomeHero t={t} />
       <HomeBento t={t} />
-      <HomeFeatured t={t} featured={featured} locale={locale} />
+      <HomeFeatured tiers={tiers} t={t} />
       <HomeCTA t={t} />
     </div>
   );

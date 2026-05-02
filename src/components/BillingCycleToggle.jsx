@@ -1,4 +1,5 @@
 import { useLocale } from "../context/LocaleContext";
+import "./BillingCycleToggle.css";
 
 export function BillingCycleToggle({ billingCycle, onChange }) {
   const { dict, locale } = useLocale();

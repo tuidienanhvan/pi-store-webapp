@@ -1,4 +1,5 @@
 import { useLocale } from "../context/LocaleContext";
+import "./LanguageToggle.css";
 
 export function LanguageToggle() {
   const { locale, switchLocale } = useLocale();

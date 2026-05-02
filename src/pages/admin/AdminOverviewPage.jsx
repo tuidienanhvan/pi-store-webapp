@@ -11,62 +11,38 @@ export function AdminOverviewPage() {
   const [data, setData] = useState(null);
   const [error, setError] = useState("");
 
-  const MOCK_DATA = {
-    revenue: {
-      "30d": 12540.50,
-      "90d": 34800.00,
-      "ytd": 85000.00,
-      "mom_growth": 14.5 // percentage
-    },
-    licenses: {
-      active: 482,
-      new_this_week: 12
-    },
-    tokens: {
-      spent_30d: 45020000,
-      projected_month_end: 51000000
-    },
-    system: {
-      api: 'healthy',
-      worker: 'healthy',
-      db: 'healthy',
-      redis: 'healthy'
-    },
-    providers: [
-      { name: "groq-llama-70b-free", status: "healthy" },
-      { name: "gemini-2-flash-free", status: "healthy" },
-      { name: "mistral-small-free", status: "degraded" },
-      { name: "cohere-command-free", status: "healthy" },
-      { name: "openrouter-free", status: "down" },
-      { name: "siliconflow-qwen-free", status: "healthy" },
-      { name: "cloudflare-llama-free", status: "healthy" },
-      { name: "nvidia-nim-free", status: "healthy" }
-      // Mocking 8 instead of 25 for brevity
-    ],
-    keyPool: {
-      total: 1540,
-      available: 420,
-      allocated: 1050,
-      exhausted: 70
-    },
-    alerts: [
-      { id: 1, type: "danger", text: "Provider openrouter-free is DOWN." },
-      { id: 2, type: "warning", text: "Provider mistral-small-free is DEGRADED." },
-      { id: 3, type: "warning", text: "License #14A (abc@gmail.com) is at 92% quota." }
-    ],
-    expiringLicenses: [
-      { id: 102, email: "agency@saigon.vn", tier: "Agency", daysLeft: 2 },
-      { id: 245, email: "dev@studio.com", tier: "Pro", daysLeft: 5 },
-      { id: 88, email: "hello@world.net", tier: "Pro", daysLeft: 6 }
-    ]
-  };
-
   useEffect(() => {
-    // using mock data for Sprint 1 until MVP backend arrives
-    setData(MOCK_DATA);
-
-    // Normally:
-    // api.admin.overview().then(setData).catch((e) => setError(e.message));
+    api.admin.overview()
+      .then((res) => {
+        const down = Number(res.down_providers || 0);
+        setData({
+          revenue: {
+            "30d": Number(res.revenue_30d || 0),
+            "90d": Number(res.revenue_30d || 0) * 3,
+            "ytd": Number(res.revenue_30d || 0) * 12,
+            "mom_growth": Number(res.margin_pct || 0),
+          },
+          licenses: { active: Number(res.active_licenses || 0), new_this_week: 0 },
+          tokens: {
+            spent_30d: Number(res.tokens_spent_30d || 0),
+            projected_month_end: Number(res.tokens_spent_30d || 0),
+          },
+          system: {
+            api: "healthy",
+            worker: "healthy",
+            db: "healthy",
+            redis: "healthy",
+          },
+          providers: [
+            { name: "healthy", status: Number(res.healthy_providers || 0) > 0 ? "healthy" : "degraded" },
+            { name: "down", status: down > 0 ? "down" : "healthy" },
+          ],
+          keyPool: { total: Number(res.total_providers || 0), available: Number(res.healthy_providers || 0), allocated: 0, exhausted: down },
+          alerts: down > 0 ? [{ id: 1, type: "danger", text: `${down} provider đang lỗi.` }] : [],
+          expiringLicenses: [],
+        });
+      })
+      .catch((e) => setError(e.message));
   }, []);
 
   if (error) {
@@ -82,7 +58,10 @@ export function AdminOverviewPage() {
     <div className="stack gap-8">
       <header className="row" style={{ justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "var(--s-4)" }}>
         <div className="stack gap-2">
-          <h1 className="text-36 m-0">{t.overview_title}</h1>
+          <div className="row gap-3 items-center">
+            <h1 className="text-36 m-0">{t.overview_title}</h1>
+            <Badge tone="brand" className="glass uppercase font-bold tracking-widest px-3 py-1">Beta</Badge>
+          </div>
           <p className="text-18 muted m-0">{t.overview_subtitle}</p>
         </div>
         <div className="row" style={{ gap: "var(--s-2)", flexWrap: "wrap" }}>
@@ -109,7 +88,7 @@ export function AdminOverviewPage() {
         {/* Revenue Widget → /admin/revenue */}
         <Card as={Link} to="/admin/revenue" className="stack gap-3 bg-brand text-on-brand p-5"
           style={{ display: "flex", flexDirection: "column", textDecoration: "none", cursor: "pointer" }}>
-          <div className="text-14" style={{ opacity: 0.9 }}>💰 {t.revenue_card} <Icon name="arrow-right" size={12} /></div>
+          <div className="text-14" style={{ opacity: 0.9 }}>{t.revenue_card} <Icon name="arrow-right" size={12} /></div>
           <div className="text-32 font-bold">{formatCurrencyUSD(data.revenue["30d"], locale)} <span className="text-14" style={{ opacity: 0.8, fontWeight: 'normal' }}>(30d)</span></div>
           <div className="row" style={{ justifyContent: "space-between", flexWrap: "wrap", gap: "var(--s-2)", fontSize: "var(--fs-13)", marginTop: "auto" }}>
             <span>90d: {formatCurrencyUSD(data.revenue["90d"], locale)}</span>
@@ -121,7 +100,7 @@ export function AdminOverviewPage() {
         {/* Active Licenses → /admin/licenses?status=active */}
         <Card as={Link} to="/admin/licenses?status=active" className="stack gap-2 p-5"
           style={{ textDecoration: "none", cursor: "pointer", color: "inherit" }}>
-          <div className="text-14 muted">🔑 {t.active_licenses} <Icon name="arrow-right" size={12} /></div>
+          <div className="text-14 muted">{t.active_licenses} <Icon name="arrow-right" size={12} /></div>
           <div className="text-32 font-bold text-1">{formatNumber(data.licenses.active, locale)}</div>
           <div className="text-13 mt-auto" style={{ color: "var(--success)" }}>
             ▲ +{data.licenses.new_this_week} {t.new_this_week}
@@ -131,7 +110,7 @@ export function AdminOverviewPage() {
         {/* Tokens Spent → /admin/usage */}
         <Card as={Link} to="/admin/usage?days=30" className="stack gap-2 p-5"
           style={{ textDecoration: "none", cursor: "pointer", color: "inherit" }}>
-          <div className="text-14 muted">💠 {t.tokens_used} (30d) <Icon name="arrow-right" size={12} /></div>
+          <div className="text-14 muted">{t.tokens_used} (30d) <Icon name="arrow-right" size={12} /></div>
           <div className="text-32 font-bold text-1">{(data.tokens.spent_30d / 1000000).toFixed(1)}M</div>
           <div className="text-13 muted mt-auto">
             {t.proj_month_end}: {(data.tokens.projected_month_end / 1000000).toFixed(1)}M
@@ -140,7 +119,7 @@ export function AdminOverviewPage() {
         
         {/* System Status Widget */}
         <Card className="stack gap-3 p-5">
-          <div className="text-14 muted">⚙️ {t.system_status}</div>
+          <div className="text-14 muted">{t.system_status}</div>
           <div className="grid --cols-2 gap-2 mt-auto text-12">
             <div className="row justify-between"><span>API</span> <Badge tone={data.system.api === 'healthy' ? "success" : "danger"} size="sm">OK</Badge></div>
             <div className="row justify-between"><span>Worker</span> <Badge tone={data.system.worker === 'healthy' ? "success" : "danger"} size="sm">OK</Badge></div>
@@ -250,9 +229,9 @@ export function AdminOverviewPage() {
               height: 24, borderRadius: 12, overflow: 'hidden', display: 'flex',
               background: 'var(--surface-2)' 
             }}>
-              <div title={`Available: ${data.keyPool.available}`} style={{ width: `${(data.keyPool.available / data.keyPool.total) * 100}%`, background: 'var(--success)' }} />
-              <div title={`Allocated: ${data.keyPool.allocated}`} style={{ width: `${(data.keyPool.allocated / data.keyPool.total) * 100}%`, background: 'var(--brand)' }} />
-              <div title={`Exhausted: ${data.keyPool.exhausted}`} style={{ width: `${(data.keyPool.exhausted / data.keyPool.total) * 100}%`, background: 'var(--danger)' }} />
+              <div title={`Available: ${data.keyPool.available}`} style={{ width: `${data.keyPool.total ? (data.keyPool.available / data.keyPool.total) * 100 : 0}%`, background: 'var(--success)' }} />
+              <div title={`Allocated: ${data.keyPool.allocated}`} style={{ width: `${data.keyPool.total ? (data.keyPool.allocated / data.keyPool.total) * 100 : 0}%`, background: 'var(--brand)' }} />
+              <div title={`Exhausted: ${data.keyPool.exhausted}`} style={{ width: `${data.keyPool.total ? (data.keyPool.exhausted / data.keyPool.total) * 100 : 0}%`, background: 'var(--danger)' }} />
             </div>
 
             <div className="stack gap-2 text-13">

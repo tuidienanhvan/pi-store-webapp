@@ -1,5 +1,6 @@
 import React, { forwardRef, useId } from "react";
 import { Icon } from "./icons";
+import "./Select.css";
 
 export const Select = forwardRef(({
   label,

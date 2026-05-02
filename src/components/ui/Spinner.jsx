@@ -1,5 +1,6 @@
 import React from "react";
 import { Icon } from "./icons";
+import "./Spinner.css";
 
 export function Spinner({ size = 16, className = "" }) {
   return (

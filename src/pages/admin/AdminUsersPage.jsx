@@ -12,19 +12,16 @@ export function AdminUsersPage() {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
 
-  const MOCK_USERS = [
-    { id: 1, email: "admin@saigon.vn", name: "Nam Nguyễn", role: "admin", license_count: 5, token_balance: 1450000, total_spent_cents: 29900, created_at: "2025-01-10T12:00:00Z", last_login_at: "2026-04-18T00:00:00Z", status: "active" },
-    { id: 2, email: "agency_hn@gmail.com", name: "Hanoi Media", role: "user", license_count: 12, token_balance: 500000, total_spent_cents: 105000, created_at: "2025-06-15T09:30:00Z", last_login_at: "2026-04-15T14:20:00Z", status: "active" },
-    { id: 3, email: "dev.test@outlook.com", name: "Thành Phạm", role: "user", license_count: 1, token_balance: 10000, total_spent_cents: 0, created_at: "2026-02-14T08:10:00Z", last_login_at: "2026-03-01T10:00:00Z", status: "active" },
-    { id: 4, email: "baduser@spam.com", name: "Spammer", role: "user", license_count: 0, token_balance: 0, total_spent_cents: 0, created_at: "2026-04-01T00:00:00Z", last_login_at: "2026-04-01T00:05:00Z", status: "deactivated" },
-  ];
-
   useEffect(() => {
     setLoading(true);
-    setTimeout(() => {
-      setUsers(MOCK_USERS);
-      setLoading(false);
-    }, 400);
+    api.admin.users({ q: search })
+      .then((res) => setUsers((res.items || []).map((u) => ({
+        ...u,
+        role: u.is_admin ? "admin" : "user",
+        status: u.is_active === false ? "deactivated" : "active",
+      }))))
+      .catch(() => setUsers([]))
+      .finally(() => setLoading(false));
   }, []);
 
   const filteredUsers = users.filter(u =>

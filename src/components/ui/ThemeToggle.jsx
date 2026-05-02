@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { IconButton } from "./Button";
+import "./ThemeToggle.css";
 
 export function ThemeToggle({ className = "" }) {
   const [theme, setTheme] = useState("light");

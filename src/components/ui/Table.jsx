@@ -1,4 +1,5 @@
 import React, { forwardRef } from "react";
+import "./Table.css";
 
 export const Table = forwardRef(({
   children,

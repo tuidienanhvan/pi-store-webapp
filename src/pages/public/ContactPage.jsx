@@ -31,7 +31,7 @@ export function ContactPage() {
         <div className="contact-hero__inner">
           <h1>Liên hệ Pi Ecosystem</h1>
           <p>
-            Bạn có câu hỏi về bundles, cần demo cho team, hoặc muốn deal agency?
+        Bạn có câu hỏi về bundles, cần demo cho team, hoặc muốn deal Max?
             Chọn kênh nhanh nhất bên dưới — trả lời trong 24h giờ hành chính.
           </p>
         </div>
@@ -39,28 +39,28 @@ export function ContactPage() {
 
       <div className="contact-body">
         <section className="contact-channels-v2">
-          <h2>📬 Kênh liên hệ</h2>
+          <h2> Kênh liên hệ</h2>
           <div className="channel-grid">
             <a href="mailto:support@piwebagency.com" className="channel-card-v2">
-              <div className="channel-icon">💬</div>
+              <div className="channel-icon"></div>
               <h3>Support</h3>
               <p>Bug, câu hỏi kỹ thuật, hỗ trợ cài đặt</p>
               <span className="channel-action">support@piwebagency.com</span>
             </a>
             <a href="mailto:sales@piwebagency.com" className="channel-card-v2 channel-card-v2--primary">
-              <div className="channel-icon">🤝</div>
+              <div className="channel-icon"></div>
               <h3>Sales</h3>
-              <p>Bundle tùy chỉnh, agency deal, enterprise</p>
+              <p>Bundle tùy chỉnh, Max deal, enterprise</p>
               <span className="channel-action">sales@piwebagency.com</span>
             </a>
             <a href="https://zalo.me/pi-ecosystem" target="_blank" rel="noreferrer" className="channel-card-v2">
-              <div className="channel-icon">📱</div>
+              <div className="channel-icon"></div>
               <h3>Zalo OA</h3>
               <p>Chat nhanh, giờ hành chính VN</p>
               <span className="channel-action">Mở Zalo →</span>
             </a>
             <a href="https://github.com/piwebagency/issues" target="_blank" rel="noreferrer" className="channel-card-v2">
-              <div className="channel-icon">🐛</div>
+              <div className="channel-icon"></div>
               <h3>Bug tracker</h3>
               <p>Public GitHub issues, community-tracked</p>
               <span className="channel-action">GitHub Issues →</span>
@@ -76,10 +76,10 @@ export function ContactPage() {
                 Form này sẽ được gửi tới team Pi dựa vào chủ đề bạn chọn.
               </p>
               <ul className="contact-facts">
-                <li>⏱ Trả lời trong 24h ngày làm việc</li>
-                <li>🇻🇳 Team 100% Việt Nam</li>
-                <li>🔒 Dữ liệu không share với third party</li>
-                <li>💬 Support tiếng Việt + English</li>
+                <li> Trả lời trong 24h ngày làm việc</li>
+                <li> Team 100% Việt Nam</li>
+                <li> Dữ liệu không share với third party</li>
+                <li> Support tiếng Việt + English</li>
               </ul>
             </div>
 
@@ -97,12 +97,12 @@ export function ContactPage() {
               <label>
                 <span>Chủ đề</span>
                 <select value={form.topic} onChange={(e) => setForm({ ...form, topic: e.target.value })}>
-                  <option value="sales">🤝 Bán hàng / Bundle</option>
-                  <option value="support">💬 Hỗ trợ kỹ thuật</option>
-                  <option value="bug">🐛 Báo lỗi</option>
-                  <option value="feature">💡 Đề xuất tính năng</option>
-                  <option value="partnership">🤲 Hợp tác</option>
-                  <option value="other">📮 Khác</option>
+                  <option value="sales"> Bán hàng / Bundle</option>
+                  <option value="support"> Hỗ trợ kỹ thuật</option>
+                  <option value="bug"> Báo lỗi</option>
+                  <option value="feature"> Đề xuất tính năng</option>
+                  <option value="partnership"> Hợp tác</option>
+                  <option value="other"> Khác</option>
                 </select>
               </label>
               <label>
@@ -110,7 +110,7 @@ export function ContactPage() {
                 <textarea rows={6} required value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Mô tả yêu cầu. Càng chi tiết càng dễ trả lời nhanh." />
               </label>
               <button type="submit" className="btn-contact" disabled={status === "sending"}>
-                {status === "sending" ? "Đang gửi…" : "Gửi message ✉"}
+                {status === "sending" ? "Đang gửi…" : "Gửi message "}
               </button>
               {status === "ok" && <div className="contact-alert contact-alert--ok">✓ Đã gửi! Cảm ơn — chúng tôi sẽ phản hồi trong 24h.</div>}
               {status === "err" && <div className="contact-alert contact-alert--err">Gửi thất bại. Thử email trực tiếp nhé.</div>}
@@ -119,7 +119,7 @@ export function ContactPage() {
         </section>
 
         <section className="contact-office">
-          <h2>🇻🇳 Về team Pi</h2>
+          <h2> Về team Pi</h2>
           <div className="office-grid">
             <div>
               <h3>Pi Web Agency</h3>

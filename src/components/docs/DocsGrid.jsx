@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./DocsGrid.css";
 
 export function DocsGrid({ sections }) {
   return (

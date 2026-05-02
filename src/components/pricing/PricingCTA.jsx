@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Card, Button } from "../ui";
+import "./PricingCTA.css";
 
 export function PricingCTA() {
   return (

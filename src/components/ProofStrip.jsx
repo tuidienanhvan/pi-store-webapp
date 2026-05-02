@@ -1,4 +1,5 @@
 import { useLocale } from "../context/LocaleContext";
+import "./ProofStrip.css";
 
 export function ProofStrip({ stats }) {
   const { dict } = useLocale();

@@ -1,4 +1,5 @@
 import React from "react";
+import "./ProductFAQ.css";
 
 export function ProductFAQ({ view, dict }) {
   if (!view.localizedFaq || view.localizedFaq.length === 0) return null;

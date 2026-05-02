@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useLocale } from "../context/LocaleContext";
 import { getLocalizedProduct } from "../lib/catalog";
 import { submitLead } from "../lib/lead-api";
+import "./LeadForm.css";
 
 function getProductName(product, locale) {
   return product?.copy?.[locale]?.name ?? product?.copy?.vi?.name ?? product?.slug ?? "";

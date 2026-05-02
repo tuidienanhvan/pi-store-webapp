@@ -1,20 +1,21 @@
 import React from "react";
 import { ProductCard } from "../ProductCard";
 import { Icon } from "../ui";
+import "./CatalogGrid.css";
 
 const SECTION_META = {
   tokens: {
-    icon: "💰",
+    icon: "",
     title: "Pi AI Cloud Tokens",
     hint: "Ví AI tokens dùng chung cho toàn bộ Pi Pro plugins — mua 1 lần, xài mọi nơi.",
   },
   bundle: {
-    icon: "📦",
+    icon: "",
     title: "Bundles — tiết kiệm đến 55%",
     hint: "Gói combo plugin Pro + Pi AI tokens kèm sẵn. Rẻ hơn mua lẻ 25-55%.",
   },
   plugin: {
-    icon: "🧩",
+    icon: "",
     title: "Plugin lẻ",
     hint: "Mua từng plugin riêng theo nhu cầu. Free tier đủ xài, Pro tier trả qua tokens.",
   },

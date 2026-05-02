@@ -1,4 +1,5 @@
 import React, { forwardRef, useId } from "react";
+import "./Checkbox.css";
 
 export const Checkbox = forwardRef(({
   label,

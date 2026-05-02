@@ -1,4 +1,5 @@
 import React from "react";
+import "./Avatar.css";
 
 export function Avatar({ url, name, size = "md", className = "" }) {
   const initials = name

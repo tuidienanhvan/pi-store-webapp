@@ -1,5 +1,6 @@
 import React from "react";
 import { Icon } from "../ui";
+import "./ProductFeatures.css";
 
 export function ProductFeatures({ view, dict }) {
   return (

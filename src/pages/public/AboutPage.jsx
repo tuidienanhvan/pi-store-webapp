@@ -21,10 +21,10 @@ export function AboutPage() {
 
       <h2>Lộ trình</h2>
       <ul>
-        <li>✅ Q2 2026: Pi SEO v2 + Pi AI Cloud launch</li>
-        <li>🚧 Q3 2026: Pi Chatbot v2 + Pi Leads v2 full</li>
-        <li>🔜 Q4 2026: Pi Analytics + Performance v2</li>
-        <li>🔜 Q1 2027: Pi Dashboard Pro + white-label</li>
+        <li> Q2 2026: Pi SEO v2 + Pi AI Cloud launch</li>
+        <li> Q3 2026: Pi Chatbot v2 + Pi Leads v2 full</li>
+        <li> Q4 2026: Pi Analytics + Performance v2</li>
+        <li> Q1 2027: Pi Dashboard Pro + white-label</li>
       </ul>
 
       <h2>Liên hệ</h2>

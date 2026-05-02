@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Tabs.css";
 
 export function Tabs({ items = [], defaultActiveId, onChange, className = "" }) {
   const [activeId, setActiveId] = useState(defaultActiveId || items[0]?.id);

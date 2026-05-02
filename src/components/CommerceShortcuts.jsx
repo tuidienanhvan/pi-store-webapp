@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLocale } from "../context/LocaleContext";
+import "./CommerceShortcuts.css";
 
 const SHORTCUTS = {
   vi: [

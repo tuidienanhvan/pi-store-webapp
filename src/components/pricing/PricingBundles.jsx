@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Card, Badge, Button } from "../ui";
 import { getLocalizedProduct } from "../../lib/catalog";
+import "./PricingBundles.css";
 
 function formatVND(n) {
   if (!Number.isFinite(n)) return null;

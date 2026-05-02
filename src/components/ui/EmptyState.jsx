@@ -1,5 +1,6 @@
 import React from "react";
 import { Icon } from "./icons";
+import "./EmptyState.css";
 
 export function EmptyState({ icon, title, description, action }) {
   return (

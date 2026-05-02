@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import "./SeoMeta.css";
 
 function toAbsoluteUrl(siteUrl, path) {
   if (!path) return undefined;

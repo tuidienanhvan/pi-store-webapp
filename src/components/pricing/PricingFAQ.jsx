@@ -1,5 +1,6 @@
 import React from "react";
 import { Card } from "../ui";
+import "./PricingFAQ.css";
 
 export function PricingFAQ() {
   return (

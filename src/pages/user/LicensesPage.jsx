@@ -1,138 +1,88 @@
 import { useEffect, useState } from "react";
 import { api } from "../../lib/api-client";
-import { Card, Alert, Badge, Button, Input, Icon } from "../../components/ui";
+import { Alert, Badge, Button, Card, Input, Icon } from "../../components/ui";
 
 export function LicensesPage() {
   const [stats, setStats] = useState(null);
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
+  const licenseKey = localStorage.getItem("pi_license_key") || "";
 
   useEffect(() => {
-    api.license
-      .stats()
-      .then(setStats)
-      .catch((e) => setError(e.message));
+    api.license.stats().then(setStats).catch((e) => setError(e.message));
   }, []);
-
-  const licenseKey = localStorage.getItem("pi_license_key") || "";
 
   const copyKey = () => {
     if (!licenseKey) return;
     navigator.clipboard.writeText(licenseKey).then(() => {
       setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
+      setTimeout(() => setCopied(false), 1200);
     });
   };
 
   return (
-    <div className="stack" style={{ gap: "var(--s-8)" }}>
-      <header className="stack" style={{ gap: "var(--s-2)" }}>
-        <h1 style={{ margin: 0, fontSize: "var(--fs-32)" }}>License của tôi</h1>
-        <p style={{ margin: 0, color: "var(--text-2)", fontSize: "var(--fs-18)" }}>License key gán vào plugin WordPress để kích hoạt Pro.</p>
+    <div className="stack gap-8">
+      <header className="stack gap-2">
+        <h1 className="m-0 text-32">My license</h1>
+        <p className="m-0 text-18 muted">Manage your license key and activation stats.</p>
       </header>
 
       {error && <Alert tone="danger">{error}</Alert>}
 
       {stats ? (
-        <div className="stack" style={{ gap: "var(--s-8)" }}>
-          <section className="stack" style={{ gap: "var(--s-4)" }}>
-            <h2 style={{ margin: 0, fontSize: "var(--fs-24)" }}>Thông tin license</h2>
-            <Card className="stack" style={{ padding: 0, overflow: "hidden" }}>
-              <div className="grid --cols-3" style={{ background: "var(--surface-2)", gap: "1px" }}>
-                <div style={{ background: "var(--surface)", padding: "var(--s-5)" }}>
-                  <div style={{ color: "var(--text-2)", fontSize: "var(--fs-14)", marginBottom: "var(--s-2)" }}>Plan</div>
-                  <div><Badge tone="brand">{stats.tier?.toUpperCase()}</Badge></div>
-                </div>
-                <div style={{ background: "var(--surface)", padding: "var(--s-5)" }}>
-                  <div style={{ color: "var(--text-2)", fontSize: "var(--fs-14)", marginBottom: "var(--s-2)" }}>Trạng thái</div>
-                  <div><Badge tone={stats.status === "active" ? "success" : "warning"}>{stats.status}</Badge></div>
-                </div>
-                <div style={{ background: "var(--surface)", padding: "var(--s-5)" }}>
-                  <div style={{ color: "var(--text-2)", fontSize: "var(--fs-14)", marginBottom: "var(--s-2)" }}>Email</div>
-                  <div style={{ fontWeight: "500", color: "var(--text-1)" }}>{stats.email}</div>
-                </div>
-                <div style={{ background: "var(--surface)", padding: "var(--s-5)" }}>
-                  <div style={{ color: "var(--text-2)", fontSize: "var(--fs-14)", marginBottom: "var(--s-2)" }}>Sites đã kích hoạt</div>
-                  <div style={{ fontWeight: "500", color: "var(--text-1)", display: "flex", gap: "8px", alignItems: "center" }}>
-                    <Icon name="monitor" size={16} style={{ color: "var(--text-3)" }} /> 
-                    {stats.activated_sites} / {stats.max_sites}
-                  </div>
-                </div>
-                <div style={{ background: "var(--surface)", padding: "var(--s-5)" }}>
-                  <div style={{ color: "var(--text-2)", fontSize: "var(--fs-14)", marginBottom: "var(--s-2)" }}>Hết hạn</div>
-                  <div style={{ fontWeight: "500", color: "var(--text-1)", display: "flex", gap: "8px", alignItems: "center" }}>
-                    <Icon name="file-text" size={16} style={{ color: "var(--text-3)" }} /> 
-                    {stats.expires_at ? new Date(stats.expires_at).toLocaleDateString("vi-VN") : "Không hết hạn"}
-                  </div>
-                </div>
-                <div style={{ background: "var(--surface)", padding: "var(--s-5)" }}>
-                  <div style={{ color: "var(--text-2)", fontSize: "var(--fs-14)", marginBottom: "var(--s-2)" }}>Usage tháng này</div>
-                  <div style={{ fontWeight: "500", color: "var(--text-1)", display: "flex", gap: "8px", alignItems: "center" }}>
-                    <Icon name="zap" size={16} style={{ color: "var(--text-3)" }} /> 
-                    {stats.usage_this_month} / {stats.quota_this_month} requests
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </section>
+        <>
+          <Card className="p-0 overflow-hidden">
+            <div className="grid --cols-3" style={{ background: "var(--surface-2)", gap: 1 }}>
+              <Cell label="Plan"><Badge tone="brand">{String(stats.tier || "").toUpperCase()}</Badge></Cell>
+              <Cell label="Status"><Badge tone={stats.status === "active" ? "success" : "warning"}>{stats.status}</Badge></Cell>
+              <Cell label="Email"><strong>{stats.email}</strong></Cell>
+              <Cell label="Activated sites"><span className="row gap-2"><Icon name="monitor" size={16} /> {stats.activated_sites} / {stats.max_sites}</span></Cell>
+              <Cell label="Expires">{stats.expires_at ? new Date(stats.expires_at).toLocaleDateString() : "Never"}</Cell>
+              <Cell label="Monthly usage">{stats.usage_this_month} / {stats.quota_this_month}</Cell>
+            </div>
+          </Card>
 
-          <section className="stack" style={{ gap: "var(--s-4)" }}>
-            <h2 style={{ margin: 0, fontSize: "var(--fs-24)" }}>License Key</h2>
-            
+          <Card className="stack gap-4 p-5">
+            <h2 className="m-0 text-24">License key</h2>
             {licenseKey ? (
-              <Card className="row" style={{ alignItems: "center", justifyContent: "space-between", background: "var(--surface-2)", border: "1px dashed var(--border)" }}>
-                <code style={{ fontSize: "var(--fs-18)", fontWeight: "600", color: "var(--brand)" }}>{licenseKey}</code>
-                <Button variant="secondary" onClick={copyKey}>
-                  <Icon name={copied ? "check" : "copy"} size={16} style={{ marginRight: "8px" }} />
-                  {copied ? "Đã copy!" : "Copy"}
-                </Button>
-              </Card>
+              <div className="row justify-between items-center p-4 rounded-md border border-hairline bg-surface-2">
+                <code className="text-18 font-semibold text-brand">{licenseKey}</code>
+                <Button variant="ghost" onClick={copyKey}>{copied ? "Copied" : "Copy"}</Button>
+              </div>
             ) : (
-              <Alert tone="warning" title="Chưa có license key">
-                License key chưa được lưu trong trình duyệt. Dán key vào settings bên dưới.
-              </Alert>
+              <Alert tone="warning">No key found in browser storage.</Alert>
             )}
-
-            <Card className="stack" style={{ gap: "var(--s-4)" }}>
-              <h3 style={{ margin: 0, fontSize: "var(--fs-18)" }}>Cập nhật storage</h3>
-              <p style={{ margin: 0, color: "var(--text-2)", fontSize: "var(--fs-14)" }}>
-                Cập nhật license key để xem thông tin plan. Lưu ý: key này chỉ lưu trên trình duyệt (localStorage).
-              </p>
-              <LicenseKeyEditor />
-            </Card>
-          </section>
-        </div>
+            <LicenseKeyEditor />
+          </Card>
+        </>
       ) : (
-        !error && <div style={{ padding: "var(--s-8)", color: "var(--text-3)", textAlign: "center" }}>Đang tải…</div>
+        !error && <div className="muted">Loading...</div>
       )}
+    </div>
+  );
+}
+
+function Cell({ label, children }) {
+  return (
+    <div className="p-5 bg-surface">
+      <div className="text-14 muted mb-2">{label}</div>
+      <div className="text-1">{children}</div>
     </div>
   );
 }
 
 function LicenseKeyEditor() {
   const [value, setValue] = useState(localStorage.getItem("pi_license_key") || "");
-
   const save = () => {
-    if (value.trim()) {
-      localStorage.setItem("pi_license_key", value.trim());
-    } else {
-      localStorage.removeItem("pi_license_key");
-    }
+    const v = value.trim();
+    if (v) localStorage.setItem("pi_license_key", v);
+    else localStorage.removeItem("pi_license_key");
     window.location.reload();
   };
-
   return (
-    <div className="row" style={{ gap: "var(--s-3)" }}>
-      <Input
-        type="password"
-        placeholder="pi_xxxxxxxxxxxxxxxx"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        style={{ flex: 1 }}
-      />
-      <Button variant="primary" onClick={save}>
-        Lưu
-      </Button>
+    <div className="row gap-3">
+      <Input type="password" placeholder="pi_xxx" value={value} onChange={(e) => setValue(e.target.value)} className="flex-1" />
+      <Button onClick={save}>Save</Button>
     </div>
   );
 }

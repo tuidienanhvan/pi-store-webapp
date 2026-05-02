@@ -212,7 +212,7 @@ export function AdminUsagePage() {
                 )}
                 {!loading && (!data?.errors || data.errors.length === 0) && (
                   <tr><td colSpan="2" style={{ textAlign: "center", padding: "var(--s-6)", color: "var(--text-3)" }}>
-                    {locale === "en" ? "No errors in period 🎉" : "Không có lỗi trong chu kỳ 🎉"}
+                    {locale === "en" ? "No errors in period" : "Không có lỗi trong chu kỳ"}
                   </td></tr>
                 )}
                 {!loading && data?.errors && data.errors.map((e) => (

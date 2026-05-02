@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { IconButton } from "./Button"; // Reuses icon styling
+import "./Modal.css";
 
 export function Modal({ open, onClose, title, children, size = "md" }) {
   const modalRef = useRef(null);

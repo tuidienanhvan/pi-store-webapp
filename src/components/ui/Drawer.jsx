@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { IconButton } from "./Button";
+import "./Drawer.css";
 
 export function Drawer({ open, onClose, side = "right", children, title }) {
   const drawerRef = useRef(null);

@@ -2,7 +2,7 @@ const GROUPS = [
   {
     title: "General",
     items: [
-      ["Pi Ecosystem khác Yoast / Rank Math như thế nào?", "Pi là suite 7 plugin thay vì chỉ SEO. Tính năng AI trả qua token (pay-as-you-go) thay vì subscription cứng. Giá trung bình 1/3 Rank Math Pro, tối ưu tiếng Việt."],
+      ["Pi Ecosystem khác Yoast / Rank Math như thế nào?", "Pi là suite plugin Pro cho WordPress, hiện cung cấp SEO, Chatbot, Leads, Analytics, Performance, AI Cloud. Tính năng AI trả qua token (pay-as-you-go) thay vì subscription cứng. Giá trung bình 1/3 Rank Math Pro, tối ưu tiếng Việt."],
       ["Plugin có chạy độc lập không?", "Có. Free tier hoàn toàn local, không cần Pi account. Pro tier cần license + API connection tới Pi Backend."],
       ["Dữ liệu của tôi có gửi lên server Pi không?", "Chỉ khi dùng Pro features (AI). Metadata + content snippet của post gửi lên để generate. Không lưu vĩnh viễn — chỉ log để billing."],
     ],
@@ -22,7 +22,7 @@ const GROUPS = [
       ["Plugin cần PHP / WP version gì?", "PHP 8.3+, WordPress 6.0+. Tested on Local by Flywheel, SiteGround, Kinsta, Hostinger cPanel."],
       ["AI chạy trên server Pi hay server tôi?", "Trên Pi Backend. Plugin chỉ gửi HTTP request + license key. Không cần máy chủ mạnh."],
       ["Có hoạt động offline không?", "Free tier: 100%. Pro features cần internet để gọi Pi Backend."],
-      ["Hỗ trợ multi-site?", "Free: 1 site. Pro: 1-3 sites tùy plugin. Agency: unlimited."],
+  ["Hỗ trợ multi-site?", "Free: 1 site. Pro: 1-3 sites tùy plugin. Max: unlimited."],
       ["Uninstall có ảnh hưởng data?", "Meta + settings lưu ở wp_options + wp_postmeta. Deactivate không xóa. Uninstall (remove plugin) cũng giữ data. Có option 'delete all on uninstall' trong Settings."],
     ],
   },

@@ -1,0 +1,156 @@
+@reference "../../styles/index.css";
+
+.home-hero {
+  @apply pt-[clamp(72px,9vh,120px)] pb-[clamp(64px,9vh,112px)];
+}
+
+.home-hero__grid {
+  @apply grid items-center gap-[clamp(48px,7vw,96px)] xl:grid-cols-[minmax(0,0.9fr)_minmax(480px,1.1fr)];
+}
+
+.home-hero__copy {
+  @apply max-w-[620px] xl:max-w-none;
+}
+
+.home-hero__badge {
+  @apply mb-5 w-fit rounded-full border border-white/10 bg-white/[0.045] px-3 py-[7px] text-xs font-extrabold uppercase tracking-wider text-text-2;
+}
+
+.home-hero__title {
+  @apply m-0 max-w-[680px] text-[clamp(42px,13vw,58px)] font-black leading-[0.95] tracking-normal md:text-[clamp(48px,6.4vw,86px)];
+}
+
+.home-hero__title span {
+  @apply block text-text-2;
+}
+
+.home-hero__desc {
+  @apply mt-6 max-w-[560px] text-[clamp(17px,1.5vw,21px)] leading-7 text-text-2;
+}
+
+.home-hero__actions {
+  @apply mt-8 flex flex-wrap items-center gap-3;
+}
+
+.home-hero__stats {
+  @apply mt-10 grid grid-cols-1 gap-4 md:grid-cols-3;
+}
+
+.home-hero__stats div {
+  @apply rounded-card border border-white/10 bg-white/[0.025] p-4;
+}
+
+.home-hero__stats strong {
+  @apply block text-3xl leading-none text-text-1;
+}
+
+.home-hero__stats span {
+  @apply mt-2 block text-xs font-bold uppercase tracking-wider text-text-3;
+}
+
+.home-hero__product {
+  @apply relative min-h-[520px] max-md:min-h-0;
+}
+
+.product-shell {
+  @apply relative overflow-hidden rounded-[18px] border border-white/15 shadow-deep;
+  background: linear-gradient(180deg, rgba(28,34,45,0.96), rgba(12,15,21,0.94));
+}
+
+.product-shell::before {
+  content: "";
+  @apply pointer-events-none absolute -right-[10%] -top-[20%] h-[360px] w-[360px];
+  background: radial-gradient(circle, rgba(211,85,115,0.28), transparent 68%);
+}
+
+.product-shell__bar {
+  @apply flex h-[50px] items-center gap-2 border-b border-white/10 px-5 text-text-3;
+}
+
+.product-shell__bar span {
+  @apply h-[9px] w-[9px] rounded-full bg-white/20;
+}
+
+.product-shell__bar strong {
+  @apply ml-2 text-sm text-text-2;
+}
+
+.product-shell__body {
+  @apply grid min-h-[420px] grid-cols-1 md:grid-cols-[148px_1fr];
+}
+
+.product-shell aside {
+  @apply hidden border-r border-white/10 bg-white/[0.025] px-3 py-5 md:block;
+}
+
+.product-shell aside div {
+  @apply rounded-lg px-3 py-2.5 text-sm font-bold text-text-3;
+}
+
+.product-shell aside .is-active {
+  @apply bg-brand/20 text-text-1;
+}
+
+.product-shell main {
+  @apply p-6;
+}
+
+.preview-grid {
+  @apply mt-3 grid grid-cols-1 gap-3 md:grid-cols-3;
+}
+
+.preview-kpi {
+  @apply rounded-card border border-white/10 bg-white/[0.035] p-4;
+}
+
+.preview-kpi--wide {
+  @apply min-h-28;
+  background: linear-gradient(135deg, rgba(211,85,115,0.2), rgba(56,189,248,0.06));
+}
+
+.preview-kpi span,
+.preview-kpi small {
+  @apply block text-xs font-extrabold uppercase tracking-wider text-text-3;
+}
+
+.preview-kpi strong {
+  @apply mt-2 block text-3xl text-text-1;
+}
+
+.preview-chart {
+  @apply mt-4 flex h-[126px] items-end gap-3 rounded-card border border-white/10 bg-black/20 p-4;
+}
+
+.preview-chart span {
+  @apply min-w-[18px] flex-1 rounded-t-md;
+  background: linear-gradient(180deg, var(--brand), rgba(211,85,115,0.2));
+}
+
+.home-hero__callout {
+  @apply static mt-3 flex items-center gap-3 rounded-card border border-white/10 bg-[rgba(9,11,15,0.82)] px-4 py-3 shadow-panel backdrop-blur md:absolute md:mt-0;
+}
+
+.home-hero__callout strong,
+.home-hero__callout span {
+  @apply block whitespace-nowrap;
+}
+
+.home-hero__callout strong {
+  @apply text-sm text-text-1;
+}
+
+.home-hero__callout span {
+  @apply text-xs text-text-3;
+}
+
+.home-hero__callout svg {
+  @apply text-brand;
+}
+
+.home-hero__callout--top {
+  @apply md:-right-6 md:top-10;
+}
+
+.home-hero__callout--bottom {
+  @apply md:-left-7 md:bottom-16;
+}

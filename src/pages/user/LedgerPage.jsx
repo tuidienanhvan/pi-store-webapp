@@ -28,11 +28,11 @@ export function LedgerPage() {
 
   const opLabel = (op) => {
     switch (op) {
-      case "topup": return "🟢 Nạp tokens";
-      case "spend": return "🔵 Sử dụng";
-      case "refund": return "↩️ Hoàn";
-      case "bonus": return "🎁 Bonus";
-      case "admin_adjust": return "🛠 Admin điều chỉnh";
+      case "topup": return " Nạp tokens";
+      case "spend": return " Sử dụng";
+      case "refund": return " Hoàn";
+      case "bonus": return " Bonus";
+      case "admin_adjust": return " Admin điều chỉnh";
       default: return op;
     }
   };

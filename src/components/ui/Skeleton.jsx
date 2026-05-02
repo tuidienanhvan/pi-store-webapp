@@ -1,4 +1,5 @@
 import React from "react";
+import "./Skeleton.css";
 
 export function Skeleton({ width, height, variant = "rect", className = "", style = {} }) {
   const baseStyle = {

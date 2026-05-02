@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Badge, Button, Icon, Card } from "../ui";
 import { BillingCycleToggle } from "../BillingCycleToggle";
+import "./ProductHero.css";
 
 export function ProductHero({ view, product, billingCycle, setBillingCycle, addItem, dict, backHref }) {
   const isPlugin = view.type === "plugin";
@@ -62,7 +63,7 @@ export function ProductHero({ view, product, billingCycle, setBillingCycle, addI
 
             <div className="row" style={{ gap: "var(--s-2)", flexWrap: "wrap" }}>
               <Button variant="primary" size="lg" onClick={() => addItem(product, billingCycle)} style={{ flex: 1 }}>
-                🛒 {dict.detail.primaryCta}
+                 {dict.detail.primaryCta}
               </Button>
               {view.hasDemoCta && (
                 <Button as="a" href={view.cta.demoUrl} target="_blank" variant="ghost" size="lg">

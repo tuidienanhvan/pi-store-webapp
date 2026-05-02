@@ -1,4 +1,5 @@
 import React, { forwardRef } from "react";
+import "./Card.css";
 
 export const Card = forwardRef(({
   as: Component = "article",
@@ -7,8 +8,8 @@ export const Card = forwardRef(({
   children,
   ...props
 }, ref) => {
-  const baseClass = "card";
-  const paddedClass = padded ? "card--padded" : "";
+  const baseClass = "overflow-hidden rounded-card border border-white/10 bg-white/[0.035] shadow-panel transition-all";
+  const paddedClass = padded ? "p-6" : "";
   const combinedClass = [baseClass, paddedClass, className].filter(Boolean).join(" ");
   
   return (

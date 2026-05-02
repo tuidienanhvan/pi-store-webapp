@@ -4,16 +4,16 @@ import { DocsGrid } from "../../components/docs/DocsGrid";
 
 const SECTIONS = [
   {
-    title: "🏁 Getting started",
+    title: " Getting started",
     docs: [
-      { to: "/docs/install", label: "Cài đặt Pi plugin đầu tiên" },
+      { to: "/docs/install", label: "Cài đặt Pi App đầu tiên" },
       { to: "/docs/license", label: "Lấy + dán license key" },
       { to: "/docs/tokens", label: "Hiểu về Pi AI tokens" },
       { to: "/docs/bundles", label: "Chọn bundle phù hợp" },
     ],
   },
   {
-    title: "🧩 Plugin docs",
+    title: " Ecosystem Apps",
     docs: [
       { to: "/docs/pi-seo", label: "Pi SEO v2" },
       { to: "/docs/pi-chatbot", label: "Pi Chatbot v2" },
@@ -25,7 +25,7 @@ const SECTIONS = [
     ],
   },
   {
-    title: "🔧 Advanced",
+    title: " Advanced",
     docs: [
       { to: "/docs/api", label: "API reference (developers)" },
       { to: "/docs/webhooks", label: "Webhooks + integrations" },
@@ -34,7 +34,7 @@ const SECTIONS = [
     ],
   },
   {
-    title: "🆘 Support",
+    title: " Support",
     docs: [
       { to: "/faq", label: "FAQ" },
       { to: "/contact", label: "Contact support" },

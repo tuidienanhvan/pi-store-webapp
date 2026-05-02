@@ -1,0 +1,34 @@
+@reference "../../styles/index.css";
+
+.home-cta__box {
+  @apply relative overflow-hidden rounded-[20px] border border-brand/35 p-[clamp(40px,7vw,72px)] shadow-deep;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(211,85,115,0.28), transparent 34rem),
+    linear-gradient(135deg, rgba(255,255,255,0.075), rgba(255,255,255,0.025));
+}
+
+.home-cta__bg-1,
+.home-cta__bg-2 {
+  @apply hidden;
+}
+
+.home-cta__content {
+  @apply max-w-[720px];
+}
+
+.home-cta__title {
+  @apply m-0 text-[clamp(42px,6vw,72px)] leading-none tracking-normal;
+}
+
+.home-cta__desc {
+  @apply mt-5 max-w-[540px] text-lg text-text-2;
+}
+
+.home-cta__actions {
+  @apply mt-8 flex flex-wrap gap-3;
+}
+
+.home-cta__btn-primary,
+.home-cta__btn-secondary {
+  @apply min-w-[140px];
+}

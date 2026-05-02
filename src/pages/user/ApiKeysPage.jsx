@@ -75,7 +75,7 @@ Content-Type: application/json`}
               <tbody>
                 <tr><td>Free</td><td>10 req/min</td><td>20 requests</td></tr>
                 <tr><td>Pro</td><td style={{ fontWeight: "500", color: "var(--brand)" }}>10 req/min</td><td style={{ fontWeight: "500", color: "var(--brand)" }}>500 requests</td></tr>
-                <tr><td>Agency</td><td style={{ fontWeight: "500", color: "var(--brand)" }}>30 req/min</td><td style={{ fontWeight: "500", color: "var(--brand)" }}>5,000 requests</td></tr>
+          <tr><td>Max</td><td style={{ fontWeight: "500", color: "var(--brand)" }}>30 req/min</td><td style={{ fontWeight: "500", color: "var(--brand)" }}>500,000 requests</td></tr>
               </tbody>
             </Table>
           </Card>

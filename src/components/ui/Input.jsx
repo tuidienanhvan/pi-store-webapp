@@ -1,5 +1,6 @@
 import React, { forwardRef, useId } from "react";
 import { Icon } from "./icons";
+import "./Input.css";
 
 export const Input = forwardRef(({
   label,

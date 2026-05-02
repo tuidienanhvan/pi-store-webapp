@@ -1,4 +1,5 @@
 import React, { forwardRef, useId } from "react";
+import "./Switch.css";
 
 export const Switch = forwardRef(({
   label,

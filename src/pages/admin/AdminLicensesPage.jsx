@@ -15,7 +15,7 @@ const formatTokens = i18nTokens;
 const PLUGIN_OPTIONS = [
   "pi-seo", "pi-chatbot", "pi-leads", "pi-analytics",
   "pi-performance", "pi-dashboard",
-  "pi-bundle-business", "pi-bundle-agency",
+    "pi-bundle-business", "pi-bundle-max",
 ];
 
 const DEFAULTS = {
@@ -108,6 +108,8 @@ export function AdminLicensesPage() {
               { label: `${t.all} ${t.filter_tier}`, value: "" },
               { label: `Free (${facets.by_tier?.free || 0})`, value: "free" },
               { label: `Pro (${facets.by_tier?.pro || 0})`, value: "pro" },
+              { label: `Max (${facets.by_tier?.max || 0})`, value: "max" },
+              { label: `Enterprise (${facets.by_tier?.enterprise || 0})`, value: "enterprise" },
             ]} />
           <Select value={filters.package}
             onChange={(e) => setFilters({ package: e.target.value, offset: 0 })}
@@ -613,7 +615,12 @@ function CreateLicenseModal({ open, onClose, onCreated }) {
           <div className="grid --cols-3" style={{ gap: "var(--s-3)" }}>
             <Select label="Tier" value={form.tier}
               onChange={(e) => setForm({ ...form, tier: e.target.value })}
-              options={[{ label: "Free", value: "free" }, { label: "Pro", value: "pro" }]} />
+              options={[
+                { label: "Free", value: "free" },
+                { label: "Pro", value: "pro" },
+                { label: "Max", value: "max" },
+                { label: "Enterprise", value: "enterprise" },
+              ]} />
             <Input label="Max sites" type="number" min={1} value={form.max_sites}
               onChange={(e) => setForm({ ...form, max_sites: +e.target.value })} />
             <Input label="Hết hạn (ngày)" type="number" min={0} value={form.expires_days}

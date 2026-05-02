@@ -75,7 +75,7 @@ export function AdminSettingsPage() {
 
       <section className="stack" style={{ gap: "var(--s-4)" }}>
         <div>
-          <h2 style={{ margin: 0, fontSize: "var(--fs-24)" }}>🔐 Security (env-only)</h2>
+          <h2 style={{ margin: 0, fontSize: "var(--fs-24)" }}>Security (env-only)</h2>
           <p style={{ margin: "var(--s-2) 0 0", color: "var(--text-2)", fontSize: "var(--fs-14)" }}>Các giá trị sau đọc từ env vars, đổi qua Railway/Docker — không lưu DB.</p>
         </div>
         <Card style={{ padding: "var(--s-5)" }}>
@@ -97,7 +97,7 @@ function BrandingCard({ branding, onSave, saving }) {
 
   return (
     <section className="stack" style={{ gap: "var(--s-4)" }}>
-      <h2 style={{ margin: 0, fontSize: "var(--fs-24)" }}>🎨 Branding</h2>
+      <h2 style={{ margin: 0, fontSize: "var(--fs-24)" }}>Branding</h2>
       <Card as="form" onSubmit={(e) => { e.preventDefault(); onSave(form); }} style={{ padding: "var(--s-6)" }} className="stack">
         <div className="grid --cols-2" style={{ gap: "var(--s-4)" }}>
           <Input 
@@ -148,7 +148,7 @@ function PacksCard({ packs, onSave, saving }) {
   return (
     <section className="stack" style={{ gap: "var(--s-4)" }}>
       <div>
-        <h2 style={{ margin: 0, fontSize: "var(--fs-24)" }}>💰 Token Packs</h2>
+        <h2 style={{ margin: 0, fontSize: "var(--fs-24)" }}>Token Packs</h2>
         <p style={{ margin: "var(--s-2) 0 0", color: "var(--text-2)", fontSize: "var(--fs-14)" }}>Customer top-up pack — hiện trên <code style={{ color: "var(--text-1)" }}>/billing</code>.</p>
       </div>
 
@@ -197,14 +197,14 @@ function FlagsCard({ flags, onSave, saving }) {
 
   return (
     <section className="stack" style={{ gap: "var(--s-4)" }}>
-      <h2 style={{ margin: 0, fontSize: "var(--fs-24)" }}>🧪 Feature flags</h2>
+      <h2 style={{ margin: 0, fontSize: "var(--fs-24)" }}>Feature flags</h2>
       <Card style={{ padding: "var(--s-6)" }} className="stack">
         <div className="grid --cols-2" style={{ gap: "var(--s-4)" }}>
           {[
             { key: "signup_enabled", label: "Cho phép đăng ký account mới" },
             { key: "billing_enabled", label: "Bật top-up (Stripe checkout)" },
             { key: "marketplace_enabled", label: "Bật marketplace /catalog" },
-            { key: "maintenance_mode", label: "🚧 Maintenance mode (block /v1/ai/complete)", danger: true },
+            { key: "maintenance_mode", label: "Maintenance mode (block /v1/ai/complete)", danger: true },
           ].map((f) => (
             <label key={f.key} style={{ display: "flex", alignItems: "center", gap: "var(--s-2)", cursor: "pointer", color: f.danger && form[f.key] ? "var(--danger)" : "var(--text-1)" }}>
               <input type="checkbox" checked={!!form[f.key]} onChange={() => toggle(f.key)} style={{ width: "16px", height: "16px", accentColor: f.danger ? "var(--danger)" : "var(--brand)" }} />
@@ -242,9 +242,9 @@ function CronCard() {
     setRunning(slug); setMsg("");
     try {
       const r = await api.admin.runCron(slug);
-      setMsg(`✓ ${slug}: ${r.status} in ${r.duration_ms}ms`);
+      setMsg(`${slug}: ${r.status} in ${r.duration_ms}ms`);
       load();
-    } catch (e) { setMsg(`✗ ${slug}: ${e.message}`); }
+    } catch (e) { setMsg(`${slug}: ${e.message}`); }
     finally { setRunning(null); setTimeout(() => setMsg(""), 4000); }
   };
 
@@ -253,12 +253,12 @@ function CronCard() {
   return (
     <section className="stack" style={{ gap: "var(--s-4)" }}>
       <div>
-        <h2 style={{ margin: 0, fontSize: "var(--fs-24)" }}>⏰ Cron jobs</h2>
+        <h2 style={{ margin: 0, fontSize: "var(--fs-24)" }}>Cron jobs</h2>
         <p style={{ margin: "var(--s-2) 0 0", color: "var(--text-2)", fontSize: "var(--fs-14)" }}>
           Background tasks chạy theo lịch. Có thể trigger manual để test.
         </p>
       </div>
-      {msg && <Alert tone={msg.startsWith("✓") ? "success" : "danger"}>{msg}</Alert>}
+      {msg && <Alert tone="success">{msg}</Alert>}
       <Card style={{ padding: 0, overflow: "hidden" }}>
         <Table>
           <thead>
@@ -290,9 +290,9 @@ function CronCard() {
                 </td>
                 <td>
                   {j.last_status === "success"
-                    ? <span style={{ color: "var(--success)", fontSize: "var(--fs-13)" }}>✓ success</span>
+                    ? <span style={{ color: "var(--success)", fontSize: "var(--fs-13)" }}>success</span>
                     : j.last_status === "failed"
-                      ? <span style={{ color: "var(--danger)", fontSize: "var(--fs-13)" }} title={j.last_error}>✗ failed</span>
+                      ? <span style={{ color: "var(--danger)", fontSize: "var(--fs-13)" }} title={j.last_error}>failed</span>
                       : <span style={{ color: "var(--text-3)", fontSize: "var(--fs-13)" }}>chưa chạy</span>}
                 </td>
                 <td style={{ fontSize: "var(--fs-13)", color: "var(--text-2)" }}>{formatTime(j.next_run_estimated_at)}</td>

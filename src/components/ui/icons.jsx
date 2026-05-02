@@ -1,4 +1,5 @@
 import React from "react";
+import "./icons.css";
 
 // Central dictionary of SVG paths (Lucide-style equivalents, 24x24 viewBox, stroke 1.75)
 export const PATHS = {
@@ -45,7 +46,7 @@ export const PATHS = {
   headset: "path d=M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z|path d=M21 16v2a4 4 0 0 1-4 4h-5",
   logout: "path d=M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4|polyline points=16 17 21 12 16 7|line x1=21 y1=12 x2=9 y2=12",
   loader: "line x1=12 y1=2 x2=12 y2=6|line x1=12 y1=18 x2=12 y2=22|line x1=4.93 y1=4.93 x2=7.76 y2=7.76|line x1=16.24 y1=16.24 x2=19.07 y2=19.07|line x1=2 y1=12 x2=6 y2=12|line x1=18 y1=12 x2=22 y2=12|line x1=4.93 y1=19.07 x2=7.76 y2=16.24|line x1=16.24 y1=7.76 x2=19.07 y2=4.93",
-  pi: "line x1=9 x2=9 y1=4 y2=20|path d=M4 7c0-1.7 1.3-3 3-3h13|path d=M18 20c-1.7 0-3-1.3-3-3V4",
+  pi: "M25.946 44.938c-.664.845-2.021.375-2.021-.698V33.937a2.26 2.26 0 0 0-2.262-2.262H10.287c-.92 0-1.456-1.04-.92-1.788l7.48-10.471c1.07-1.497 0-3.578-1.842-3.578H1.237c-.92 0-1.456-1.04-.92-1.788L10.013.474c.214-.297.556-.474.92-.474h28.894c.92 0 1.456 1.04.92 1.788l-7.48 10.471c-1.07 1.498 0 3.579 1.842 3.579h11.377c.943 0 1.473 1.088.89 1.83L25.947 44.94z",
 };
 
 // Simple parser to support multiple nodes or basic path strings
@@ -90,7 +91,7 @@ const renderPaths = (pathString) => {
   });
 };
 
-export function Icon({ name, size = 16, title, className, ...rest }) {
+export function Icon({ name, size = 16, title, className, viewBox, ...rest }) {
   const pathData = PATHS[name];
   
   if (!pathData) {
@@ -100,14 +101,17 @@ export function Icon({ name, size = 16, title, className, ...rest }) {
     return null;
   }
 
+  // Handle custom viewBox for specific icons like 'pi'
+  const finalViewBox = viewBox || (name === "pi" ? "0 0 48 46" : "0 0 24 24");
+
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 24 24"
+      viewBox={finalViewBox}
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.75"
+      strokeWidth={name === "pi" ? "3" : "1.75"}
       strokeLinecap="round"
       strokeLinejoin="round"
       role={title ? "img" : "presentation"}
