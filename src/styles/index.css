@@ -132,7 +132,7 @@
     flex-direction: column;
     position: relative;
     overflow-x: hidden;
-    transition: colors 0.5s ease;
+    transition: color 500ms, background-color 500ms;
   }
 
   /* Premium Background Effects */
@@ -156,6 +156,28 @@
     font-family: var(--font-display);
     color: var(--color-base-content);
     line-height: 1.25;
+  }
+
+  /* --- CUSTOM SCROLLBAR (Premium) --- */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--bc) 10%, transparent);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in srgb, var(--p) 40%, transparent);
+  }
+  
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in srgb, var(--bc) 10%, transparent) transparent;
   }
 }
 
