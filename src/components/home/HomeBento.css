@@ -229,6 +229,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: rotateX(75deg); /* Xoay nghiêng 75 độ theo yêu cầu */
 }
 .model-tag {
   position: absolute;
@@ -242,21 +243,21 @@
   box-shadow: var(--shadow-lg);
   backface-visibility: hidden;
 }
-.model-tag.gpt { border-color: #10a37f; color: #10a37f; animation: orbit-gpt 12s linear infinite; }
-.model-tag.gemini { border-color: #4285f4; color: #4285f4; animation: orbit-gemini 12s linear infinite; }
-.model-tag.claude { border-color: #d97757; color: #d97757; animation: orbit-claude 12s linear infinite; }
+.model-tag.gpt { border-color: var(--p); color: var(--p); animation: orbit-gpt 12s linear infinite; box-shadow: 0 0 15px color-mix(in srgb, var(--p) 20%, transparent); }
+.model-tag.gemini { border-color: var(--p); color: var(--p); animation: orbit-gemini 12s linear infinite; box-shadow: 0 0 15px color-mix(in srgb, var(--p) 20%, transparent); }
+.model-tag.claude { border-color: var(--p); color: var(--p); animation: orbit-claude 12s linear infinite; box-shadow: 0 0 15px color-mix(in srgb, var(--p) 20%, transparent); }
 
 @keyframes orbit-gpt {
-  from { transform: rotateY(0deg) translateX(60px) rotateY(0deg); }
-  to { transform: rotateY(360deg) translateX(60px) rotateY(-360deg); }
+  from { transform: rotateY(0deg) translateX(70px) rotateX(-75deg); }
+  to { transform: rotateY(360deg) translateX(70px) rotateX(-75deg); }
 }
 @keyframes orbit-gemini {
-  from { transform: rotateY(120deg) translateX(85px) rotateY(-120deg); }
-  to { transform: rotateY(480deg) translateX(85px) rotateY(-480deg); }
+  from { transform: rotateY(120deg) translateX(90px) rotateX(-75deg); }
+  to { transform: rotateY(480deg) translateX(90px) rotateX(-75deg); }
 }
 @keyframes orbit-claude {
-  from { transform: rotateY(240deg) translateX(110px) rotateY(-240deg); }
-  to { transform: rotateY(600deg) translateX(110px) rotateY(-600deg); }
+  from { transform: rotateY(240deg) translateX(110px) rotateX(-75deg); }
+  to { transform: rotateY(600deg) translateX(110px) rotateX(-75deg); }
 }
 
 /* Card 4: VN Digital Map */
