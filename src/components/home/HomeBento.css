@@ -247,16 +247,16 @@
 .model-tag.claude { border-color: #d97757; color: #d97757; animation: orbit-claude 12s linear infinite; }
 
 @keyframes orbit-gpt {
-  from { transform: rotateY(0deg) translateX(80px) rotateY(0deg); }
-  to { transform: rotateY(360deg) translateX(80px) rotateY(-360deg); }
+  from { transform: rotateY(0deg) translateX(60px) rotateY(0deg); }
+  to { transform: rotateY(360deg) translateX(60px) rotateY(-360deg); }
 }
 @keyframes orbit-gemini {
-  from { transform: rotateY(120deg) translateX(105px) rotateY(-120deg); }
-  to { transform: rotateY(480deg) translateX(105px) rotateY(-480deg); }
+  from { transform: rotateY(120deg) translateX(85px) rotateY(-120deg); }
+  to { transform: rotateY(480deg) translateX(85px) rotateY(-480deg); }
 }
 @keyframes orbit-claude {
-  from { transform: rotateY(240deg) translateX(130px) rotateY(-240deg); }
-  to { transform: rotateY(600deg) translateX(130px) rotateY(-600deg); }
+  from { transform: rotateY(240deg) translateX(110px) rotateY(-240deg); }
+  to { transform: rotateY(600deg) translateX(110px) rotateY(-600deg); }
 }
 
 /* Card 4: VN Digital Map */
@@ -268,7 +268,7 @@
   align-items: center;
   justify-content: center;
   padding-top: 0;
-  transform: translateY(-20px) scale(0.9); /* Đẩy lên và thu nhỏ để tránh đè chữ */
+  transform: translateY(-30px) scale(0.85); /* Đẩy lên cao hơn và nhỏ lại một chút nữa */
 }
 .map-container {
   position: relative;
@@ -307,7 +307,7 @@
 
 .vn-label-overlay {
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 2rem; /* Tăng khoảng cách với bản đồ */
   position: relative;
   z-index: 10;
 }
