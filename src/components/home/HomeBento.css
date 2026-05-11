@@ -143,8 +143,10 @@
 .badge-1 { top: 12%; right: 6%; transform: rotate(5deg); }
 .badge-2 { bottom: 18%; left: 8%; transform: rotate(-5deg); }
 
-/* Card 2: Infrastructure - Data Flow Simulation */
-.infrastructure-visual { 
+.home-bento__card--2 .glass-shell {
+  overflow: visible; /* Cho phép văng ra ngoài box */
+  z-index: 20;
+}.infrastructure-visual { 
   position: absolute;
   inset: 0;
   display: flex; 
@@ -229,7 +231,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: rotateX(75deg); /* Xoay nghiêng 75 độ theo yêu cầu */
+  transform: rotateX(82deg); /* Nghiêng gần như nằm ngang theo trục Z */
 }
 .model-tag {
   position: absolute;
@@ -248,16 +250,16 @@
 .model-tag.claude { border-color: var(--p); color: var(--p); animation: orbit-claude 12s linear infinite; box-shadow: 0 0 15px color-mix(in srgb, var(--p) 20%, transparent); }
 
 @keyframes orbit-gpt {
-  from { transform: rotateY(0deg) translateX(70px) rotateX(-75deg); }
-  to { transform: rotateY(360deg) translateX(70px) rotateX(-75deg); }
+  from { transform: rotateY(0deg) translateX(140px) rotateX(-82deg); }
+  to { transform: rotateY(360deg) translateX(140px) rotateX(-82deg); }
 }
 @keyframes orbit-gemini {
-  from { transform: rotateY(120deg) translateX(90px) rotateX(-75deg); }
-  to { transform: rotateY(480deg) translateX(90px) rotateX(-75deg); }
+  from { transform: rotateY(120deg) translateX(160px) rotateX(-82deg); }
+  to { transform: rotateY(480deg) translateX(160px) rotateX(-82deg); }
 }
 @keyframes orbit-claude {
-  from { transform: rotateY(240deg) translateX(110px) rotateX(-75deg); }
-  to { transform: rotateY(600deg) translateX(110px) rotateX(-75deg); }
+  from { transform: rotateY(240deg) translateX(180px) rotateX(-82deg); }
+  to { transform: rotateY(600deg) translateX(180px) rotateX(-82deg); }
 }
 
 /* Card 4: VN Digital Map V2 - High Fidelity */
