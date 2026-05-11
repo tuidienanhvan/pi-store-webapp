@@ -1,0 +1,84 @@
+﻿@reference "../../styles/index.css";
+
+
+
+/* -------------------------------------------------------------
+
+   AdminOverviewPage.css  CH? nh?ng g Tailwind KHNG lm du?c
+
+   ------------------------------------------------------------- */
+
+
+
+/* 1. Gradient text (Tailwind khng c -webkit-text-fill-color) */
+
+.premium-title {
+
+  font-family: var(--font-display);
+
+  background: linear-gradient(to bottom, var(--base-content) 0%, color-mix(in srgb, var(--base-content) 80%, transparent) 100%);
+
+  -webkit-background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+}
+
+
+
+/* 2. Glassmorphism card (backdrop-filter + color-mix) */
+
+.admin-overview-card--glass {
+
+  background: color-mix(in srgb, var(--base-200) 40%, transparent);
+
+  backdrop-filter: blur(40px);
+
+  -webkit-backdrop-filter: blur(40px);
+
+  border: 1px solid var(--base-border-subtle);
+
+  box-shadow: var(--shadow-md);
+
+  border-radius: var(--rounded-3xl);
+
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+}
+
+
+
+/* 3. Badge overrides (!important needed to override UI library tone styles) */
+
+.badge-premium-success {
+
+  background: color-mix(in srgb, var(--success) 15%, transparent) !important;
+
+  color: var(--success) !important;
+
+  border: 1px solid color-mix(in srgb, var(--success) 20%, transparent) !important;
+
+}
+
+
+
+.badge-premium-danger {
+
+  background: color-mix(in srgb, var(--danger) 15%, transparent) !important;
+
+  color: var(--danger) !important;
+
+  border: 1px solid color-mix(in srgb, var(--danger) 20%, transparent) !important;
+
+}
+
+
+
+/* 4. Drop-shadow filter (Tailwind drop-shadow khng h? tr? color-mix) */
+
+.shield-glow {
+
+  filter: drop-shadow(0 0 20px color-mix(in srgb, var(--success) 40%, transparent));
+
+}
+

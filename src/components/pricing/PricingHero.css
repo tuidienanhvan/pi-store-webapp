@@ -1,3 +1,88 @@
-@reference "../../styles/index.css";
+﻿@reference "../../styles/index.css";
 
-/* PricingHero component styles */
+
+
+@layer components {
+
+.pricing-header {
+
+  @apply mx-auto flex max-w-[980px] flex-col items-center px-4 pb-12 pt-16 text-center;
+
+}
+
+
+
+.pricing-headline {
+
+  @apply max-w-[860px] text-[clamp(2.8rem,7vw,5.5rem)] font-black leading-[0.9] tracking-tighter;
+
+  background: linear-gradient(to bottom, #fff, rgba(255, 255, 255, 0.6));
+
+  -webkit-background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
+
+}
+
+
+
+.pricing-subhead {
+
+  @apply mt-6 max-w-[600px] text-lg font-medium leading-relaxed opacity-60 text-base-content/80;
+
+}
+
+
+
+.billing-toggle {
+
+  @apply relative mt-12 inline-flex items-center gap-1 rounded-full border border-base-border bg-base-400/40 p-1.5 shadow-2xl;
+
+  backdrop-filter: blur(12px);
+
+}
+
+
+
+.billing-btn {
+
+  @apply relative z-10 rounded-full px-8 py-3 text-[13px] font-bold uppercase tracking-wider transition-all duration-500 text-base-content/60;
+
+  font-family: var(--font-display);
+
+}
+
+
+
+.billing-btn:hover {
+
+  @apply text-base-content;
+
+}
+
+
+
+.billing-btn.is-active {
+
+  @apply bg-primary text-primary-content shadow-[0_0_25px_-5px_rgba(211,85,115,0.4)];
+
+  transform: scale(1.02);
+
+}
+
+
+
+.billing-save-badge {
+
+  @apply ml-2 rounded-full bg-success/20 px-3 py-1 text-[10px] font-black uppercase text-success;
+
+  border: 1px solid rgba(52, 211, 153, 0.2);
+
+}
+
+
+
+}
+

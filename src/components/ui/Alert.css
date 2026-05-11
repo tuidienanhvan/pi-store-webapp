@@ -1,3 +1,12 @@
-@reference "../../styles/index.css";
+﻿@reference "../../styles/index.css";
 
-/* Alert component styles */
+
+
+.alert--success { border-color: color-mix(in srgb, var(--color-success) 20%, transparent); background-color: color-mix(in srgb, var(--color-success) 10%, transparent); }
+
+.alert--warning { border-color: color-mix(in srgb, var(--color-warning) 20%, transparent); background-color: color-mix(in srgb, var(--color-warning) 10%, transparent); }
+
+.alert--danger { border-color: color-mix(in srgb, var(--color-danger) 20%, transparent); background-color: color-mix(in srgb, var(--color-danger) 10%, transparent); }
+
+.alert--info { border-color: color-mix(in srgb, var(--color-info) 20%, transparent); background-color: color-mix(in srgb, var(--color-info) 10%, transparent); }
+

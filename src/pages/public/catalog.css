@@ -1,0 +1,324 @@
+﻿@reference "../../styles/index.css";
+
+
+
+@layer components {
+
+.catalog-page {
+
+  @apply pb-32;
+
+}
+
+
+
+.catalog-hero {
+
+  @apply relative py-20 md:py-28 overflow-hidden border-b border-base-border-subtle;
+
+  background: radial-gradient(circle at 50% -20%, var(--brand-alpha), transparent 70%);
+
+}
+
+
+
+.catalog-hero__inner {
+
+  @apply mx-auto max-w-[820px] text-center flex flex-col gap-10 items-center;
+
+}
+
+
+
+.catalog-title {
+
+  @apply text-[clamp(2.5rem,6vw,4.5rem)] font-black leading-tight tracking-tight m-0;
+
+  background: linear-gradient(180deg, var(--base-content) 0%, color-mix(in srgb, var(--base-content) 80%, transparent) 100%);
+
+  -webkit-background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+}
+
+
+
+.catalog-subtitle {
+
+  @apply text-lg md:text-xl font-medium m-0 max-w-[600px] text-base-content/80;
+
+}
+
+
+
+.catalog-search-container {
+
+  @apply w-full flex flex-col gap-6;
+
+}
+
+
+
+.catalog-search-box {
+
+  @apply relative w-full h-16 flex items-center bg-base-content/[0.03] border border-base-border rounded-2xl px-6 transition-all focus-within:bg-base-content/[0.06] focus-within:border-primary/40 focus-within:shadow-[0_0_40px_rgba(var(--brand-rgb),0.1)];
+
+}
+
+
+
+.search-icon {
+
+  @apply text-base-content/50 transition-colors group-focus-within:text-primary;
+
+}
+
+
+
+.catalog-search-input {
+
+  @apply flex-1 h-full bg-transparent border-none outline-none px-4 text-lg font-medium text-base-content;
+
+}
+
+
+
+.catalog-filter-row {
+
+  @apply flex flex-wrap justify-center gap-2;
+
+}
+
+
+
+.cat-pill {
+
+  @apply h-10 px-6 rounded-full border border-base-border bg-base-content/[0.02] text-xs font-black uppercase tracking-widest text-base-content/60 transition-all hover:bg-base-content/5 hover:text-base-content;
+
+}
+
+
+
+.cat-pill.is-active {
+
+  @apply bg-primary border-primary text-primary-content shadow-lg shadow-brand/20;
+
+}
+
+
+
+.catalog-header-meta {
+
+  @apply flex items-center justify-between border-b border-base-border-subtle pb-6 mb-10;
+
+}
+
+
+
+.results-count {
+
+  @apply text-[10px] font-black uppercase tracking-[0.2em] text-base-content/50;
+
+}
+
+
+
+.catalog-grid {
+
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+
+}
+
+
+
+.catalog-item-card {
+
+  @apply flex flex-col p-6 h-full transition-all hover:scale-[1.02] hover:bg-base-content/[0.04];
+
+}
+
+
+
+.catalog-item-card__visual {
+
+  @apply flex items-start justify-between mb-8;
+
+}
+
+
+
+.catalog-item-icon {
+
+  @apply w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center border border-primary/20 shadow-lg shadow-brand/5;
+
+}
+
+
+
+.catalog-item-name {
+
+  @apply text-xl font-black m-0 tracking-tight;
+
+}
+
+
+
+.catalog-item-tagline {
+
+  @apply text-sm leading-relaxed m-0 text-base-content/80 line-clamp-2;
+
+}
+
+
+
+.catalog-item-card__footer {
+
+  @apply mt-auto pt-8 border-t border-base-border-subtle flex flex-col gap-6;
+
+}
+
+
+
+.catalog-item-price {
+
+  @apply flex items-baseline gap-1;
+
+}
+
+
+
+.price-val {
+
+  @apply text-2xl font-black text-base-content;
+
+}
+
+
+
+.price-unit {
+
+  @apply text-[10px] font-bold uppercase tracking-widest text-base-content/50;
+
+}
+
+
+
+.catalog-item-actions {
+
+  @apply grid grid-cols-2 gap-3;
+
+}
+
+
+
+/* -- Modal -- */
+
+.lead-modal-overlay {
+
+  @apply fixed inset-0 z-50 flex items-center justify-center p-4 bg-base-300/60 backdrop-blur-sm;
+
+}
+
+
+
+.lead-modal-card {
+
+  @apply relative w-full max-w-[540px] bg-[rgba(15,18,24,0.98)] border border-base-border rounded-[2rem] p-8 md:p-10 shadow-2xl;
+
+}
+
+
+
+.modal-close-btn {
+
+  @apply absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center bg-base-content/5 hover:bg-base-content/10 transition-colors text-base-content/60;
+
+}
+
+
+
+.modal-title {
+
+  @apply text-3xl font-black m-0 tracking-tight;
+
+}
+
+
+
+.modal-desc {
+
+  @apply text-base text-base-content/80 m-0;
+
+}
+
+
+
+.modal-product-tag {
+
+  @apply inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-primary/10 border border-primary/20 text-primary text-sm font-bold;
+
+}
+
+
+
+.field-label span {
+
+  @apply text-[10px] font-black uppercase tracking-[0.15em] text-base-content/50;
+
+}
+
+
+
+.catalog-textarea {
+
+  @apply w-full bg-base-content/5 border border-base-border rounded-xl p-4 text-sm font-medium text-base-content focus:border-primary/40 outline-none transition-all placeholder:text-base-content/30;
+
+}
+
+
+
+.modal-success-state {
+
+  @apply py-12 flex flex-col items-center gap-6 text-center;
+
+}
+
+
+
+.success-icon-wrap {
+
+  @apply w-20 h-20 bg-success/10 text-success rounded-full flex items-center justify-center shadow-lg shadow-success/10;
+
+}
+
+
+
+.success-msg {
+
+  @apply text-lg font-bold text-success m-0;
+
+}
+
+
+
+@keyframes animate-in {
+
+  from { opacity: 0; transform: translateY(10px); }
+
+  to { opacity: 1; transform: translateY(0); }
+
+}
+
+
+
+.animate-in {
+
+  animation: animate-in 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+}
+
+
+
+}
+

@@ -1,0 +1,1 @@
+const data = require('./lint.json'); data.forEach(f => { if(f.errorCount>0 || f.warningCount>0) { console.log(f.filePath); f.messages.forEach(m => console.log('  L' + m.line + ': ' + m.message + ' [' + m.ruleId + ']')) } });

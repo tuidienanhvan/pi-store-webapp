@@ -1,0 +1,174 @@
+﻿import React from "react";
+
+
+
+/**
+
+ * AdminTableSkeleton  High-fidelity ghost for list pages.
+
+ * Matches the floating sidebar + topbar + glass table layout.
+
+ */
+
+export function AdminTableSkeleton() {
+
+  return (
+
+    <div className="flex min-h-screen bg-bg">
+
+      {/* Sidebar Ghost */}
+
+      <aside className="hidden lg:flex flex-col w-[var(--sidebar-width)] h-[calc(100vh-32px)] m-4 rounded-3xl bg-base-200/30 border border-base-border">
+
+        <div className="h-24 border-b border-base-border flex items-center px-8">
+
+          <div className="h-7 w-32 skeleton" />
+
+        </div>
+
+        <div className="flex-1 p-4 flex flex-col gap-3">
+
+          {[1, 2, 3, 4, 5, 6].map((i) => (
+
+            <div key={i} className="h-12 w-full skeleton rounded-2xl" />
+
+          ))}
+
+        </div>
+
+        <div className="p-6 border-t border-base-border flex items-center gap-3">
+
+          <div className="w-10 h-10 rounded-full skeleton" />
+
+          <div className="flex-1 flex flex-col gap-1">
+
+            <div className="h-3 w-20 skeleton" />
+
+            <div className="h-2 w-16 skeleton" />
+
+          </div>
+
+        </div>
+
+      </aside>
+
+
+
+      {/* Main Ghost */}
+
+      <main className="flex-1 flex flex-col min-w-0">
+
+        {/* Topbar Ghost */}
+
+        <header className="h-16 mx-8 mt-4 mb-4 rounded-2xl bg-base-200/30 border border-base-border flex items-center px-6">
+
+          <div className="h-4 w-32 skeleton" />
+
+          <div className="ml-auto flex gap-4">
+
+            <div className="w-8 h-8 rounded-lg skeleton" />
+
+            <div className="w-8 h-8 rounded-lg skeleton" />
+
+          </div>
+
+        </header>
+
+
+
+        {/* Content Ghost */}
+
+        <div className="px-8 pt-4 pb-20">
+
+          <div className="flex flex-col gap-10">
+
+            {/* Page Header */}
+
+            <div className="flex flex-wrap items-end justify-between gap-6 px-4 lg:px-0">
+
+              <div className="flex flex-col gap-3">
+
+                <div className="h-10 w-64 skeleton rounded-2xl" />
+
+                <div className="h-4 w-96 skeleton rounded-lg" />
+
+              </div>
+
+              <div className="h-10 w-32 skeleton rounded-xl" />
+
+            </div>
+
+
+
+            {/* Toolbar Ghost (Grid 2-row) */}
+
+            <div className="p-6 rounded-[2rem] bg-base-200/30 border border-base-border flex flex-col gap-6 mx-4 lg:mx-0">
+
+              <div className="h-[42px] w-full skeleton rounded-xl" />
+
+              <div className="grid grid-cols-2 md:grid-cols-6 gap-3 pt-6 border-t border-base-border-subtle">
+
+                {[1, 2, 3, 4, 5, 6].map((i) => (
+
+                  <div key={i} className="h-10 w-full skeleton rounded-xl" />
+
+                ))}
+
+              </div>
+
+            </div>
+
+
+
+            {/* Table Ghost */}
+
+            <div className="mx-4 lg:mx-0 rounded-3xl border border-base-border bg-base-200/30 overflow-hidden">
+
+              <div className="h-14 w-full bg-base-300/40 border-b border-base-border-subtle" />
+
+              {[1, 2, 3, 4, 5, 6, 7].map((i) => (
+
+                <div key={i} className="h-20 w-full border-b border-base-border-subtle flex items-center px-8 gap-8">
+
+                  <div className="flex items-center gap-4 flex-1">
+
+                    <div className="w-12 h-12 rounded-2xl skeleton" />
+
+                    <div className="flex flex-col gap-2">
+
+                      <div className="h-3 w-32 skeleton" />
+
+                      <div className="h-2 w-48 skeleton" />
+
+                    </div>
+
+                  </div>
+
+                  <div className="h-4 w-24 skeleton" />
+
+                  <div className="h-4 w-20 skeleton" />
+
+                  <div className="h-8 w-24 skeleton rounded-xl" />
+
+                </div>
+
+              ))}
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </main>
+
+    </div>
+
+  );
+
+}
+
+
+
+export default AdminTableSkeleton;
+

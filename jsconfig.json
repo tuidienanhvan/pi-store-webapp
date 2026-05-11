@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "paths": {
+      "@/*": ["src/*"],
+      "@pi-ui": ["shared"],
+      "@pi-ui/*": ["shared/*"]
+    }
+  },
+  "exclude": ["node_modules", "build"]
+}

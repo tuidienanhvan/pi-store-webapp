@@ -1,0 +1,190 @@
+@reference "../../styles/index.css";
+
+
+
+@layer components {
+
+.auth-form-card {
+
+  position: relative;
+
+  width: min(100%, 456px);
+
+  padding: clamp(24px, 4.4dvh, 42px);
+
+  border: 1px solid var(--base-border);
+
+  border-radius: clamp(24px, 4vw, 44px);
+
+  background: var(--base-200);
+
+  box-shadow: var(--shadow-2xl);
+
+  backdrop-filter: blur(28px);
+
+  overflow: hidden;
+
+  animation: authCardIn 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+
+}
+
+
+
+@keyframes authCardIn {
+
+  from { opacity: 0; transform: translateY(8px) scale(0.99); }
+
+  to { opacity: 1; transform: translateY(0) scale(1); }
+
+}
+
+
+
+.auth-header { margin-bottom: clamp(16px, 2.4dvh, 26px); }
+
+.auth-header h1 {
+
+  @apply text-base-content;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(2rem, 5.4dvh, 3.6rem);
+
+  font-weight: 950;
+
+  letter-spacing: -0.055em;
+
+  line-height: 0.94;
+
+}
+
+
+
+.auth-social {
+
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 10px;
+
+  margin-bottom: clamp(14px, 1.8dvh, 20px);
+
+}
+
+
+
+.auth-social-btn {
+
+  @apply flex items-center justify-center gap-2 rounded-xl border border-base-border bg-base-200 px-4 py-2 text-sm font-bold transition-all;
+
+  height: clamp(42px, 5.2dvh, 52px);
+
+}
+
+
+
+.auth-social-btn:hover {
+
+  @apply -translate-y-0.5 border-base-border/80 bg-base-200/80;
+
+}
+
+
+
+.auth-divider {
+
+  @apply mb-4 flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-base-content/50;
+
+}
+
+.auth-divider::before, .auth-divider::after { content: ""; @apply h-px flex-1 bg-base-border/40; }
+
+
+
+.auth-form {
+
+  @apply flex w-full max-w-[420px] flex-col gap-2;
+
+}
+
+.auth-label { @apply mb-1 block text-[10px] font-black uppercase tracking-widest text-base-content/50 opacity-70; }
+
+.auth-field__row { @apply flex items-center justify-between mb-1; }
+
+.auth-link { @apply text-[10px] font-black uppercase tracking-widest text-primary hover:underline; }
+
+
+
+.auth-input-container { @apply relative; }
+
+.auth-input {
+
+  @apply h-12 w-full rounded-xl border border-base-border bg-base-200 px-11 text-sm font-bold transition-all focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/10;
+
+}
+
+.auth-input-icon { @apply absolute left-4 top-1/2 -translate-y-1/2 text-base-content/50 transition-colors; }
+
+.auth-input-container:focus-within .auth-input-icon { @apply text-primary; }
+
+
+
+.auth-pw-toggle { @apply absolute right-3 top-1/2 -translate-y-1/2 rounded-lg p-1.5 text-base-content/50 hover:bg-base-content/10 hover:text-base-content; }
+
+
+
+.auth-submit--modern {
+
+  @apply mt-2 flex h-14 w-full items-center justify-center rounded-xl bg-primary font-display text-lg font-black text-primary-content shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95;
+
+  background: linear-gradient(135deg, var(--primary), color-mix(in srgb, var(--primary) 80%, black));
+
+}
+
+
+
+.auth-footer { @apply mt-4 text-center text-sm font-bold text-base-content/50; }
+
+.auth-footer a { @apply text-primary font-black hover:underline; }
+
+
+
+/* Marketing Section Styles */
+
+.marketing-badge { @apply inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-black uppercase tracking-widest text-primary; }
+
+.marketing-title { @apply mt-6 text-5xl font-black leading-[0.94] tracking-tighter text-base-content; font-family: var(--font-display); }
+
+.marketing-title span { @apply block text-primary; }
+
+.marketing-desc { @apply mt-4 max-w-[42ch] text-lg font-bold leading-relaxed text-base-content/80; }
+
+
+
+.feature-list { @apply mt-10 flex flex-col gap-4; }
+
+.feature-item { @apply flex items-center gap-4 text-base font-bold text-base-content; }
+
+.feature-icon { @apply flex h-10 w-10 items-center justify-center rounded-xl border border-base-border bg-base-content/5 text-primary; }
+
+
+
+/* Orbit Animation Section */
+
+.auth-orbit { @apply my-6 block w-full max-w-[520px] overflow-visible; height: clamp(160px, 24dvh, 280px); }
+
+.auth-orbit__grid { fill: none; stroke: var(--base-border); stroke-width: 1; opacity: 0.3; }
+
+.auth-orbit__ring { fill: none; stroke: url(#orbitStroke); stroke-width: 1.5; stroke-dasharray: 8 10; opacity: 0.8; }
+
+.auth-orbit__node { fill: var(--base-200); stroke: var(--base-border); stroke-width: 1; }
+
+.auth-orbit__node--brand { fill: color-mix(in srgb, var(--primary) 20%, transparent); stroke: var(--primary); }
+
+.auth-orbit__pi { fill: #fff; font-family: var(--font-display); font-size: 54px; font-weight: 950; }
+
+
+
+}
+

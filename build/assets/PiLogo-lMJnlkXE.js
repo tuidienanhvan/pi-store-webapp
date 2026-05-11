@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-DAs1UGHr.js";import{t}from"./react-BnRWbv_O.js";t();var n=e(),r=({size:e=48,disabled:t=!1,className:r=``,...i})=>(0,n.jsx)(`div`,{className:`pi-logo-container ${t?`is-disabled`:``} ${r}`,style:{width:e,height:e},...i,children:(0,n.jsx)(`img`,{src:`/logo-optimized.svg`,alt:`Pi Logo`,className:`pi-logo-img`})});export{r as t};

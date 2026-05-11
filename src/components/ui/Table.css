@@ -1,3 +1,82 @@
-@reference "../../styles/index.css";
+﻿@reference "../../styles/index.css";
 
-/* Table component styles */
+
+
+@layer components {
+
+.table-wrapper { 
+
+  @apply overflow-x-auto rounded-xl border border-base-border bg-base-200/30 backdrop-blur-md; 
+
+  box-shadow: var(--shadow-2xl);
+
+}
+
+
+
+.table { 
+
+  @apply w-full border-collapse text-left; 
+
+}
+
+
+
+.table th {
+
+  @apply px-6 py-4 text-[10px] font-black uppercase tracking-[0.15em] transition-colors whitespace-nowrap;
+
+  background-color: color-mix(in srgb, var(--base-300) 40%, transparent);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+
+  color: color-mix(in srgb, var(--base-content) 60%, transparent);
+
+  min-width: 120px;
+
+}
+
+
+
+.table td {
+
+  @apply px-6 py-5 text-sm transition-all duration-300 whitespace-nowrap;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.01);
+
+  color: color-mix(in srgb, var(--base-content) 80%, transparent);
+
+  min-width: 120px;
+
+}
+
+
+
+.table tr {
+
+  @apply transition-colors duration-300;
+
+}
+
+
+
+.table tr:hover td {
+
+  background-color: rgba(255, 255, 255, 0.01);
+
+  color: var(--base-content);
+
+}
+
+
+
+.table tr:last-child td { 
+
+  @apply border-b-0; 
+
+}
+
+
+
+}
+

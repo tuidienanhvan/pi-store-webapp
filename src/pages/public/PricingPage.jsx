@@ -1,12 +1,13 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
-import { useLocale } from "../../context/LocaleContext";
-import { Alert } from "../../components/ui";
-import { billing } from "../../api/billing";
-import { PricingHero } from "../../components/pricing/PricingHero";
-import { PricingGrid } from "../../components/pricing/PricingGrid";
-import { PricingEnterprise } from "../../components/pricing/PricingEnterprise";
+import { useAuth } from "@/context/AuthContext";
+import { useLocale } from "@/context/LocaleContext";
+import { Alert } from "@/components/ui";
+import { billing } from "@/api/billing";
+import { PricingHero } from "@/components/pricing/PricingHero";
+import { PricingGrid } from "@/components/pricing/PricingGrid";
+import { PricingEnterprise } from "@/components/pricing/PricingEnterprise";
+import "./PricingPage.css";
 
 const getTiers = (isVi) => [
   {
@@ -17,17 +18,17 @@ const getTiers = (isVi) => [
     monthlyTokens: "5,000",
     badge: null,
     accentVar: "--pi-tier-free",
-    description: isVi ? "Khởi động một site với SEO audit và AI tokens cơ bản." : "Start one site with SEO audit and essential AI tokens.",
+    description: isVi ? "Kh?i d?ng m?t site v?i SEO audit v AI tokens co b?n." : "Start one site with SEO audit and essential AI tokens.",
     features: [
       { text: isVi ? "1 site" : "1 site", included: true },
-      { text: isVi ? "SEO audit cơ bản" : "Basic SEO audit", included: true },
-      { text: isVi ? "5,000 AI tokens/tháng" : "5,000 AI tokens/month", included: true },
+      { text: isVi ? "SEO audit co b?n" : "Basic SEO audit", included: true },
+      { text: isVi ? "50,000 AI tokens/thng" : "50,000 AI tokens/month", included: true },
       { text: "AI Chatbot", included: false },
       { text: "Lead pipeline", included: false },
       { text: "Analytics dashboard", included: false },
-      { text: isVi ? "Ưu tiên hỗ trợ" : "Priority support", included: false },
+      { text: isVi ? "Uu tin h? tr?" : "Priority support", included: false },
     ],
-    cta: isVi ? "Bắt đầu miễn phí" : "Start free",
+    cta: isVi ? "B?t d?u mi?n ph" : "Start free",
   },
   {
     id: "pro",
@@ -35,20 +36,20 @@ const getTiers = (isVi) => [
     priceMonthly: 19,
     priceYearly: 15,
     monthlyTokens: "100,000",
-    badge: isVi ? "Phổ biến nhất" : "Most popular",
+    badge: isVi ? "Ph? bi?n nh?t" : "Most popular",
     popular: true,
     accentVar: "--pi-tier-pro",
-    description: isVi ? "Gói vận hành cho site thương mại cần chatbot, lead và analytics." : "Operating plan for commerce sites that need chatbot, lead and analytics.",
+    description: isVi ? "Gi v?n hnh cho site thuong mi c?n chatbot, lead v analytics." : "Operating plan for commerce sites that need chatbot, lead and analytics.",
     features: [
       { text: isVi ? "5 sites" : "5 sites", included: true },
-      { text: isVi ? "Tất cả tính năng Free" : "All Free features", included: true },
+      { text: isVi ? "Tt c tnh nang Free" : "All Free features", included: true },
       { text: "AI Chatbot", included: true },
       { text: "Lead pipeline", included: true },
       { text: "Analytics dashboard", included: true },
-      { text: isVi ? "100,000 AI tokens/tháng" : "100,000 AI tokens/month", included: true },
-      { text: isVi ? "Nạp thêm token" : "Top-up extra tokens", included: true },
+      { text: isVi ? "1,000,000 AI tokens/thng" : "1,000,000 AI tokens/month", included: true },
+      { text: isVi ? "N?p thm token" : "Top-up extra tokens", included: true },
     ],
-    cta: isVi ? "Nâng cấp Pro" : "Upgrade Pro",
+    cta: isVi ? "Nng c?p Pro" : "Upgrade Pro",
   },
   {
     id: "max",
@@ -56,19 +57,19 @@ const getTiers = (isVi) => [
     priceMonthly: 49,
     priceYearly: 39,
     monthlyTokens: "500,000",
-    badge: isVi ? "Cho đội vận hành" : "For operations teams",
+    badge: isVi ? "Cho d?i v?n hnh" : "For operations teams",
     accentVar: "--pi-tier-max",
-    description: isVi ? "Multi-site, white-label và quota lớn cho đội chuyên nghiệp." : "Multi-site, white-label and larger quotas for advanced teams.",
+    description: isVi ? "Multi-site, white-label v quota l?n cho d?i chuyn nghi?p." : "Multi-site, white-label and larger quotas for advanced teams.",
     features: [
       { text: isVi ? "25 sites" : "25 sites", included: true },
-      { text: isVi ? "Tất cả tính năng Pro" : "All Pro features", included: true },
+      { text: isVi ? "Tt c tnh nang Pro" : "All Pro features", included: true },
       { text: "Multi-site management", included: true },
       { text: "White-label branding", included: true },
-      { text: isVi ? "500,000 AI tokens/tháng" : "500,000 AI tokens/month", included: true },
-      { text: isVi ? "Hỗ trợ ưu tiên 24/7" : "Priority support 24/7", included: true },
+      { text: isVi ? "3,000,000 AI tokens/thng" : "3,000,000 AI tokens/month", included: true },
+      { text: isVi ? "H? tr? uu tin 24/7" : "Priority support 24/7", included: true },
       { text: "Custom integrations", included: true },
     ],
-    cta: isVi ? "Nâng cấp Max" : "Upgrade Max",
+    cta: isVi ? "Nng c?p Max" : "Upgrade Max",
   },
 ];
 
@@ -87,28 +88,30 @@ export function PricingPage() {
   const copy = isVi
     ? {
         hero: {
-          title: "Pricing rõ ràng cho WordPress AI operations",
-          subtitle: "Trả tiền theo mức sử dụng. Nâng cấp hoặc hủy bất cứ lúc nào. Free đủ để thử nghiệm, Pro và Max đủ để vận hành production.",
-          monthly: "Tháng",
-          yearly: "Năm",
+          title: "Pricing r rng cho WordPress AI operations",
+          subtitle: "Tr? ti?n theo m?c s? d?ng. Nng c?p ho?c h?y b?t c? lc no. Free d? d? th? nghi?m, Pro v Max d? d? v?n hnh production.",
+          monthly: "Thng",
+          yearly: "Nam",
         },
         card: {
-          pricePeriod: "/ tháng",
-          yearlyPayPrefix: "thanh toán",
-          yearlyUnit: "năm",
-          yearlySavePrefix: "tiết kiệm",
-          tokensPerMonth: "AI tokens/tháng",
+          pricePeriod: "/ thng",
+          yearlyPayPrefix: "thanh ton",
+          yearlyUnit: "nam",
+          yearlySavePrefix: "ti?t ki?m",
+          tokensPerMonth: "AI tokens/thng",
+          monthlyBilled: "theo thng",
+          yearlyBilled: "theo nam",
         },
         enterprise: {
-          title: "Cần solution riêng?",
-          description: "Custom token limits, dedicated infrastructure, SLA cam kết, SSO, white-label và triển khai riêng cho đội 50+ người.",
+          title: "C?n solution ring?",
+          description: "Custom token limits, dedicated infrastructure, SLA cam k?t, SSO, white-label v tri?n khai ring cho d?i 50+ ngu?i.",
           features: ["Unlimited sites", "Custom SLA", "SSO / SAML", "Dedicated infrastructure", "24/7 premium support", "Custom integrations"],
-          cta: "Liên hệ sales",
-          note: "Phản hồi trong 2 giờ làm việc",
+          cta: "Lin h? sales",
+          note: "Ph?n h?i trong 2 gi? lm vi?c",
         },
         alerts: {
-          canceled: "Thanh toán đã hủy. Bạn có thể chọn lại gói bất cứ lúc nào.",
-          stripeError: "Không tạo được phiên thanh toán Stripe.",
+          canceled: "Thanh ton d h?y. B?n c th? ch?n l?i gi b?t c? lc no.",
+          stripeError: "Khng t?o du?c phin thanh ton Stripe.",
         },
       }
     : {
@@ -124,6 +127,8 @@ export function PricingPage() {
           yearlyUnit: "year",
           yearlySavePrefix: "save",
           tokensPerMonth: "AI tokens/month",
+          monthlyBilled: "monthly",
+          yearlyBilled: "yearly",
         },
         enterprise: {
           title: "Need a custom solution?",
@@ -150,6 +155,13 @@ export function PricingPage() {
     }
     setLoadingTier(tier);
     try {
+      // Simulation mode bypasses Stripe
+      if (import.meta.env.VITE_DEMO_MODE === "true") {
+        await billing.simulateSuccess({ tier });
+        navigate("/app/billing/success?tier=" + tier);
+        return;
+      }
+
       const res = await billing.subscribeCheckout({ tier });
       window.location.href = res.checkout_url;
     } catch (err) {
@@ -177,3 +189,5 @@ export function PricingPage() {
     </div>
   );
 }
+
+export default PricingPage;

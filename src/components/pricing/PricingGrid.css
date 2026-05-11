@@ -1,3 +1,16 @@
-@reference "../../styles/index.css";
+﻿@reference "../../styles/index.css";
 
-/* PricingGrid component styles */
+
+
+@layer components {
+
+.pricing-grid {
+
+  @apply mx-auto grid max-w-[1240px] grid-cols-1 gap-8 px-6 pb-20 md:grid-cols-2 xl:grid-cols-3;
+
+}
+
+
+
+}
+

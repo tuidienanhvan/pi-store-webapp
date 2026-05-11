@@ -1,0 +1,158 @@
+﻿@reference "../../styles/index.css";
+
+
+
+/* --- AUTH LAYOUT --- */
+
+.auth-split {
+
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr);
+
+  min-height: 100dvh;
+
+  height: auto;
+
+  overflow: visible;
+
+  background:
+
+    radial-gradient(circle at 8% 8%, color-mix(in srgb, var(--color-brand) 15%, transparent), transparent 28rem),
+
+    radial-gradient(circle at 86% 92%, color-mix(in srgb, var(--color-info) 10%, transparent), transparent 28rem),
+
+    linear-gradient(90deg, var(--base-border) 1px, transparent 1px),
+
+    linear-gradient(var(--base-border) 1px, transparent 1px),
+
+    var(--base-100);
+
+  background-size: 100% 100%, 100% 100%, 78px 78px, 78px 78px;
+
+  color: var(--base-content);
+
+}
+
+
+
+.auth-noise {
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.23;
+
+  background-image: repeating-radial-gradient(circle at 20% 30%, rgba(255,255,255,0.08) 0 1px, transparent 1px 7px);
+
+  mix-blend-mode: overlay;
+
+  mask-image: linear-gradient(to bottom, #000, transparent 88%);
+
+}
+
+
+
+.auth-decorative-blob {
+
+  position: absolute;
+
+  z-index: 0;
+
+  border-radius: 999px;
+
+  filter: blur(92px);
+
+  opacity: 0.15;
+
+  pointer-events: none;
+
+  animation: authFloat 18s cubic-bezier(0.16, 1, 0.3, 1) infinite alternate;
+
+}
+
+
+
+.auth-decorative-blob--1 { width: 300px; height: 300px; left: -90px; top: 4%; background: var(--primary); }
+
+.auth-decorative-blob--2 { width: 360px; height: 360px; right: 4%; bottom: -130px; background: var(--info); animation-delay: -7s; }
+
+
+
+@keyframes authFloat {
+
+  from { transform: translate3d(0, 0, 0) scale(1); }
+
+  to { transform: translate3d(28px, 36px, 0) scale(1.08); }
+
+}
+
+
+
+.auth-split__form {
+
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: clamp(18px, 4dvh, 56px) clamp(16px, 4vw, 64px);
+
+}
+
+
+
+.auth-split__marketing {
+
+  position: relative;
+
+  z-index: 1;
+
+  display: none;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: clamp(30px, 6dvh, 72px) clamp(32px, 5vw, 76px);
+
+  border-left: 1px solid var(--base-border);
+
+  background:
+
+    radial-gradient(circle at 50% 76%, rgba(56,189,248,0.12), transparent 20rem),
+
+    linear-gradient(180deg, rgba(255,255,255,0.03), transparent);
+
+}
+
+
+
+@media (min-width: 980px) {
+
+  .auth-split { 
+
+    grid-template-columns: minmax(520px, 1.08fr) minmax(420px, 0.92fr); 
+
+    height: 100dvh;
+
+    overflow: hidden;
+
+  }
+
+  .auth-split__marketing { display: flex; height: 100%; overflow: hidden; }
+
+  .auth-split__form { height: 100%; overflow-y: auto; }
+
+}
+

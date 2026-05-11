@@ -1,3 +1,50 @@
-@reference "../../styles/index.css";
+﻿@reference "../../styles/index.css";
 
-/* Button component styles */
+
+
+@layer components {
+
+.btn--primary {
+
+  @apply text-base-content shadow-md hover:-translate-y-0.5;
+
+  background-color: var(--color-brand);
+
+}
+
+.btn--primary:hover {
+
+  background-color: var(--color-brand-hover);
+
+}
+
+
+
+.btn--danger {
+
+  @apply text-base-content;
+
+  background-color: var(--color-danger);
+
+}
+
+.btn--danger:hover {
+
+  background-color: color-mix(in srgb, var(--color-danger) 90%, black);
+
+}
+
+
+
+.btn--link {
+
+  @apply h-auto border-0 bg-transparent p-0 hover:underline;
+
+  color: var(--color-brand);
+
+}
+
+
+
+}
+

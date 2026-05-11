@@ -1,0 +1,204 @@
+﻿@reference "../../styles/index.css";
+
+
+
+@layer components {
+
+.keys-page {
+
+  @apply flex flex-col gap-10;
+
+}
+
+
+
+.keys-header {
+
+  @apply flex flex-wrap items-end justify-between gap-6 px-4 lg:px-0;
+
+}
+
+
+
+.onboard-card {
+
+  @apply p-12 bg-base-200/30 backdrop-blur-3xl border border-base-border-subtle rounded-[var(--rounded-3xl)] shadow-2xl mx-4 lg:mx-0;
+
+}
+
+
+
+.onboard-content {
+
+  @apply max-w-3xl mx-auto flex flex-col items-center;
+
+}
+
+
+
+.onboard-icon-wrap {
+
+  @apply w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-6 shadow-lg shadow-brand/20;
+
+}
+
+
+
+.onboard-desc {
+
+  @apply text-base-content/60 text-center text-sm leading-relaxed max-w-xl;
+
+}
+
+
+
+.keys-table-card {
+
+  @apply p-0 overflow-hidden border border-base-border-subtle bg-base-200/40 backdrop-blur-2xl shadow-2xl mx-4 lg:mx-0 rounded-[var(--rounded-3xl)];
+
+}
+
+
+
+.keys-table th {
+
+  @apply px-6 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-base-content/60 text-left whitespace-nowrap;
+
+  background-color: color-mix(in srgb, var(--base-300) 60%, transparent);
+
+  border-bottom: 1px solid var(--base-border-subtle);
+
+}
+
+
+
+.keys-table th:nth-child(1), .keys-table td:nth-child(1) { @apply min-w-[200px]; }
+
+.keys-table th:nth-child(2), .keys-table td:nth-child(2) { @apply min-w-[120px]; }
+
+.keys-table th:nth-child(3), .keys-table td:nth-child(3) { @apply min-w-[120px]; }
+
+.keys-table th:last-child, .keys-table td:last-child { @apply min-w-[180px] text-right; }
+
+
+
+.keys-table td {
+
+  @apply px-6 py-5 text-sm align-middle whitespace-nowrap;
+
+}
+
+
+
+.section-title {
+
+  @apply text-xs font-black uppercase tracking-[0.2em] text-base-content/60 mb-4 px-4 lg:px-0 opacity-40;
+
+}
+
+
+
+.slug-group {
+
+  @apply flex flex-col gap-0.5;
+
+}
+
+
+
+.slug-text {
+
+  @apply font-mono text-xs font-bold text-primary lowercase tracking-tight;
+
+}
+
+
+
+.slug-link {
+
+  @apply text-[10px] text-base-content/60 underline opacity-50 hover:opacity-100 transition-opacity;
+
+}
+
+
+
+.key-cell-root {
+
+  @apply flex flex-col;
+
+}
+
+
+
+.key-cell-code {
+
+  @apply font-mono text-[11px] font-bold tracking-wider transition-all px-2 py-1 rounded-lg border border-base-border-subtle;
+
+}
+
+
+
+.key-cell-code.is-masked {
+
+  @apply text-base-content/60 bg-transparent border-transparent;
+
+  opacity: 0.3;
+
+  filter: blur(3px);
+
+}
+
+
+
+.key-cell-code.is-revealed {
+
+  @apply text-primary bg-base-300 opacity-100;
+
+  filter: blur(0);
+
+}
+
+
+
+/* Transitions & Staggering */
+
+.stagger-1 { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both 0.1s; }
+
+.stagger-2 { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both 0.2s; }
+
+.stagger-3 { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both 0.3s; }
+
+.stagger-4 { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both 0.4s; }
+
+
+
+@keyframes fadeUp {
+
+  from { opacity: 0; transform: translateY(30px); }
+
+  to { opacity: 1; transform: translateY(0); }
+
+}
+
+
+
+.fade-in {
+
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+}
+
+
+
+@keyframes fadeIn {
+
+  from { opacity: 0; transform: translateY(10px); }
+
+  to { opacity: 1; transform: translateY(0); }
+
+}
+
+
+
+}
+

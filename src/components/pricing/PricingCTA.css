@@ -1,3 +1,70 @@
-@reference "../../styles/index.css";
+﻿@reference "../../styles/index.css";
 
-/* PricingCTA component styles */
+
+
+/* Card Buttons (Used in PricingCard) */
+
+@layer components {
+
+.pricing-cta {
+
+  @apply mt-8 inline-flex h-12 items-center justify-center rounded-xl border border-base-border bg-base-200 px-6 text-sm font-black transition-all duration-300 hover:bg-base-content/10 active:scale-95 text-base-content;
+
+  font-family: var(--font-display);
+
+}
+
+
+
+.pricing-cta--popular {
+
+  @apply border-none bg-primary text-primary-content shadow-lg shadow-brand/20 hover:bg-primary-hover hover:shadow-brand/30;
+
+}
+
+
+
+/* Bottom CTA Section */
+
+.pricing-bottom-cta {
+
+  @apply mx-auto max-w-[720px] px-4 pb-16 text-center;
+
+}
+
+
+
+.pricing-bottom-card {
+
+  @apply border border-primary bg-primary/5 p-8 text-center;
+
+}
+
+
+
+.pricing-bottom-title {
+
+  @apply mb-2 text-3xl font-black text-primary-content;
+
+}
+
+
+
+.pricing-bottom-desc {
+
+  @apply mb-5 text-base text-base-content/80;
+
+}
+
+
+
+.pricing-bottom-actions {
+
+  @apply flex flex-wrap justify-center gap-3;
+
+}
+
+
+
+}
+

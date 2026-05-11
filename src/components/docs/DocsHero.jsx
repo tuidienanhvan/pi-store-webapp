@@ -1,16 +1,36 @@
-import React from "react";
+﻿import { useLocale } from "@/context/LocaleContext";
+
 import { Input } from "../ui";
-import "./DocsHero.css";
+
+
 
 export function DocsHero() {
+
+  const { dict } = useLocale();
+
+  const t = dict.docs;
+
+
+
   return (
-    <header className="container stack" style={{ gap: "var(--s-4)", paddingTop: "var(--s-16)", maxWidth: 600 }}>
-      <h1 className="text-48 m-0"> Pi Documentation</h1>
-      <p className="text-18 muted m-0">Tài liệu Pi Ecosystem — cài đặt, sử dụng, API, và hỗ trợ kỹ thuật.</p>
+
+    <header className="stack" style={{ gap: "var(--s-4)", paddingTop: "var(--s-16)", maxWidth: 600 }}>
+
+      <h1 className="text-5xl m-0">{t.title}</h1>
+
+      <p className="text-lg muted m-0">{t.description}</p>
+
       <div className="stack" style={{ gap: "var(--s-2)", marginTop: "var(--s-4)" }}>
-        <Input type="search" placeholder="Search docs… (Ctrl+K)" disabled />
-        <span className="text-12 muted">Đang xây dựng — tạm thời duyệt theo các chuyên mục bên dưới.</span>
+
+        <Input type="search" placeholder={t.searchPlaceholder} disabled />
+
+        <span className="text-xs muted">{t.empty}</span>
+
       </div>
+
     </header>
+
   );
+
 }
+

@@ -1,0 +1,186 @@
+﻿@reference "../../../styles/index.css";
+
+
+
+@layer components {
+
+.admin-stat-card {
+
+  @apply p-8 flex flex-col gap-4 transition-all duration-500 rounded-[var(--rounded-3xl)] border overflow-hidden relative;
+
+  text-decoration: none !important;
+
+}
+
+
+
+.admin-stat-card--glass {
+
+  background: color-mix(in srgb, var(--base-200) 45%, transparent);
+
+  backdrop-filter: blur(40px);
+
+  -webkit-backdrop-filter: blur(40px);
+
+  border-color: var(--base-border-subtle);
+
+  box-shadow: var(--shadow-md);
+
+}
+
+
+
+.admin-stat-card--brand {
+
+  background: linear-gradient(135deg, var(--primary) 0%, color-mix(in srgb, var(--primary) 80%, #000) 100%);
+
+  border-color: rgba(255, 255, 255, 0.1);
+
+  color: var(--on-brand);
+
+  box-shadow: 0 20px 40px -15px color-mix(in srgb, var(--primary) 25%, transparent);
+
+}
+
+
+
+.admin-stat-card--link:hover {
+
+  @apply -translate-y-1;
+
+  border-color: var(--base-border);
+
+  box-shadow: var(--shadow-2xl);
+
+}
+
+
+
+.admin-stat-card--brand.admin-stat-card--link:hover {
+
+  box-shadow: 0 25px 50px -12px color-mix(in srgb, var(--primary) 40%, transparent);
+
+}
+
+
+
+.admin-stat-card__header {
+
+  @apply flex items-center justify-between text-[10px] font-black uppercase tracking-[0.2em] opacity-60;
+
+}
+
+
+
+.admin-stat-card__title {
+
+  @apply truncate;
+
+}
+
+
+
+.admin-stat-card__arrow {
+
+  @apply transition-transform duration-300;
+
+}
+
+
+
+.admin-stat-card--link:hover .admin-stat-card__arrow {
+
+  @apply translate-x-1;
+
+}
+
+
+
+.admin-stat-card__value {
+
+  @apply text-5xl font-black tracking-tighter;
+
+  font-family: var(--font-display);
+
+}
+
+
+
+.admin-stat-card__footer {
+
+  @apply mt-auto pt-4 border-t flex flex-col gap-1.5;
+
+  border-color: var(--base-border-subtle);
+
+}
+
+
+
+.admin-stat-card--brand .admin-stat-card__footer {
+
+  border-color: rgba(255, 255, 255, 0.1);
+
+}
+
+
+
+.admin-stat-card__subvalue {
+
+  @apply text-[11px] font-bold opacity-50 flex flex-col gap-1;
+
+}
+
+
+
+.admin-stat-card__trend {
+
+  @apply text-[11px] font-black uppercase tracking-widest;
+
+}
+
+
+
+.admin-stat-card__trend--up {
+
+  color: var(--success);
+
+}
+
+
+
+.admin-stat-card__trend--down {
+
+  color: var(--danger);
+
+}
+
+
+
+.admin-stat-card--brand .admin-stat-card__trend {
+
+  color: var(--on-brand);
+
+  @apply opacity-90;
+
+}
+
+
+
+/* Decorative background for brand variant */
+
+.admin-stat-card--brand::before {
+
+  content: '';
+
+  @apply absolute -top-1/2 -left-1/2 w-[200%] h-[200%];
+
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+
+  pointer-events: none;
+
+}
+
+
+
+}
+

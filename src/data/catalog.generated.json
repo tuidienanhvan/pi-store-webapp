@@ -1,4 +1,4 @@
-{
+﻿{
   "generatedAt": "2026-04-30",
   "source": "manual-restructure-v2",
   "products": [
@@ -6,36 +6,36 @@
       "id": "pi-ecosystem",
       "type": "platform",
       "name": "Pi Ecosystem",
-      "tagline": "WordPress AI suite — quản lý SEO, Chatbot, Leads, Analytics từ một dashboard",
-      "longDescription": "Giải pháp toàn diện cho WordPress, kết hợp sức mạnh AI. Cài đặt 1 plugin duy nhất để mở khóa toàn bộ hệ sinh thái.",
+      "tagline": "WordPress AI suite  qun l SEO, Chatbot, Leads, Analytics t mt dashboard",
+      "longDescription": "Gii php ton din cho WordPress, kt hp sc mnh AI. Ci t 1 plugin duy nht  m kha ton b h sinh thi.",
       "tiers": [
-        { "id": "free",  "label": "Free",  "priceUsd": 0,  "tokens": 5000,   "features": ["SEO Audit basic", "Phân tích tốc độ trang", "1 site"], "cta": "Bắt đầu miễn phí" },
-        { "id": "pro",   "label": "Pro",   "priceUsd": 19, "tokens": 100000, "features": ["+ AI Chatbot RAG", "+ Lead pipeline", "+ Analytics realtime"], "cta": "Đăng ký Pro" },
-        { "id": "max",   "label": "Max",   "priceUsd": 49, "tokens": 500000, "features": ["+ Multi-site (10 sites)", "+ White-label", "+ Priority support"], "cta": "Đăng ký Max" },
-        { "id": "enterprise", "label": "Enterprise", "priceUsd": null, "priceLabel": "Liên hệ", "tokens": -1, "features": ["+ Unlimited sites", "+ Custom AI prompts", "+ SLA 99.9%", "+ Dedicated CSM"], "cta": "Liên hệ sales" }
+        { "id": "free",  "label": "Free",  "priceUsd": 0,  "tokens": 5000,   "features": ["SEO Audit basic", "Phn tch tc  trang", "1 site"], "cta": "Bt u min ph" },
+        { "id": "pro",   "label": "Pro",   "priceUsd": 19, "tokens": 100000, "features": ["+ AI Chatbot RAG", "+ Lead pipeline", "+ Analytics realtime"], "cta": "ng k Pro" },
+        { "id": "max",   "label": "Max",   "priceUsd": 49, "tokens": 500000, "features": ["+ Multi-site (10 sites)", "+ White-label", "+ Priority support"], "cta": "ng k Max" },
+        { "id": "enterprise", "label": "Enterprise", "priceUsd": null, "priceLabel": "Lin h", "tokens": -1, "features": ["+ Unlimited sites", "+ Custom AI prompts", "+ SLA 99.9%", "+ Dedicated CSM"], "cta": "Lin h sales" }
       ]
     },
     {
       "id": "token-pack-mini",
       "type": "addon",
-      "name": "Token Pack — Mini",
-      "tagline": "100,000 AI tokens bổ sung",
+      "name": "Token Pack  Mini",
+      "tagline": "100,000 AI tokens b sung",
       "priceUsd": 9,
       "tokens": 100000
     },
     {
       "id": "token-pack-standard",
       "type": "addon",
-      "name": "Token Pack — Standard",
-      "tagline": "500,000 AI tokens bổ sung (giảm 10%)",
+      "name": "Token Pack  Standard",
+      "tagline": "500,000 AI tokens b sung (gim 10%)",
       "priceUsd": 39,
       "tokens": 500000
     },
     {
       "id": "token-pack-bulk",
       "type": "addon",
-      "name": "Token Pack — Bulk",
-      "tagline": "1,000,000 AI tokens bổ sung (giảm 20%)",
+      "name": "Token Pack  Bulk",
+      "tagline": "1,000,000 AI tokens b sung (gim 20%)",
       "priceUsd": 69,
       "tokens": 1000000
     }

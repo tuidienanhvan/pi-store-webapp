@@ -1,0 +1,39 @@
+﻿@reference "../../styles/index.css";
+
+@layer components {
+  /* --- Structural Grid Layout --- */
+  .dash {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 1fr;
+    background-color: var(--bg);
+  }
+
+  @media (min-width: 1024px) {
+    .dash { 
+      grid-template-columns: var(--sidebar-width) 1fr; 
+      grid-column-gap: 0; 
+    }
+  }
+
+  /* --- Sidebar Panel --- */
+  .dash__sidebar {
+    @apply hidden h-screen w-[var(--sidebar-width)] flex-col lg:sticky lg:top-0 lg:flex overflow-hidden;
+    border-right: 1px solid var(--border-subtle);
+    background: color-mix(in srgb, var(--surface) 40%, transparent);
+    backdrop-filter: blur(24px);
+    z-index: 30;
+    flex-shrink: 0;
+    box-shadow: 1px 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* --- Main Content Container --- */
+  .dash__main { 
+    @apply min-w-0 flex flex-col relative;
+  }
+
+  /* --- Legacy Padding Purge --- */
+  .dash__content {
+    /* Purged. Use mx-auto w-full max-w-[1400px] px-12 in components. */
+  }
+}

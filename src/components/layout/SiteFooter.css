@@ -1,0 +1,108 @@
+﻿@reference "../../styles/index.css";
+
+
+
+@layer components {
+
+.site-footer {
+
+  @apply mt-auto border-t border-base-border/40 py-20;
+
+  background-color: var(--color-surface-sunken);
+
+  position: relative;
+
+  overflow: hidden;
+
+}
+
+
+
+/* Subtle background accent */
+
+.site-footer::after {
+
+  content: '';
+
+  position: absolute;
+
+  bottom: 0;
+
+  right: 0;
+
+  width: 400px;
+
+  height: 400px;
+
+  background: radial-gradient(circle at center, color-mix(in srgb, var(--primary) 5%, transparent), transparent 70%);
+
+  pointer-events: none;
+
+  z-index: 0;
+
+}
+
+
+
+.site-footer--shell {
+
+  padding-top: 80px;
+
+  padding-bottom: 40px;
+
+  margin-top: 80px;
+
+}
+
+
+
+.footer-link {
+
+  @apply text-sm text-base-content/80 hover:text-primary transition-all duration-300 no-underline font-medium flex items-center gap-2;
+
+  position: relative;
+
+}
+
+
+
+.footer-link::after {
+
+  content: '';
+
+  position: absolute;
+
+  bottom: -2px;
+
+  left: 0;
+
+  width: 0;
+
+  height: 1px;
+
+  background-color: var(--primary);
+
+  transition: width 0.3s var(--ease-spring);
+
+}
+
+
+
+.footer-link:hover::after {
+
+  width: 100%;
+
+}
+
+
+
+.footer-section-title {
+
+  @apply text-xs uppercase tracking-[0.2em] font-bold text-base-content/60 m-0 mb-6 opacity-40;
+
+}
+
+
+
+}
+

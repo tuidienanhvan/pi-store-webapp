@@ -1,0 +1,14 @@
+﻿@reference "../../styles/index.css";
+
+
+
+@layer components {
+
+.pricing-page { @apply pb-20; }
+
+.pricing-alerts { @apply mx-auto mb-5 flex w-full max-w-[820px] flex-col gap-3 px-4; }
+
+
+
+}
+

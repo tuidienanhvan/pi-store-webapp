@@ -1,0 +1,114 @@
+﻿@reference "../../styles/index.css";
+
+
+
+@layer components {
+
+.packages-page {
+
+  @apply flex flex-col gap-10;
+
+}
+
+
+
+.packages-header {
+
+  @apply flex flex-wrap items-end justify-between gap-6 px-4 lg:px-0;
+
+}
+
+
+
+.packages-table-card {
+
+  @apply p-0 overflow-hidden border border-base-border-subtle bg-base-200/40 backdrop-blur-2xl shadow-2xl mx-4 lg:mx-0 rounded-[var(--rounded-3xl)];
+
+}
+
+
+
+.packages-table th {
+
+  @apply px-6 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-base-content/60 text-left whitespace-nowrap;
+
+  background-color: color-mix(in srgb, var(--base-300) 60%, transparent);
+
+  border-bottom: 1px solid var(--base-border-subtle);
+
+}
+
+
+
+.packages-table th:nth-child(1), .packages-table td:nth-child(1) { @apply min-w-[200px]; }
+
+.packages-table th:nth-child(2), .packages-table td:nth-child(2) { @apply min-w-[120px]; }
+
+.packages-table th:last-child, .packages-table td:last-child { @apply min-w-[150px] text-right; }
+
+
+
+.packages-table td {
+
+  @apply px-6 py-5 text-sm align-middle whitespace-nowrap;
+
+}
+
+
+
+/* Transitions & Staggering */
+
+.stagger-1 { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both 0.1s; }
+
+.stagger-2 { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both 0.2s; }
+
+.stagger-3 { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both 0.3s; }
+
+
+
+@keyframes fadeUp {
+
+  from { opacity: 0; transform: translateY(30px); }
+
+  to { opacity: 1; transform: translateY(0); }
+
+}
+
+
+
+.fade-in {
+
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+}
+
+
+
+@keyframes fadeIn {
+
+  from { opacity: 0; transform: translateY(10px); }
+
+  to { opacity: 1; transform: translateY(0); }
+
+}
+
+
+
+.glow-brand {
+
+  box-shadow: 0 0 20px -5px var(--primary);
+
+}
+
+
+
+.glow-brand:hover {
+
+  box-shadow: 0 0 30px -5px var(--primary);
+
+}
+
+
+
+}
+

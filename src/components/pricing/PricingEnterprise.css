@@ -1,3 +1,60 @@
-@reference "../../styles/index.css";
+﻿@reference "../../styles/index.css";
 
-/* PricingEnterprise component styles */
+
+
+@layer components {
+
+.enterprise-card {
+
+  @apply mx-auto mt-8 grid max-w-[1180px] grid-cols-1 gap-6 rounded-[1.5rem] border border-base-border bg-base-200 p-6 shadow-xl md:grid-cols-[1fr_auto] md:p-8;
+
+}
+
+
+
+.enterprise-card__left { @apply min-w-0; }
+
+
+
+.enterprise-badge { @apply mb-4 inline-flex rounded-full bg-info/10 px-3 py-1 text-xs font-black uppercase tracking-wider text-info; }
+
+
+
+.enterprise-title { @apply text-3xl font-black md:text-4xl text-base-content; }
+
+
+
+.enterprise-desc {
+
+  @apply mt-3 max-w-[640px] text-base leading-7 text-base-content/80;
+
+}
+
+
+
+.enterprise-features { @apply mt-6 flex flex-wrap gap-2; }
+
+
+
+.enterprise-feature-chip {
+
+  @apply rounded-full border border-base-border bg-base-200 px-3 py-2 text-sm font-semibold text-base-content/80;
+
+}
+
+
+
+.enterprise-card__right { @apply flex flex-col items-start justify-end gap-3 md:items-end; }
+
+
+
+.enterprise-response-note {
+
+  @apply m-0 text-sm text-base-content/50;
+
+}
+
+
+
+}
+

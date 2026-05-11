@@ -1,33 +1,32 @@
-import React from "react";
-import { Card } from "../ui";
+﻿import React from "react";
 import "./PricingFAQ.css";
 
 export function PricingFAQ() {
   return (
-    <section className="container" style={{ paddingTop: "var(--s-16)", paddingBottom: "var(--s-16)", borderTop: "1px solid var(--hairline)" }}>
-      <div style={{ maxWidth: 720, margin: "0 auto" }}>
-        <h2 style={{ margin: "0 0 var(--s-5)", fontSize: "var(--fs-30)", textAlign: "center" }}>Câu hỏi thường gặp</h2>
+    <section className="pricing-faq">
+      <div className="pricing-faq__container">
+        <h2 className="pricing-faq__title">Cu h?i thu?ng g?p</h2>
 
-        <div className="stack" style={{ gap: "var(--s-3)" }}>
-          <FaqItem q="Pi AI Cloud tokens là gì?">
-            Đơn vị tính cước cho mỗi AI call. Pi route tự động qua 25 provider (Groq, Gemini, OpenAI, Claude…).
-            Khách không cần chọn provider — chỉ chọn mức chất lượng (fast / balanced / best).
+        <div className="stack">
+          <FaqItem q="Pi AI Cloud tokens l g?">
+            on v? tnh cu?c cho mi AI call. Pi route t? d?ng qua 25 provider (Groq, Gemini, OpenAI, Claude).
+            Khch khng c?n ch?n provider  ch? ch?n m?c ch?t lu?ng (fast / balanced / best).
           </FaqItem>
-          <FaqItem q="Hết token giữa tháng thì sao?">
-            System chặn API call khi đạt quota (trả 402). Bạn có thể upgrade gói ngay — quota mới kích hoạt tức thì,
-            phần chênh lệch tính theo prorated.
+          <FaqItem q="H?t token gi?a thng th sao?">
+            System ch?n API call khi d?t quota (tr? 402). B?n c th? upgrade gi ngay  quota mi kch ho?t t?c th,
+            ph?n chnh l?ch tnh theo prorated.
           </FaqItem>
-          <FaqItem q="Gói Yearly tiết kiệm bao nhiêu?">
-            Yearly = 10 tháng (tiết kiệm ~17% so với trả tháng). Ví dụ Pro: $29/tháng → $290/năm thay vì $348.
+          <FaqItem q="Gi Yearly ti?t ki?m bao nhiu?">
+            Yearly = 10 thng (ti?t ki?m ~17% so v?i tr? thng). V d? Pro: $29/thng ? $290/nam thay v $348.
           </FaqItem>
-          <FaqItem q="Có thể huỷ bất cứ lúc nào không?">
-            Có. Huỷ → giữ quyền dùng đến hết chu kỳ đã thanh toán. Không auto-refund phần chưa dùng.
+          <FaqItem q="C th? hu? b?t c? lc no khng?">
+            C. Hu? ? gi? quy?n dng d?n h?t chu k? d thanh ton. Khng auto-refund ph?n chua dng.
           </FaqItem>
-          <FaqItem q="Free tier / dùng thử?">
-            Hiện tại không có free tier. Đăng ký dùng thử 14 ngày Starter với code <code>TRIAL14</code>.
+          <FaqItem q="Free tier / dng th??">
+            Hi?n ti khng c free tier. ang k dng th? 14 ngy Starter v?i code <code>TRIAL14</code>.
           </FaqItem>
-          <FaqItem q="Plugin WordPress có miễn phí không?">
-            Plugin v2 chia Free / Pro. Free tier bản không AI, tải ai cũng được. Pro unlock AI feature qua Pi Cloud tokens.
+          <FaqItem q="Plugin WordPress c mi?n ph khng?">
+            Plugin v2 chia Free / Pro. Free tier b?n khng AI, ti ai cung du?c. Pro unlock AI feature qua Pi Cloud tokens.
           </FaqItem>
         </div>
       </div>
@@ -38,7 +37,12 @@ export function PricingFAQ() {
 function FaqItem({ q, children }) {
   return (
     <details className="faq-item">
-      <summary>{q}</summary>
+      <summary>
+        {q}
+        <svg className="shrink-0 transition-transform duration-200" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+          <path d="M6 9l6 6 6-6" />
+        </svg>
+      </summary>
       <p>{children}</p>
     </details>
   );

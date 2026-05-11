@@ -1,25 +1,64 @@
-@reference "../../styles/index.css";
+﻿@reference "../../styles/index.css";
 
-.home-bento__header {
-  @apply mx-auto mb-10 flex max-w-[760px] flex-col items-center gap-3 text-center;
-}
+ 
 
-.home-bento__grid {
-  @apply grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4;
-}
+@layer components {
+
+ .home-bento__header {
+
+   @apply flex flex-col gap-4 mb-16;
+
+ }
+
+ 
+
+ .home-bento__grid {
+
+   @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6;
+
+ }
+
+ 
+
+
 
 .home-bento__card {
-  @apply relative flex min-h-[220px] flex-col justify-between rounded-card border border-white/10 bg-white/[0.035] p-6 transition hover:-translate-y-1 hover:border-brand/40 hover:bg-brand/10;
+
+  @apply relative flex min-h-[220px] flex-col justify-between border border-base-border bg-base-content/[0.035] p-6 transition hover:-translate-y-1 hover:border-primary/40 hover:bg-primary/10;
+
+  border-radius: var(--rounded-2xl);
+
 }
+
+
 
 .home-bento__icon-wrap {
-  @apply flex h-12 w-12 items-center justify-center rounded-card border border-brand/20 bg-brand/10 text-brand;
+
+  @apply flex h-12 w-12 shrink-0 items-center justify-center border border-primary/20 bg-primary/10 text-primary;
+
+  border-radius: var(--rounded-2xl); position: relative;
+
 }
+
+
 
 .home-bento__title {
-  @apply m-0 text-xl tracking-normal text-text-1;
+
+  @apply m-0 text-xl tracking-normal text-base-content;
+
 }
 
+
+
 .home-bento__desc {
-  @apply mt-2 text-sm leading-6 text-text-3;
+
+  @apply mt-2 text-sm leading-6 text-base-content/60;
+
 }
+
+
+
+
+
+}
+

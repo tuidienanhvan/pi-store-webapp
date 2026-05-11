@@ -1,3 +1,32 @@
-@reference "../../styles/index.css";
+﻿@reference "../../styles/index.css";
 
-/* Badge component styles */
+
+
+@layer components {
+
+.badge--brand {
+
+  @apply border;
+
+  border-color: color-mix(in srgb, var(--color-brand) 25%, transparent);
+
+  background-color: color-mix(in srgb, var(--color-brand) 15%, transparent);
+
+  color: var(--color-brand);
+
+}
+
+
+
+.badge--success { background-color: color-mix(in srgb, var(--color-success) 10%, transparent); color: var(--color-success); }
+
+.badge--warning { background-color: color-mix(in srgb, var(--color-warning) 10%, transparent); color: var(--color-warning); }
+
+.badge--danger { background-color: color-mix(in srgb, var(--color-danger) 10%, transparent); color: var(--color-danger); }
+
+.badge--info { background-color: color-mix(in srgb, var(--color-info) 10%, transparent); color: var(--color-info); }
+
+
+
+}
+

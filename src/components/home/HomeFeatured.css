@@ -1,42 +1,184 @@
-@reference "../../styles/index.css";
+﻿@reference "../../styles/index.css";
+
+
+
+/* PI STORE FEATURED  RAW CSS */
+
+.home-featured {
+
+  padding: 5rem 0;
+
+  position: relative;
+
+  overflow: hidden;
+
+}
+
+
+
+.home-featured__header {
+
+  margin: 0 auto 4rem;
+
+  display: flex;
+
+  max-width: 720px;
+
+  flex-direction: column;
+
+  items-center: center;
+
+  gap: 1rem;
+
+  text-align: center;
+
+}
+
+
+
+.home-featured__title {
+
+  margin: 0;
+
+  font-size: clamp(2rem, 5vw, 3.5rem) !important;
+
+  font-weight: 900 !important;
+
+  line-height: 1.05 !important;
+
+  letter-spacing: -0.05em !important;
+
+  color: var(--base-content) !important;
+
+  background: linear-gradient(to bottom, var(--base-content) 40%, color-mix(in srgb, var(--base-content) 60%, transparent));
+
+  -webkit-background-clip: text;
+
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+}
+
+
+
+.home-featured__subhead {
+
+  margin: 0;
+
+  font-size: 1.25rem;
+
+  color: var(--content-dim);
+
+}
+
+
 
 .home-featured__grid {
-  @apply grid grid-cols-1 items-stretch gap-4 md:grid-cols-2 xl:grid-cols-4;
+
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  gap: 1.5rem;
+
 }
+
+
+
+@media (min-width: 768px) {
+
+  .home-featured__grid {
+
+    grid-template-columns: repeat(2, 1fr);
+
+  }
+
+}
+
+
+
+@media (min-width: 1280px) {
+
+  .home-featured__grid {
+
+    grid-template-columns: repeat(4, 1fr);
+
+  }
+
+}
+
+
 
 .home-featured__card {
-  @apply relative flex min-h-[360px] flex-col gap-5 overflow-hidden rounded-card border border-white/10 bg-white/[0.035] p-6 transition hover:-translate-y-1 hover:border-white/20 hover:shadow-panel;
+
+  position: relative;
+
+  display: flex;
+
+  min-height: 440px;
+
+  flex-direction: column;
+
+  gap: 2rem;
+
+  overflow: hidden;
+
+  border-radius: 2rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  background: var(--base-200);
+
+  padding: 2rem;
+
+  box-shadow: var(--shadow-2xl);
+
+  transition: all 0.5s;
+
 }
 
-.home-featured__card--pro {
-  @apply border-brand/65 bg-brand/15 shadow-deep;
+
+
+.home-featured__card:hover {
+
+  transform: translateY(-8px);
+
+  border-color: rgba(255, 255, 255, 0.2);
+
+  background: rgba(255, 255, 255, 0.06);
+
 }
 
-.home-featured__ribbon {
-  @apply absolute right-4 top-4 rounded-full bg-brand px-2 py-1 text-[10px] font-black uppercase tracking-wider text-white;
+
+
+.home-featured__card-name {
+
+  margin: 0;
+
+  font-size: 1.25rem;
+
+  font-weight: 800;
+
+  letter-spacing: -0.02em;
+
+  color: var(--base-content);
+
 }
 
-.home-featured__price-block {
-  @apply flex items-baseline gap-2;
-}
+
 
 .home-featured__price {
-  @apply font-display text-[clamp(34px,3.6vw,48px)] font-black leading-none text-text-1;
+
+  font-size: 2.25rem;
+
+  font-weight: 900;
+
+  line-height: 1;
+
+  color: var(--base-content);
+
+  font-family: var(--font-display);
+
 }
 
-.home-featured__period,
-.home-featured__tokens {
-  @apply text-sm text-text-3;
-}
-
-.home-featured__tokens {
-  @apply font-extrabold text-brand;
-}
-
-.home-featured__features {
-  @apply m-0 flex flex-1 list-none flex-col gap-3 p-0;
-}
-
-.home-featured__feature {
-  @apply flex items-start gap-2 text-sm leading-6 text-text-2;
-}

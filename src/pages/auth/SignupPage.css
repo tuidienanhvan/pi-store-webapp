@@ -1,0 +1,134 @@
+﻿@reference "../../styles/index.css";
+
+
+
+/* Signup Page Specifics */
+
+.auth-tiers--premium {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 9px;
+
+}
+
+
+
+.tier-card--glass {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  min-width: 0;
+
+  min-height: clamp(80px, 10dvh, 100px);
+
+  padding: 11px;
+
+  border: 1px solid var(--base-border);
+
+  border-radius: 16px;
+
+  background: var(--base-200);
+
+  color: #fff;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+
+}
+
+
+
+.tier-card--glass:hover,
+
+.tier-card--glass.active {
+
+  transform: translateY(-2px);
+
+  border-color: var(--primary);
+
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
+
+}
+
+
+
+.tier-label,
+
+.tier-name {
+
+  color: var(--content-ghost);
+
+  font-size: 0.6rem;
+
+  font-weight: 950;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+}
+
+
+
+.tier-tokens {
+
+  margin-top: 3px;
+
+  color: #fff;
+
+  font-size: clamp(1.05rem, 2.05dvh, 1.34rem);
+
+  font-weight: 950;
+
+  letter-spacing: -0.04em;
+
+}
+
+
+
+.tier-unit {
+
+  color: rgba(255,255,255,0.72);
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.04em;
+
+}
+
+
+
+.tier-price {
+
+  margin-top: 5px;
+
+  color: var(--primary);
+
+  font-size: 0.82rem;
+
+  font-weight: 950;
+
+}
+
+
+
+@media (max-width: 760px) {
+
+  .auth-social, .auth-grid-2, .auth-tiers--premium {
+
+    grid-template-columns: 1fr;
+
+  }
+
+}
+

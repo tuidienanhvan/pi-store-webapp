@@ -25,22 +25,47 @@
     <link rel="icon" type="image/svg+xml" href="/logo-optimized.svg?v=20260417-2" />
     <link rel="shortcut icon" href="/logo-optimized.svg?v=20260417-2" />
     <script>
-      try {
-        if (localStorage.getItem('pi_theme') === 'dark' || (!('pi_theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          document.documentElement.setAttribute('data-theme', 'dark');
-        } else {
-          document.documentElement.setAttribute('data-theme', 'light');
+      (function() {
+        try {
+          var store = JSON.parse(localStorage.getItem('pi-ui'));
+          var theme = (store && store.state && store.state.theme) || 'dark';
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.classList.add('no-transitions');
+        } catch (e) {
+          document.documentElement.dataset.theme = 'dark';
         }
-      } catch (e) {}
+      })();
     </script>
-    <script type="module" crossorigin src="/assets/index-BR2NLPPA.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/ui-Z-aSUGyS.js">
-    <link rel="modulepreload" crossorigin href="/assets/api-client-CMLnKGsk.js">
-    <link rel="modulepreload" crossorigin href="/assets/billing-DfSABS_Y.js">
-    <link rel="modulepreload" crossorigin href="/assets/AuthContext-B-KddOjD.js">
-    <link rel="modulepreload" crossorigin href="/assets/LocaleContext-DFbf8Vui.js">
-    <link rel="stylesheet" crossorigin href="/assets/ui-JmfUdnPZ.css">
-    <link rel="stylesheet" crossorigin href="/assets/index-C96LU87E.css">
+    <style>
+      /* Prevent white flash before index.css loads */
+      html { background-color: #090b0f; } /* Default to dark background */
+      html[data-theme="light"] { background-color: #f8fafc; }
+      
+      /* Avoid layout shifts for the root container */
+      #root { min-height: 100vh; display: flex; flex-direction: column; }
+      
+      /* Utility to disable transitions during boot */
+      .no-transitions *, .no-transitions {
+        -webkit-transition: none !important;
+        -moz-transition: none !important;
+        -ms-transition: none !important;
+        -o-transition: none !important;
+        transition: none !important;
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-CENccKv1.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/jsx-runtime-DAs1UGHr.js">
+    <link rel="modulepreload" crossorigin href="/assets/react-BnRWbv_O.js">
+    <link rel="modulepreload" crossorigin href="/assets/chunk-QFMPRPBF-BhFvB0N2.js">
+    <link rel="modulepreload" crossorigin href="/assets/index.esm-CQBHCMbA.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-CaAg0MyY.js">
+    <link rel="modulepreload" crossorigin href="/assets/PiLogo-lMJnlkXE.js">
+    <link rel="modulepreload" crossorigin href="/assets/api-client-CkyrOr_D.js">
+    <link rel="modulepreload" crossorigin href="/assets/AuthContext-CFXKwPZD.js">
+    <link rel="modulepreload" crossorigin href="/assets/LocaleContext-PvQVwtlJ.js">
+    <link rel="stylesheet" crossorigin href="/assets/ui-BwfPD2b7.css">
+    <link rel="stylesheet" crossorigin href="/assets/PiLogo-c7U6ysCv.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-4EjPqUV5.css">
   </head>
   <body>
     <div id="root"></div>

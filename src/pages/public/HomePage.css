@@ -1,9 +1,24 @@
-@reference "../../styles/index.css";
+﻿@reference "../../styles/index.css";
+
+
+
+/* --- HOME PAGE --- */
+
+
+
+@layer components {
 
 .home-section {
-  @apply relative overflow-hidden px-4 py-20;
+
+  @apply relative overflow-hidden py-20;
+
 }
 
-.home-container {
-  @apply relative z-10 mx-auto max-w-[1320px];
+
+
+
+
+
+
 }
+

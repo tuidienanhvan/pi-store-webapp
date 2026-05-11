@@ -1,0 +1,52 @@
+﻿import { useLocale } from "../context/LocaleContext";
+
+
+
+export function BillingCycleToggle({ billingCycle, onChange }) {
+
+  const { dict, locale } = useLocale();
+
+
+
+  return (
+
+    <div className="billing-toggle" role="group" aria-label={locale === "vi" ? "Chu k? thanh ton" : "Billing cycle"}>
+
+      <button
+
+        type="button"
+
+        className={billingCycle === "monthly" ? "billing-btn active" : "billing-btn"}
+
+        onClick={() => onChange("monthly")}
+
+        aria-pressed={billingCycle === "monthly"}
+
+      >
+
+        {dict.pricing.monthly}
+
+      </button>
+
+      <button
+
+        type="button"
+
+        className={billingCycle === "yearly" ? "billing-btn active" : "billing-btn"}
+
+        onClick={() => onChange("yearly")}
+
+        aria-pressed={billingCycle === "yearly"}
+
+      >
+
+        {dict.pricing.yearly}
+
+      </button>
+
+    </div>
+
+  );
+
+}
+

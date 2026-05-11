@@ -1,0 +1,202 @@
+﻿@reference "../../styles/index.css";
+
+
+
+@layer components {
+
+.licenses-page {
+
+  @apply flex flex-col gap-10 animate-fade-up;
+
+}
+
+
+
+.licenses-header {
+
+  @apply flex flex-wrap items-end justify-between gap-6 px-4 lg:px-0;
+
+}
+
+
+
+.licenses-header h1 {
+
+  @apply text-3xl font-black tracking-tight text-base-content lg:text-4xl m-0;
+
+}
+
+
+
+.licenses-toolbar-card {
+
+  @apply p-6 border border-base-border-subtle bg-base-200/30 backdrop-blur-3xl shadow-2xl mx-4 lg:mx-0 rounded-[var(--rounded-3xl)];
+
+}
+
+
+
+.licenses-toolbar {
+
+  @apply flex flex-col gap-6;
+
+}
+
+
+
+.licenses-toolbar__search {
+
+  @apply flex flex-wrap items-center gap-4;
+
+}
+
+
+
+.licenses-toolbar__filters {
+
+  @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 pt-6 border-t border-base-border-subtle;
+
+}
+
+
+
+.filter-select {
+
+  @apply bg-base-300/40 border-base-border-subtle rounded-xl text-[11px] font-bold uppercase tracking-widest;
+
+}
+
+
+
+.licenses-stats {
+
+  @apply flex items-center gap-4 text-[10px] font-black uppercase tracking-[0.25em] text-base-content/60 px-4 lg:px-0 opacity-40;
+
+}
+
+
+
+.licenses-stats strong {
+
+  @apply text-primary;
+
+}
+
+
+
+.licenses-table-card {
+
+  @apply p-0 overflow-hidden border border-base-border-subtle bg-base-200/40 backdrop-blur-2xl shadow-2xl mx-4 lg:mx-0 rounded-[var(--rounded-3xl)];
+
+}
+
+
+
+.licenses-table th {
+
+  @apply px-6 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-base-content/60 text-left whitespace-nowrap;
+
+  background-color: color-mix(in srgb, var(--base-300) 60%, transparent);
+
+  border-bottom: 1px solid var(--base-border-subtle);
+
+}
+
+
+
+.licenses-table th:nth-child(1), .licenses-table td:nth-child(1) { @apply min-w-[240px]; }
+
+.licenses-table th:nth-child(2), .licenses-table td:nth-child(2) { @apply min-w-[120px]; }
+
+.licenses-table th:nth-child(3), .licenses-table td:nth-child(3) { @apply min-w-[120px]; }
+
+.licenses-table th:last-child, .licenses-table td:last-child { @apply min-w-[180px] text-right; }
+
+
+
+.licenses-table td {
+
+  @apply px-6 py-5 text-sm align-middle whitespace-nowrap;
+
+}
+
+
+
+.key-cell-wrap {
+
+  @apply flex items-center gap-2 bg-base-300/60 px-3 py-2 rounded-xl border border-base-border w-fit transition-all hover:border-primary/30 hover:bg-base-300/80;
+
+}
+
+
+
+.key-cell-code {
+
+  @apply font-mono text-[11px] font-bold tracking-wider transition-all;
+
+}
+
+
+
+.key-cell-code.is-masked {
+
+  opacity: 0.3;
+
+  filter: blur(3px);
+
+}
+
+
+
+.key-cell-code.is-revealed {
+
+  @apply text-primary opacity-100;
+
+  filter: blur(0);
+
+}
+
+
+
+.licenses-pagination {
+
+  @apply flex flex-wrap items-center justify-between gap-6 px-4 lg:px-0 py-10;
+
+  color: color-mix(in srgb, var(--base-content) 60%, transparent);
+
+}
+
+
+
+.licenses-pagination__controls {
+
+  @apply flex items-center gap-3;
+
+}
+
+
+
+/* Transitions & Staggering */
+
+.stagger-1 { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both 0.1s; }
+
+.stagger-2 { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both 0.2s; }
+
+.stagger-3 { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both 0.3s; }
+
+.stagger-4 { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both 0.4s; }
+
+
+
+@keyframes fadeUp {
+
+  from { opacity: 0; transform: translateY(30px); }
+
+  to { opacity: 1; transform: translateY(0); }
+
+}
+
+
+
+}
+

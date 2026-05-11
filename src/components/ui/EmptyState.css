@@ -1,3 +1,30 @@
-@reference "../../styles/index.css";
+﻿@reference "../../styles/index.css";
 
-/* EmptyState component styles */
+
+
+@layer components {
+
+.empty-state { @apply flex flex-col items-center justify-center px-4 py-16 text-center; }
+
+.empty-state__icon {
+
+  @apply mb-4 text-base-content/60;
+
+}
+
+.empty-state__title {
+
+  @apply mb-2 text-lg font-bold text-base-content;
+
+}
+
+.empty-state__desc {
+
+  @apply text-sm text-base-content/80;
+
+}
+
+
+
+}
+

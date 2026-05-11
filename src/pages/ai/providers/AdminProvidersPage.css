@@ -1,0 +1,202 @@
+﻿@reference "../../../styles/index.css";
+
+
+
+@layer components {
+
+.providers-page {
+
+  @apply flex flex-col gap-10;
+
+}
+
+
+
+.providers-header {
+
+  @apply flex flex-wrap items-end justify-between gap-6 px-4 lg:px-0;
+
+}
+
+
+
+.table-card {
+
+  @apply overflow-hidden border border-base-border-subtle bg-base-200/40 backdrop-blur-3xl shadow-2xl mx-4 lg:mx-0 rounded-[var(--rounded-3xl)];
+
+}
+
+
+
+.providers-table th {
+
+  @apply px-6 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-base-content/60 text-left whitespace-nowrap;
+
+  background-color: color-mix(in srgb, var(--base-300) 60%, transparent);
+
+  border-bottom: 1px solid var(--base-border-subtle);
+
+}
+
+
+
+.providers-table th:nth-child(1), .providers-table td:nth-child(1) { @apply min-w-[220px]; }
+
+.providers-table th:nth-child(2), .providers-table td:nth-child(2) { @apply min-w-[180px]; }
+
+.providers-table th:nth-child(3), .providers-table td:nth-child(3) { @apply min-w-[120px]; }
+
+.providers-table th:nth-child(4), .providers-table td:nth-child(4) { @apply min-w-[140px]; }
+
+.providers-table th:nth-child(5), .providers-table td:nth-child(5) { @apply min-w-[120px]; }
+
+.providers-table th:nth-child(6), .providers-table td:nth-child(6) { @apply min-w-[150px]; }
+
+.providers-table th:last-child, .providers-table td:last-child { @apply min-w-[220px] text-right; }
+
+
+
+.providers-table td {
+
+  @apply px-6 py-5 text-sm align-middle whitespace-nowrap;
+
+}
+
+
+
+.slug-group {
+
+  @apply flex flex-col gap-1;
+
+}
+
+
+
+.slug-text {
+
+  @apply text-xs font-mono font-bold text-primary lowercase tracking-tight;
+
+}
+
+
+
+.display-name-text {
+
+  @apply text-sm font-bold text-base-content;
+
+}
+
+
+
+.model-text {
+
+  @apply text-xs font-mono text-base-content/60 opacity-60;
+
+}
+
+
+
+.cost-text {
+
+  @apply text-xs font-mono font-bold text-base-content/80 opacity-80;
+
+}
+
+
+
+.badge-premium {
+
+  @apply uppercase text-[9px] font-black tracking-widest px-2.5 py-1 rounded-lg;
+
+}
+
+
+
+/* Transitions & Staggering */
+
+.stagger-1 { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both 0.1s; }
+
+.stagger-2 { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both 0.2s; }
+
+.stagger-3 { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both 0.3s; }
+
+
+
+@keyframes fadeUp {
+
+  from { opacity: 0; transform: translateY(30px); }
+
+  to { opacity: 1; transform: translateY(0); }
+
+}
+
+
+
+/* Modal styling */
+
+.form-grid {
+
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+
+}
+
+
+
+.form-grid-3 {
+
+  @apply grid grid-cols-1 md:grid-cols-3 gap-6;
+
+}
+
+
+
+.preset-container {
+
+  @apply p-4 bg-base-300/40 rounded-2xl border border-base-border-subtle;
+
+}
+
+
+
+.preset-row {
+
+  @apply flex flex-wrap gap-2 mt-2;
+
+}
+
+
+
+.api-key-input-group {
+
+  @apply flex gap-2;
+
+}
+
+
+
+.api-key-input-group > div:first-child {
+
+  @apply flex-1;
+
+}
+
+
+
+.checkbox-label {
+
+  @apply flex items-center gap-3 p-4 bg-base-300/30 rounded-2xl border border-dashed border-base-border-subtle cursor-pointer transition-colors hover:bg-base-300/50;
+
+}
+
+
+
+.modal-footer {
+
+  @apply flex justify-end items-center gap-4 pt-6 border-t border-base-border-subtle;
+
+}
+
+
+
+}
+

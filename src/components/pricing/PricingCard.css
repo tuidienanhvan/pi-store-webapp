@@ -1,3 +1,116 @@
-@reference "../../styles/index.css";
+﻿@reference "../../styles/index.css";
 
-/* PricingCard component styles */
+
+
+/* PI STORE PRICING  RAW CSS */
+
+.pricing-card {
+
+  position: relative;
+
+  display: flex;
+
+  min-height: 640px;
+
+  flex-direction: column;
+
+  border-radius: 2.5rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  background: var(--base-200);
+
+  padding: 2.5rem;
+
+  box-shadow: var(--shadow-2xl);
+
+  transition: all 0.7s;
+
+}
+
+
+
+.pricing-tier-name { 
+
+  font-size: 2.25rem !important;
+
+  font-weight: 900 !important;
+
+  letter-spacing: -0.05em !important;
+
+  color: var(--base-content) !important;
+
+  font-family: var(--font-display);
+
+}
+
+
+
+.pricing-tier-desc {
+
+  margin-top: 1rem;
+
+  min-height: 3rem;
+
+  font-size: 0.9375rem;
+
+  font-weight: 500;
+
+  line-height: 1.6;
+
+  color: var(--content-dim);
+
+}
+
+
+
+.pricing-price {
+
+  font-size: 3.75rem !important;
+
+  font-weight: 900 !important;
+
+  line-height: 1 !important;
+
+  letter-spacing: -0.05em !important;
+
+  color: var(--base-content) !important;
+
+  font-family: var(--font-display);
+
+}
+
+
+
+.pricing-price-period {
+
+  font-size: 0.875rem;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.1em;
+
+  color: var(--content-ghost);
+
+}
+
+
+
+.pricing-feature {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+
+  font-size: 0.875rem;
+
+  font-weight: 500;
+
+  color: var(--content-dim);
+
+}
+

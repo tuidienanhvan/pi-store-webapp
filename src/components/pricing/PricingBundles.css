@@ -1,3 +1,82 @@
-@reference "../../styles/index.css";
+﻿@reference "../../styles/index.css";
 
-/* PricingBundles component styles */
+
+
+@layer components {
+
+.pricing-bundles {
+
+  @apply mx-auto max-w-[1240px] px-4;
+
+}
+
+
+
+.pricing-bundles__header {
+
+  @apply mb-8 text-center;
+
+}
+
+
+
+.pricing-bundles__title {
+
+  @apply mb-2 text-4xl font-black text-base-content;
+
+}
+
+
+
+.pricing-bundles__grid {
+
+  @apply grid gap-4;
+
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+}
+
+
+
+.bundle-card {
+
+  @apply flex flex-col gap-3 p-5;
+
+}
+
+
+
+.bundle-card__image {
+
+  @apply aspect-[16/10] w-full rounded-xl object-cover;
+
+}
+
+
+
+.bundle-card__title {
+
+  @apply m-0 text-xl font-bold text-base-content;
+
+}
+
+
+
+.bundle-card__price-row {
+
+  @apply mt-auto flex items-baseline gap-2;
+
+}
+
+
+
+.bundle-card__price {
+
+  @apply text-3xl font-bold;
+
+}
+
+
+
+}
+

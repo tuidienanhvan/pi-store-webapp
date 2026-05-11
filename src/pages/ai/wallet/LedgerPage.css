@@ -1,0 +1,228 @@
+﻿@reference "../../../styles/index.css";
+
+
+
+/* ---------------------------------------------------------------
+
+   LEDGER PAGE  PREMIUM UI REFINEMENT
+
+   -------------------------------------------------------------
+
+   Infinity Edition v3.2 | T-20260508-007
+
+   --------------------------------------------------------------- */
+
+
+
+.ledger-container {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: var(--s-8);
+
+  animation: fadeIn 0.8s var(--ease-spring) both;
+
+}
+
+
+
+/* --- 1. HEADER ---------------------------------------------- */
+
+
+
+.ledger-header {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: var(--s-2);
+
+}
+
+
+
+.ledger-title {
+
+  margin: 0;
+
+  font-size: var(--fs-32);
+
+  font-weight: 900;
+
+  letter-spacing: -0.03em;
+
+  font-family: var(--font-display);
+
+  background: linear-gradient(to bottom, var(--base-content) 0%, color-mix(in srgb, var(--base-content) 80%, transparent) 100%);
+
+  -webkit-background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+}
+
+
+
+.ledger-subtitle {
+
+  margin: 0;
+
+  color: color-mix(in srgb, var(--base-content) 60%, transparent);
+
+  font-size: var(--fs-16);
+
+  font-weight: 500;
+
+  opacity: 0.6;
+
+}
+
+
+
+/* --- 2. TABLE ----------------------------------------------- */
+
+
+
+.ledger-table-card {
+
+  background: color-mix(in srgb, var(--base-200) 40%, transparent);
+
+  backdrop-filter: blur(40px);
+
+  border: 1px solid var(--base-border-subtle);
+
+  border-radius: var(--rounded-3xl);
+
+  overflow: hidden;
+
+  box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.5);
+
+}
+
+
+
+.ledger-table th {
+
+  background: color-mix(in srgb, var(--base-300) 50%, transparent);
+
+  padding: var(--s-4) var(--s-6);
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.15em;
+
+  color: color-mix(in srgb, var(--base-content) 60%, transparent);
+
+  border-bottom: 1px solid var(--base-border-subtle);
+
+}
+
+
+
+.ledger-table td {
+
+  padding: var(--s-4) var(--s-6);
+
+  border-bottom: 1px solid color-mix(in srgb, var(--base-border-subtle) 30%, transparent);
+
+  vertical-align: middle;
+
+}
+
+
+
+.ledger-table tr:hover td {
+
+  background: color-mix(in srgb, var(--base-400) 30%, transparent);
+
+}
+
+
+
+.time-text {
+
+  color: color-mix(in srgb, var(--base-content) 60%, transparent);
+
+  font-size: var(--fs-13);
+
+  font-family: var(--font-mono);
+
+  font-weight: 500;
+
+}
+
+
+
+.op-text {
+
+  font-weight: 700;
+
+  color: var(--base-content);
+
+}
+
+
+
+.note-text {
+
+  color: color-mix(in srgb, var(--base-content) 80%, transparent);
+
+  font-size: var(--fs-14);
+
+  max-width: 300px;
+
+}
+
+
+
+.delta-text {
+
+  font-family: var(--font-mono);
+
+  font-weight: 800;
+
+  font-size: var(--fs-16);
+
+}
+
+
+
+.balance-after-text {
+
+  font-family: var(--font-mono);
+
+  font-weight: 700;
+
+  color: var(--base-content);
+
+  opacity: 0.9;
+
+}
+
+
+
+/* --- 3. ANIMATIONS ------------------------------------------ */
+
+
+
+@keyframes fadeIn {
+
+  from { opacity: 0; transform: translateY(10px); }
+
+  to { opacity: 1; transform: translateY(0); }
+
+}
+
+
+
+.stagger-1 { animation-delay: 0.1s; }
+
+.stagger-2 { animation-delay: 0.2s; }
+

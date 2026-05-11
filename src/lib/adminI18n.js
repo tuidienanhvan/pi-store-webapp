@@ -1,10 +1,10 @@
-/**
- * Admin-side i18n — single translations + locale-aware formatters.
+﻿/**
+ * Admin-side i18n ? single translations + locale-aware formatters.
  *
  * Usage:
  *   import { useAdminT, formatCurrency, formatDate } from "../../lib/adminI18n";
  *   const t = useAdminT();              // returns object { licenses_title, ... }
- *   const price = formatCurrency(2900, locale);  // "$29.00" or "725.000 ₫"
+ *   const price = formatCurrency(2900, locale);  // "$29.00" or "725.000 ?"
  */
 
 import { useLocale } from "../context/LocaleContext";
@@ -12,24 +12,23 @@ import { useLocale } from "../context/LocaleContext";
 // Rough FX rate for display. For real pricing decisions, use Stripe / live rate.
 const USD_TO_VND = 25_000;
 
-// ─────────────────────────────────────────────────────────
-// Translations — all admin-facing strings
-// ─────────────────────────────────────────────────────────
+// ---------------------------------------------------------
+// Translations ? all admin-facing strings
 export const ADMIN_T = {
   vi: {
     // Common
-    loading: "Đang tải…",
-    saving: "Đang lưu…",
+    loading: "Đang tải",
+    saving: "Đang lưu",
     saved: "Đã lưu",
     save: "Lưu",
-    cancel: "Huỷ",
+    cancel: "Hủy",
     close: "Đóng",
     edit: "Sửa",
-    delete: "Xoá",
+    delete: "Xóa",
     create: "Tạo",
     update: "Cập nhật",
     search: "Tìm kiếm",
-    clear: "Xoá lọc",
+    clear: "Xóa lọc",
     refresh: "Tải lại",
     details: "Chi tiết",
     actions: "Hành động",
@@ -37,21 +36,21 @@ export const ADMIN_T = {
     status: "Trạng thái",
     never: "Chưa",
     all: "Tất cả",
-    confirm_delete: "Bạn chắc muốn xoá?",
+    confirm_delete: "Bạn chắc muốn Xóa?",
 
     // Pagination
     page: "Trang",
     of: "/",
-    showing: "Hiện",
-    per_page: "/trang",
-    prev: "← Trước",
-    next: "Sau →",
+    showing: "Hiển",
+    per_page: "/Trang",
+    prev: "? Trước",
+    next: "Sau ?",
 
     // Time labels
-    joined: "ĐK",
+    joined: "?K",
     login: "Login",
     last_run: "Lần chạy cuối",
-    next_run: "Lần chạy kế",
+    next_run: "Lần chạy k?",
     duration: "Thời gian",
 
     // Overview page
@@ -59,22 +58,22 @@ export const ADMIN_T = {
     overview_subtitle: "Số liệu real-time.",
     revenue_card: "Doanh thu",
     active_licenses: "Licenses active",
-    tokens_used: "Pi Tokens đã dùng",
+    tokens_used: "Pi Tokens dùng",
     system_status: "Trạng thái hệ thống",
     provider_health_matrix: "Provider Health Matrix",
     key_pool_status: "Key Pool Status",
     realtime_alerts: "Cảnh báo real-time",
-    expiring_soon: "Sắp hết hạn (7 ngày tới)",
-    view_all: "Xem tất cả",
+    expiring_soon: "Sắp hết hạn (7 ngày tải)",
+    view_all: "Xem tất c?",
     manage: "Quản lý",
     new_license: "License mới",
     add_key: "Thêm key",
     new_user: "User mới",
     upload_release: "Upload release",
-    new_this_week: "mới tuần này",
+    new_this_week: "mới tuần nay",
     proj_month_end: "Dự kiến cuối tháng",
 
-    // Licenses
+// Licenses
     licenses_title: "Licenses",
     licenses_subtitle: "Quản lý license + assign Cloud package + cấp keys cho khách.",
     create_license: "Tạo license",
@@ -90,7 +89,7 @@ export const ADMIN_T = {
     tier: "Tier",
     revoke: "Thu hồi",
     reactivate: "Kích hoạt",
-    search_license_placeholder: "Tìm theo email / key / tên…",
+    search_license_placeholder: "Tìm theo email / key / tên?",
     filter_status: "Trạng thái",
     filter_tier: "Tier",
     filter_package: "Gói",
@@ -101,12 +100,12 @@ export const ADMIN_T = {
     no_match: "Không match filter",
     no_match_desc: "Thử đổi filter hoặc Clear.",
     status_active: "Đang hoạt động",
-    status_revoked: "Đã thu hồi",
+    status_revoked: "? đã thu hồi",
     status_expired: "Hết hạn",
     expires_7d: "Hết hạn <7 ngày",
     expires_30d: "Hết hạn <30 ngày",
     expires_90d: "Hết hạn <90 ngày",
-    expires_past: "Đã hết hạn",
+    expires_past: "?? hết hạn",
     sort_newest: "Mới nhất",
     sort_oldest: "Cũ nhất",
     sort_expiring: "Sắp hết hạn",
@@ -114,30 +113,30 @@ export const ADMIN_T = {
 
     // Users
     users_title: "Khách hàng & User",
-    users_subtitle: "Quản trị tài khoản và phân quyền",
-    accounts: "tài khoản",
-    create_user_btn: "Tạo tài khoản",
+    users_subtitle: "Quản trị tải khoản và phân quyền",
+    accounts: "tải khoản",
+    create_user_btn: "Tạo tải khoản",
     profile: "Hồ sơ",
     role: "Vai trò",
     balance: "Số dư",
     total_spent: "Tổng chi",
-    signup_last_login: "Ngày ĐK / Lần cuối",
+    signup_last_login: "Ngày ?K / Lần cuối",
     role_admin: "ADMIN",
     role_user: "USER",
-    role_banned: "ĐÃ KHÓA",
-    action_demote: "Hạ quyền",
+    role_banned: "? đã KHÓA",
+    action_demote: "Hủy quyền",
     action_promote: "Cấp Admin",
     action_ban: "Khóa",
     action_unban: "Mở khóa",
     confirm_promote: "Phong quyền Admin cho user này?",
-    confirm_demote: "Hạ quyền thành User thường?",
-    confirm_ban: "Khóa tài khoản? Mọi license sẽ bị đóng băng.",
-    confirm_unban: "Mở khóa tài khoản?",
+    confirm_demote: "Hủy quyền thành User thường?",
+    confirm_ban: "Khóa tải khoản? Mời license sẽ bị dừng bang.",
+    confirm_unban: "Mở khóa tải khoản?",
     no_users: "Không tìm thấy khách hàng.",
 
     // AI Providers
     providers_title: "AI Providers",
-    providers_subtitle: "Router AI upstream. Free tier chạy ưu tiên, paid dùng khi cần chất lượng cao.",
+    providers_subtitle: "Upstream AI router. Free tier ưu tiên, paid dùng khi cần chấtSố liệu?ng cao.",
     add_provider: "Thêm provider",
     slug: "Slug",
     model: "Model",
@@ -146,8 +145,8 @@ export const ADMIN_T = {
     cost: "Chi phí",
     api_key_status: "API Key",
     enabled: "Bật",
-    has_key: "đã lưu",
-    no_key: "chưa có",
+    has_key: "dùngSố liệu?u",
+    no_key: "Chưa có",
     keys_in_pool: "Keys trong pool",
     test: "Test",
     available: "Có sẵn",
@@ -156,7 +155,7 @@ export const ADMIN_T = {
 
     // Key Pool
     keys_title: "Key Pool",
-    keys_subtitle: "Quản lý API keys upstream. Keys được cấp riêng cho từng customer — không dùng chung.",
+    keys_subtitle: "Quản lý API keys upstream. Keys được cấp riêng cho têng customer ? khng dùng chung.",
     add_key_btn: "Thêm key",
     bulk_import: "Nhập hàng loạt",
     reset_period: "Reset chu kỳ",
@@ -164,39 +163,39 @@ export const ADMIN_T = {
     stat_available: "Có sẵn",
     stat_allocated: "Đã cấp",
     stat_exhausted: "Hết quota",
-    stat_banned: "Đã cấm",
+    stat_banned: "? đã cấm",
     label: "Nhãn",
     owner: "Chủ sở hữu",
     used: "Đã dùng",
-    pool_empty_title: "Pool đang trống",
-    pool_empty_desc: "Khách chưa thể dùng Pi AI Cloud cho tới khi có ít nhất 1 key trong pool.",
+    pool_empty_title: "Pool dang trống",
+    pool_empty_desc: "Khách Chưa thể dùng Pi AI Cloud cho tải khi còn ?t nhất 1 key trong pool.",
 
     // Packages
     packages_title: "Gói subscription",
-    packages_subtitle: "Định nghĩa các gói. Số keys cấp cho khách được admin tùy chỉnh riêng ở Key Pool.",
+    packages_subtitle: "Định hình các gói. Số keys cấp cho khách được admin tùy chỉnh riêng ? Key Pool.",
     add_package: "Thêm gói",
     price_monthly: "Giá tháng",
-    price_yearly: "Giá năm",
+    price_yearly: "Giá nam",
     token_quota: "Quota token",
-    qualities: "Chất lượng",
+    qualities: "ChấtSố liệu?g",
     subscribers: "Người dùng",
 
     // Usage
-    usage_title: "Phân tích Usage",
+    usage_title: "Phần tích Usage",
     usage_subtitle: "Phân tích AI calls, revenue / upstream cost / margin theo plugin.",
     time_range: "Khoảng thời gian",
     days: "ngày",
     total_calls: "Tổng calls",
-    pi_tokens_spent: "Pi tokens đã dùng",
+    pi_tokens_spent: "Pi tokens dùng",
     revenue_est: "Doanh thu (ước)",
     upstream_cost: "Chi phí upstream",
     margin: "Margin",
-    avg_latency: "Độ trễ trung bình",
+    avg_latency: "?? trung bình",
     daily_traffic: "Traffic theo ngày",
     success: "Thành công",
     failed: "Thất bại",
-    breakdown_by_plugin: "Phân bổ theo plugin",
-    share: "Tỉ trọng",
+    breakdown_by_plugin: "Phần b? theo plugin",
+    share: "T? tr?ng",
 
     // Revenue
     revenue_title: "Doanh thu",
@@ -204,74 +203,74 @@ export const ADMIN_T = {
     mrr: "MRR",
     arr: "ARR",
     ltv: "LTV",
-    churn_rate: "Tỉ lệ churn",
+    churn_rate: "T? l? churn",
     revenue_by_month: "Doanh thu theo tháng",
     revenue_by_package: "Doanh thu theo gói",
-    failed_payments: "Thanh toán lỗi",
-    invoices: "Hoá đơn",
+    failed_payments: "Thanh toán l?",
+    invoices: "Hóa đơn",
 
     // Releases
     releases_title: "Plugin Releases",
-    releases_subtitle: "Quản lý ZIP versions. Client plugin tự fetch update từ đây.",
+    releases_subtitle: "Quản lý ZIP versions. Client plugin t? fetch update t? dây.",
     upload_release_btn: "Upload release",
     version: "Phiên bản",
     tier_required: "Tier",
-    size: "Kích thước",
+    size: "Kích tưc",
     uploaded: "Ngày upload",
-    stable: "Ổn định",
-    yanked: "Rút về",
-    mark_stable: "Đánh dấu ổn định",
-    yank: "Rút về",
-    download: "Tải xuống",
+    stable: "?n d?ng",
+    yanked: "R?t v?",
+    mark_stable: "?nh d?u ?n d?ng",
+    yank: "R?t v?",
+    download: "T?i xu?ng",
     no_releases: "Chưa có release nào.",
 
     // Audit log
-    audit_title: "Nhật ký Audit",
-    audit_subtitle: "Lịch sử mọi thao tác admin.",
+    audit_title: "Nhật k? Audit",
+    audit_subtitle: "L?ch s? mới thao tác admin.",
     event_time: "Thời gian",
     actor: "Thực hiện",
     action: "Hành động",
     resource: "Tài nguyên",
-    message: "Thông điệp",
+    message: "Thông diệp",
     severity: "Mức độ",
     before: "Trước",
     after: "Sau",
     events: "sự kiện",
     no_events: "Chưa có sự kiện",
-    no_events_desc: "Audit log sẽ tự cập nhật khi admin thao tác.",
-    from_date: "Từ ngày",
-    to_date: "Đến ngày",
-    search_audit: "Tìm actor / message / label…",
+    no_events_desc: "Audit log s? t? c?p nh?t khi admin thao tác.",
+    from_date: "T? ngày",
+    to_date: "?n ngày",
+    search_audit: "T?m actor / message / label?",
 
     // Settings
     settings_title: "Settings",
-    settings_subtitle: "Cấu hình platform Pi (global). Lưu trong DB — không cần redeploy.",
+    settings_subtitle: "Cấu hình platform Pi (global).Số liệu?u trong DB ? khng c?n redeploy.",
     branding: "Thương hiệu",
     site_name: "Tên site",
     logo_url: "Logo URL",
     primary_color: "Màu chủ đạo",
-    support_email: "Email hỗ trợ",
+    support_email: "Email h? tr?",
     save_branding: "Lưu branding",
     token_packs: "Token packs",
     feature_flags: "Feature flags",
     save_flags: "Lưu flags",
     cron_jobs: "Cron jobs",
-    cron_subtitle: "Tác vụ nền chạy theo lịch. Có thể trigger manual để test.",
-    run_now: "Chạy ngay",
-    running: "Đang chạy…",
+    cron_subtitle: "Tác v? nên ch?y theo l?ch. C? th? trigger manual d? test.",
+    run_now: "Ch?y ngay",
+    running: "?ang ch?y?",
     job: "Job",
     schedule: "Lịch",
-    never_run: "chưa chạy",
+    never_run: "Chưa ch?y",
     security_env: "Bảo mật (env-only)",
-    security_subtitle: "Các giá trị sau đọc từ env vars, đổi qua Railway/Docker — không lưu DB.",
+    security_subtitle: "Các giá tr? Sau đọc t? env vars, đổi qua Railway/Docker ? khngSố liệu?u DB.",
     flag_signup: "Cho phép đăng ký account mới",
     flag_billing: "Bật top-up (Stripe checkout)",
     flag_marketplace: "Bật marketplace /catalog",
     flag_maintenance: " Maintenance mode (block /v1/ai/complete)",
   },
   en: {
-    loading: "Loading…",
-    saving: "Saving…",
+    loading: "Loading",
+    saving: "Saving",
     saved: "Saved",
     save: "Save",
     cancel: "Cancel",
@@ -295,8 +294,8 @@ export const ADMIN_T = {
     of: "of",
     showing: "Showing",
     per_page: "per page",
-    prev: "← Prev",
-    next: "Next →",
+    prev: "? Prev",
+    next: "Next ?",
 
     joined: "Joined",
     login: "Login",
@@ -338,7 +337,7 @@ export const ADMIN_T = {
     tier: "Tier",
     revoke: "Revoke",
     reactivate: "Reactivate",
-    search_license_placeholder: "Search by email / key / name…",
+    search_license_placeholder: "Search by email / key / name?",
     filter_status: "Status",
     filter_tier: "Tier",
     filter_package: "Package",
@@ -401,7 +400,7 @@ export const ADMIN_T = {
     healthy: "Healthy",
 
     keys_title: "Key Pool",
-    keys_subtitle: "Manage upstream API keys. Each key is allocated to a specific customer — never shared.",
+    keys_subtitle: "Manage upstream API keys. Each key is allocated to a specific customer ? never shared.",
     add_key_btn: "Add key",
     bulk_import: "Bulk import",
     reset_period: "Reset period",
@@ -481,10 +480,10 @@ export const ADMIN_T = {
     no_events_desc: "Audit log auto-updates as admins take actions.",
     from_date: "From",
     to_date: "To",
-    search_audit: "Search actor / message / label…",
+    search_audit: "Search actor / message / label?",
 
     settings_title: "Settings",
-    settings_subtitle: "Global Pi platform configuration. Stored in DB — no redeploy needed.",
+    settings_subtitle: "Global Pi platform configuration. Stored in DB ? no redeploy needed.",
     branding: "Branding",
     site_name: "Site name",
     logo_url: "Logo URL",
@@ -497,12 +496,12 @@ export const ADMIN_T = {
     cron_jobs: "Cron jobs",
     cron_subtitle: "Background tasks on schedule. Can manually trigger to test.",
     run_now: "Run now",
-    running: "Running…",
+    running: "Running",
     job: "Job",
     schedule: "Schedule",
     never_run: "never run",
     security_env: "Security (env-only)",
-    security_subtitle: "These values come from env vars, changed via Railway/Docker — not stored in DB.",
+    security_subtitle: "These values come from env vars, changed via Railway/Docker ? not stored in DB.",
     flag_signup: "Allow new account signup",
     flag_billing: "Enable top-up (Stripe checkout)",
     flag_marketplace: "Enable marketplace /catalog",
@@ -510,21 +509,21 @@ export const ADMIN_T = {
   },
 };
 
-// ─────────────────────────────────────────────────────────
-// Hook — get t() bound to current locale
-// ─────────────────────────────────────────────────────────
+// ---------------------------------------------------------
+// Hook ? get t() bound to current locale
+// ---------------------------------------------------------
 export function useAdminT() {
   const { locale } = useLocale();
   return ADMIN_T[locale] || ADMIN_T.vi;
 }
 
-// ─────────────────────────────────────────────────────────
+// ---------------------------------------------------------
 // Locale-aware formatters
-// ─────────────────────────────────────────────────────────
+// ---------------------------------------------------------
 
-/** cents USD → localized currency string. VI → VND, EN → USD. */
+/** cents USD ? localized currency string. VI ? VND, EN ? USD. */
 export function formatCurrency(cents, locale = "vi") {
-  if (cents == null || !Number.isFinite(Number(cents))) return "—";
+  if (cents == null || !Number.isFinite(Number(cents))) return "?";
   const usd = Number(cents) / 100;
   if (locale === "en") {
     if (usd === 0) return "$0";
@@ -536,20 +535,20 @@ export function formatCurrency(cents, locale = "vi") {
   }).format(vnd);
 }
 
-/** USD amount (dollars, not cents) → localized currency */
+/** USD amount (dollars, not cents) ? localized currency */
 export function formatCurrencyUSD(dollars, locale = "vi") {
   return formatCurrency(Math.round(dollars * 100), locale);
 }
 
-/** Integer count → localized number with separators */
+/** Integer count ? localized number with separators */
 export function formatNumber(n, locale = "vi") {
-  if (n == null || !Number.isFinite(Number(n))) return "—";
+  if (n == null || !Number.isFinite(Number(n))) return "?";
   return new Intl.NumberFormat(locale === "en" ? "en-US" : "vi-VN").format(Number(n));
 }
 
 /** Token count with K/M/B suffix */
 export function formatTokens(n) {
-  if (n == null || !Number.isFinite(Number(n))) return "—";
+  if (n == null || !Number.isFinite(Number(n))) return "?";
   const x = Number(n);
   if (x === 0) return "0";
   if (x >= 1_000_000_000) return (x / 1_000_000_000).toFixed(1).replace(/\.0$/, "") + "B";
@@ -558,19 +557,19 @@ export function formatTokens(n) {
   return x.toString();
 }
 
-/** ISO date → short locale date (e.g. "18/4/2026" vi / "4/18/2026" en) */
+/** ISO date ? short locale date (e.g. "18/4/2026" vi / "4/18/2026" en) */
 export function formatDate(iso, locale = "vi") {
-  if (!iso) return "—";
+  if (!iso) return "?";
   const d = new Date(iso);
-  if (isNaN(d)) return "—";
+  if (isNaN(d)) return "?";
   return d.toLocaleDateString(locale === "en" ? "en-US" : "vi-VN");
 }
 
-/** ISO → relative ("3p trước" vi / "3m ago" en) */
+/** ISO ? relative ("3p tru?c" vi / "3m ago" en) */
 export function formatRelative(iso, locale = "vi") {
-  if (!iso) return "—";
+  if (!iso) return "?";
   const d = new Date(iso);
-  if (isNaN(d)) return "—";
+  if (isNaN(d)) return "?";
   const diffMs = new Date() - d;
   const past = diffMs >= 0;
   const abs = Math.abs(diffMs);
@@ -586,18 +585,18 @@ export function formatRelative(iso, locale = "vi") {
     if (day < 30) return `${day}d ${sfx}`;
     return d.toLocaleDateString("en-US");
   }
-  const sfx = past ? "trước" : "nữa";
-  if (min < 1) return "vừa xong";
+  const sfx = past ? "tru?c" : "n?a";
+  if (min < 1) return "v?a xong";
   if (min < 60) return `${min}p ${sfx}`;
   if (hr < 24) return `${hr}h ${sfx}`;
-  if (day < 30) return `${day} ngày ${sfx}`;
+  if (day < 30) return `${day} ng?y ${sfx}`;
   return d.toLocaleDateString("vi-VN");
 }
 
 /** DateTime full */
 export function formatDateTime(iso, locale = "vi") {
-  if (!iso) return "—";
+  if (!iso) return "?";
   const d = new Date(iso);
-  if (isNaN(d)) return "—";
+  if (isNaN(d)) return "?";
   return d.toLocaleString(locale === "en" ? "en-US" : "vi-VN");
 }
