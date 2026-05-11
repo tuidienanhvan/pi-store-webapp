@@ -260,55 +260,97 @@
   to { transform: rotateY(600deg) translateX(110px) rotateX(-75deg); }
 }
 
-/* Card 4: VN Digital Map */
-.vn-digital-map {
+/* Card 4: VN Digital Map V2 - High Fidelity */
+.vn-digital-map-v2 {
   position: absolute;
   inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 0;
-  transform: translateY(-30px) scale(0.85); /* Đẩy lên cao hơn và nhỏ lại một chút nữa */
-}
-.map-container {
-  position: relative;
-  width: 140px;
-  height: 140px;
-  background: radial-gradient(circle at center, color-mix(in srgb, var(--p) 12%, transparent) 0%, transparent 80%);
-}
-.vn-dots {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, color-mix(in srgb, var(--bc) 30%, transparent) 1px, transparent 1px);
-  background-size: 8px 8px;
-  opacity: 0.35;
-  mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+  transform: translateY(-20px);
 }
 
-.signal-pulse {
+.vn-map-svg-wrapper {
+  position: relative;
+  width: 140px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vn-map-svg {
+  width: 100%;
+  height: 100%;
+  color: color-mix(in srgb, var(--p) 8%, transparent);
+  filter: drop-shadow(0 0 20px color-mix(in srgb, var(--p) 10%, transparent));
+}
+
+.vn-map-grid {
   position: absolute;
-  width: 8px; height: 8px;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, color-mix(in srgb, var(--p) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--p) 5%, transparent) 1px, transparent 1px);
+  background-size: 15px 15px;
+  mask-image: radial-gradient(circle at center, black 100%, transparent 100%);
+}
+
+.vn-node {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.vn-node .pulse {
+  width: 10px; height: 10px;
   background: var(--p);
   border-radius: 50%;
   box-shadow: 0 0 15px var(--p);
-  z-index: 5;
 }
-.signal-pulse::after {
+
+.vn-node .pulse::after {
   content: ''; position: absolute; inset: -10px; border: 1px solid var(--p); border-radius: 50%;
   animation: wave 2s infinite;
 }
-.p-1 { top: 20%; left: 50%; }
-.p-2 { bottom: 20%; left: 60%; }
 
-@keyframes wave {
-  from { transform: scale(0.5); opacity: 1; }
-  to { transform: scale(2.5); opacity: 0; }
+.vn-node .node-label {
+  font-size: 8px; font-weight: 900; color: var(--bc3); text-transform: uppercase; letter-spacing: 0.1em;
+}
+
+.vn-node.hanoi { top: 15%; left: 45%; }
+.vn-node.hcm { bottom: 15%; left: 55%; }
+
+.data-stream {
+  position: absolute;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, var(--p), transparent);
+  opacity: 0.5;
+  filter: blur(1px);
+}
+
+.stream-1 { height: 60px; left: 48%; top: 20%; animation: streamFlow 3s linear infinite; }
+.stream-2 { height: 80px; left: 52%; top: 40%; animation: streamFlow 4s linear infinite reverse; }
+
+@keyframes streamFlow {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(100%); opacity: 0; }
+  50% { opacity: 0.5; }
+}
+
+.vn-badge-floating {
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  transform: rotate(90deg) translateY(-50%);
 }
 
 .vn-label-overlay {
   text-align: center;
-  margin-top: 2rem; /* Tăng khoảng cách với bản đồ */
+  margin-top: 1.5rem;
   position: relative;
   z-index: 10;
 }

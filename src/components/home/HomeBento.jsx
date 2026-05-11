@@ -78,15 +78,19 @@ export function HomeBento({ t }) {
                   )}
 
                   {i === 3 && (
-                    <div className="vn-digital-map">
-                      <div className="map-container">
-                        <div className="vn-dots" />
-                        <div className="signal-pulse p-1" />
-                        <div className="signal-pulse p-2" />
+                    <div className="vn-digital-map-v2">
+                      <div className="vn-map-svg-wrapper">
+                        <svg viewBox="0 0 120 180" className="vn-map-svg">
+                          <path d="M50,10 L55,15 L52,25 L58,35 L55,45 L60,55 L58,65 L65,75 L62,85 L68,95 L65,105 L72,115 L68,125 L75,135 L70,145 L78,155 L72,165 L65,155 L68,145 L62,135 L65,125 L60,115 L62,105 L55,95 L58,85 L52,75 L55,65 L48,55 L52,45 L45,35 L48,25 L42,15 Z" fill="currentColor" />
+                        </svg>
+                        <div className="vn-map-grid" />
+                        <div className="vn-node hanoi"><div className="pulse"/><span className="node-label">HN</span></div>
+                        <div className="vn-node hcm"><div className="pulse"/><span className="node-label">HCM</span></div>
+                        <div className="data-stream stream-1" />
+                        <div className="data-stream stream-2" />
                       </div>
-                      <div className="vn-label-overlay">
+                      <div className="vn-badge-floating">
                         <Badge tone="brand">VN REGION</Badge>
-                        <strong>Ultra Low Latency</strong>
                       </div>
                     </div>
                   )}
