@@ -204,7 +204,6 @@ export function SiteHeader() {
 
   const { isAuthed, isAdmin, user, logout } = useAuth();
 
-  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
 
 
@@ -226,19 +225,9 @@ export function SiteHeader() {
 
         
 
-        {/* CENTER: NAV */}
 
-        <nav className="site-header__nav">
+        {/* CENTER: NAV REMOVED */}
 
-          <NavLink to="/catalog" className="site-header__nav-link">{dict.nav.catalog}</NavLink>
-
-          <NavLink to="/pricing" className="site-header__nav-link">{dict.nav.pricing}</NavLink>
-
-          <NavLink to="/docs" className="site-header__nav-link">{dict.nav.docs}</NavLink>    
-
-          <NavLink to="/about" className="site-header__nav-link">{dict.nav.about}</NavLink>
-
-        </nav>
 
         
 
@@ -280,17 +269,8 @@ export function SiteHeader() {
 
 
 
-          <IconButton 
 
-            icon="menu" 
-
-            className="site-header__mobile-toggle md:hidden" 
-
-            label="Open Menu" 
-
-            onClick={() => setMobileNavOpen(true)} 
-
-          />
+          {/* MOBILE TOGGLE REMOVED */}
 
         </div>
 
@@ -298,27 +278,8 @@ export function SiteHeader() {
 
 
 
-      <Drawer open={mobileNavOpen} onClose={() => setMobileNavOpen(false)} side="left" title="Pi Ecosystem">
 
-        <div className="flex flex-col gap-2 p-4 mt-4">
-
-          <Button as={Link} to="/catalog" variant="ghost" style={{ justifyContent: "flex-start" }} onClick={() => setMobileNavOpen(false)}>Catalog</Button>
-
-          <Button as={Link} to="/pricing" variant="ghost" style={{ justifyContent: "flex-start" }} onClick={() => setMobileNavOpen(false)}>Pricing</Button>
-
-          <Button as={Link} to="/docs" variant="ghost" style={{ justifyContent: "flex-start" }} onClick={() => setMobileNavOpen(false)}>Docs</Button>
-
-          <hr className="opacity-10 my-2" />
-
-          {!isAuthed && (
-
-            <Button as={Link} to="/login" variant="primary" onClick={() => setMobileNavOpen(false)}>Sign in</Button>
-
-          )}
-
-        </div>
-
-      </Drawer>
+      {/* MOBILE DRAWER REMOVED */}
 
     </header>
 

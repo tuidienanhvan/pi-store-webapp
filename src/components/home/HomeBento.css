@@ -140,8 +140,8 @@
   backdrop-filter: blur(8px);
   z-index: 5;
 }
-.badge-1 { top: 10%; right: 5%; transform: rotate(5deg); }
-.badge-2 { bottom: 15%; left: 5%; transform: rotate(-5deg); }
+.badge-1 { top: 12%; right: 6%; transform: rotate(5deg); }
+.badge-2 { bottom: 18%; left: 8%; transform: rotate(-5deg); }
 
 /* Card 2: Infrastructure - Data Flow Simulation */
 .infrastructure-visual { 
@@ -247,16 +247,16 @@
 .model-tag.claude { border-color: #d97757; color: #d97757; animation: orbit-claude 12s linear infinite; }
 
 @keyframes orbit-gpt {
-  from { transform: rotateY(0deg) translateX(85px) rotateY(0deg); }
-  to { transform: rotateY(360deg) translateX(85px) rotateY(-360deg); }
+  from { transform: rotateY(0deg) translateX(80px) rotateY(0deg); }
+  to { transform: rotateY(360deg) translateX(80px) rotateY(-360deg); }
 }
 @keyframes orbit-gemini {
-  from { transform: rotateY(120deg) translateX(85px) rotateY(-120deg); }
-  to { transform: rotateY(480deg) translateX(85px) rotateY(-480deg); }
+  from { transform: rotateY(120deg) translateX(105px) rotateY(-120deg); }
+  to { transform: rotateY(480deg) translateX(105px) rotateY(-480deg); }
 }
 @keyframes orbit-claude {
-  from { transform: rotateY(240deg) translateX(85px) rotateY(-240deg); }
-  to { transform: rotateY(600deg) translateX(85px) rotateY(-600deg); }
+  from { transform: rotateY(240deg) translateX(130px) rotateY(-240deg); }
+  to { transform: rotateY(600deg) translateX(130px) rotateY(-600deg); }
 }
 
 /* Card 4: VN Digital Map */
@@ -267,21 +267,22 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 1rem;
+  padding-top: 0;
+  transform: translateY(-20px) scale(0.9); /* Đẩy lên và thu nhỏ để tránh đè chữ */
 }
 .map-container {
   position: relative;
   width: 140px;
-  height: 160px;
-  background: radial-gradient(circle at center, color-mix(in srgb, var(--p) 10%, transparent) 0%, transparent 80%);
+  height: 140px;
+  background: radial-gradient(circle at center, color-mix(in srgb, var(--p) 12%, transparent) 0%, transparent 80%);
 }
 .vn-dots {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, color-mix(in srgb, var(--bc) 25%, transparent) 1px, transparent 1px);
+  background-image: radial-gradient(circle, color-mix(in srgb, var(--bc) 30%, transparent) 1px, transparent 1px);
   background-size: 8px 8px;
-  opacity: 0.3;
-  mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+  opacity: 0.35;
+  mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
 }
 
 .signal-pulse {
@@ -306,7 +307,9 @@
 
 .vn-label-overlay {
   text-align: center;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
+  position: relative;
+  z-index: 10;
 }
 .vn-label-overlay strong {
   display: block; font-size: 1.25rem; font-weight: 950; color: var(--bc); margin-top: 0.5rem;
