@@ -27,38 +27,57 @@ export function HomeBento({ t }) {
                 {/* INTERACTIVE VISUALS BASED ON ITEM TYPE */}
                 <div className="home-bento__visual-container">
                   {i === 0 && (
-                    <div className="mini-dashboard">
-                      <div className="mini-dashboard__header"><span/><span/><span/></div>
-                      <div className="mini-dashboard__stats">
-                        <div className="mini-stat"><span>Usage</span><strong>$0.02</strong></div>
-                        <div className="mini-stat"><span>Saving</span><strong>90%</strong></div>
+                    <div className="mini-dashboard-wrapper">
+                      <div className="mini-dashboard">
+                        <div className="mini-dashboard__header"><span/><span/><span/><strong>pi-cloud-metrics</strong></div>
+                        <div className="mini-dashboard__body">
+                          <div className="mini-chart">
+                            <div className="bar" style={{height: '40%'}}/>
+                            <div className="bar" style={{height: '70%'}}/>
+                            <div className="bar" style={{height: '50%'}}/>
+                            <div className="bar" style={{height: '90%'}}/>
+                            <div className="bar" style={{height: '60%'}}/>
+                          </div>
+                          <div className="mini-dashboard__stats">
+                            <div className="mini-stat"><span>Tokens</span><strong>125K</strong></div>
+                            <div className="mini-stat"><span>Saved</span><strong>$42.5</strong></div>
+                          </div>
+                        </div>
                       </div>
-                      <div className="mini-callout">LOW LATENCY</div>
+                      <div className="floating-badge badge-1">99.9% Uptime</div>
+                      <div className="floating-badge badge-2">Auto-Scale</div>
                     </div>
                   )}
                   
                   {i === 1 && (
-                    <div className="server-cluster">
-                      {[1,2,3,4].map(n => (
-                        <div key={n} className="server-node"><div className="node-indicator"/></div>
+                    <div className="server-rack">
+                      {[1,2,3].map(n => (
+                        <div key={n} className="server-unit">
+                          <div className="unit-lights"><span/><span/><span/></div>
+                          <div className="unit-label">NODE-0{n}</div>
+                        </div>
                       ))}
-                      <div className="mini-callout mini-callout--alt">NODE ACTIVE</div>
                     </div>
                   )}
 
                   {i === 2 && (
-                    <div className="provider-orbit">
-                      <div className="orbit-center"><Icon name="cpu" size={20} /></div>
-                      <div className="orbit-item item-1">G</div>
-                      <div className="orbit-item item-2">A</div>
-                      <div className="orbit-item item-3">O</div>
+                    <div className="ai-nexus">
+                      <div className="nexus-core"><Icon name="zap" size={32} /></div>
+                      <div className="nexus-ring ring-1" />
+                      <div className="nexus-ring ring-2" />
+                      <div className="nexus-node n-1">Groq</div>
+                      <div className="nexus-node n-2">GPT-4</div>
+                      <div className="nexus-node n-3">Gemini</div>
                     </div>
                   )}
 
                   {i === 3 && (
-                    <div className="vn-visual">
-                      <div className="map-dots" />
-                      <div className="vn-callout">OPTIMIZED FOR VN</div>
+                    <div className="vn-map-visual">
+                      <div className="vn-dots-grid" />
+                      <div className="vn-highlight-box">
+                        <strong>LOCATED IN VN</strong>
+                        <span>Low latency routing</span>
+                      </div>
                     </div>
                   )}
                 </div>
