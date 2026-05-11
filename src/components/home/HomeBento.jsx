@@ -71,33 +71,37 @@ export function HomeBento({ t }) {
                       <div className="nexus-core-glow" />
                       <div className="nexus-platform" />
                       <div className="model-orbits">
-                        <div className="model-tag gpt">GPT-4o</div>
-                        <div className="model-tag gemini">Gemini</div>
-                        <div className="model-tag claude">Claude 3</div>
+                        <div className="model-tag gpt">GPT-5.4</div>
+                        <div className="model-tag gemini">Gemini 3.1</div>
+                        <div className="model-tag claude">Claude 4.6</div>
                       </div>
                     </div>
                   )}
 
                   {i === 3 && (
-                    <div className="vn-digital-map-v3">
-                      <div className="vn-map-visual">
-                        <svg viewBox="0 0 120 180" className="vn-map-dots">
-                          <path d="M45,10 Q50,5 55,10 T60,20 T55,35 T60,50 T55,65 T65,80 T60,95 T70,110 T65,125 T75,140 T70,155 T80,170 L75,175 L65,160 L70,145 L62,130 L67,115 L58,100 L63,85 L54,70 L59,55 L50,40 L55,25 L45,10 Z" fill="currentColor" fillRule="evenodd" />
-                        </svg>
-                        <div className="vn-nodes">
-                          <div className="vn-node hanoi">
-                            <div className="node-pulse" />
-                            <span className="node-label">Ha Noi</span>
-                          </div>
-                          <div className="vn-node hcm">
-                            <div className="node-pulse" />
-                            <span className="node-label">TP. HCM</span>
-                          </div>
+                    <div className="vn-regional-hub">
+                      <div className="hub-core">
+                        <div className="hub-glow" />
+                        <div className="hub-rings">
+                          <div className="ring" />
+                          <div className="ring" />
                         </div>
-                        <div className="map-scan-line" />
+                        <span className="hub-text">VN</span>
                       </div>
-                      <div className="vn-badge-container">
-                        <Badge tone="brand">VN REGION</Badge>
+                      
+                      {/* Floating Info bằng Tiếng Việt */}
+                      <div className="floating-badge badge-1">Độ trễ cực thấp</div>
+                      <div className="floating-badge badge-2">Máy chủ Việt Nam</div>
+                      
+                      <div className="hub-stats">
+                        <div className="hub-stat-item">
+                          <span className="label">Độ trễ</span>
+                          <strong className="value">15ms</strong>
+                        </div>
+                        <div className="hub-stat-item">
+                          <span className="label">Hoạt động</span>
+                          <strong className="value">99.9%</strong>
+                        </div>
                       </div>
                     </div>
                   )}

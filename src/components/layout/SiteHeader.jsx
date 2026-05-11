@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import PiLogo from "@pi-ui/base/PiLogo";
 
 import { useLocale } from "@/context/LocaleContext";
 
@@ -8,7 +9,7 @@ import { LanguageToggle } from "../core/LanguageToggle";
 
 import { useAuth } from "@/context/AuthContext";
 
-import { IconButton, Button, ThemeToggle, Drawer, Icon } from "../ui";
+import { IconButton, ThemeToggle, Icon } from "../ui";
 
 import "./SiteHeader.css";
 
@@ -191,11 +192,6 @@ function UserMenu({ user, isAdmin, logout }) {
   );
 
 }
-
-
-
-import PiLogo from "@pi-ui/base/PiLogo";
-
 
 
 export function SiteHeader() {

@@ -122,7 +122,8 @@
 html, body { 
   background-color: var(--color-base-100);
   color: var(--color-base-content);
-  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
   font-family: var(--font-sans); 
 }

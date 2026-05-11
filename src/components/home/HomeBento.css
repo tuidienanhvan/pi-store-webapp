@@ -63,6 +63,12 @@
   .home-bento__card--1 { grid-column: span 2; grid-row: span 1; }
 }
 
+.home-bento__card {
+  position: relative;
+  border-radius: 2.5rem;
+  overflow: hidden;
+}
+
 /* --- GLASS SHELL --- */
 .glass-shell {
   height: 100%;
@@ -288,8 +294,8 @@
   to { transform: rotateY(600deg) translateX(85px) rotateY(-600deg) rotateX(-75deg); }
 }
 
-/* Card 4: VN Digital Map V3 */
-.vn-digital-map-v3 {
+/* Card 4: VN Regional Hub */
+.vn-regional-hub {
   position: relative;
   width: 100%;
   height: 100%;
@@ -297,98 +303,91 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: 2rem;
 }
 
-.vn-map-visual {
+.hub-core {
   position: relative;
-  width: 140px;
-  height: 180px;
+  width: 100px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: radial-gradient(circle at center, color-mix(in srgb, var(--p) 20%, transparent) 0%, transparent 70%);
+  margin-bottom: 1rem;
 }
 
-.vn-map-dots {
-  width: 100%;
-  height: 100%;
-  color: color-mix(in srgb, var(--p) 12%, transparent);
-  filter: drop-shadow(0 0 15px color-mix(in srgb, var(--p) 5%, transparent));
+.hub-text {
+  font-size: 2.5rem;
+  font-weight: 950;
+  color: var(--p);
+  letter-spacing: -0.05em;
+  text-shadow: 0 0 30px color-mix(in srgb, var(--p) 50%, transparent);
+  z-index: 5;
+  animation: hub-pulse 3s ease-in-out infinite;
 }
 
-.vn-nodes {
+.hub-glow {
   position: absolute;
   inset: 0;
-  pointer-events: none;
+  background: var(--p);
+  filter: blur(40px);
+  opacity: 0.2;
+  border-radius: 50%;
 }
 
-.vn-node {
+.hub-rings .ring {
   position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid color-mix(in srgb, var(--p) 30%, transparent);
+  border-radius: 50%;
+  animation: hub-ring 4s linear infinite;
+}
+
+.hub-rings .ring:nth-child(1) { width: 120px; height: 120px; }
+.hub-rings .ring:nth-child(2) { width: 160px; height: 160px; animation-delay: -2s; }
+
+.hub-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+  padding: 10px 20px;
+  background: color-mix(in srgb, var(--bc) 3%, transparent);
+  border: 1px solid var(--bd);
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+}
+
+.hub-stat-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  z-index: 5;
 }
 
-.node-pulse {
-  width: 10px;
-  height: 10px;
-  background: var(--p);
-  border-radius: 50%;
-  box-shadow: 0 0 15px var(--p);
-  position: relative;
-}
-
-.node-pulse::after {
-  content: '';
-  position: absolute;
-  inset: -8px;
-  border: 1px solid var(--p);
-  border-radius: 50%;
-  animation: wave 2s infinite;
-}
-
-.vn-node .node-label {
+.hub-stat-item .label {
   font-size: 9px;
-  font-weight: 900;
-  color: var(--bc);
   text-transform: uppercase;
+  color: var(--bc3);
   letter-spacing: 0.1em;
-  background: color-mix(in srgb, var(--b1) 80%, transparent);
-  padding: 2px 6px;
-  border-radius: 4px;
-  border: 1px solid var(--bd);
+  font-weight: 800;
+  margin-bottom: 2px;
 }
 
-.vn-node.hanoi { top: 18%; left: 45%; }
-.vn-node.hcm { bottom: 15%; left: 55%; }
-
-.map-scan-line {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(to right, transparent, var(--p), transparent);
-  opacity: 0.3;
-  animation: map-scan 4s linear infinite;
+.hub-stat-item .value {
+  font-size: 1.1rem;
+  font-weight: 950;
+  color: var(--bc);
 }
 
-.vn-badge-container {
-  margin-top: 1rem;
+@keyframes hub-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; filter: brightness(1); }
+  50% { transform: scale(1.05); opacity: 0.8; filter: brightness(1.2); }
 }
 
-@keyframes map-scan {
-  0% { top: 0; opacity: 0; }
-  20% { opacity: 0.5; }
-  80% { opacity: 0.5; }
-  100% { top: 100%; opacity: 0; }
-}
-
-@keyframes platform-glow {
-  0%, 100% { transform: rotateX(75deg) scale(1); opacity: 0.5; }
-  50% { transform: rotateX(75deg) scale(1.1); opacity: 0.8; }
+@keyframes hub-ring {
+  from { transform: translate(-50%, -50%) rotate(0deg); opacity: 0; }
+  50% { opacity: 0.5; }
+  to { transform: translate(-50%, -50%) rotate(360deg); opacity: 0; }
 }
 
 /* --- CONTENT --- */

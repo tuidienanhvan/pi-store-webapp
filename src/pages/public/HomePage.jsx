@@ -1,4 +1,4 @@
-﻿import './HomePage.css';
+import './HomePage.css';
 
 import React from "react";
 
@@ -9,7 +9,7 @@ import { useLocale } from "@/context/LocaleContext";
 import { HomeHero } from "@/components/home/HomeHero";
 
 import { HomeBento } from "@/components/home/HomeBento";
-
+import { HomeStore } from "@/components/home/HomeStore";
 import { HomeFeatured } from "@/components/home/HomeFeatured";
 
 import { HomeCTA } from "@/components/home/HomeCTA";
@@ -39,6 +39,8 @@ export function HomePage() {
       <HomeHero t={t} />
 
       <HomeBento t={t} />
+
+      <HomeStore />
 
       <HomeFeatured tiers={tiers} t={t} />
 

@@ -1,9 +1,8 @@
 
-  .animate-fade-up { animation: var(--animate-fade-up); }
-  .animate-toast-in { animation: var(--animate-toast-in); }
-  .animate-toast-out { animation: var(--animate-toast-out); }
-  .animate-skeleton { animation: var(--animate-skeleton); }
-}
+.animate-fade-up { animation: var(--animate-fade-up); }
+.animate-toast-in { animation: var(--animate-toast-in); }
+.animate-toast-out { animation: var(--animate-toast-out); }
+.animate-skeleton { animation: var(--animate-skeleton); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -12,4 +11,4 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-
+}
