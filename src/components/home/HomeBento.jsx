@@ -55,8 +55,9 @@ export function HomeBento({ t }) {
                         <span className="line l-1"/><span className="line l-2"/><span className="line l-3"/>
                       </div>
                       <div className="node-group">
-                        <div className="node primary"><strong>Master</strong><div className="pulse"/></div>
+                        <div className="node primary"><strong>Master</strong><div className="pulse-line"/></div>
                         <div className="node-grid">
+                          <div className="node mini"/>
                           <div className="node mini"/>
                           <div className="node mini"/>
                           <div className="node mini"/>
@@ -73,7 +74,6 @@ export function HomeBento({ t }) {
                         <div className="model-tag gemini">Gemini</div>
                         <div className="model-tag claude">Claude 3</div>
                       </div>
-                      <div className="connection-mesh" />
                     </div>
                   )}
 

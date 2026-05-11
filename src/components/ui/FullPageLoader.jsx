@@ -1,4 +1,4 @@
-import React from "react";
+import { Icon } from "./icons";
 import "./FullPageLoader.css";
 
 export function FullPageLoader() {
@@ -9,7 +9,9 @@ export function FullPageLoader() {
           <div className="orbit orbit-1" />
           <div className="orbit orbit-2" />
           <div className="orbit orbit-3" />
-          <div className="loader-core" />
+          <div className="loader-logo">
+            <Icon name="pi" size={32} />
+          </div>
         </div>
         <div className="loader-text">
           <span className="brand-text">PI STORE</span>
