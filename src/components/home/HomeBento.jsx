@@ -50,33 +50,43 @@ export function HomeBento({ t }) {
                   )}
                   
                   {i === 1 && (
-                    <div className="server-rack">
-                      {[1,2,3].map(n => (
-                        <div key={n} className="server-unit">
-                          <div className="unit-lights"><span/><span/><span/></div>
-                          <div className="unit-label">NODE-0{n}</div>
+                    <div className="infrastructure-visual">
+                      <div className="traffic-lines">
+                        <span className="line l-1"/><span className="line l-2"/><span className="line l-3"/>
+                      </div>
+                      <div className="node-group">
+                        <div className="node primary"><strong>Master</strong><div className="pulse"/></div>
+                        <div className="node-grid">
+                          <div className="node mini"/>
+                          <div className="node mini"/>
+                          <div className="node mini"/>
                         </div>
-                      ))}
+                      </div>
                     </div>
                   )}
 
                   {i === 2 && (
-                    <div className="ai-nexus">
-                      <div className="nexus-core"><Icon name="zap" size={32} /></div>
-                      <div className="nexus-ring ring-1" />
-                      <div className="nexus-ring ring-2" />
-                      <div className="nexus-node n-1">Groq</div>
-                      <div className="nexus-node n-2">GPT-4</div>
-                      <div className="nexus-node n-3">Gemini</div>
+                    <div className="ai-nexus-v2">
+                      <div className="nexus-core-glow" />
+                      <div className="model-orbits">
+                        <div className="model-tag gpt">GPT-4o</div>
+                        <div className="model-tag gemini">Gemini</div>
+                        <div className="model-tag claude">Claude 3</div>
+                      </div>
+                      <div className="connection-mesh" />
                     </div>
                   )}
 
                   {i === 3 && (
-                    <div className="vn-map-visual">
-                      <div className="vn-dots-grid" />
-                      <div className="vn-highlight-box">
-                        <strong>LOCATED IN VN</strong>
-                        <span>Low latency routing</span>
+                    <div className="vn-digital-map">
+                      <div className="map-container">
+                        <div className="vn-dots" />
+                        <div className="signal-pulse p-1" />
+                        <div className="signal-pulse p-2" />
+                      </div>
+                      <div className="vn-label-overlay">
+                        <Badge tone="brand">VN REGION</Badge>
+                        <strong>Ultra Low Latency</strong>
                       </div>
                     </div>
                   )}
