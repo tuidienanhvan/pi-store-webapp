@@ -1,80 +1,61 @@
 ﻿@reference "../../styles/index.css";
 
 
-
 @layer components {
 
 .home-cta__box {
-
-  @apply relative overflow-hidden border border-primary/35 p-[clamp(40px,7vw,72px)];
-
+  position: relative;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
+  padding: clamp(40px, 7vw, 72px);
   border-radius: 20px;
-
   box-shadow: var(--shadow-2xl);
-
   background:
-
     radial-gradient(circle at 18% 0%, rgba(211,85,115,0.28), transparent 34rem),
-
     linear-gradient(135deg, rgba(255,255,255,0.075), rgba(255,255,255,0.025));
-
 }
-
 
 
 .home-cta__bg-1,
-
 .home-cta__bg-2 {
-
-  @apply hidden;
-
+  display: none;
 }
-
 
 
 .home-cta__content {
-
-  @apply max-w-[720px];
-
+  max-width: 720px;
 }
-
 
 
 .home-cta__title {
-
-  @apply m-0 text-[clamp(42px,6vw,72px)] leading-none tracking-normal;
-
+  display: block;
+  margin: 0;
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 1;
+  letter-spacing: normal;
 }
-
 
 
 .home-cta__desc {
-
-  @apply mt-5 max-w-[540px] text-lg text-base-content/80;
-
+  margin-top: 1.25rem;
+  max-width: 540px;
+  font-size: 1.125rem;
+  color: color-mix(in srgb, var(--base-content) 80%, transparent);
 }
-
 
 
 .home-cta__actions {
-
-  @apply mt-8 flex flex-wrap gap-3;
-
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
-
 
 
 .home-cta__btn-primary,
-
 .home-cta__btn-secondary {
-
-  @apply min-w-[140px];
-
+  min-width: 140px;
 }
 
 
-
-
-
 }
-

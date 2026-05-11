@@ -1,30 +1,29 @@
-﻿@reference "../../styles/index.css";
-
-
+@reference "../../styles/index.css";
 
 @layer components {
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 1rem;
+    text-align: center;
+  }
 
-.empty-state { @apply flex flex-col items-center justify-center px-4 py-16 text-center; }
+  .empty-state__icon {
+    margin-bottom: 1rem;
+    color: var(--bc3);
+  }
 
-.empty-state__icon {
+  .empty-state__title {
+    margin-bottom: 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--bc);
+  }
 
-  @apply mb-4 text-base-content/60;
-
+  .empty-state__desc {
+    font-size: 0.875rem;
+    color: var(--bc2);
+  }
 }
-
-.empty-state__title {
-
-  @apply mb-2 text-lg font-bold text-base-content;
-
-}
-
-.empty-state__desc {
-
-  @apply text-sm text-base-content/80;
-
-}
-
-
-
-}
-

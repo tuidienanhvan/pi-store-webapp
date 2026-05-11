@@ -18,7 +18,13 @@
 
   /* --- Sidebar Panel --- */
   .dash__sidebar {
-    @apply hidden h-screen w-[var(--sidebar-width)] flex-col lg:sticky lg:top-0 lg:flex overflow-hidden;
+    display: none;
+    height: 100vh;
+    width: var(--sidebar-width);
+    flex-direction: column;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
     border-right: 1px solid var(--border-subtle);
     background: color-mix(in srgb, var(--surface) 40%, transparent);
     backdrop-filter: blur(24px);
@@ -27,9 +33,18 @@
     box-shadow: 1px 0 10px rgba(0, 0, 0, 0.1);
   }
 
+  @media (min-width: 1024px) {
+    .dash__sidebar {
+      display: flex;
+    }
+  }
+
   /* --- Main Content Container --- */
-  .dash__main { 
-    @apply min-w-0 flex flex-col relative;
+  .dash__main {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
   }
 
   /* --- Legacy Padding Purge --- */

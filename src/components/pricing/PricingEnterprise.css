@@ -1,60 +1,111 @@
 ﻿@reference "../../styles/index.css";
 
 
-
 @layer components {
 
 .enterprise-card {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  display: grid;
+  max-width: 1180px;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--base-border);
+  background-color: var(--base-200);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-xl);
+}
 
-  @apply mx-auto mt-8 grid max-w-[1180px] grid-cols-1 gap-6 rounded-[1.5rem] border border-base-border bg-base-200 p-6 shadow-xl md:grid-cols-[1fr_auto] md:p-8;
-
+@media (min-width: 768px) {
+  .enterprise-card {
+    grid-template-columns: 1fr auto;
+    padding: 2rem;
+  }
 }
 
 
-
-.enterprise-card__left { @apply min-w-0; }
-
-
-
-.enterprise-badge { @apply mb-4 inline-flex rounded-full bg-info/10 px-3 py-1 text-xs font-black uppercase tracking-wider text-info; }
+.enterprise-card__left {
+  min-width: 0;
+}
 
 
+.enterprise-badge {
+  display: inline-flex;
+  margin-bottom: 1rem;
+  border-radius: 9999px;
+  background-color: color-mix(in srgb, var(--info) 10%, transparent);
+  padding: 0.375rem 0.875rem;
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--info);
+}
 
-.enterprise-title { @apply text-3xl font-black md:text-4xl text-base-content; }
 
+.enterprise-title {
+  font-size: 1.875rem;
+  font-weight: 900;
+  color: var(--base-content);
+}
+
+@media (min-width: 768px) {
+  .enterprise-title {
+    font-size: 2.5rem;
+  }
+}
 
 
 .enterprise-desc {
-
-  @apply mt-3 max-w-[640px] text-base leading-7 text-base-content/80;
-
+  margin-top: 0.75rem;
+  max-width: 640px;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: color-mix(in srgb, var(--base-content) 80%, transparent);
 }
 
 
-
-.enterprise-features { @apply mt-6 flex flex-wrap gap-2; }
-
+.enterprise-features {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
 
 
 .enterprise-feature-chip {
-
-  @apply rounded-full border border-base-border bg-base-200 px-3 py-2 text-sm font-semibold text-base-content/80;
-
+  border-radius: 9999px;
+  border: 1px solid var(--base-border);
+  background-color: var(--base-200);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--base-content) 80%, transparent);
 }
 
 
+.enterprise-card__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
 
-.enterprise-card__right { @apply flex flex-col items-start justify-end gap-3 md:items-end; }
-
+@media (min-width: 768px) {
+  .enterprise-card__right {
+    align-items: flex-end;
+  }
+}
 
 
 .enterprise-response-note {
-
-  @apply m-0 text-sm text-base-content/50;
-
+  margin: 0;
+  font-size: 0.875rem;
+  color: color-mix(in srgb, var(--base-content) 50%, transparent);
 }
 
 
-
 }
-

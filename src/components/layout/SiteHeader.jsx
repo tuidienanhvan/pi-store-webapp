@@ -220,7 +220,7 @@ export function SiteHeader() {
 
           <PiLogo size={32} />
 
-          <span className="site-header__brand-text">Pi Ecosystem</span>
+          <span className="site-header__brand-text">PI STORE</span>
 
         </Link>
 

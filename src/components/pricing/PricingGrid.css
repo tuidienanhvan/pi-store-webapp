@@ -1,16 +1,31 @@
 ﻿@reference "../../styles/index.css";
 
 
-
 @layer components {
 
 .pricing-grid {
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  max-width: 1240px;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 5rem;
+}
 
-  @apply mx-auto grid max-w-[1240px] grid-cols-1 gap-8 px-6 pb-20 md:grid-cols-2 xl:grid-cols-3;
+@media (min-width: 768px) {
+  .pricing-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 
+@media (min-width: 1280px) {
+  .pricing-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 
-
 }
-

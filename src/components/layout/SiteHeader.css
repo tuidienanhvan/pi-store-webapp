@@ -5,19 +5,16 @@
 /* --- HEADER SHELL --- */
 .site-header {
   position: sticky;
-  top: 1rem;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 50;
-  margin-inline: auto;
-  width: calc(100% - 2rem);
-  max-width: 1400px;
+  width: 100%;
   height: 5rem;
-  padding-inline: 2rem;
-  border-radius: 1rem;
-  border: 1px solid color-mix(in srgb, var(--base-border) 40%, transparent);
-  background: color-mix(in srgb, var(--base-100) 70%, transparent);
-  backdrop-filter: blur(40px);
-  box-shadow: 0 8px 40px color-mix(in srgb, var(--base-content) 5%, transparent);
-  transition: all 0.5s ease;
+  border-bottom: 1px solid var(--bd);
+  background: var(--b1);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
 }
 
 /* Inner flex row */
@@ -26,6 +23,9 @@
   align-items: center;
   justify-content: space-between;
   height: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
+  padding-inline: 2rem;
 }
 
 /* --- LOGO --- */

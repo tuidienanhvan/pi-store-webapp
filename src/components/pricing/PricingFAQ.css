@@ -1,68 +1,70 @@
 ﻿@reference "../../styles/index.css";
 
 
-
 @layer components {
 
 .pricing-faq {
-
-  @apply py-16 border-t border-base-border;
-
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  border-top: 1px solid var(--base-border);
 }
-
 
 
 .pricing-faq__container {
-
-  @apply mx-auto max-w-[720px];
-
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 720px;
 }
-
 
 
 .pricing-faq__title {
-
-  @apply mb-8 text-center text-3xl font-bold text-base-content;
-
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--base-content);
 }
-
 
 
 .faq-item {
-
-  @apply rounded-xl border border-base-border bg-base-200/50 transition-all overflow-hidden;
-
+  border-radius: 0.75rem;
+  border: 1px solid var(--base-border);
+  background-color: color-mix(in srgb, var(--base-200) 50%, transparent);
+  transition: all 0.2s ease;
+  overflow: hidden;
 }
-
 
 
 .faq-item summary {
-
-  @apply cursor-pointer px-5 py-4 font-bold select-none list-none flex items-center justify-between text-base-content;
-
+  cursor: pointer;
+  padding: 1.25rem 1.25rem;
+  font-weight: 700;
+  user-select: none;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--base-content);
 }
-
 
 
 .faq-item summary::-webkit-details-marker { display: none; }
 
 
-
 .faq-item p {
-
-  @apply px-5 pb-4 text-sm leading-relaxed text-base-content/80;
-
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-bottom: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.625;
+  color: color-mix(in srgb, var(--base-content) 80%, transparent);
 }
-
 
 
 .faq-item[open] {
-
-  @apply border-primary/30 bg-primary/5;
-
+  border-color: color-mix(in srgb, var(--primary) 30%, transparent);
+  background-color: color-mix(in srgb, var(--primary) 5%, transparent);
 }
 
 
-
 }
-

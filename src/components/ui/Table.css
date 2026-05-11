@@ -1,82 +1,55 @@
-﻿@reference "../../styles/index.css";
-
-
+@reference "../../styles/index.css";
 
 @layer components {
+  .table-wrapper {
+    overflow-x: auto;
+    border-radius: 0.75rem;
+    border: 1px solid var(--bd);
+    background-color: color-mix(in srgb, var(--b2) 30%, transparent);
+    backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-2xl);
+  }
 
-.table-wrapper { 
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
 
-  @apply overflow-x-auto rounded-xl border border-base-border bg-base-200/30 backdrop-blur-md; 
+  .table th {
+    padding: 1rem 1.5rem;
+    font-size: 0.625rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--bc2);
+    background-color: color-mix(in srgb, var(--b3) 40%, transparent);
+    border-bottom: 1px solid var(--bs);
+    white-space: nowrap;
+    min-width: 120px;
+    transition: color 0.2s ease;
+  }
 
-  box-shadow: var(--shadow-2xl);
+  .table td {
+    padding: 1.25rem 1.5rem;
+    font-size: 0.875rem;
+    color: var(--bc);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.01);
+    white-space: nowrap;
+    min-width: 120px;
+    transition: all 0.3s ease;
+  }
 
+  .table tr {
+    transition: background-color 0.3s ease;
+  }
+
+  .table tr:hover td {
+    background-color: rgba(255, 255, 255, 0.02);
+    color: var(--p);
+  }
+
+  .table tr:last-child td {
+    border-bottom: 0;
+  }
 }
-
-
-
-.table { 
-
-  @apply w-full border-collapse text-left; 
-
-}
-
-
-
-.table th {
-
-  @apply px-6 py-4 text-[10px] font-black uppercase tracking-[0.15em] transition-colors whitespace-nowrap;
-
-  background-color: color-mix(in srgb, var(--base-300) 40%, transparent);
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-
-  color: color-mix(in srgb, var(--base-content) 60%, transparent);
-
-  min-width: 120px;
-
-}
-
-
-
-.table td {
-
-  @apply px-6 py-5 text-sm transition-all duration-300 whitespace-nowrap;
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.01);
-
-  color: color-mix(in srgb, var(--base-content) 80%, transparent);
-
-  min-width: 120px;
-
-}
-
-
-
-.table tr {
-
-  @apply transition-colors duration-300;
-
-}
-
-
-
-.table tr:hover td {
-
-  background-color: rgba(255, 255, 255, 0.01);
-
-  color: var(--base-content);
-
-}
-
-
-
-.table tr:last-child td { 
-
-  @apply border-b-0; 
-
-}
-
-
-
-}
-

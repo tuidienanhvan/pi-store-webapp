@@ -1,4 +1,4 @@
-﻿import "./HomeHero.css";
+import "./HomeHero.css";
 
 import { Link } from "react-router-dom";
 
@@ -72,7 +72,7 @@ export function HomeHero({ t }) {
 
               <div><strong>5K</strong><span>{t?.hero?.stats?.freeTokens || "free tokens/mo"}</span></div>
 
-              <div><strong>4</strong><span>{t?.hero?.stats?.tiers || "tiers"}</span></div>
+              <div><strong>3</strong><span>{t?.hero?.stats?.tiers || "tiers"}</span></div>
 
               <div><strong>VN</strong><span>{t?.hero?.stats?.market || "Vietnam market"}</span></div>
 

@@ -1,24 +1,11 @@
-﻿@reference "../../styles/index.css";
-
-
+@reference "../../styles/index.css";
 
 /* --- HOME PAGE --- */
 
-
-
 @layer components {
-
-.home-section {
-
-  @apply relative overflow-hidden py-20;
-
+  .home-section {
+    position: relative;
+    overflow: hidden;
+    padding: 5rem 0;
+  }
 }
-
-
-
-
-
-
-
-}
-

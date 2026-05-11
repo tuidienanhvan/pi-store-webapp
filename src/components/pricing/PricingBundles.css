@@ -1,82 +1,76 @@
 ﻿@reference "../../styles/index.css";
 
 
-
 @layer components {
 
 .pricing-bundles {
-
-  @apply mx-auto max-w-[1240px] px-4;
-
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1240px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
-
 
 
 .pricing-bundles__header {
-
-  @apply mb-8 text-center;
-
+  margin-bottom: 2rem;
+  text-align: center;
 }
-
 
 
 .pricing-bundles__title {
-
-  @apply mb-2 text-4xl font-black text-base-content;
-
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--base-content);
 }
-
 
 
 .pricing-bundles__grid {
-
-  @apply grid gap-4;
-
+  display: grid;
+  gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-
 }
-
 
 
 .bundle-card {
-
-  @apply flex flex-col gap-3 p-5;
-
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.25rem;
 }
-
 
 
 .bundle-card__image {
-
-  @apply aspect-[16/10] w-full rounded-xl object-cover;
-
+  aspect-ratio: 16/10;
+  width: 100%;
+  border-radius: 0.75rem;
+  object-fit: cover;
 }
-
 
 
 .bundle-card__title {
-
-  @apply m-0 text-xl font-bold text-base-content;
-
+  display: block;
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--base-content);
 }
-
 
 
 .bundle-card__price-row {
-
-  @apply mt-auto flex items-baseline gap-2;
-
+  margin-top: auto;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
 }
-
 
 
 .bundle-card__price {
-
-  @apply text-3xl font-bold;
-
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 
-
 }
-

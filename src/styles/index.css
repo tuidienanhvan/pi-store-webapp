@@ -121,10 +121,19 @@
 /* --- 5. GLOBAL THEME ------------------------------------------- */
 @layer base {
   html, body { 
-    @apply bg-base-100 text-base-content antialiased scroll-smooth; 
+    background-color: var(--color-base-100);
+    color: var(--color-base-content);
+    font-smoothing: antialiased;
+    scroll-behavior: smooth;
     font-family: var(--font-sans); 
   }
-  body { @apply flex flex-col relative overflow-x-hidden transition-colors duration-500; }
+  body {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+    transition: colors 0.5s ease;
+  }
 
   /* Premium Background Effects */
   body::before {
@@ -143,7 +152,11 @@
   [data-theme="light"] body::before, .light body::before { opacity: 0.5; }
   [data-theme="light"] body::after,  .light body::after  { opacity: 0.18; }
 
-  h1, h2, h3, h4, h5, h6 { @apply font-display text-base-content leading-tight; }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: var(--color-base-content);
+    line-height: 1.25;
+  }
 }
 
 /* --- 6. ANIMATIONS --- */

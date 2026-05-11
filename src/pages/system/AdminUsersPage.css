@@ -1,94 +1,91 @@
-﻿@reference "../../styles/index.css";
-
-
+@reference "../../styles/index.css";
 
 @layer components {
+  .users-page {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
 
-.users-page {
+  .users-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
 
-  @apply flex flex-col gap-10;
+  @media (min-width: 1024px) {
+    .users-header {
+      padding: 0;
+    }
+  }
 
+  .users-table-card {
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid var(--bs);
+    background-color: color-mix(in srgb, var(--b2) 40%, transparent);
+    backdrop-filter: blur(24px);
+    box-shadow: var(--shadow-2xl);
+    margin: 0 1rem;
+    border-radius: 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .users-table-card {
+      margin: 0;
+    }
+  }
+
+  .users-table th {
+    padding: 1.25rem 1.5rem;
+    font-size: 0.625rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--bc2);
+    text-align: left;
+    white-space: nowrap;
+    background-color: color-mix(in srgb, var(--b3) 60%, transparent);
+    border-bottom: 1px solid var(--bs);
+  }
+
+  .users-table th:nth-child(1), 
+  .users-table td:nth-child(1) {
+    min-width: 200px;
+  }
+
+  .users-table th:last-child, 
+  .users-table td:last-child {
+    min-width: 120px;
+    text-align: right;
+  }
+
+  .users-table td {
+    padding: 1.25rem 1.5rem;
+    font-size: 0.875rem;
+    vertical-align: middle;
+    white-space: nowrap;
+    color: var(--bc);
+  }
+
+  /* Animations */
+  .stagger-1 { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both 0.1s; }
+  .stagger-2 { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both 0.2s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 }
-
-
-
-.users-header {
-
-  @apply flex flex-wrap items-end justify-between gap-6 px-4 lg:px-0;
-
-}
-
-
-
-.users-table-card {
-
-  @apply p-0 overflow-hidden border border-base-border-subtle bg-base-200/40 backdrop-blur-2xl shadow-2xl mx-4 lg:mx-0 rounded-[var(--rounded-3xl)];
-
-}
-
-
-
-.users-table th {
-
-  @apply px-6 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-base-content/60 text-left whitespace-nowrap;
-
-  background-color: color-mix(in srgb, var(--base-300) 60%, transparent);
-
-  border-bottom: 1px solid var(--base-border-subtle);
-
-}
-
-
-
-.users-table th:nth-child(1), .users-table td:nth-child(1) { @apply min-w-[200px]; }
-
-.users-table th:last-child, .users-table td:last-child { @apply min-w-[120px] text-right; }
-
-
-
-.users-table td {
-
-  @apply px-6 py-5 text-sm align-middle whitespace-nowrap;
-
-}
-
-
-
-/* Transitions & Staggering */
-
-.stagger-1 { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both 0.1s; }
-
-.stagger-2 { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both 0.2s; }
-
-
-
-@keyframes fadeUp {
-
-  from { opacity: 0; transform: translateY(30px); }
-
-  to { opacity: 1; transform: translateY(0); }
-
-}
-
-
-
-.fade-in {
-
-  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-
-}
-
-
-
-@keyframes fadeIn {
-
-  from { opacity: 0; transform: translateY(10px); }
-
-  to { opacity: 1; transform: translateY(0); }
-
-}
-
-
-
-}
-

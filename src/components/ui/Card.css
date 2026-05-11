@@ -1,106 +1,55 @@
-﻿@reference "../../styles/index.css";
-
-
+@reference "../../styles/index.css";
 
 @layer components {
+  .card {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--b2);
+    border: 1px solid var(--bd);
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-md);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
 
-.card {
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+    z-index: 1;
+  }
 
-  @apply overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)];
+  .card-sunken {
+    background-color: var(--b3);
+    border-color: var(--bs);
+    box-shadow: none;
+  }
 
-  border-radius: var(--rounded-3xl);
+  .card-glass {
+    backdrop-filter: blur(24px);
+    background: color-mix(in srgb, var(--b2) 65%, transparent);
+    border: 1px solid color-mix(in srgb, var(--bs) 80%, transparent);
+    border-top-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px -4px rgba(0, 0, 0, 0.2);
+  }
 
-  border: 1px solid var(--base-border);
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    border-color: color-mix(in srgb, var(--p) 20%, var(--bt));
+    box-shadow: 
+      0 24px 48px -12px rgba(0, 0, 0, 0.4), 
+      0 0 20px color-mix(in srgb, var(--p) 5%, transparent);
+  }
 
-  background-color: var(--base-200);
+  .card-brand {
+    background: linear-gradient(135deg, var(--p) 0%, var(--ph) 100%);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px -10px color-mix(in srgb, var(--p) 40%, transparent);
+  }
 
-  box-shadow: var(--shadow-md);
-
-  position: relative;
-
+  .card-brand::before {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+  }
 }
-
-
-
-.card::before {
-
-  content: '';
-
-  position: absolute;
-
-  inset: 0;
-
-  pointer-events: none;
-
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
-
-  z-index: 1;
-
-}
-
-
-
-.card-sunken {
-
-  background-color: var(--base-300);
-
-  border-color: var(--base-border-subtle);
-
-  box-shadow: none;
-
-}
-
-
-
-.card-glass {
-
-  @apply backdrop-blur-2xl;
-
-  background: color-mix(in srgb, var(--base-200) 65%, transparent);
-
-  border: 1px solid color-mix(in srgb, var(--base-border-subtle) 80%, transparent);
-
-  border-top-color: rgba(255, 255, 255, 0.08);
-
-  box-shadow: 0 8px 32px -4px rgba(0, 0, 0, 0.2);
-
-}
-
-
-
-.hover-lift:hover {
-
-  @apply -translate-y-2;
-
-  border-color: color-mix(in srgb, var(--primary) 20%, var(--base-border-strong));
-
-  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.4), 0 0 20px color-mix(in srgb, var(--primary) 5%, transparent);
-
-}
-
-
-
-.card-brand {
-
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
-
-  color: #fff;
-
-  border-color: rgba(255, 255, 255, 0.15);
-
-  box-shadow: 0 10px 30px -10px rgba(211, 85, 115, 0.4);
-
-}
-
-
-
-.card-brand::before {
-
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
-
-}
-
-
-
-}
-

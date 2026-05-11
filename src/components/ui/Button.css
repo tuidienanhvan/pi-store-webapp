@@ -1,50 +1,38 @@
-﻿@reference "../../styles/index.css";
-
-
+@reference "../../styles/index.css";
 
 @layer components {
+  .btn--primary {
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+    background-color: var(--p);
+    color: var(--pc);
+    transition: all 0.2s ease;
+  }
 
-.btn--primary {
+  .btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--p) 20%, transparent);
+    background-color: var(--ph);
+  }
 
-  @apply text-base-content shadow-md hover:-translate-y-0.5;
+  .btn--danger {
+    color: var(--pc);
+    background-color: var(--er);
+  }
 
-  background-color: var(--color-brand);
+  .btn--danger:hover {
+    background-color: color-mix(in srgb, var(--er) 90%, black);
+  }
 
+  .btn--link {
+    height: auto;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    color: var(--p);
+  }
+
+  .btn--link:hover {
+    text-decoration: underline;
+    color: var(--ph);
+  }
 }
-
-.btn--primary:hover {
-
-  background-color: var(--color-brand-hover);
-
-}
-
-
-
-.btn--danger {
-
-  @apply text-base-content;
-
-  background-color: var(--color-danger);
-
-}
-
-.btn--danger:hover {
-
-  background-color: color-mix(in srgb, var(--color-danger) 90%, black);
-
-}
-
-
-
-.btn--link {
-
-  @apply h-auto border-0 bg-transparent p-0 hover:underline;
-
-  color: var(--color-brand);
-
-}
-
-
-
-}
-
