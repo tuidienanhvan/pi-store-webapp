@@ -7,7 +7,7 @@
 
 @media (min-width: 768px) {
   .home-hero {
-    padding: 5rem 0 8rem 0;
+    padding: 3rem 0 4rem 0;
   }
 }
 
@@ -20,8 +20,8 @@
 
 @media (min-width: 1024px) {
   .home-hero__grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 2rem;
   }
 }
 
@@ -76,9 +76,9 @@
 }
 
 .home-hero__desc {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   max-width: 520px;
-  font-size: clamp(17px, 1.5vw, 20px);
+  font-size: clamp(16px, 1.4vw, 18px);
   line-height: 1.6;
   letter-spacing: -0.01em;
   color: var(--bc2);
@@ -88,17 +88,17 @@
 .home-hero__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-top: 3rem;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
 .home-hero__stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  margin-top: 4rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--bd);
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid color-mix(in srgb, var(--bc) 8%, transparent);
   width: 100%;
 }
 
@@ -126,9 +126,12 @@
 
 .home-hero__product {
   position: relative;
-  margin-top: 3rem;
-  transform: scale(1.15);
+  margin-top: 2rem;
+  transform: scale(1.05);
   transform-origin: center right;
+  justify-self: end;
+  width: 100%;
+  max-width: 600px;
 }
 
 @media (min-width: 1024px) {
