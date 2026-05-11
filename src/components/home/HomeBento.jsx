@@ -67,8 +67,9 @@ export function HomeBento({ t }) {
                   )}
 
                   {i === 2 && (
-                    <div className="ai-nexus-v2">
+                    <div className="ai-nexus-v3">
                       <div className="nexus-core-glow" />
+                      <div className="nexus-platform" />
                       <div className="model-orbits">
                         <div className="model-tag gpt">GPT-4o</div>
                         <div className="model-tag gemini">Gemini</div>
@@ -78,18 +79,24 @@ export function HomeBento({ t }) {
                   )}
 
                   {i === 3 && (
-                    <div className="vn-digital-map-v2">
-                      <div className="vn-map-svg-wrapper">
-                        <svg viewBox="0 0 120 180" className="vn-map-svg">
-                          <path d="M50,10 L55,15 L52,25 L58,35 L55,45 L60,55 L58,65 L65,75 L62,85 L68,95 L65,105 L72,115 L68,125 L75,135 L70,145 L78,155 L72,165 L65,155 L68,145 L62,135 L65,125 L60,115 L62,105 L55,95 L58,85 L52,75 L55,65 L48,55 L52,45 L45,35 L48,25 L42,15 Z" fill="currentColor" />
+                    <div className="vn-digital-map-v3">
+                      <div className="vn-map-visual">
+                        <svg viewBox="0 0 120 180" className="vn-map-dots">
+                          <path d="M45,10 Q50,5 55,10 T60,20 T55,35 T60,50 T55,65 T65,80 T60,95 T70,110 T65,125 T75,140 T70,155 T80,170 L75,175 L65,160 L70,145 L62,130 L67,115 L58,100 L63,85 L54,70 L59,55 L50,40 L55,25 L45,10 Z" fill="currentColor" fillRule="evenodd" />
                         </svg>
-                        <div className="vn-map-grid" />
-                        <div className="vn-node hanoi"><div className="pulse"/><span className="node-label">HN</span></div>
-                        <div className="vn-node hcm"><div className="pulse"/><span className="node-label">HCM</span></div>
-                        <div className="data-stream stream-1" />
-                        <div className="data-stream stream-2" />
+                        <div className="vn-nodes">
+                          <div className="vn-node hanoi">
+                            <div className="node-pulse" />
+                            <span className="node-label">Ha Noi</span>
+                          </div>
+                          <div className="vn-node hcm">
+                            <div className="node-pulse" />
+                            <span className="node-label">TP. HCM</span>
+                          </div>
+                        </div>
+                        <div className="map-scan-line" />
                       </div>
-                      <div className="vn-badge-floating">
+                      <div className="vn-badge-container">
                         <Badge tone="brand">VN REGION</Badge>
                       </div>
                     </div>
