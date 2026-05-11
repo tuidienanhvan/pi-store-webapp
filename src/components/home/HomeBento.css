@@ -26,42 +26,6 @@
   z-index: 10;
 }
 
-.home-bento__badge {
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  padding: 0.5rem 1rem;
-  background: linear-gradient(135deg, color-mix(in srgb, var(--p) 30%, transparent), color-mix(in srgb, var(--p) 15%, transparent));
-  backdrop-filter: blur(10px);
-  border: 1px solid color-mix(in srgb, var(--p) 40%, transparent) !important;
-  box-shadow: 0 4px 15px color-mix(in srgb, var(--p) 20%, transparent);
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.home-bento__badge::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(255, 255, 255, 0.1),
-    transparent
-  );
-  transform: rotate(45deg);
-  animation: badge-shimmer 3s infinite;
-}
-
-.home-bento__badge:hover {
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 8px 25px color-mix(in srgb, var(--p) 35%, transparent);
-  border-color: color-mix(in srgb, var(--p) 60%, transparent) !important;
-}
-
 .home-bento__headline {
   font-size: clamp(36px, 6vw, 64px);
   font-weight: 950;
@@ -217,9 +181,47 @@
   to { transform: rotate(360deg) translateX(110px) rotate(-360deg); }
 }
 
-@keyframes badge-shimmer {
-  0% { transform: translateX(-150%) rotate(45deg); }
-  100% { transform: translateX(150%) rotate(45deg); }
+/* --- PREMIUM ENGINE BADGE --- */
+.premium-engine-badge {
+  text-transform: uppercase !important;
+  letter-spacing: 0.15em !important;
+  padding: 0.5rem 1rem !important;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--p) 35%, transparent), color-mix(in srgb, var(--p) 15%, transparent)) !important;
+  backdrop-filter: blur(8px) !important;
+  border: 1px solid color-mix(in srgb, var(--p) 45%, transparent) !important;
+  box-shadow: 0 4px 15px color-mix(in srgb, var(--p) 25%, transparent);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.premium-engine-badge::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -150%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: engine-shimmer 3.5s infinite;
+}
+
+@keyframes engine-shimmer {
+  0% { left: -150%; }
+  50% { left: 150%; }
+  100% { left: 150%; }
+}
+
+.premium-engine-badge:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 25px color-mix(in srgb, var(--p) 40%, transparent);
+  border-color: color-mix(in srgb, var(--p) 70%, transparent) !important;
 }
 
 .card-glass-reflection {

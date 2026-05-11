@@ -212,7 +212,7 @@ export function SiteHeader() {
 
     <header className="site-header">
 
-      <div className="mx-auto w-full max-w-[1400px] flex h-full items-center justify-between !px-10 lg:!px-16">
+      <div className="mx-auto w-full max-w-[1400px] flex h-full items-center justify-between !px-10 lg:!px-20">
 
         {/* LEFT: BRAND */}
 

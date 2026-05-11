@@ -16,7 +16,7 @@ export function HomeHero({ t }) {
 
     <section className="home-section home-hero">
 
-      <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-10">
+      <div className="mx-auto w-full max-w-[1400px] px-8 lg:px-20">
 
         <div className="home-hero__grid">
 
