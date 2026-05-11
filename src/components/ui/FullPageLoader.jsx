@@ -1,4 +1,4 @@
-import { Icon } from "./icons";
+import { PiLogo } from "../../../shared/base/PiLogo";
 import "./FullPageLoader.css";
 
 export function FullPageLoader() {
@@ -10,7 +10,7 @@ export function FullPageLoader() {
           <div className="orbit orbit-2" />
           <div className="orbit orbit-3" />
           <div className="loader-logo">
-            <Icon name="pi" size={32} />
+            <PiLogo size={40} />
           </div>
         </div>
         <div className="loader-text">
