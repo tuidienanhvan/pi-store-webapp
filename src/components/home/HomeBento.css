@@ -107,7 +107,7 @@
   justify-content: center; 
 }
 .mini-dashboard {
-  width: 280px;
+  width: 260px;
   background: var(--b4);
   border: 1px solid color-mix(in srgb, var(--bc) 10%, transparent);
   border-radius: 1rem;
@@ -115,6 +115,7 @@
   box-shadow: 0 30px 60px rgba(0,0,0,0.5);
   transform: rotateX(10deg) rotateY(-10deg);
   position: relative;
+  z-index: 2;
 }
 .mini-dashboard__header { background: color-mix(in srgb, var(--bc) 5%, transparent); padding: 10px 14px; display: flex; align-items: center; gap: 6px; }
 .mini-dashboard__header span { width: 6px; height: 6px; border-radius: 50%; background: var(--bc3); opacity: 0.3; }
@@ -139,18 +140,17 @@
   backdrop-filter: blur(8px);
   z-index: 5;
 }
-.badge-1 { top: 15%; right: 10%; transform: rotate(8deg); }
-.badge-2 { bottom: 20%; left: 10%; transform: rotate(-8deg); }
+.badge-1 { top: 10%; right: 5%; transform: rotate(5deg); }
+.badge-2 { bottom: 15%; left: 5%; transform: rotate(-5deg); }
 
 /* Card 2: Infrastructure - Data Flow Simulation */
 .infrastructure-visual { 
-  width: 100%; 
-  height: 100%; 
-  position: relative; 
+  position: absolute;
+  inset: 0;
   display: flex; 
   align-items: center; 
   justify-content: center;
-  background: radial-gradient(circle at center, color-mix(in srgb, var(--p) 5%, transparent) 0%, transparent 70%);
+  background: radial-gradient(circle at center, color-mix(in srgb, var(--p) 8%, transparent) 0%, transparent 70%);
 }
 .node-group {
   position: relative;
@@ -223,9 +223,12 @@
 }
 .model-orbits {
   position: relative;
-  width: 160px;
-  height: 160px;
+  width: 100%;
+  height: 100%;
   transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .model-tag {
   position: absolute;
@@ -237,42 +240,50 @@
   font-weight: 900;
   white-space: nowrap;
   box-shadow: var(--shadow-lg);
-  top: 50%; left: 50%;
-  margin-top: -15px; margin-left: -35px;
+  backface-visibility: hidden;
 }
-.model-tag.gpt { border-color: #10a37f; color: #10a37f; animation: orbit-v2 10s linear infinite; }
-.model-tag.gemini { border-color: #4285f4; color: #4285f4; animation: orbit-v2 10s linear infinite -3.3s; }
-.model-tag.claude { border-color: #d97757; color: #d97757; animation: orbit-v2 10s linear infinite -6.6s; }
+.model-tag.gpt { border-color: #10a37f; color: #10a37f; animation: orbit-gpt 12s linear infinite; }
+.model-tag.gemini { border-color: #4285f4; color: #4285f4; animation: orbit-gemini 12s linear infinite; }
+.model-tag.claude { border-color: #d97757; color: #d97757; animation: orbit-claude 12s linear infinite; }
 
-@keyframes orbit-v2 {
-  from { transform: rotateY(0deg) translateX(80px) rotateY(0deg); }
-  to { transform: rotateY(360deg) translateX(80px) rotateY(-360deg); }
+@keyframes orbit-gpt {
+  from { transform: rotateY(0deg) translateX(85px) rotateY(0deg); }
+  to { transform: rotateY(360deg) translateX(85px) rotateY(-360deg); }
+}
+@keyframes orbit-gemini {
+  from { transform: rotateY(120deg) translateX(85px) rotateY(-120deg); }
+  to { transform: rotateY(480deg) translateX(85px) rotateY(-480deg); }
+}
+@keyframes orbit-claude {
+  from { transform: rotateY(240deg) translateX(85px) rotateY(-240deg); }
+  to { transform: rotateY(600deg) translateX(85px) rotateY(-600deg); }
 }
 
 /* Card 4: VN Digital Map */
 .vn-digital-map {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  padding-bottom: 2rem;
+  justify-content: center;
+  padding-top: 1rem;
 }
 .map-container {
   position: relative;
-  width: 120px;
-  height: 180px;
+  width: 140px;
+  height: 160px;
+  background: radial-gradient(circle at center, color-mix(in srgb, var(--p) 10%, transparent) 0%, transparent 80%);
 }
 .vn-dots {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, color-mix(in srgb, var(--bc) 15%, transparent) 1px, transparent 1px);
-  background-size: 10px 10px;
-  opacity: 0.2;
-  mask-image: radial-gradient(ellipse 60% 80% at center, black 100%, transparent 100%);
+  background-image: radial-gradient(circle, color-mix(in srgb, var(--bc) 25%, transparent) 1px, transparent 1px);
+  background-size: 8px 8px;
+  opacity: 0.3;
+  mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
 }
+
 .signal-pulse {
   position: absolute;
   width: 8px; height: 8px;
