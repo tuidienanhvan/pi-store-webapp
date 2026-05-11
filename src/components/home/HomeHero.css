@@ -7,7 +7,7 @@
 
 @media (min-width: 768px) {
   .home-hero {
-    padding: 3rem 0 4rem 0;
+    padding: 2rem 0 3rem 0;
   }
 }
 
@@ -22,6 +22,7 @@
   .home-hero__grid {
     grid-template-columns: 1.1fr 0.9fr;
     gap: 2rem;
+    align-items: center; /* Căn giữa trục dọc */
   }
 }
 
@@ -126,7 +127,7 @@
 
 .home-hero__product {
   position: relative;
-  margin-top: 2rem;
+  margin-top: 0; /* Bỏ margin top để căn giữa grid tốt hơn */
   transform: scale(1.05);
   transform-origin: center right;
   justify-self: end;
