@@ -1,4 +1,4 @@
-﻿import { lazy, Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'sonner';
 
@@ -24,6 +24,7 @@ const UserOverviewPage = lazy(() => import('./pages/core/UserOverviewPage'));
 
 // Public layout (non-lazy for shell stability)
 import PublicLayout from './pages/public/PublicLayout';
+import { FullPageLoader } from './components/ui/FullPageLoader';
 
 // Admin pages
 const AdminLayout = lazy(() => import('./pages/core/AdminLayout'));
@@ -51,7 +52,7 @@ function App() {
   return (
     <>
       <Toaster position="top-right" richColors />
-      <Suspense fallback={<div className="h-screen w-full flex items-center justify-center bg-base-100 text-brand font-black animate-pulse">PI STORE</div>}>
+      <Suspense fallback={<FullPageLoader />}>
         <Routes>
           {/* Public Routes */}
           <Route element={<PublicLayout />}>
