@@ -1,6 +1,4 @@
 
-
-@layer components {
   .empty-state {
     display: flex;
     flex-direction: column;
@@ -26,4 +24,4 @@
     font-size: 0.875rem;
     color: var(--bc2);
   }
-}
+

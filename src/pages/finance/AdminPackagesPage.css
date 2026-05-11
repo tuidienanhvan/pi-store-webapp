@@ -1,8 +1,5 @@
 
 
-
-@layer components {
-
 .packages-page {
   display: flex;
   flex-direction: column;
@@ -113,5 +110,4 @@
 }
 
 
-}
 

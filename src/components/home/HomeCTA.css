@@ -1,8 +1,5 @@
 
 
-
-@layer components {
-
 .home-cta__box {
   position: relative;
   overflow: hidden;
@@ -58,4 +55,4 @@
 }
 
 
-}
+

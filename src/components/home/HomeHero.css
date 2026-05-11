@@ -20,8 +20,8 @@
 
 @media (min-width: 1024px) {
   .home-hero__grid {
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 5rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
   }
 }
 
@@ -127,6 +127,8 @@
 .home-hero__product {
   position: relative;
   margin-top: 3rem;
+  transform: scale(1.15);
+  transform-origin: center right;
 }
 
 @media (min-width: 1024px) {
@@ -176,7 +178,7 @@
 
 .product-shell__body {
   display: flex;
-  height: 16rem;
+  height: 20rem;
 }
 
 .product-shell__body aside {
@@ -298,8 +300,8 @@
 }
 
 .home-hero__callout--top {
-  top: -1.5rem;
-  right: -1.5rem;
+  top: -2rem;
+  right: -2rem;
 }
 
 .home-hero__callout--bottom {

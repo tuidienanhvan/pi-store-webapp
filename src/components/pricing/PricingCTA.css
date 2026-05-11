@@ -1,8 +1,5 @@
 
 
-
-@layer components {
-
 .pricing-cta {
   display: inline-flex;
   height: 3rem;
@@ -86,4 +83,4 @@
 }
 
 
-}
+

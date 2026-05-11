@@ -119,67 +119,66 @@
 }
 
 /* --- 5. GLOBAL THEME ------------------------------------------- */
-@layer base {
-  html, body { 
-    background-color: var(--color-base-100);
-    color: var(--color-base-content);
-    font-smoothing: antialiased;
-    scroll-behavior: smooth;
-    font-family: var(--font-sans); 
-  }
-  body {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow-x: hidden;
-    transition: color 500ms, background-color 500ms;
-  }
-
-  /* Premium Background Effects */
-  body::before {
-    content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.8;
-    background:
-      radial-gradient(ellipse 1000px 800px at 0% 0%, color-mix(in srgb, var(--p) 8%, transparent) 0%, transparent 70%),
-      radial-gradient(ellipse 1000px 800px at 100% 100%, color-mix(in srgb, var(--p) 5%, transparent) 0%, transparent 70%),
-      radial-gradient(ellipse 1400px 1000px at 50% 10%, color-mix(in srgb, var(--ph) 4%, transparent) 0%, transparent 80%);
-  }
-  body::after {
-    content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.25;
-    background-image: radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--bc3) 12%, transparent) 1px, transparent 0);
-    background-size: 32px 32px;
-    mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black 20%, transparent 100%);
-  }
-  [data-theme="light"] body::before, .light body::before { opacity: 0.5; }
-  [data-theme="light"] body::after,  .light body::after  { opacity: 0.18; }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
-    color: var(--color-base-content);
-    line-height: 1.25;
-  }
-
-  /* --- CUSTOM SCROLLBAR (Premium) --- */
-  ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-  }
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: color-mix(in srgb, var(--bc) 10%, transparent);
-    border-radius: 10px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: color-mix(in srgb, var(--p) 40%, transparent);
-  }
-  
-  /* Firefox */
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: color-mix(in srgb, var(--bc) 10%, transparent) transparent;
-  }
+html, body { 
+  background-color: var(--color-base-100);
+  color: var(--color-base-content);
+  font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  font-family: var(--font-sans); 
 }
+body {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+  transition: color 500ms, background-color 500ms;
+}
+
+/* Premium Background Effects */
+body::before {
+  content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.8;
+  background:
+    radial-gradient(ellipse 1000px 800px at 0% 0%, color-mix(in srgb, var(--p) 8%, transparent) 0%, transparent 70%),
+    radial-gradient(ellipse 1000px 800px at 100% 100%, color-mix(in srgb, var(--p) 5%, transparent) 0%, transparent 70%),
+    radial-gradient(ellipse 1400px 1000px at 50% 10%, color-mix(in srgb, var(--ph) 4%, transparent) 0%, transparent 80%);
+}
+body::after {
+  content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.25;
+  background-image: radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--bc3) 12%, transparent) 1px, transparent 0);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black 20%, transparent 100%);
+}
+[data-theme="light"] body::before, .light body::before { opacity: 0.5; }
+[data-theme="light"] body::after,  .light body::after  { opacity: 0.18; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--color-base-content);
+  line-height: 1.25;
+}
+
+/* --- CUSTOM SCROLLBAR (Premium) --- */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--bc) 10%, transparent);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--p) 40%, transparent);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--bc) 10%, transparent) transparent;
+}
+
 
 /* --- 6. ANIMATIONS --- */
 @import "./animations.css";

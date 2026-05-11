@@ -1,6 +1,4 @@
 
-
-@layer components {
   .catalog-page {
     padding-bottom: 8rem;
   }
@@ -376,4 +374,4 @@
   .animate-in {
     animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
-}
+

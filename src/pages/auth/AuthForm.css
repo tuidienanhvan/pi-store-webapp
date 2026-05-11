@@ -1,6 +1,4 @@
 
-
-@layer components {
   .auth-form-card {
     position: relative;
     width: min(100%, 456px);
@@ -298,4 +296,4 @@
   .auth-orbit__node { fill: var(--b2); stroke: var(--bd); stroke-width: 1; }
   .auth-orbit__node--brand { fill: color-mix(in srgb, var(--p) 20%, transparent); stroke: var(--p); }
   .auth-orbit__pi { fill: #fff; font-family: var(--font-display); font-size: 54px; font-weight: 950; }
-}
+

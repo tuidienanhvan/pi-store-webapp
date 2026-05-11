@@ -1,6 +1,4 @@
 
-
-@layer components {
   .table-wrapper {
     overflow-x: auto;
     border-radius: 0.75rem;
@@ -52,4 +50,4 @@
   .table tr:last-child td {
     border-bottom: 0;
   }
-}
+

@@ -1,8 +1,5 @@
 
 
-
-@layer components {
-
 .admin-stat-card {
   padding: var(--spacing-8);
   display: flex;
@@ -159,4 +156,4 @@
 }
 
 
-}
+

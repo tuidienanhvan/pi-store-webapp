@@ -1,8 +1,5 @@
 
 
-
-@layer components {
-
 .licenses-page {
   display: flex;
   flex-direction: column;
@@ -267,5 +264,4 @@
 }
 
 
-}
 

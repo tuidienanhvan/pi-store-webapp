@@ -14,7 +14,7 @@ export function HomeBento({ t }) {
       <div className="home-bento__bg-glow" aria-hidden="true" />
       <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-10 relative z-10">
         <div className="home-bento__header">
-          <Badge tone="brand">The Core Engine</Badge>
+          <Badge tone="brand" icon="zap" className="home-bento__badge">The Core Engine</Badge>
           <h2 className="home-bento__headline">{t?.whyPi?.title}</h2>
           {t?.whyPi?.description && <p className="home-bento__subline">{t?.whyPi?.description}</p>}
         </div>

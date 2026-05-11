@@ -1,8 +1,5 @@
 
 
-
-@layer components {
-
 .revenue-page {
   display: flex;
   flex-direction: column;
@@ -152,5 +149,4 @@
 }
 
 
-}
 

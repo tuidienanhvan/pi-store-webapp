@@ -1,8 +1,5 @@
 
 
-
-@layer components {
-
 .providers-page {
   display: flex;
   flex-direction: column;
@@ -233,4 +230,4 @@
 }
 
 
-}
+

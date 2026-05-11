@@ -1,6 +1,4 @@
 
-
-@layer components {
   /* --- Structural Grid Layout --- */
   .dash {
     display: grid;
@@ -51,4 +49,4 @@
   .dash__content {
     /* Purged. Use mx-auto w-full max-w-[1400px] px-12 in components. */
   }
-}
+

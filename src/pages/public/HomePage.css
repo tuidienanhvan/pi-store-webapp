@@ -1,11 +1,7 @@
 
-
-/* --- HOME PAGE --- */
-
-@layer components {
   .home-section {
     position: relative;
     overflow: hidden;
     padding: 5rem 0;
   }
-}
+

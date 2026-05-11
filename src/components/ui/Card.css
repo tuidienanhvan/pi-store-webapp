@@ -1,6 +1,4 @@
 
-
-@layer components {
   .card {
     position: relative;
     overflow: hidden;
@@ -52,4 +50,4 @@
   .card-brand::before {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
   }
-}
+

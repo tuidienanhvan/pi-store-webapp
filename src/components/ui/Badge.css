@@ -1,6 +1,4 @@
 
-
-@layer components {
   .badge--brand {
     border: 1px solid color-mix(in srgb, var(--p) 25%, transparent);
     background-color: color-mix(in srgb, var(--p) 15%, transparent);
@@ -30,4 +28,4 @@
     color: var(--in); 
     border: 1px solid color-mix(in srgb, var(--in) 20%, transparent);
   }
-}
+

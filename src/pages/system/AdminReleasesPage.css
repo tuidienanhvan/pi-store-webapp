@@ -1,8 +1,5 @@
 
 
-
-@layer components {
-
 .releases-page {
   display: flex;
   flex-direction: column;
@@ -102,5 +99,4 @@
 }
 
 
-}
 
