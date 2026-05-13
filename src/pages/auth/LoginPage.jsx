@@ -121,7 +121,7 @@ export function LoginPage() {
           </header>
 
           <div className="auth-header">
-            <p className="auth-kicker">Secure access point</p>
+            <p className="auth-kicker">Điểm truy cập an toàn</p>
             <h1>Chào mừng trở lại</h1>
           </div>
 
@@ -194,7 +194,7 @@ export function LoginPage() {
 
           <footer className="flex items-center justify-between text-[10px] font-black uppercase tracking-[0.4em] text-base-content/20 mt-6 mb-2">
             <span>PI ECOSYSTEM  2026</span>
-            <span>KERNEL V2.0 PRO</span>
+            <span>NHÂN LÕI V2.0 PRO</span>
           </footer>
         </div>
       </section>

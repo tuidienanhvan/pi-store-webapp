@@ -408,11 +408,13 @@ export const api = {
 
     revokeKey: (id) => request("POST", `/v1/admin/keys/${id}/revoke`),
 
-    testKey: (id) => request("POST", `/v1/admin/keys/${id}/test`),
-
     revealKey: (id) => request("GET", `/v1/admin/keys/${id}/reveal`),
 
     resetKeyPeriod: () => request("POST", "/v1/admin/keys/reset-period"),
+
+    // Bulk release license keys back to shared pool (T-20260513-001)
+    releaseLicenseKeys: (licenseId) =>
+      request("POST", `/v1/admin/licenses/${licenseId}/keys/release-all`),
 
 
 

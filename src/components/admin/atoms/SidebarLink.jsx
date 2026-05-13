@@ -12,7 +12,7 @@ export function SidebarLink({ to, label, icon: IconComponent, end, onClick }) {
       to={to} 
       end={end}
       onClick={onClick}
-      className={({ isActive }) => `${baseClass} ${isActive ? activeClass : idleClass}`}
+      className={({ isActive }) => `${baseClass} ${isActive ? activeClass + " active" : idleClass}`}
     >
       {/* Active Indicator Glow */}
       <div className="absolute left-0 top-1/4 bottom-1/4 w-1 bg-primary rounded-r-full scale-y-0 transition-transform duration-300 origin-center [.active_&]:scale-y-100 shadow-[0_0_10px_var(--p)]" />

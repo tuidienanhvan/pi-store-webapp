@@ -28,12 +28,15 @@
   min-height: 100vh;
   grid-template-columns: 1fr;
   background-color: var(--color-base-100);
+  position: relative;
 }
 
 @media (min-width: 1024px) {
   .dash { 
+    height: 100vh;
     grid-template-columns: var(--sidebar-width) 1fr; 
     grid-column-gap: 0; 
+    overflow: hidden;
   }
 }
 
@@ -69,6 +72,14 @@
   z-index: 2;
 }
 
+@media (min-width: 1024px) {
+  .dash__main {
+    height: 100vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+  }
+}
+
 /* --- Mobile Header --- */
 .dash__mobile-header {
   display: flex;
@@ -90,7 +101,8 @@
 /* --- Quantum HUD Visual Decorators --- */
 .dash-quantum {
   position: relative;
-  overflow: hidden;
+  /* Removed overflow: hidden from here as it breaks sticky positioning on mobile.
+     Instead, we use it only on the desktop layout or on specific decorative elements. */
   background: 
     radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--p) 3%, transparent) 0%, transparent 70%),
     var(--color-base-100);
@@ -99,7 +111,7 @@
 /* Background Grid with Intensity Variation */
 .dash-quantum::before {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
   background-image: 
     linear-gradient(color-mix(in srgb, var(--p) 8%, transparent) 1px, transparent 1px),
@@ -114,7 +126,7 @@
 /* Ambient Pulse */
 .dash-quantum::after {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
   background: radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--p) 5%, transparent) 0%, transparent 60%);
   animation: hud-pulse 8s ease-in-out infinite;
@@ -130,7 +142,7 @@
 /* Scanline Effect */
 .dash-scanlines::after {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
   background: linear-gradient(
     to bottom,
@@ -152,24 +164,54 @@
 
 /* HUD Corners */
 .hud-corner {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  border: 2px solid var(--p);
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 1px solid color-mix(in srgb, var(--p) 30%, transparent);
   pointer-events: none;
-  z-index: 50;
-  filter: drop-shadow(0 0 8px var(--p));
-  opacity: 0.5;
+  z-index: 100;
+  opacity: 0.15; /* More subtle */
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.hud-corner--tl { top: 20px; left: 20px; border-right: 0; border-bottom: 0; border-radius: 4px 0 0 0; }
-.hud-corner--tr { top: 20px; right: 20px; border-left: 0; border-bottom: 0; border-radius: 0 4px 0 0; }
-.hud-corner--bl { bottom: 20px; left: 20px; border-right: 0; border-top: 0; border-radius: 0 0 0 4px; }
-.hud-corner--br { bottom: 20px; right: 20px; border-left: 0; border-top: 0; border-radius: 0 0 4px 0; }
+.hud-corner:hover {
+  opacity: 0.5;
+  filter: brightness(1.2);
+}
+
+.hud-corner::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--p);
+  box-shadow: 0 0 10px var(--p);
+}
+
+.hud-corner--tl { 
+  top: 0; left: 0; border-right: 0; border-bottom: 0; 
+}
+.hud-corner--tl::before { top: -4px; left: -4px; }
+
+.hud-corner--tr { 
+  top: 0; right: 0; border-left: 0; border-bottom: 0; 
+}
+.hud-corner--tr::before { top: -4px; right: -4px; }
+
+.hud-corner--bl { 
+  bottom: 0; left: 0; border-right: 0; border-top: 0; 
+}
+.hud-corner--bl::before { bottom: -4px; left: -4px; }
+
+.hud-corner--br { 
+  bottom: 0; right: 0; border-left: 0; border-top: 0; 
+}
+.hud-corner--br::before { bottom: -4px; right: -4px; }
 
 /* Enhanced Panels */
 .dash__sidebar.glass {
-  background: color-mix(in srgb, var(--color-base-200) 60%, transparent);
-  border-right: 1px solid color-mix(in srgb, var(--p) 15%, transparent);
-  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.2);
+  background: color-mix(in srgb, var(--color-base-200) 80%, transparent);
+  border-right: 1px solid color-mix(in srgb, var(--p) 10%, transparent);
+  box-shadow: 20px 0 50px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(40px) saturate(180%);
 }

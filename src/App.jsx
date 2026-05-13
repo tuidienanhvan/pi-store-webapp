@@ -1,4 +1,4 @@
-import { useEffect, lazy, Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'sonner';
 
@@ -19,34 +19,37 @@ const SignupPage = lazy(() => import('./pages/auth/SignupPage'));
 const ForgotPasswordPage = lazy(() => import('./pages/auth/ForgotPasswordPage'));
 
 // User pages
-const UserLayout = lazy(() => import('./pages/core/UserLayout'));
-const UserOverviewPage = lazy(() => import('./pages/core/UserOverviewPage'));
+const UserLayout = lazy(() => import('@/pages/user/UserLayout'));
+const UserOverviewPage = lazy(() => import('@/pages/user/UserOverviewPage'));
 
 // Public layout (non-lazy for shell stability)
 import PublicLayout from './pages/public/PublicLayout';
 import { FullPageLoader } from './components/ui/FullPageLoader';
 
 // Admin pages
-const AdminLayout = lazy(() => import('./pages/core/AdminLayout'));
-const AdminOverviewPage = lazy(() => import('./pages/core/AdminOverviewPage'));
+const AdminLayout = lazy(() => import('@admin/layout/AdminLayout'));
+const AdminOverviewPage = lazy(() => import('@admin/pages/AdminOverviewPage'));
 
 // Admin AI
-const AdminProvidersPage = lazy(() => import('./pages/ai/providers/AdminProvidersPage'));
-const AdminUsagePage = lazy(() => import('./pages/ai/usage/AdminUsagePage'));
+const AdminProvidersPage = lazy(() => import('@admin/pages/ai/providers/AdminProvidersPage'));
+const AdminUsagePage = lazy(() => import('@admin/pages/ai/usage/AdminUsagePage'));
 
 // Admin Finance
-const AdminPackagesPage = lazy(() => import('./pages/finance/AdminPackagesPage'));
-const AdminRevenuePage = lazy(() => import('./pages/finance/AdminRevenuePage'));
-const BillingPage = lazy(() => import('./pages/finance/BillingPage'));
+const AdminPackagesPage = lazy(() => import('@admin/pages/finance/AdminPackagesPage'));
+const AdminRevenuePage = lazy(() => import('@admin/pages/finance/AdminRevenuePage'));
+const BillingPage = lazy(() => import('@admin/pages/finance/BillingPage'));
 
 // Admin License
-const AdminLicensesPage = lazy(() => import('./pages/license/AdminLicensesPage'));
-const AdminKeysPage = lazy(() => import('./pages/license/AdminKeysPage'));
+const AdminLicensesPage = lazy(() => import('@admin/pages/license/AdminLicensesPage'));
+const AdminKeysPage = lazy(() => import('@admin/pages/license/AdminKeysPage'));
 
 // Admin System
-const AdminAuditLogPage = lazy(() => import('./pages/system/AdminAuditLogPage'));
-const AdminSettingsPage = lazy(() => import('./pages/system/AdminSettingsPage'));
-const AdminReleasesPage = lazy(() => import('./pages/system/AdminReleasesPage'));
+const AdminAuditLogPage = lazy(() => import('@admin/pages/system/AdminAuditLogPage'));
+const AdminSettingsPage = lazy(() => import('@admin/pages/system/AdminSettingsPage'));
+const AdminReleasesPage = lazy(() => import('@admin/pages/system/AdminReleasesPage'));
+const AdminUsersPage = lazy(() => import('@admin/pages/system/AdminUsersPage'));
+const AdminUserProfilePage = lazy(() => import('@admin/pages/system/AdminUserProfilePage'));
+const AdminCronPage = lazy(() => import('@admin/pages/system/AdminCronPage'));
 
 function App() {
 
@@ -95,6 +98,9 @@ function App() {
             <Route path="audit-log" element={<AdminAuditLogPage />} />
             <Route path="settings" element={<AdminSettingsPage />} />
             <Route path="billing" element={<BillingPage />} />
+            <Route path="users" element={<AdminUsersPage />} />
+            <Route path="users/:id" element={<AdminUserProfilePage />} />
+            <Route path="cron" element={<AdminCronPage />} />
           </Route>
 
           {/* Fallback */}

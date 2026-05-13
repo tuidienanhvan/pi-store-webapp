@@ -66,13 +66,13 @@ export function FullPageLoader() {
 
       {/* Cyberpunk HUD Info */}
       <div className="pi-hud-display">
-        <div className="hud-title" data-text="PI_STORE_INITIALIZING">PI_STORE_INITIALIZING</div>
+        <div className="hud-title" data-text="ĐANG KHỞI TẠO">ĐANG KHỞI TẠO</div>
         <div className="hud-progress-track">
           <div className="hud-progress-fill" />
         </div>
         <div className="hud-details">
           <div className="hud-status">
-            <span>SYNCING KERNEL</span>
+            <span>ĐANG ĐỒNG BỘ DỮ LIỆU</span>
             <span className="dot-blink">...</span>
           </div>
           <div className="hud-counter">99.9%</div>
@@ -81,4 +81,3 @@ export function FullPageLoader() {
     </div>
   );
 }
-

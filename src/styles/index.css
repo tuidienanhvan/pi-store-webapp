@@ -1,28 +1,33 @@
 @import "tailwindcss";
+@import "./animations.css";
 
-/* ---------------------------------------------------------------
-    PI GLOBAL • THEME CONFIG (DaisyUI Inspired)
-   --------------------------------------------------------------- */
+/* ═══════════════════════════════════════════════════════════════
+   PI GLOBAL · THEME CONFIG (DaisyUI-inspired)
+
+   This file is kept byte-identical between pi-dashboard-webapp/src/index.css
+   and pi-store-webapp/src/styles/index.css. Sync any change to both sides.
+   ═══════════════════════════════════════════════════════════════ */
 
 @theme {
   --font-sans:    "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Lexend", ui-sans-serif, system-ui, sans-serif;
   --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
-  --animate-fade-up:        fadeInUp 0.5s ease-out both;
-  --animate-toast-in:       toastIn  0.3s ease-out both;
-  --animate-toast-out:      toastOut 0.3s ease-out both;
-  --animate-skeleton:       skeleton-shimmer 2s linear infinite;
+  /* Tailwind v4 animation utilities (resolved → animate-fade-up, animate-toast-in, ...) */
+  --animate-fade-up:   fadeInUp        0.5s ease-out both;
+  --animate-toast-in:  toastIn         0.3s ease-out both;
+  --animate-toast-out: toastOut        0.3s ease-out both;
+  --animate-skeleton:  skeleton-shimmer 2s linear infinite;
 
-  /* --- Semantic Colors --- */
+  /* ── Semantic colors (token → primitive) ── */
   --color-primary:         var(--p);
   --color-primary-hover:   var(--ph);
   --color-primary-content: var(--pc);
-  
+
   --color-secondary:       var(--in);
   --color-accent:          var(--su);
   --color-neutral:         var(--bc3);
-  
+
   --color-base-100:        var(--b1);
   --color-base-200:        var(--b2);
   --color-base-300:        var(--b3);
@@ -37,11 +42,11 @@
   --color-error:           var(--er);
   --color-info:            var(--in);
 
-  --color-border:          var(--bd);
-  --color-border-subtle:   var(--bs);
-  --color-border-strong:   var(--bt);
+  --color-base-border:         var(--bd);
+  --color-base-border-subtle:  var(--bs);
+  --color-base-border-strong:  var(--bt);
 
-  /* Charts & Viz */
+  /* Charts & viz */
   --color-chart-1: var(--p);
   --color-chart-2: var(--in);
   --color-chart-3: var(--wa);
@@ -50,30 +55,32 @@
   --color-chart-6: #a78bfa;
 }
 
-/* --- 3. DARK THEME (default) ---------------------------------- */
+/* ─── Dark theme (default) ──────────────────────────────────── */
 :root {
   color-scheme: dark;
 
-  /* Primary (Brand) */
-  --p: #a31d38;
+  /* Primary (brand) */
+  --p:  #a31d38;
   --ph: #801b30;
   --pc: #ffffff;
 
-  /* Base (Backgrounds) */
+  /* Base (backgrounds) */
   --b1: #090b0f;
   --b2: #151922;
   --b3: #050608;
   --b4: #1d2430;
 
-  /* Content (Text) */
-  --bc: #f6f7fb;
+  /* Content (text) */
+  --bc:  #f6f7fb;
   --bc2: #c4cad6;
   --bc3: #8992a3;
 
-  /* Borders */
-  --bd: rgba(255, 255, 255, 0.10);
-  --bs: rgba(255, 255, 255, 0.05);
-  --bt: rgba(255, 255, 255, 0.20);
+  /* Borders — kept subtle in dark mode. 10% white was too bright and
+     read as a visible stripe around cards. Tuned to barely-perceptible
+     depth hint. If a card needs more separation, use shadow not border. */
+  --bd: rgba(255, 255, 255, 0.04);   /* default border        (was 0.10) */
+  --bs: rgba(255, 255, 255, 0.02);   /* subtle border         (was 0.05) */
+  --bt: rgba(255, 255, 255, 0.10);   /* strong border / focus (was 0.20) */
 
   /* Status */
   --su: #34d399;
@@ -84,11 +91,11 @@
   --duration-normal: 0.5s;
 }
 
-/* --- 4. LIGHT THEME OVERRIDE ---------------------------------- */
+/* ─── Light theme override ──────────────────────────────────── */
 [data-theme="light"], .light {
   color-scheme: light;
 
-  --p: #801b30;
+  --p:  #801b30;
   --ph: #5e1428;
   --pc: #ffffff;
 
@@ -97,7 +104,7 @@
   --b3: #f1f5f9;
   --b4: #ffffff;
 
-  --bc: #0f172a;
+  --bc:  #0f172a;
   --bc2: #334155;
   --bc3: #64748b;
 
@@ -111,16 +118,16 @@
   --in: #2563eb;
 }
 
-/* --- 5. GLOBAL THEME ------------------------------------------- */
-html, body { 
+/* ─── Global base ───────────────────────────────────────────── */
+html, body {
   background-color: var(--color-base-100);
   color: var(--color-base-content);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
-  font-family: var(--font-sans); 
+  font-family: var(--font-sans);
 }
-body { 
+body {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -128,16 +135,22 @@ body {
   transition: color 500ms, background-color 500ms;
 }
 
-/* Premium Background Effects */
+/* Premium background effects (radial glows + dot grid mask) */
 body::before {
-  content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.8;
+  content: '';
+  position: fixed; inset: 0; z-index: -1;
+  pointer-events: none;
+  opacity: 0.8;
   background:
-    radial-gradient(ellipse 1000px 800px at 0% 0%, color-mix(in srgb, var(--p) 8%, transparent) 0%, transparent 70%),
-    radial-gradient(ellipse 1000px 800px at 100% 100%, color-mix(in srgb, var(--p) 5%, transparent) 0%, transparent 70%),
-    radial-gradient(ellipse 1400px 1000px at 50% 10%, color-mix(in srgb, var(--ph) 4%, transparent) 0%, transparent 80%);
+    radial-gradient(ellipse 1000px 800px at 0% 0%,   color-mix(in srgb, var(--p)  8%, transparent) 0%, transparent 70%),
+    radial-gradient(ellipse 1000px 800px at 100% 100%, color-mix(in srgb, var(--p)  5%, transparent) 0%, transparent 70%),
+    radial-gradient(ellipse 1400px 1000px at 50% 10%,  color-mix(in srgb, var(--ph) 4%, transparent) 0%, transparent 80%);
 }
 body::after {
-  content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.25;
+  content: '';
+  position: fixed; inset: 0; z-index: -1;
+  pointer-events: none;
+  opacity: 0.25;
   background-image: radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--bc3) 12%, transparent) 1px, transparent 0);
   background-size: 32px 32px;
   mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black 20%, transparent 100%);
@@ -145,49 +158,42 @@ body::after {
 [data-theme="light"] body::before, .light body::before { opacity: 0.5; }
 [data-theme="light"] body::after,  .light body::after  { opacity: 0.18; }
 
-h1, h2, h3, h4, h5, h6 { 
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   color: var(--color-base-content);
   line-height: 1.25;
 }
 
-/* --- UNIFIED PREMIUM SCROLLBAR (Quantum HUD) --- */
+/* ─── Unified premium scrollbar (Quantum HUD) ───────────────── */
 :root {
   --sb-width: 4px;
   --sb-thumb-color: color-mix(in srgb, var(--bc3) 30%, transparent);
   --sb-thumb-hover: color-mix(in srgb, var(--p) 80%, transparent);
 }
 
-/* 1. Chrome, Edge, Safari (Webkit) */
+/* Webkit (Chrome, Edge, Safari) */
 ::-webkit-scrollbar {
-  width: var(--sb-width) !important;
+  width:  var(--sb-width) !important;
   height: var(--sb-width) !important;
   cursor: default !important;
 }
-
 ::-webkit-scrollbar-track {
   background: transparent !important;
   cursor: default !important;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: var(--sb-thumb-color) !important; /* Luôn hiển thị thumb */
+  background: var(--sb-thumb-color) !important;
   border-radius: 10px !important;
   cursor: default !important;
 }
-
-/* Màu đỏ thương hiệu khi hover trực tiếp vào thumb */
 ::-webkit-scrollbar-thumb:hover {
   background: var(--sb-thumb-hover) !important;
 }
 
-/* 2. Firefox (Standard) - Chỉ áp dụng nếu KHÔNG hỗ trợ Webkit */
+/* Firefox fallback (only when Webkit unavailable) */
 @supports not selector(::-webkit-scrollbar) {
   html {
     scrollbar-width: thin;
     scrollbar-color: var(--sb-thumb-color) transparent;
   }
 }
-
-/* --- 6. ANIMATIONS --- */
-@import "./animations.css";

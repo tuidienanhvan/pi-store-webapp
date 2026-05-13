@@ -20,7 +20,7 @@ const CatalogEmptyState = ({ onReset }) => (
     
     <div className="empty-content">
       <h3 className="empty-title">
-        <span className="text-gradient">NO_PRODUCTS_FOUND</span>
+        <span className="text-gradient">KHÔNG TÌM THẤY SẢN PHẨM</span>
       </h3>
       <p className="empty-desc">
         Hệ thống không tìm thấy sản phẩm nào khớp với bộ lọc hiện tại. 
@@ -38,10 +38,10 @@ const CatalogEmptyState = ({ onReset }) => (
     <div className="empty-meta-hud">
       <div className="meta-unit">
         <Cpu size={12} />
-        <span>CORE_SCAN: ACTIVE</span>
+        <span>TRẠNG THÁI: ĐANG QUÉT</span>
       </div>
       <div className="divider" />
-      <span>ERR_CODE: 0x404_NOT_FOUND</span>
+      <span>MÃ LỖI: 0x404_NOT_FOUND</span>
     </div>
   </div>
 );
@@ -90,7 +90,7 @@ export function Catalog({ products = [] }) {
           <div className="catalog-hero-inner">
             <div className="hero-badge-quantum stagger-1">
               <Activity size={12} className="text-primary pulse" />
-              <span>PI_MARKETPLACE_V2.0</span>
+              <span>CỬA HÀNG PI V2.0</span>
             </div>
 
             <h1 className="catalog-title-quantum stagger-2">
@@ -137,14 +137,14 @@ export function Catalog({ products = [] }) {
           <div className="meta-left">
             <div className="results-badge">
               <div className="dot" />
-              <span>{filtered.length} UNITS_DETECTED</span>
+              <span>{filtered.length} SẢN PHẨM TÌM THẤY</span>
             </div>
           </div>
           <div className="meta-right">
              <div className="sort-box-quantum">
                <Filter size={14} className="text-primary" />
-               <span className="label">SORT_BY:</span>
-               <span className="value">LATEST_SYNC</span>
+               <span className="label">SẮP XẾP:</span>
+               <span className="value">MỚI NHẤT</span>
              </div>
           </div>
         </div>
@@ -258,7 +258,7 @@ function LeadModal({ product, onClose, t }) {
             <h2 className="modal-title-quantum">{t.title}</h2>
             <div className="product-info-bar">
               <Package size={16} className="text-primary" />
-              <span>TARGET: {product.name}</span>
+              <span>SẢN PHẨM: {product.name}</span>
             </div>
           </header>
 

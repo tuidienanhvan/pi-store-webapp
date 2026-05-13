@@ -259,7 +259,7 @@ export default function PricingPage() {
           <div className="hero-content">
             <Badge tone="brand" className="pricing-badge">
               <Zap size={12} className="mr-2" />
-              <span>PI_INFRA_V2_PRICING</span>
+              <span>BẢNG GIÁ HẠ TẦNG PI</span>
             </Badge>
             
             <h1 className="pricing-headline">
@@ -319,21 +319,21 @@ export default function PricingPage() {
           <div className="footer-hud-unit">
              <ShieldCheck size={20} className="text-primary" />
              <div className="unit-text">
-                <span className="label">SECURE_PAYMENTS</span>
-                <span className="desc">ENCRYPTED VIA STRIPE GATEWAY</span>
+                <span className="label">THANH TOÁN BẢO MẬT</span>
+                <span className="desc">MÃ HÓA QUA CỔNG STRIPE</span>
              </div>
           </div>
           <div className="footer-hud-unit">
              <Activity size={20} className="text-primary" />
              <div className="unit-text">
-                <span className="label">SLA_GUARANTEE</span>
-                <span className="desc">99.9% UPTIME FOR PRO/MAX</span>
+                <span className="label">CAM KẾT CHẤT LƯỢNG (SLA)</span>
+                <span className="desc">99.9% UPTIME CHO PRO/MAX</span>
              </div>
           </div>
           <div className="footer-hud-unit clickable">
              <div className="unit-text text-right">
-                <span className="label">NEED_CUSTOM_PLAN?</span>
-                <span className="desc">CONTACT ENTERPRISE SUPPORT</span>
+                <span className="label">CẦN GÓI TÙY CHỈNH?</span>
+                <span className="desc">LIÊN HỆ HỖ TRỢ DOANH NGHIỆP</span>
              </div>
              <ArrowRight size={20} className="text-primary" />
           </div>
