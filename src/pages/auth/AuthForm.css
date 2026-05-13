@@ -2,9 +2,9 @@
   .auth-form-card {
     position: relative;
     width: min(100%, 456px);
-    padding: clamp(24px, 4.4dvh, 42px);
+    padding: clamp(20px, 3.2dvh, 36px);
     border: 1px solid var(--bd);
-    border-radius: clamp(24px, 4vw, 44px);
+    border-radius: clamp(20px, 3.6vw, 36px);
     background: var(--b2);
     box-shadow: var(--shadow-2xl);
     backdrop-filter: blur(28px);
@@ -18,13 +18,13 @@
   }
 
   .auth-header { 
-    margin-bottom: clamp(16px, 2.4dvh, 26px); 
+    margin-bottom: clamp(12px, 2dvh, 22px); 
   }
   
   .auth-header h1 {
     color: var(--bc);
     font-family: var(--font-display);
-    font-size: clamp(2rem, 5.4dvh, 3.6rem);
+    font-size: clamp(1.85rem, 4.8dvh, 3.2rem);
     font-weight: 950;
     letter-spacing: -0.055em;
     line-height: 0.94;
@@ -34,7 +34,7 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
-    margin-bottom: clamp(14px, 1.8dvh, 20px);
+    margin-bottom: clamp(12px, 1.6dvh, 18px);
   }
 
   .auth-social-btn {
@@ -49,7 +49,7 @@
     font-size: 0.875rem;
     font-weight: 700;
     transition: all 0.2s ease;
-    height: clamp(42px, 5.2dvh, 52px);
+    height: clamp(40px, 4.8dvh, 48px);
     color: var(--bc);
   }
 
@@ -138,7 +138,9 @@
 
   .auth-input:focus {
     border-color: var(--p);
-    box-shadow: 0 0 0 4px color-mix(in srgb, var(--p) 10%, transparent);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--p) 15%, transparent),
+                0 0 20px color-mix(in srgb, var(--p) 10%, transparent);
+    background: color-mix(in srgb, var(--b2) 95%, white);
   }
 
   .auth-input-icon {
@@ -230,9 +232,9 @@
   }
 
   .marketing-title {
-    margin-top: 1.5rem;
-    font-size: 3rem;
-    font-weight: 900;
+    margin-top: 1rem;
+    font-size: 2.5rem;
+    font-weight: 950;
     line-height: 0.94;
     letter-spacing: -0.025em;
     color: var(--bc);
@@ -245,19 +247,19 @@
   }
 
   .marketing-desc {
-    margin-top: 1rem;
+    margin-top: 0.75rem;
     max-width: 42ch;
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 700;
-    line-height: 1.625;
+    line-height: 1.5;
     color: var(--bc2);
   }
 
   .feature-list {
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.75rem;
   }
 
   .feature-item {
@@ -281,19 +283,154 @@
     color: var(--p);
   }
 
-  /* Orbit Animation Section */
+
+  /* Quantum HUD Decorators - Shared */
+  .hud-corner {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--p);
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: 10;
+    transition: all 0.5s ease;
+  }
+
+  .hud-corner--tl { top: 2rem; left: 2rem; border-right: 0; border-bottom: 0; }
+  .hud-corner--tr { top: 2rem; right: 2rem; border-left: 0; border-bottom: 0; }
+  .hud-corner--bl { bottom: 2rem; left: 2rem; border-right: 0; border-top: 0; }
+  .hud-corner--br { bottom: 2rem; right: 2rem; border-left: 0; border-top: 0; }
+
+  /* Quantum Visualizers (Shared) */
+  .quantum-visualizer {
+    position: relative;
+    width: 100%;
+    height: 120px;
+    background: color-mix(in srgb, var(--bc) 3%, transparent);
+    border: 1px solid var(--bd);
+    border-radius: 12px;
+    margin: 1.5rem 0;
+    overflow: hidden;
+    backdrop-filter: blur(4px);
+  }
+
+  .hud-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0.75rem 1rem;
+    pointer-events: none;
+  }
+
+  .hud-label {
+    font-size: 10px;
+    font-weight: 900;
+    color: var(--bc3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .hud-value {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--p);
+  }
+
+  /* Orbit Animation Refinement */
   .auth-orbit {
     margin: 1.5rem auto;
     display: block;
     width: 100%;
     max-width: 520px;
     overflow: visible;
-    height: clamp(160px, 24dvh, 280px);
+    height: clamp(260px, 32dvh, 420px);
+    filter: drop-shadow(0 0 40px color-mix(in srgb, var(--p) 25%, transparent));
   }
 
-  .auth-orbit__grid { fill: none; stroke: var(--bd); stroke-width: 1; opacity: 0.3; }
-  .auth-orbit__ring { fill: none; stroke: url(#orbitStroke); stroke-width: 1.5; stroke-dasharray: 8 10; opacity: 0.8; }
-  .auth-orbit__node { fill: var(--b2); stroke: var(--bd); stroke-width: 1; }
-  .auth-orbit__node--brand { fill: color-mix(in srgb, var(--p) 20%, transparent); stroke: var(--p); }
-  .auth-orbit__pi { fill: #fff; font-family: var(--font-display); font-size: 54px; font-weight: 950; }
+  .auth-orbit__grid { 
+    fill: none; 
+    stroke: var(--bd); 
+    stroke-width: 0.5; 
+    opacity: 0.15; 
+  }
+
+  .auth-orbit__ring { 
+    fill: none; 
+    stroke: url(#orbitStroke); 
+    stroke-width: 1.2; 
+    stroke-dasharray: 8 12; 
+    opacity: 0.5; 
+    transform-origin: center;
+    animation: orbitRotate 40s linear infinite;
+  }
+
+  .auth-orbit__ring--tilt { 
+    animation: orbitRotateReverse 60s linear infinite;
+    opacity: 0.4;
+    stroke-dasharray: 4 8;
+  }
+
+  .auth-orbit__ring--inner {
+    animation: orbitRotate 25s linear infinite;
+    stroke-dasharray: 2 4;
+    opacity: 0.6;
+  }
+
+  .auth-orbit__node { 
+    fill: var(--b2); 
+    stroke: var(--bd); 
+    stroke-width: 1.5; 
+    transition: all 0.3s ease;
+  }
+
+  .auth-orbit__node--brand { 
+    fill: color-mix(in srgb, var(--b2) 60%, transparent); 
+    stroke: var(--p); 
+    stroke-width: 1;
+    backdrop-filter: blur(4px);
+  }
+
+  .auth-orbit__node--sat {
+    animation: particleFloat 6s ease-in-out infinite;
+  }
+
+  .auth-orbit__pi { 
+    fill: var(--bc); 
+    font-family: var(--font-display); 
+    font-size: 54px; 
+    font-weight: 950; 
+    opacity: 0.9; 
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Keyframes */
+  @keyframes orbitRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes orbitRotateReverse {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+  }
+
+  @keyframes nodePulse {
+    0%, 100% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.05); filter: brightness(1.3) drop-shadow(0 0 15px var(--p)); }
+  }
+
+  @keyframes particleFloat {
+    0%, 100% { transform: translate(0, 0); }
+    33% { transform: translate(4px, -6px); }
+    66% { transform: translate(-3px, 4px); }
+  }
+
+  @keyframes glowPulse {
+    0%, 100% { opacity: 0.4; transform: scale(0.95); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+  }
 

@@ -1,9 +1,13 @@
-﻿import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { api, withDelay } from "@/lib/api-client";
 import { useListFilters, useDebouncedValue } from "@/hooks/useListFilters";
-import { useAdminT, formatTokens as i18nTokens } from "@/lib/adminI18n";
+import { useAdminT, formatTokens as i18nTokens } from "@/lib/translations";
 import { copyToClipboard, maskKey } from "@/lib/format";
-import { Alert, Badge, Button, Card, EmptyState, Icon, Input, Select, Table, IconButton } from "@/components/ui";
+import { Alert, Badge, Button, Card, EmptyState, Input, Select, Table, IconButton } from "@/components/ui";
+import { 
+  Plus, Search, X, Key, ArrowLeft, ArrowRight, 
+  EyeOff, Eye, Check, Copy, Edit2, Slash, Trash2 
+} from "lucide-react";
 import { AdminTableSkeleton } from "@/components/skeletons/AdminTableSkeleton";
 import "./AdminLicensesPage.css";
 
@@ -80,7 +84,7 @@ export function AdminLicensesPage() {
           <p className="text-base-content/60 opacity-60 font-medium tracking-wide">{t.licenses_subtitle}</p>
         </div>
         <Button variant="primary" onClick={() => setShowCreate(true)} className="h-[48px] px-8 rounded-2xl shadow-brand/20 shadow-lg font-black uppercase tracking-widest text-xs">
-          <Icon name="plus" size={18} className="mr-2" /> {t.create_license}
+          <Plus size={18} className="mr-2" /> {t.create_license}
         </Button>
       </header>
 
@@ -94,12 +98,12 @@ export function AdminLicensesPage() {
               placeholder={t.search_license_placeholder}
               value={searchInput} 
               onChange={(e) => setSearchInput(e.target.value)}
-              leadingIcon="search"
+              leadingIcon={Search}
               className="flex-1"
             />
             {hasActive && (
               <Button variant="ghost" onClick={() => { setSearchInput(""); reset(); }} className="h-[48px] rounded-xl border border-base-border-subtle">
-                <Icon name="x" size={16} className="mr-2" /> {t.clear}
+                <X size={16} className="mr-2" /> {t.clear}
               </Button>
             )}
           </div>
@@ -187,7 +191,7 @@ export function AdminLicensesPage() {
             {data.items.length === 0 && !loading ? (
               <tr><td colSpan="8" className="py-32">
                 <EmptyState
-                  icon="key"
+                  icon={Key}
                   title={hasActive ? "Khng tm th?y k?t qu?" : "Chua c license no"}
                   description={hasActive ? "Hy th? di?u chnh l?i b? l?c tm ki?m." : "Hy t?o license d?u tin d? khch hng b?t d?u s? d?ng."}
                   action={hasActive
@@ -228,11 +232,11 @@ export function AdminLicensesPage() {
               className="w-40 filter-select" />
             <Button variant="ghost" disabled={page <= 1} className="rounded-xl border border-base-border-subtle p-2"
               onClick={() => setFilter("offset", Math.max(0, filters.offset - filters.limit))}>
-              <Icon name="arrow-left" size={16} />
+              <ArrowLeft size={16} />
             </Button>
             <Button variant="ghost" disabled={page >= totalPages} className="rounded-xl border border-base-border-subtle p-2"
               onClick={() => setFilter("offset", filters.offset + filters.limit)}>
-              <Icon name="arrow-right" size={16} />
+              <ArrowRight size={16} />
             </Button>
           </div>
         </div>
@@ -269,10 +273,10 @@ function LicenseRow({ l, onOpen, onRevoke, onReactivate, onDelete }) {
           </code>
           <div className="flex items-center gap-0.5 ml-2 border-l border-base-border pl-2">
             <button type="button" onClick={() => setShowKey(!showKey)} className="text-base-content/60 hover:text-base-content transition-colors p-1">
-              <Icon name={showKey ? "eye-off" : "eye"} size={12} />
+              {showKey ? <EyeOff size={12} /> : <Eye size={12} />}
             </button>
             <button type="button" onClick={copy} className={`${copied ? "text-success" : "text-base-content/60 hover:text-base-content"} transition-colors p-1`}>
-              <Icon name={copied ? "check" : "copy"} size={12} />
+              {copied ? <Check size={12} /> : <Copy size={12} />}
             </button>
           </div>
         </div>
@@ -319,13 +323,13 @@ function LicenseRow({ l, onOpen, onRevoke, onReactivate, onDelete }) {
       </td>
       <td className="px-6 py-5 text-right">
         <div className="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
-          <IconButton icon="edit" label="Sa" size="sm" onClick={onOpen} />
+          <IconButton icon={Edit2} label="Sa" size="sm" onClick={onOpen} />
           {l.status === "active" ? (
-             <IconButton icon="slash" label="H?y" size="sm" onClick={onRevoke} className="hover:text-danger" />
+             <IconButton icon={Slash} label="H?y" size="sm" onClick={onRevoke} className="hover:text-danger" />
           ) : (
-             <IconButton icon="check" label="Kch ho?t" size="sm" onClick={onReactivate} className="hover:text-success" />
+             <IconButton icon={Check} label="Kch ho?t" size="sm" onClick={onReactivate} className="hover:text-success" />
           )}
-          <IconButton icon="trash" label="Xa" size="sm" onClick={onDelete} className="hover:text-danger" />
+          <IconButton icon={Trash2} label="Xa" size="sm" onClick={onDelete} className="hover:text-danger" />
         </div>
       </td>
     </tr>

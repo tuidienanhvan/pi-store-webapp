@@ -2,7 +2,8 @@ import "./HomeHero.css";
 
 import { Link } from "react-router-dom";
 
-import { Button, Icon } from "../ui";
+import { Button } from "../ui";
+import { ArrowRight, Zap, Cpu } from "lucide-react";
 
 
 
@@ -60,7 +61,7 @@ export function HomeHero({ t }) {
 
               <Button as={Link} to="/about" variant="ghost" size="lg">
 
-                {t?.hero?.ctaSecondary} <Icon name="arrow-right" size={16} />
+                {t?.hero?.ctaSecondary} <ArrowRight size={16} />
 
               </Button>
 
@@ -83,95 +84,76 @@ export function HomeHero({ t }) {
 
 
           <div className="home-hero__product" aria-label="Pi dashboard preview">
-
-            <div className="product-shell">
-
-              <div className="product-shell__bar">
-
-                <span />
-
-                <span />
-
-                <span />
-
-                <strong>Pi Dashboard</strong>
-
+            <div className="pd-window">
+              <div className="pd-header">
+                <div className="pd-dots">
+                  <span />
+                  <span />
+                  <span />
+                </div>
+                <div className="pd-title">PI DASHBOARD</div>
               </div>
-
-              <div className="product-shell__body">
-
-                <aside>
-
-                  {["Overview", "SEO Bot", "AI Cloud"].map((item, index) => (
-
-                    <div key={item} className={index === 0 ? "is-active" : ""}>{item}</div>
-
-                  ))}
-
-                </aside>
-
-                <main>
-
-                  <div className="preview-kpi preview-kpi--wide">
-
-                    <span>System status</span>
-
-                    <strong>Operational</strong>
-
-                    <small>All plugins synced</small>
-
+              
+              <div className="pd-body">
+                <div className="pd-sidebar">
+                  <div className="pd-nav-item active">Overview</div>
+                  <div className="pd-nav-item">SEO Bot</div>
+                  <div className="pd-nav-item">AI Cloud</div>
+                </div>
+                
+                <div className="pd-main">
+                  <div className="pd-status-panel">
+                    <div className="pd-status-label">SYSTEM STATUS</div>
+                    <div className="pd-status-value">Operational</div>
+                    <div className="pd-status-sub">All plugins synced</div>
+                  </div>
+                  
+                  <div className="pd-stats-row">
+                    <div className="pd-stat">
+                      <div className="pd-stat-label">TOKENS</div>
+                      <div className="pd-stat-value">100K</div>
+                      <div className="pd-stat-sub">Pro quota</div>
+                    </div>
+                    <div className="pd-stat">
+                      <div className="pd-stat-label">SEO JOBS</div>
+                      <div className="pd-stat-value">38</div>
+                      <div className="pd-stat-sub">Queued</div>
+                    </div>
+                    <div className="pd-stat">
+                      <div className="pd-stat-label">LEADS</div>
+                      <div className="pd-stat-value">12</div>
+                      <div className="pd-stat-sub">This week</div>
+                    </div>
                   </div>
 
-                  <div className="preview-grid">
-
-                    <div className="preview-kpi"><span>Tokens</span><strong>100K</strong><small>Pro quota</small></div>
-
-                    <div className="preview-kpi"><span>SEO jobs</span><strong>38</strong><small>Queued</small></div>
-
-                    <div className="preview-kpi"><span>Leads</span><strong>12</strong><small>This week</small></div>
-
+                  <div className="pd-chart-container">
+                    <div className="pd-bar b1" />
+                    <div className="pd-bar b2" />
+                    <div className="pd-bar b3" />
+                    <div className="pd-bar b4" />
+                    <div className="pd-bar b5" />
+                    <div className="pd-bar b6" />
                   </div>
-
-                  <div className="preview-chart">
-
-                    <span style={{ height: "42%" }} />
-
-                    <span style={{ height: "64%" }} />
-
-                    <span style={{ height: "38%" }} />
-
-                    <span style={{ height: "78%" }} />
-
-                    <span style={{ height: "58%" }} />
-
-                    <span style={{ height: "88%" }} />
-
-                  </div>
-
-                </main>
-
+                </div>
               </div>
-
             </div>
 
-
-
-            <div className="home-hero__callout home-hero__callout--top">
-
-              <Icon name="zap" size={16} />
-
-              <div><strong>Server-side logic</strong><span>Code never ships to customers</span></div>
-
+            {/* Floating Tooltips */}
+            <div className="pd-float-tooltip top-right">
+              <div className="tooltip-header">
+                <Zap size={16} className="tooltip-icon" />
+                <span>SERVER-SIDE LOGIC</span>
+              </div>
+              <div className="tooltip-text">Code never ships to customers</div>
             </div>
 
-            <div className="home-hero__callout home-hero__callout--bottom">
-
-              <Icon name="cpu" size={16} />
-
-              <div><strong>Provider failover</strong><span>Groq, Gemini, OpenAI, Anthropic</span></div>
-
+            <div className="pd-float-tooltip bottom-left">
+              <div className="tooltip-header">
+                <Cpu size={16} className="tooltip-icon" />
+                <span>PROVIDER FAILOVER</span>
+              </div>
+              <div className="tooltip-text">Groq, Gemini, OpenAI, Anthropic</div>
             </div>
-
           </div>
 
         </div>

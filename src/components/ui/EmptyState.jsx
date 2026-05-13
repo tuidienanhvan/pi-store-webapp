@@ -1,22 +1,22 @@
-﻿import React from "react";
+import React from "react";
 
-import { Icon } from "./icons";
+
 
 import "./EmptyState.css";
 
 
 
-export function EmptyState({ icon, title, description, action }) {
+export function EmptyState({ icon: IconComponent, title, description, action }) {
 
   return (
 
     <div className="empty-state">
 
-      {icon && (
+      {IconComponent && (
 
         <div className="empty-state__icon">
 
-          <Icon name={icon} size={48} strokeWidth={1} />
+          <IconComponent size={48} strokeWidth={1} />
 
         </div>
 

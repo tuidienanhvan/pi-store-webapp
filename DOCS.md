@@ -1,67 +1,19 @@
-# PI Store Technical Documentation
+# PI Storefront - Documentation Index
 
-WordPress plugin storefront for selling PI ecosystem products.
+Tài liệu hướng dẫn kỹ thuật và quy trình vận hành cửa hàng PI.
 
-## Overview
+## 📚 Table of Contents
 
-- **Framework**: React + Vite
-- **Styling**: Tailwind CSS v4
-- **State**: Zustand
-- **Routing**: React Router v7
+### 1. Kiến trúc & Nền tảng
+- [00 - Architecture & Stack (Store)](docs/00-ARCHITECTURE.md)
 
----
+### 2. Sản phẩm & Kinh doanh
+- [01 - Product Catalog & Pricing](docs/01-CATALOG.md)
+- [04 - Checkout & License Lifecycle](docs/04-CHECKOUT_FLOW.md)
 
-## Project Structure
-
-```
-src/
-├── components/           # UI components
-│   ├── layout/           # Header, Footer, Grid
-│   ├── product/          # Product cards, pricing
-│   └── shared/           # Buttons, badges
-├── pages/                # Route components
-│   ├── Home.jsx          # Store homepage
-│   ├── Product.jsx       # Single product page
-│   ├── Cart.jsx          # Shopping cart
-│   └── Checkout.jsx      # Payment flow
-├── stores/               # Zustand stores
-│   └── cart.js           # Cart state management
-├── data/                 # Product catalog
-└── utils/                # Helpers
-```
+### 3. Giao diện & Trải nghiệm
+- [02 - UI Components (Storefront)](docs/02-UI_COMPONENTS.md)
+- [03 - Design Philosophy: Quantum HUD](docs/03-DESIGN_QUANTUM_HUD.md)
 
 ---
-
-## Products Catalog
-
-Managed via `scripts/sync-catalog.mjs`
-
-### Product Types
-1. **Plugins** - pi-seo, pi-dashboard, pi-chatbot, pi-leads
-2. **Themes** - pi-themes (future)
-3. **Bundles** - pi-pro-starter (all plugins)
-
-### Pricing Tiers
-- **Free** - Basic features
-- **Pro** - $49/year
-- **Max** - $99/year  
-- **Enterprise** - Custom pricing
-
----
-
-## Features
-
-### License Tiers & Features
-
-| Free | Pro | Max | Enterprise |
-|------|-----|-----|------------|
-| Basic SEO | AI SEO Bot | Bulk AI Operations | Custom Limits |
-| Sitemap | Schema Pro | API Access | White Label |
-| 1 Site | Unlimited Sites | Multisite | Premium Support |
-
-### Checkout Flow
-1. Select product/tier
-2. Enter license key (upgrade) or create new
-3. Stripe payment
-4. Instant activation
-5. Download/install plugin
+*Note: Đảm bảo dữ liệu Catalog luôn được đồng bộ với Backend trước khi Deploy.*

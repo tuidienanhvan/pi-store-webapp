@@ -1,15 +1,16 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { api } from "@/lib/api-client";
-import { Table, Badge, Button, Icon, Card } from "@/components/ui";
+import { Table, Badge, Button, Card } from "@/components/ui";
+import { Zap, MessageCircle, FileText, BarChart3, Activity, Home, Cloud, Download, Box, Info } from "lucide-react";
 
 const CATALOG = [
-  { slug: "pi-seo-v2",        label: "Pi SEO v2",        tier: "pro",    icon: "zap" },
-  { slug: "pi-chatbot-v2",    label: "Pi Chatbot v2",    tier: "pro",    icon: "chat" },
-  { slug: "pi-leads-v2",      label: "Pi Leads v2",      tier: "pro",    icon: "file-text" },
-  { slug: "pi-analytics-v2",  label: "Pi Analytics v2",  tier: "pro",    icon: "bar-chart" },
-  { slug: "pi-performance-v2",label: "Pi Performance v2",tier: "pro",    icon: "activity" },
-  { slug: "pi-dashboard-v2",  label: "Pi Dashboard v2",  tier: "free",   icon: "home" },
-  { slug: "pi-ai-cloud-v2",   label: "Pi AI Cloud v2",   tier: "free",   icon: "cloud" },
+  { slug: "pi-seo-v2",        label: "Pi SEO v2",        tier: "pro",    icon: Zap },
+  { slug: "pi-chatbot-v2",    label: "Pi Chatbot v2",    tier: "pro",    icon: MessageCircle },
+  { slug: "pi-leads-v2",      label: "Pi Leads v2",      tier: "pro",    icon: FileText },
+  { slug: "pi-analytics-v2",  label: "Pi Analytics v2",  tier: "pro",    icon: BarChart3 },
+  { slug: "pi-performance-v2",label: "Pi Performance v2",tier: "pro",    icon: Activity },
+  { slug: "pi-dashboard-v2",  label: "Pi Dashboard v2",  tier: "free",   icon: Home },
+  { slug: "pi-ai-cloud-v2",   label: "Pi AI Cloud v2",   tier: "free",   icon: Cloud },
 ];
 
 export function DownloadsPage() {
@@ -59,7 +60,7 @@ export function DownloadsPage() {
                 const v = versions[p.slug];
                 return (
                   <tr key={p.slug}>
-                    <td><Icon name={p.icon} size={20} style={{ color: "color-mix(in srgb, var(--base-content) 80%, transparent)" }} /></td>
+                    <td><p.icon size={20} style={{ color: "color-mix(in srgb, var(--base-content) 80%, transparent)" }} /></td>
                     <td>
                       <div style={{ fontWeight: "500", color: "var(--base-content)" }}>{p.label}</div>
                       <div style={{ fontSize: "var(--fs-12)", color: "color-mix(in srgb, var(--base-content) 60%, transparent)", fontFamily: "monospace" }}>{p.slug}</div>
@@ -70,7 +71,7 @@ export function DownloadsPage() {
                     <td style={{ textAlign: "right" }}>
                       {v?.download_url ? (
                         <Button as="a" href={v.download_url} target="_blank" rel="noreferrer" variant="primary" size="sm">
-                          <Icon name="download" size={14} style={{ marginRight: "4px" }} /> Download
+                          <Download size={14} style={{ marginRight: "4px" }} /> Download
                         </Button>
                       ) : (
                         <span style={{ color: "color-mix(in srgb, var(--base-content) 60%, transparent)", fontSize: "var(--fs-12)" }}>C?n Pro license</span>
@@ -86,7 +87,7 @@ export function DownloadsPage() {
 
       <Card className="stack" style={{ gap: "var(--s-4)", marginTop: "var(--s-4)" }}>
         <h2 style={{ margin: 0, fontSize: "var(--fs-24)", display: "flex", alignItems: "center", gap: "8px" }}>
-          <Icon name="box" size={24} style={{ color: "var(--primary)" }} /> Hu?ng d?n ci
+          <Box size={24} style={{ color: "var(--primary)" }} /> Hu?ng d?n ci
         </h2>
         <ol className="stack" style={{ gap: "var(--s-2)", margin: 0, paddingLeft: "var(--s-5)", color: "var(--base-content)" }}>
           <li>Download ZIP plugin c?n dng.</li>
@@ -96,7 +97,7 @@ export function DownloadsPage() {
           <li>Refresh ? Pro features kch ho?t.</li>
         </ol>
         <p style={{ margin: 0, color: "color-mix(in srgb, var(--base-content) 80%, transparent)", fontSize: "var(--fs-14)", display: "flex", alignItems: "center", gap: "8px" }}>
-          <Icon name="info" size={16} /> C?n <code style={{ color: "var(--base-content)", background: "var(--base-300)", padding: "2px 6px", borderRadius: "4px" }}>plugins-v2/_shared/</code> cng thu m?c. N?u chua c, ZIP s? t? include.
+          <Info size={16} /> C?n <code style={{ color: "var(--base-content)", background: "var(--base-300)", padding: "2px 6px", borderRadius: "4px" }}>plugins-v2/_shared/</code> cng thu m?c. N?u chua c, ZIP s? t? include.
         </p>
       </Card>
     </div>

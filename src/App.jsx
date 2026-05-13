@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'sonner';
 
@@ -49,6 +49,7 @@ const AdminSettingsPage = lazy(() => import('./pages/system/AdminSettingsPage'))
 const AdminReleasesPage = lazy(() => import('./pages/system/AdminReleasesPage'));
 
 function App() {
+
   return (
     <>
       <Toaster position="top-right" richColors />
@@ -67,9 +68,14 @@ function App() {
           </Route>
 
           {/* Auth Routes */}
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignupPage />} />
-          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+          <Route path="/auth/login" element={<LoginPage />} />
+          <Route path="/auth/signup" element={<SignupPage />} />
+          <Route path="/auth/forgot-password" element={<ForgotPasswordPage />} />
+          
+          {/* Redirect legacy routes */}
+          <Route path="/login" element={<Navigate to="/auth/login" replace />} />
+          <Route path="/signup" element={<Navigate to="/auth/signup" replace />} />
+          <Route path="/forgot-password" element={<Navigate to="/auth/forgot-password" replace />} />
 
           {/* User Routes */}
           <Route path="/app" element={<UserLayout />}>

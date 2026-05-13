@@ -1,4 +1,4 @@
-﻿const BILLING_COPY = {
+const BILLING_COPY = {
 
   vi: {
 

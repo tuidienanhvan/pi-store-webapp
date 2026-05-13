@@ -1,22 +1,55 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import "./AuthLayout.css";
 import "./AuthForm.css";
 import "./SignupPage.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import { Alert } from "@/components/ui";
-import { Icon } from "@/components/ui/icons";
+import { User, Mail, Key, Eye, EyeOff } from "lucide-react";
 import PiLogo from "@pi-ui/base/PiLogo";
 
-function PiMiniChart() {
+function QuantumDataMatrix() {
   return (
-    <div className="preview-chart" style={{ height: "60px", display: "flex", alignItems: "flex-end", gap: "4px", margin: "8px 0" }}>
-      <span style={{ height: "42%", width: "100%", background: "color-mix(in srgb, var(--danger) 20%, transparent)", borderRadius: "4px 4px 0 0" }} />
-      <span style={{ height: "64%", width: "100%", background: "color-mix(in srgb, var(--danger) 40%, transparent)", borderRadius: "4px 4px 0 0" }} />
-      <span style={{ height: "38%", width: "100%", background: "color-mix(in srgb, var(--danger) 20%, transparent)", borderRadius: "4px 4px 0 0" }} />
-      <span style={{ height: "78%", width: "100%", background: "color-mix(in srgb, var(--info) 50%, transparent)", borderRadius: "4px 4px 0 0" }} />
-      <span style={{ height: "58%", width: "100%", background: "color-mix(in srgb, var(--danger) 30%, transparent)", borderRadius: "4px 4px 0 0" }} />
-      <span style={{ height: "88%", width: "100%", background: "linear-gradient(180deg, var(--info), var(--brand))", borderRadius: "4px 4px 0 0" }} />
+    <div className="quantum-visualizer">
+      <svg className="quantum-hud-svg" viewBox="0 0 400 120" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="hudGradient" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="var(--p)" stopOpacity="0" />
+            <stop offset="50%" stopColor="var(--p)" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="var(--p)" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        
+        {/* Connection Lines */}
+        <path d="M10 60 Q 100 10, 200 60 T 390 60" fill="none" stroke="var(--p)" strokeWidth="0.5" strokeDasharray="4 4" opacity="0.3" />
+        <path d="M10 60 Q 100 110, 200 60 T 390 60" fill="none" stroke="var(--in)" strokeWidth="0.5" strokeDasharray="4 4" opacity="0.3" />
+        
+        {/* Data Nodes */}
+        {[20, 60, 100, 140, 180, 220, 260, 300, 340, 380].map((x, i) => (
+          <g key={x} className={`hud-node node-${i}`}>
+            <circle cx={x} cy={60 + Math.sin(x/20) * 30} r="2" fill={i % 2 === 0 ? "var(--p)" : "var(--in)"} />
+            <circle cx={x} cy={60 + Math.sin(x/20) * 30} r="6" fill="none" stroke={i % 2 === 0 ? "var(--p)" : "var(--in)"} strokeWidth="0.5" opacity="0.2">
+              <animate attributeName="r" values="6;10;6" dur="3s" repeatCount="indefinite" />
+            </circle>
+          </g>
+        ))}
+        
+        {/* Scanning Bar */}
+        <rect x="0" y="0" width="2" height="120" fill="url(#hudGradient)">
+          <animate attributeName="x" values="0;398;0" dur="4s" repeatCount="indefinite" />
+        </rect>
+      </svg>
+      
+      <div className="hud-overlay">
+        <div className="hud-metric">
+          <span className="hud-label">SYNC RATE</span>
+          <span className="hud-value">99.8%</span>
+        </div>
+        <div className="hud-metric">
+          <span className="hud-label">AI LATENCY</span>
+          <span className="hud-value">12ms</span>
+        </div>
+      </div>
     </div>
   );
 }
@@ -44,7 +77,7 @@ export function SignupPage() {
       console.log("Mock register", { name, email, password });
       navigate("/login", { replace: true });
     } catch (err) {
-      setError(err.message || "ang k tht bi");
+      setError(err.message || "Đăng ký thất bại");
     } finally {
       setLoading(false);
     }
@@ -56,7 +89,7 @@ export function SignupPage() {
       <div className="auth-decorative-blob auth-decorative-blob--1" />
       <div className="auth-decorative-blob auth-decorative-blob--2" />
 
-      <section className="auth-split__form" aria-label="ang k Pi Ecosystem">
+      <section className="auth-split__form" aria-label="Đăng ký Pi Ecosystem">
         <div className="auth-form-card">
           <header className="relative z-10">
             <div className="flex items-center gap-4 mb-6 lg:mb-0">
@@ -70,7 +103,7 @@ export function SignupPage() {
 
           <div className="auth-header">
             <p className="auth-kicker">Join the ecosystem</p>
-            <h1 className="whitespace-nowrap">To ti kho?n mi</h1>
+            <h1 className="whitespace-nowrap">Tạo tài khoản mới</h1>
           </div>
 
           <div className="auth-social">
@@ -85,21 +118,21 @@ export function SignupPage() {
           </div>
 
           <div className="auth-divider">
-            <span>Ho?c dng email</span>
+            <span>Hoặc dùng email</span>
           </div>
 
           <form onSubmit={handleSubmit} className="auth-form">
             <div className="auth-grid-2">
               <div className="auth-field">
-                <label className="auth-label">H? v tn</label>
+                <label className="auth-label">Họ và tên</label>
                 <div className="auth-input-container">
                   <span className="auth-input-icon">
-                    <Icon name="user" size={18} />
+                    <User size={18} />
                   </span>
                   <input
                     type="text"
                     className="auth-input"
-                    placeholder="Nguy?n Van A"
+                    placeholder="Nguyễn Văn A"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
@@ -108,10 +141,10 @@ export function SignupPage() {
               </div>
 
               <div className="auth-field">
-                <label className="auth-label">?a ch? email</label>
+                <label className="auth-label">Địa chỉ email</label>
                 <div className="auth-input-container">
                   <span className="auth-input-icon">
-                    <Icon name="mail" size={18} />
+                    <Mail size={18} />
                   </span>
                   <input
                     type="email"
@@ -126,10 +159,10 @@ export function SignupPage() {
             </div>
 
             <div className="auth-field">
-              <label className="auth-label">M?t kh?u</label>
+              <label className="auth-label">Mật khẩu</label>
               <div className="auth-input-container">
                 <span className="auth-input-icon">
-                  <Icon name="key" size={18} />
+                  <Key size={18} />
                 </span>
                 <input
                   type={showPw ? "text" : "password"}
@@ -140,8 +173,8 @@ export function SignupPage() {
                   required
                   minLength={8}
                 />
-                <button type="button" className="auth-pw-toggle" onClick={() => setShowPw(!showPw)} aria-label="Hi?n ho?c ?n m?t kh?u">
-                  <Icon name={showPw ? "eye-off" : "eye"} size={18} />
+                <button type="button" className="auth-pw-toggle" onClick={() => setShowPw(!showPw)} aria-label="Hiện hoặc ẩn mật khẩu">
+                  {showPw ? <EyeOff size={18} /> : <Eye size={18} />}
                 </button>
               </div>
             </div>
@@ -149,12 +182,12 @@ export function SignupPage() {
             {error && <Alert tone="danger">{error}</Alert>}
 
             <button type="submit" disabled={loading} className="auth-submit auth-submit--modern">
-              {loading ? "ang x? l..." : "ang k ngay"}
+              {loading ? "Đang xử lý..." : "Đăng ký ngay"}
             </button>
           </form>
 
           <p className="auth-footer">
-             c ti kho?n? <Link to="/login">ang nh?p</Link>
+             Đã có tài khoản? <Link to="/login">Đăng nhập</Link>
           </p>
 
           <footer className="flex items-center justify-between text-[10px] font-black uppercase tracking-[0.4em] text-base-content/20 mt-6 mb-2">
@@ -168,33 +201,39 @@ export function SignupPage() {
         <div className="marketing-content">
           <div className="marketing-badge">Unlock Limitless AI</div>
           <h2 className="marketing-title">
-            Gi?i php thng minh <br/>
-            <span>cho mi quy m.</span>
+            Giải pháp thông minh <br/>
+            <span>cho mọi quy mô.</span>
           </h2>
           <p className="marketing-desc mb-6">
-            L?a ch?n gi d?ch v? ph h?p d? b?t d?u t? d?ng ha quy trnh qu?n tr?, tang tru?ng traffic v ti uu SEO cho website WordPress c?a b?n.
+            Lựa chọn gói dịch vụ phù hợp để bắt đầu tự động hóa quy trình quản trị, tăng trưởng traffic và tối ưu SEO cho website WordPress của bạn.
           </p>
 
-          <PiMiniChart />
+          <QuantumDataMatrix />
+
+          {/* HUD Decorators */}
+          <div className="hud-corner hud-corner--tl" />
+          <div className="hud-corner hud-corner--tr" />
+          <div className="hud-corner hud-corner--bl" />
+          <div className="hud-corner hud-corner--br" />
 
           <div className="auth-tiers--premium mt-4">
             <div className="tier-card--glass">
-              <span className="tier-label">Kh?i d?u</span>
+              <span className="tier-label">Khởi đầu</span>
               <span className="tier-name">Free Tier</span>
               <strong className="tier-tokens">5,000 <span className="tier-unit">Tokens</span></strong>
-              <span className="tier-price">Mi?n ph tr?n d?i</span>
+              <span className="tier-price">Miễn phí trọn đời</span>
             </div>
             <div className="tier-card--glass active">
-              <span className="tier-label" style={{ color: "var(--primary)" }}>Ph? bi?n</span>
+              <span className="tier-label" style={{ color: "var(--primary)" }}>Phổ biến</span>
               <span className="tier-name">Pro Tier</span>
               <strong className="tier-tokens">100K <span className="tier-unit">Tokens</span></strong>
-              <span className="tier-price">$29 / thng</span>
+              <span className="tier-price">$29 / tháng</span>
             </div>
             <div className="tier-card--glass">
-              <span className="tier-label" style={{ color: "var(--auth-cyan)" }}>Doanh nghi?p</span>
+              <span className="tier-label" style={{ color: "var(--auth-cyan)" }}>Doanh nghiệp</span>
               <span className="tier-name">Max Tier</span>
               <strong className="tier-tokens">500K <span className="tier-unit">Tokens</span></strong>
-              <span className="tier-price">$99 / thng</span>
+              <span className="tier-price">$99 / tháng</span>
             </div>
           </div>
         </div>

@@ -1,8 +1,10 @@
-﻿import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 import { createPortal } from "react-dom";
 
-import { IconButton } from "./Button"; // Reuses icon styling
+import { IconButton } from "./Button";
+import { X } from "lucide-react";
+ // Reuses icon styling
 
 
 
@@ -78,7 +80,7 @@ export function Modal({ open, onClose, title, children, size = "md" }) {
 
             <h3 id="modal-title" style={{ margin: 0, fontSize: "var(--fs-18)" }}>{title}</h3>
 
-            <IconButton icon="x" label="Close modal" onClick={onClose} size="sm" />
+            <IconButton icon={X} label="Close modal" onClick={onClose} size="sm" />
 
           </header>
 

@@ -1,6 +1,7 @@
-﻿import React from "react";
+import React from "react";
 
 import { IconButton } from "./Button";
+import { Moon, Sun } from "lucide-react";
 
 import { useUiStore } from "@/store/uiStore";
 
@@ -16,7 +17,7 @@ export function ThemeToggle({ className = "" }) {
 
     <IconButton 
 
-      icon={theme === "light" ? "moon" : "sun"} 
+      icon={theme === "light" ? Moon : Sun} 
 
       label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
 

@@ -1,4 +1,4 @@
-﻿/**
+/**
 
  * Theme module ? exactly 2 modes: 'dark' | 'light'.
 

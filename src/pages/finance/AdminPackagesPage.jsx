@@ -1,8 +1,9 @@
-﻿import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { api, withDelay } from "@/lib/api-client";
 import { useLocale } from "@/context/LocaleContext";
-import { useAdminT, formatCurrency } from "@/lib/adminI18n";
-import { Alert, Badge, Button, Card, Checkbox, Icon, Input, Modal, Table, Textarea } from "@/components/ui";
+import { useAdminT, formatCurrency } from "@/lib/translations";
+import { Alert, Badge, Button, Card, Checkbox, Input, Modal, Table, Textarea } from "@/components/ui";
+import { Plus, X } from "lucide-react";
 import { AdminTableSkeleton } from "@/components/skeletons/AdminTableSkeleton";
 import "./AdminPackagesPage.css";
 
@@ -45,7 +46,7 @@ export function AdminPackagesPage() {
           </p>
         </div>
         <Button variant="primary" onClick={() => setEditing("new")} className="h-[48px] px-8 rounded-2xl shadow-brand/20 shadow-lg font-black uppercase tracking-widest text-xs">
-          <Icon name="plus" size={18} className="mr-2" /> {t.add_package}
+          <Plus size={18} className="mr-2" /> {t.add_package}
         </Button>
       </header>
 
@@ -198,13 +199,13 @@ function PackageModal({ pkg, onClose, onSaved }) {
                 <Button type="button" variant="ghost" onClick={() => {
                   const nf = [...form.features]; nf.splice(i, 1);
                   setForm({ ...form, features: nf });
-                }}><Icon name="x" size={16}/></Button>
+                }}><X size={16}/></Button>
               </div>
             ))}
             <Button type="button" variant="ghost" onClick={() => {
               setForm({ ...form, features: [...form.features, ""] });
             }} style={{ alignSelf: "flex-start", marginTop: "var(--s-1)" }}>
-              <Icon name="plus" size={16}/> Thm feature
+              <Plus size={16}/> Thm feature
             </Button>
           </div>
         </div>

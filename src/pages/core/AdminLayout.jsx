@@ -1,7 +1,19 @@
-﻿import React, { useState } from "react";
+import React, { useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import { Alert, Drawer } from "@/components/ui";
+import { 
+  LayoutDashboard, 
+  Monitor, 
+  Zap, 
+  CreditCard, 
+  Key, 
+  Grid, 
+  Bolt, 
+  Layers, 
+  FileText, 
+  Settings 
+} from "lucide-react";
 
 // Atomic Organisms
 import { AdminSidebar } from "@/components/admin/organisms/AdminSidebar";
@@ -14,31 +26,31 @@ const ADMIN_NAV = [
   {
     group: "General",
     items: [
-      { to: "/admin",            label: "Overview",       icon: "dashboard", end: true },
-      { to: "/admin/usage",      label: "Usage",          icon: "monitor" },
-      { to: "/admin/revenue",    label: "Revenue",        icon: "zap" },
+      { to: "/admin",            label: "Overview",       icon: LayoutDashboard, end: true },
+      { to: "/admin/usage",      label: "Usage",          icon: Monitor },
+      { to: "/admin/revenue",    label: "Revenue",        icon: Zap },
     ]
   },
   {
     group: "Products & Licenses",
     items: [
-      { to: "/admin/packages",   label: "Packages",       icon: "credit-card" },
-      { to: "/admin/licenses",   label: "Licenses",       icon: "key" },
-      { to: "/admin/releases",   label: "Plugin Releases",icon: "grid" },
+      { to: "/admin/packages",   label: "Packages",       icon: CreditCard },
+      { to: "/admin/licenses",   label: "Licenses",       icon: Key },
+      { to: "/admin/releases",   label: "Plugin Releases",icon: Grid },
     ]
   },
   {
     group: "Infrastructure",
     items: [
-      { to: "/admin/providers",  label: "AI Providers",   icon: "bolt" },
-      { to: "/admin/keys",       label: "Key Pool",       icon: "layers" },
+      { to: "/admin/providers",  label: "AI Providers",   icon: Bolt },
+      { to: "/admin/keys",       label: "Key Pool",       icon: Layers },
     ]
   },
   {
     group: "System",
     items: [
-      { to: "/admin/audit-log",  label: "Audit log",      icon: "file-text" },
-      { to: "/admin/settings",   label: "Settings",       icon: "settings" },
+      { to: "/admin/audit-log",  label: "Audit log",      icon: FileText },
+      { to: "/admin/settings",   label: "Settings",       icon: Settings },
     ]
   }
 ];
@@ -57,7 +69,13 @@ export function AdminLayout() {
     ?.label || "Dashboard";
 
   return (
-    <div className="dash" data-variant="admin">
+    <div className="dash dash-quantum dash-scanlines" data-variant="admin">
+      {/* HUD Decorators */}
+      <div className="hud-corner hud-corner--tl" />
+      <div className="hud-corner hud-corner--tr" />
+      <div className="hud-corner hud-corner--bl" />
+      <div className="hud-corner hud-corner--br" />
+
       {/* Sidebar - Desktop */}
       <aside className="dash__sidebar glass">
         <AdminSidebar nav={ADMIN_NAV} />

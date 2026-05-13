@@ -1,6 +1,5 @@
-﻿import React from "react";
+import React from "react";
 import { ProductCard } from "../ProductCard";
-import { Icon } from "../ui";
 
 const SECTION_META = {
   tokens: {

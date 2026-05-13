@@ -1,6 +1,6 @@
-﻿import React from "react";
+import React from "react";
 
-import { Icon } from "./icons";
+import { Loader2 } from "lucide-react";
 
 
 
@@ -10,7 +10,7 @@ export function Spinner({ size = 16, className = "" }) {
 
     <div className={`animate-spin ${className}`} style={{ display: "inline-flex", animation: "spin 1s linear infinite" }}>
 
-      <Icon name="loader" size={size} />
+      <Loader2 size={size} />
 
       <style>{`
 

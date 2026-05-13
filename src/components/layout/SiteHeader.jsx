@@ -1,285 +1,137 @@
 import React, { useState } from "react";
-
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import PiLogo from "@pi-ui/base/PiLogo";
-
 import { useLocale } from "@/context/LocaleContext";
-
 import { LanguageToggle } from "../core/LanguageToggle";
-
 import { useAuth } from "@/context/AuthContext";
-
-import { IconButton, ThemeToggle, Icon } from "../ui";
-
+import { ThemeToggle } from "../ui";
+import { ChevronDown, ShieldCheck, LayoutDashboard, LogOut, Search, ArrowRight } from "lucide-react";
 import "./SiteHeader.css";
 
-
+const HUDDecorator = () => (
+  <div className="hud-decorators">
+    <svg className="header-hud-corner tl" viewBox="0 0 10 10"><path d="M2,0 L0,0 L0,2" fill="none" stroke="currentColor" strokeWidth="0.5" /></svg>
+    <svg className="header-hud-corner tr" viewBox="0 0 10 10"><path d="M8,0 L10,0 L10,2" fill="none" stroke="currentColor" strokeWidth="0.5" /></svg>
+    <svg className="header-hud-corner bl" viewBox="0 0 10 10"><path d="M2,10 L0,10 L0,8" fill="none" stroke="currentColor" strokeWidth="0.5" /></svg>
+    <svg className="header-hud-corner br" viewBox="0 0 10 10"><path d="M8,10 L10,10 L10,8" fill="none" stroke="currentColor" strokeWidth="0.5" /></svg>
+  </div>
+);
 
 function UserMenu({ user, isAdmin, logout }) {
-
   const [open, setOpen] = useState(false);
 
-
-
   return (
-
     <div className="relative">
-
       <button 
-
         type="button" 
-
         onClick={() => setOpen(!open)}
-
-        className="user-menu__trigger glass group"
-
+        className="user-menu__trigger user-menu-shell"
       >
-
-        <div className="user-menu__avatar group-hover:scale-110 transition-transform duration-500">
-
+        <HUDDecorator />
+        <div className="user-menu__avatar">
           {user?.email?.[0].toUpperCase() || "U"}
-
         </div>
-
-        <div className="user-menu__info">
-
+        <div className="user-menu__info hidden md:flex">
           <span className="user-menu__name">{user?.email?.split('@')[0]}</span>
-
-          <span className="text-[9px] uppercase tracking-widest opacity-40 font-black">
-
-            {isAdmin ? "Admin" : "Member"}
-
-          </span>
-
+          <span className="user-menu__role">{isAdmin ? "SYSTEM_ADMIN" : "OPERATOR"}</span>
         </div>
-
-        <Icon 
-
-          name="chevron-down" 
-
-          size={12} 
-
-          className={`opacity-40 transition-transform duration-500 ${open ? "rotate-180" : ""}`} 
-
-        />
-
+        <ChevronDown size={10} className={`menu-chevron ${open ? "active" : ""}`} />
       </button>
 
-
-
       {open && (
-
         <>
-
           <div className="fixed inset-0 z-40" onClick={() => setOpen(false)} />
-
-          <div className="user-menu__panel glass-strong z-50">
-
-            <div className="px-6 py-5 border-b border-base-border-subtle mb-1 bg-base-content/[0.02]">
-
-              <div className="text-[9px] font-black uppercase tracking-[0.2em] text-primary mb-1.5">Authenticated Account</div>
-
-              <div className="text-[13px] font-black text-base-content truncate tracking-tight">{user?.email}</div>
-
+          <div className="user-menu__dropdown-panel animate-in fade-in slide-in-from-top-2">
+            <div className="dropdown-header">
+              <span className="header-eyebrow">AUTH_SESSION_ACTIVE</span>
+              <span className="header-email">{user?.email}</span>
             </div>
-
-            
-
-            <div className="p-2 flex flex-col gap-1">
-
+            <div className="dropdown-body">
               {isAdmin && (
-
-                <Link to="/admin" className="user-menu__item group/admin" onClick={() => setOpen(false)}>
-
-                  <div className="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center transition-all group-hover/admin:bg-primary group-hover/admin:text-primary-content group-hover/admin:scale-110 group-hover/admin:shadow-lg group-hover/admin:shadow-brand/20">
-
-                    <Icon name="shield-check" size={18} />
-
-                  </div>
-
-                  <div className="flex flex-col">
-
-                    <span className="text-[13px] font-black">Admin Panel</span>
-
-                    <span className="text-[9px] uppercase tracking-wider opacity-40 font-bold">Manage Ecosystem</span>
-
-                  </div>
-
+                <Link to="/admin" className="dropdown-link group" onClick={() => setOpen(false)}>
+                  <div className="link-icon"><ShieldCheck size={14} /></div>
+                  <div className="link-text">Admin Control</div>
                 </Link>
-
               )}
-
-              
-
-              <Link to="/app" className="user-menu__item group/user" onClick={() => setOpen(false)}>
-
-                <div className="w-9 h-9 rounded-xl bg-base-content/5 text-base-content/60 flex items-center justify-center transition-all group-hover/user:bg-primary/10 group-hover/user:text-primary group-hover/user:scale-110">
-
-                  <Icon name="user-circle" size={18} />
-
-                </div>
-
-                <div className="flex flex-col">
-
-                  <span className="text-[13px] font-black">My Dashboard</span>
-
-                  <span className="text-[9px] uppercase tracking-wider opacity-40 font-bold">Profile & Usage</span>
-
-                </div>
-
+              <Link to="/app" className="dropdown-link group" onClick={() => setOpen(false)}>
+                 <div className="link-icon"><LayoutDashboard size={14} /></div>
+                <div className="link-text">Dashboard</div>
               </Link>
-
-
-
-              <Link to="/app/billing" className="user-menu__item group/billing" onClick={() => setOpen(false)}>
-
-                <div className="w-9 h-9 rounded-xl bg-base-content/5 text-base-content/60 flex items-center justify-center transition-all group-hover/billing:bg-primary/10 group-hover/billing:text-primary group-hover/billing:scale-110">
-
-                  <Icon name="credit-card" size={18} />
-
-                </div>
-
-                <div className="flex flex-col">
-
-                  <span className="text-[13px] font-black">Subscription</span>
-
-                  <span className="text-[9px] uppercase tracking-wider opacity-40 font-bold">Billing & Invoices</span>
-
-                </div>
-
-              </Link>
-
-
-
-              <div className="h-px bg-base-border-subtle my-2 mx-3 opacity-50" />
-
-
-
-              <button 
-
-                onClick={() => { logout(); setOpen(false); }} 
-
-                className="user-menu__item text-danger hover:bg-danger/10 w-full text-left group/logout"
-
-              >
-
-                <div className="w-9 h-9 rounded-xl bg-danger/10 text-danger flex items-center justify-center transition-all group-hover/logout:scale-110">
-
-                  <Icon name="log-out" size={18} />
-
-                </div>
-
-                <div className="flex flex-col">
-
-                  <span className="text-[13px] font-black">Sign Out</span>
-
-                  <span className="text-[9px] uppercase tracking-wider opacity-40 font-bold">Securely Logout</span>
-
-                </div>
-
+              <div className="dropdown-divider" />
+              <button onClick={() => { logout(); setOpen(false); }} className="dropdown-link logout group">
+                 <div className="link-icon"><LogOut size={14} /></div>
+                <div className="link-text">Terminate Session</div>
               </button>
-
             </div>
-
           </div>
-
         </>
-
       )}
-
     </div>
-
   );
-
 }
 
 
 export function SiteHeader() {
-
-  const { dict } = useLocale();
-
+  const { locale } = useLocale();
   const { isAuthed, isAdmin, user, logout } = useAuth();
 
-
-
-
   return (
-
     <header className="site-header">
-
-      <div className="mx-auto w-full max-w-[1400px] flex h-full items-center justify-between !px-10 lg:!px-20">
-
-        {/* LEFT: BRAND */}
-
-        <Link to="/" className="site-header__brand group" aria-label="Pi Ecosystem">
-
-          <PiLogo size={32} />
-
-          <span className="site-header__brand-text">PI STORE</span>
-
+      <div className="header-scan-line" />
+      <div className="site-header__container">
+        {/* BRAND */}
+        <Link to="/" className="site-header__brand group">
+          <div className="brand-logo-hud">
+            <PiLogo size={24} />
+            <div className="hud-ring" />
+          </div>
+          <div className="brand-text-wrapper">
+            <span className="brand-name">PI STORE</span>
+            <span className="brand-tag">ECOSYSTEM_V2</span>
+          </div>
         </Link>
-
         
+        {/* NAVIGATION */}
+        <nav className="site-header__nav">
+          <NavLink to="/catalog" className="nav-link">
+            <span className="nav-hex">01</span> {locale === "vi" ? "CỬA HÀNG" : "STORE"}
+          </NavLink>
+          <NavLink to="/pricing" className="nav-link">
+            <span className="nav-hex">02</span> {locale === "vi" ? "BẢNG GIÁ" : "PRICING"}
+          </NavLink>
+          <NavLink to="/docs" className="nav-link">
+            <span className="nav-hex">03</span> {locale === "vi" ? "TÀI LIỆU" : "DOCS"}
+          </NavLink>    
+        </nav>
 
+        {/* ACTIONS */}
+        <div className="site-header__actions">
+          <div className="tools-bento-box">
+            <HUDDecorator />
+            <button className="tool-unit" aria-label="Search">
+               <Search size={14} />
+            </button>
+            <div className="tool-divider" />
+            <ThemeToggle className="tool-unit" />
+            <div className="tool-divider" />
+            <div className="tool-unit lang-wrapper">
+              <LanguageToggle />
+            </div>
+          </div>
 
-        {/* CENTER: NAV REMOVED */}
-
-
-        
-
-        {/* RIGHT: TOOLS */}
-
-        <div className="site-header__tools">
-
-          <Link to="/catalog" className="site-header__tool-btn" title="Search">
-
-            <Icon name="search" size={18} />
-
-          </Link>
-
-          
-
-          <ThemeToggle />
-
-          <LanguageToggle />
-
-          
-
-          <div className="h-6 w-px bg-base-content/10 mx-2 hidden md:block" />
-
-          
-
-          {isAuthed ? (
-
-            <UserMenu user={user} isAdmin={isAdmin} logout={logout} />
-
-          ) : (
-
-            <Link to="/login" className="text-sm font-black uppercase tracking-widest text-primary hover:brightness-110 px-4">
-
-              {dict.nav.signin}
-
-            </Link>
-
-          )}
-
-
-
-
-          {/* MOBILE TOGGLE REMOVED */}
-
+          <div className="site-header__auth">
+            {isAuthed ? (
+              <UserMenu user={user} isAdmin={isAdmin} logout={logout} />
+            ) : (
+              <NavLink to="/auth/login" className="hud-signin-btn">
+                <div className="btn-glitch-layer" />
+                <span className="btn-text">{locale === "vi" ? "ĐĂNG NHẬP" : "SIGN_IN"}</span>
+                <ArrowRight size={12} className="btn-icon" />
+              </NavLink>
+            )}
+          </div>
         </div>
-
       </div>
-
-
-
-
-      {/* MOBILE DRAWER REMOVED */}
-
     </header>
-
   );
-
 }
-

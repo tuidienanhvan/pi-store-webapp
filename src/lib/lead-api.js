@@ -1,4 +1,4 @@
-﻿const API_URL = import.meta.env.VITE_LEAD_API_URL || "/api/lead";
+const API_URL = import.meta.env.VITE_LEAD_API_URL || "/api/lead";
 
 
 

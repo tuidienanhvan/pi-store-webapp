@@ -1,4 +1,5 @@
-﻿import { Button, Icon, Badge } from "@/components/ui";
+import { Button, Badge } from "@/components/ui";
+import { X } from "lucide-react";
 
 export function LicenseDetailModal({ licenseId, onClose, onChanged }) {
   if (!licenseId) return null;
@@ -24,7 +25,7 @@ export function LicenseDetailModal({ licenseId, onClose, onChanged }) {
         </footer>
 
         <button onClick={onClose} className="absolute top-6 right-6 text-base-content/60 hover:text-base-content">
-          <Icon name="x" size={20} />
+          <X size={20} />
         </button>
       </div>
     </div>

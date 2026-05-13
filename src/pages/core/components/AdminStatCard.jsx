@@ -1,8 +1,9 @@
-﻿import React from "react";
+import React from "react";
 
 import { Link } from "react-router-dom";
 
-import { Card, Icon } from "@/components/ui";
+import { Card } from "@/components/ui";
+import { ArrowRight } from "lucide-react";
 
 import "./AdminStatCard.css";
 
@@ -24,7 +25,7 @@ export function AdminStatCard({
 
   variant = "glass",
 
-  icon = "arrow-right",
+  icon: IconComponent = ArrowRight,
 
   className = "" 
 
@@ -50,7 +51,7 @@ export function AdminStatCard({
 
         <span className="admin-stat-card__title">{title}</span>
 
-        {to && <Icon name={icon} size={12} className="admin-stat-card__arrow" />}
+        {to && <IconComponent size={12} className="admin-stat-card__arrow" />}
 
       </div>
 
@@ -70,7 +71,7 @@ export function AdminStatCard({
 
             <div className={`admin-stat-card__trend admin-stat-card__trend--${trend > 0 ? 'up' : 'down'}`}>
 
-              {trend > 0 ? '?' : '?'} {Math.abs(trend)}% {trendLabel}
+              {trend > 0 ? "↑" : "↓"} {Math.abs(trend)}% {trendLabel}
 
             </div>
 

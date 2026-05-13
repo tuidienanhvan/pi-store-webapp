@@ -1,5 +1,6 @@
-﻿import React from "react";
+import React from "react";
 import { ThemeToggle, IconButton, Avatar } from "../../ui";
+import { Bell, LogOut } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 
 export function AdminUserFooter() {
@@ -10,7 +11,7 @@ export function AdminUserFooter() {
       <div className="flex flex-col gap-4">
         <div className="flex items-center justify-between px-1">
           <ThemeToggle />
-          <IconButton icon="bell" label="Alerts" variant="ghost" size="sm" className="opacity-50 hover:opacity-100" />
+          <IconButton icon={Bell} label="Alerts" variant="ghost" size="sm" className="opacity-50 hover:opacity-100" />
         </div>
 
         <div className="flex items-center gap-3 p-2 rounded-2xl bg-base-content/[0.03] border border-base-border-subtle/50 group/user">
@@ -29,7 +30,7 @@ export function AdminUserFooter() {
           </div>
           
           <IconButton 
-            icon="logout" 
+            icon={LogOut} 
             label="Sign out" 
             onClick={logout} 
             variant="ghost" 

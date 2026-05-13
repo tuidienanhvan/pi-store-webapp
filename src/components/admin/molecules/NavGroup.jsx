@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { SidebarLink } from "../atoms/SidebarLink";
 import { NavGroupLabel } from "../atoms/NavGroupLabel";
 

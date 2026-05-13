@@ -1,4 +1,4 @@
-﻿const GROUPS = [
+const GROUPS = [
   {
     title: "General",
     items: [

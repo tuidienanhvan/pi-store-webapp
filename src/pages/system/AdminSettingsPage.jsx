@@ -1,7 +1,8 @@
-﻿import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { api, withDelay } from "@/lib/api-client";
-import { useAdminT } from "@/lib/adminI18n";
-import { Card, Table, Button, Input, Alert, Badge, Icon, IconButton, Checkbox } from "@/components/ui";
+import { useAdminT } from "@/lib/translations";
+import { Card, Table, Button, Input, Alert, Badge, IconButton, Checkbox } from "@/components/ui";
+import { Trash2, Plus } from "lucide-react";
 import { AdminSettingsSkeleton } from "@/components/skeletons/AdminSettingsSkeleton";
 import { AdminTableSkeleton } from "@/components/skeletons/AdminTableSkeleton";
 import "./AdminSettingsPage.css";
@@ -197,7 +198,7 @@ function PacksCard({ packs, onSave, saving, className }) {
                 <td><input className="settings-inline-input font-mono" type="number" value={r.price_cents} onChange={(e) => update(i, "price_cents", Number(e.target.value))} /></td>
                 <td><input className="settings-inline-input font-mono" type="number" value={r.discount_pct} onChange={(e) => update(i, "discount_pct", Number(e.target.value))} /></td>
                 <td className="text-right">
-                  <IconButton icon="trash" label="Xa" onClick={() => remove(i)} className="hover:text-danger" />
+                  <IconButton icon={Trash2} label="Xa" onClick={() => remove(i)} className="hover:text-danger" />
                 </td>
               </tr>
             ))}
@@ -207,7 +208,7 @@ function PacksCard({ packs, onSave, saving, className }) {
 
       <div className="flex items-center justify-between px-4 lg:px-0">
         <Button type="button" variant="ghost" onClick={add} className="h-10 px-6 rounded-xl border border-dashed border-base-border-subtle hover:border-primary-soft font-bold uppercase tracking-widest text-[10px]">
-          <Icon name="plus" size={14} className="mr-2" /> Thm pack
+          <Plus size={14} className="mr-2" /> Thm pack
         </Button>
         <Button type="button" variant="primary" disabled={saving} onClick={() => onSave(rows)} className="h-10 px-8 rounded-xl font-bold uppercase tracking-widest text-[10px] shadow-brand/20 shadow-lg">
           {saving ? "ang lu..." : "Lu packs"}

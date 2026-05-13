@@ -1,6 +1,6 @@
-﻿import React from "react";
+import React from "react";
 
-import { Icon } from "../ui";
+import { Check } from "lucide-react";
 
 
 
@@ -24,7 +24,7 @@ export function ProductFeatures({ view, dict }) {
 
               <li key={feature} className="row" style={{ gap: "var(--s-2)", alignItems: "flex-start" }}>
 
-                <Icon name="check" size={16} style={{ color: "var(--primary)", flexShrink: 0, marginTop: 2 }} />
+                <Check size={16} style={{ color: "var(--primary)", flexShrink: 0, marginTop: 2 }} />
 
                 <span>{feature}</span>
 

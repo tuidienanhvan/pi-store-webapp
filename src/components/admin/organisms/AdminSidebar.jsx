@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import PiLogo from "@pi-ui/base/PiLogo";
 import { NavGroup } from "../molecules/NavGroup";
 import { AdminUserFooter } from "../molecules/AdminUserFooter";
@@ -20,7 +20,7 @@ export function AdminSidebar({ nav = [], onLinkClick }) {
       </div>
 
       {/* Navigation Content */}
-      <nav className="flex-1 overflow-y-auto px-3 py-6 custom-scrollbar">
+      <nav className="flex-1 overflow-y-auto px-3 py-6">
         {nav.map((groupObj, idx) => (
           <NavGroup 
             key={groupObj.group || idx} 

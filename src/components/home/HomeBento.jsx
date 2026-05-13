@@ -1,131 +1,53 @@
-import './HomeBento.css';
-
 import React from "react";
+import { useLocale } from "@/context/LocaleContext";
+import "./HomeBento.css";
 
-import { Card, Badge, Icon } from "../ui";
+// Import Bento Sub-components
+import { BentoMetricsCard } from "./bento/BentoMetricsCard";
+import { BentoInfrastructureCard } from "./bento/BentoInfrastructureCard";
+import { BentoAINexusCard } from "./bento/BentoAINexusCard";
+import { BentoRegionalHubCard } from "./bento/BentoRegionalHubCard";
 
-
-
-export function HomeBento({ t }) {
+export function HomeBento() {
+  const { dict } = useLocale();
+  const items = dict.whyPi.items;
 
   return (
-
-    <section className="home-section home-bento">
+    <section className="home-bento">
       <div className="home-bento__bg-glow" aria-hidden="true" />
-      <div className="mx-auto w-full max-w-[1400px] px-8 lg:px-20 relative z-10">
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div className="home-bento__header">
-          <Badge tone="brand" icon="zap" className="premium-engine-badge">The Core Engine</Badge>
-          <h2 className="home-bento__headline">{t?.whyPi?.title}</h2>
-          {t?.whyPi?.description && <p className="home-bento__subline">{t?.whyPi?.description}</p>}
+          <h2 className="home-bento__headline">{dict.whyPi.title}</h2>
+          <p className="home-bento__subline">{dict.whyPi.description}</p>
         </div>
-        
+
         <div className="home-bento__grid">
-          {t?.whyPi?.items?.map((usp, i) => (
-            <div key={i} className={`home-bento__card home-bento__card--${i}`}>
-              <div className="home-bento__card-inner glass-shell">
-                
-                {/* INTERACTIVE VISUALS BASED ON ITEM TYPE */}
-                <div className="home-bento__visual-container">
-                  {i === 0 && (
-                    <div className="mini-dashboard-wrapper">
-                      <div className="mini-dashboard">
-                        <div className="mini-dashboard__header"><span/><span/><span/><strong>pi-cloud-metrics</strong></div>
-                        <div className="mini-dashboard__body">
-                          <div className="mini-chart">
-                            <div className="bar" style={{height: '40%'}}/>
-                            <div className="bar" style={{height: '70%'}}/>
-                            <div className="bar" style={{height: '50%'}}/>
-                            <div className="bar" style={{height: '90%'}}/>
-                            <div className="bar" style={{height: '60%'}}/>
-                          </div>
-                          <div className="mini-dashboard__stats">
-                            <div className="mini-stat"><span>Tokens</span><strong>125K</strong></div>
-                            <div className="mini-stat"><span>Saved</span><strong>$42.5</strong></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="floating-badge badge-1">99.9% Uptime</div>
-                      <div className="floating-badge badge-2">Auto-Scale</div>
-                    </div>
-                  )}
-                  
-                  {i === 1 && (
-                    <div className="infrastructure-visual">
-                      <div className="traffic-lines">
-                        <span className="line l-1"/><span className="line l-2"/><span className="line l-3"/>
-                      </div>
-                      <div className="node-group">
-                        <div className="node primary"><strong>Master</strong><div className="pulse-line"/></div>
-                        <div className="node-grid">
-                          <div className="node mini"/>
-                          <div className="node mini"/>
-                          <div className="node mini"/>
-                          <div className="node mini"/>
-                        </div>
-                      </div>
-                    </div>
-                  )}
+          {/* Card 0: Metrics */}
+          <BentoMetricsCard 
+            title={items[0].title} 
+            description={items[0].desc} 
+          />
 
-                  {i === 2 && (
-                    <div className="ai-nexus-v3">
-                      <div className="nexus-core-glow" />
-                      <div className="nexus-platform" />
-                      <div className="model-orbits">
-                        <div className="model-tag gpt">GPT-5.4</div>
-                        <div className="model-tag gemini">Gemini 3.1</div>
-                        <div className="model-tag claude">Claude 4.6</div>
-                      </div>
-                    </div>
-                  )}
+          {/* Card 1: Infrastructure */}
+          <BentoInfrastructureCard 
+            title={items[1].title} 
+            description={items[1].desc} 
+          />
+          
+          {/* Card 2: AI Nexus */}
+          <BentoAINexusCard 
+            title={items[2].title} 
+            description={items[2].desc} 
+          />
 
-                  {i === 3 && (
-                    <div className="vn-regional-hub">
-                      <div className="hub-core">
-                        <div className="hub-glow" />
-                        <div className="hub-rings">
-                          <div className="ring" />
-                          <div className="ring" />
-                        </div>
-                        <span className="hub-text">VN</span>
-                      </div>
-                      
-                      {/* Floating Info bằng Tiếng Việt */}
-                      <div className="floating-badge badge-1">Độ trễ cực thấp</div>
-                      <div className="floating-badge badge-2">Máy chủ Việt Nam</div>
-                      
-                      <div className="hub-stats">
-                        <div className="hub-stat-item">
-                          <span className="label">Độ trễ</span>
-                          <strong className="value">15ms</strong>
-                        </div>
-                        <div className="hub-stat-item">
-                          <span className="label">Hoạt động</span>
-                          <strong className="value">99.9%</strong>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                <div className="home-bento__content">
-                  <div className="home-bento__icon-brand">
-                    {i === 0 && <Icon name="zap" size={18} />}
-                    {i === 1 && <Icon name="shield-check" size={18} />}
-                    {i === 2 && <Icon name="layers" size={18} />}
-                    {i === 3 && <Icon name="globe" size={18} />}
-                  </div>
-                  <h3 className="home-bento__title">{usp.title}</h3>
-                  <p className="home-bento__desc">{usp.desc}</p>
-                </div>
-
-                <div className="card-glass-reflection" />
-              </div>
-            </div>
-          ))}
+          {/* Card 3: Regional Hub */}
+          <BentoRegionalHubCard 
+            title={items[3].title} 
+            description={items[3].desc} 
+          />
         </div>
       </div>
     </section>
-
   );
-
 }

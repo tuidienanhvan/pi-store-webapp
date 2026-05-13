@@ -1,8 +1,9 @@
-﻿import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 import { createPortal } from "react-dom";
 
 import { IconButton } from "./Button";
+import { X } from "lucide-react";
 
 import "./Drawer.css";
 
@@ -76,7 +77,7 @@ export function Drawer({ open, onClose, side = "right", children, title }) {
 
             <h3 style={{ margin: 0, fontSize: "var(--fs-18)" }}>{title}</h3>
 
-            <IconButton icon="x" label="Close drawer" onClick={onClose} size="sm" />
+            <IconButton icon={X} label="Close drawer" onClick={onClose} size="sm" />
 
           </div>
 

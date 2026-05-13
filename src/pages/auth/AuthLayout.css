@@ -1,158 +1,101 @@
-
-
-
-
 /* --- AUTH LAYOUT --- */
 
 .auth-split {
-
   position: relative;
-
   display: grid;
-
   grid-template-columns: minmax(0, 1fr);
-
   min-height: 100dvh;
-
   height: auto;
-
   overflow: visible;
-
-  background:
-
-    radial-gradient(circle at 8% 8%, color-mix(in srgb, var(--color-brand) 15%, transparent), transparent 28rem),
-
-    radial-gradient(circle at 86% 92%, color-mix(in srgb, var(--color-info) 10%, transparent), transparent 28rem),
-
-    linear-gradient(90deg, var(--base-border) 1px, transparent 1px),
-
-    linear-gradient(var(--base-border) 1px, transparent 1px),
-
-    var(--base-100);
-
-  background-size: 100% 100%, 100% 100%, 78px 78px, 78px 78px;
-
-  color: var(--base-content);
-
+  background: var(--b1);
+  color: var(--bc);
 }
 
+/* Quantum Grid & Scanlines */
+.auth-split::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(var(--bd) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bd) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.15;
+  pointer-events: none;
+  mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
+}
 
+.auth-split::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--p) 2%, transparent), transparent);
+  background-size: 100% 600px;
+  animation: authScanline 12s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.3;
+}
+
+@keyframes authScanline {
+  0% { background-position: 0 -600px; }
+  100% { background-position: 0 100%; }
+}
 
 .auth-noise {
-
   position: absolute;
-
   inset: 0;
-
   pointer-events: none;
-
-  opacity: 0.23;
-
-  background-image: repeating-radial-gradient(circle at 20% 30%, rgba(255,255,255,0.08) 0 1px, transparent 1px 7px);
-
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   mix-blend-mode: overlay;
-
-  mask-image: linear-gradient(to bottom, #000, transparent 88%);
-
 }
-
-
 
 .auth-decorative-blob {
-
   position: absolute;
-
   z-index: 0;
-
   border-radius: 999px;
-
-  filter: blur(92px);
-
-  opacity: 0.15;
-
+  filter: blur(140px);
+  opacity: 0.12;
   pointer-events: none;
-
-  animation: authFloat 18s cubic-bezier(0.16, 1, 0.3, 1) infinite alternate;
-
+  animation: authFloat 25s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
 }
 
-
-
-.auth-decorative-blob--1 { width: 300px; height: 300px; left: -90px; top: 4%; background: var(--primary); }
-
-.auth-decorative-blob--2 { width: 360px; height: 360px; right: 4%; bottom: -130px; background: var(--info); animation-delay: -7s; }
-
-
+.auth-decorative-blob--1 { width: 500px; height: 500px; left: -10%; top: -10%; background: var(--p); }
+.auth-decorative-blob--2 { width: 600px; height: 600px; right: -5%; bottom: -5%; background: var(--in); animation-delay: -8s; }
 
 @keyframes authFloat {
-
-  from { transform: translate3d(0, 0, 0) scale(1); }
-
-  to { transform: translate3d(28px, 36px, 0) scale(1.08); }
-
+  from { transform: translate(0, 0) rotate(0deg) scale(1); }
+  to { transform: translate(60px, 80px) rotate(20deg) scale(1.15); }
 }
-
-
 
 .auth-split__form {
-
   position: relative;
-
-  z-index: 2;
-
+  z-index: 10;
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
-  padding: clamp(18px, 4dvh, 56px) clamp(16px, 4vw, 64px);
-
+  padding: clamp(1.5rem, 4dvh, 4rem) clamp(1rem, 4vw, 3rem);
 }
-
-
 
 .auth-split__marketing {
-
   position: relative;
-
-  z-index: 1;
-
+  z-index: 5;
   display: none;
-
   align-items: center;
-
   justify-content: center;
-
-  padding: clamp(30px, 6dvh, 72px) clamp(32px, 5vw, 76px);
-
-  border-left: 1px solid var(--base-border);
-
-  background:
-
-    radial-gradient(circle at 50% 76%, rgba(56,189,248,0.12), transparent 20rem),
-
-    linear-gradient(180deg, rgba(255,255,255,0.03), transparent);
-
+  padding: clamp(2rem, 5dvh, 5rem);
+  border-left: 1px solid var(--bd);
+  background: color-mix(in srgb, var(--b2) 30%, transparent);
+  backdrop-filter: blur(12px);
 }
-
-
 
 @media (min-width: 980px) {
-
   .auth-split { 
-
-    grid-template-columns: minmax(520px, 1.08fr) minmax(420px, 0.92fr); 
-
+    grid-template-columns: minmax(520px, 1.1fr) 1fr; 
     height: 100dvh;
-
     overflow: hidden;
-
   }
-
   .auth-split__marketing { display: flex; height: 100%; overflow: hidden; }
-
   .auth-split__form { height: 100%; overflow-y: auto; }
-
 }
-

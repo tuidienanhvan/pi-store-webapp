@@ -1,6 +1,7 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { api } from "@/lib/api-client";
-import { Table, Button, Card, Icon } from "@/components/ui";
+import { Table, Button, Card } from "@/components/ui";
+import { Loader2 } from "lucide-react";
 
 import "./LedgerPage.css";
 
@@ -46,7 +47,7 @@ export function LedgerPage() {
   if (loading && entries.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center p-20 gap-4 opacity-40">
-        <Icon name="loader" size={40} className="animate-spin" />
+        <Loader2 size={40} className="animate-spin" />
         <div className="font-bold uppercase tracking-[0.2em] text-[12px]">ang ti l?ch s?...</div>
       </div>
     );

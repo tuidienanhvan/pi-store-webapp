@@ -1,30 +1,29 @@
-﻿import React from "react";
+import React from "react";
 
-import { Icon } from "./icons";
+import { Info, CheckCircle2, AlertTriangle, AlertCircle, X } from "lucide-react";
 
 import "./Alert.css";
 
 
 
 const ICONS = {
-
-  info: "info",
-
-  success: "success",
-
-  warning: "warning",
-
-  danger: "danger",
-
+  info: Info,
+  success: CheckCircle2,
+  warning: AlertTriangle,
+  danger: AlertCircle,
 };
 
 
 
-export function Alert({ tone = "info", title, children, className = "", onDismiss }) {
+export function Alert({ tone = "info", icon: IconComponent, title, children, className = "", onDismiss }) {
 
   const toneClass = `alert--${tone}`;
 
   const iconToneClass = `text-${tone}`;
+
+  const DefaultIcon = ICONS[tone] || Info;
+
+  const FinalIcon = IconComponent || DefaultIcon;
 
 
 
@@ -34,7 +33,7 @@ export function Alert({ tone = "info", title, children, className = "", onDismis
 
       <div className={`mt-0.5 shrink-0 ${iconToneClass}`}>
 
-        <Icon name={ICONS[tone] || "info"} size={20} />
+        <FinalIcon size={20} />
 
       </div>
 
@@ -64,7 +63,7 @@ export function Alert({ tone = "info", title, children, className = "", onDismis
 
         >
 
-          <Icon name="x" size={16} />
+          <X size={16} />
 
         </button>
 

@@ -1,14 +1,18 @@
-﻿import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import { api, withDelay } from "@/lib/api-client";
 
-import { useAdminT, formatDateTime, formatRelative } from "@/lib/adminI18n";
+import { useAdminT, formatDateTime, formatRelative } from "@/lib/translations";
 
 import { useLocale } from "@/context/LocaleContext";
 
 import { useListFilters, useDebouncedValue } from "@/hooks/useListFilters";
 
-import { Card, Table, Badge, Input, Select, Button, Icon, Alert } from "@/components/ui";
+import { Card, Table, Badge, Input, Select, Button, Alert } from "@/components/ui";
+import { 
+  Search, X, FileText, ChevronDown, ChevronRight, 
+  Plus, Edit2, Trash2, Shield, Check, Layers, Key, User, Info 
+} from "lucide-react";
 
 import { AdminTableSkeleton } from "@/components/skeletons/AdminTableSkeleton";
 
@@ -64,7 +68,7 @@ const RESOURCE_OPTIONS = [
 
 const SEVERITY_TONES = { info: "neutral", warning: "warning", critical: "danger" };
 
-const ACTION_ICONS = { create: "plus", update: "edit", delete: "trash", revoke: "shield", reactivate: "check", allocate: "layers", assign: "key", login: "user" };
+const ACTION_ICONS = { create: Plus, update: Edit2, delete: Trash2, revoke: Shield, reactivate: Check, allocate: Layers, assign: Key, login: User };
 
 
 
@@ -156,7 +160,7 @@ export function AdminAuditLogPage() {
 
         <div className="flex flex-wrap items-end gap-4">
 
-          <Input type="search" placeholder={t.search_audit} value={searchInput} onChange={(e) => setSearchInput(e.target.value)} leadingIcon="search" className="flex-1 min-w-[200px]" />
+          <Input type="search" placeholder={t.search_audit} value={searchInput} onChange={(e) => setSearchInput(e.target.value)} leadingIcon={Search} className="flex-1 min-w-[200px]" />
 
           <Select value={filters.action} onChange={(e) => setFilters({ action: e.target.value, offset: 0 })} options={ACTION_OPTIONS} className="w-40" />
 
@@ -192,7 +196,7 @@ export function AdminAuditLogPage() {
 
             <Button variant="ghost" onClick={() => { setSearchInput(""); reset(); }} className="h-12 px-4 rounded-xl text-[10px] font-black uppercase tracking-widest">
 
-              <Icon name="x" size={14} className="mr-1" /> {t.clear}
+              <X size={14} className="mr-1" /> {t.clear}
 
             </Button>
 
@@ -252,7 +256,7 @@ export function AdminAuditLogPage() {
 
                 <td colSpan="7" className="py-20">
 
-                  <EmptyState icon="file-text" title={t.no_events} description={hasActive ? t.no_match_desc : t.no_events_desc} />
+                  <EmptyState icon={FileText} title={t.no_events} description={hasActive ? t.no_match_desc : t.no_events_desc} />
 
                 </td>
 
@@ -322,7 +326,7 @@ function AuditRow({ entry, locale, expanded, onToggle }) {
 
   const t = useAdminT();
 
-  const actionIcon = ACTION_ICONS[entry.action] || "info";
+  const ActionIcon = ACTION_ICONS[entry.action] || Info;
 
   const severityTone = SEVERITY_TONES[entry.severity] || "neutral";
 
@@ -340,7 +344,13 @@ function AuditRow({ entry, locale, expanded, onToggle }) {
 
         <td className="text-center">
 
-          {hasDiff ? <Icon name={expanded ? "chevron-down" : "chevron-right"} size={14} className={`transition-transform text-base-content/60 ${expanded ? "text-primary" : "opacity-20"}`} /> : null}
+          {hasDiff ? (
+            expanded ? (
+              <ChevronDown size={14} className="transition-transform text-primary" />
+            ) : (
+              <ChevronRight size={14} className="transition-transform text-base-content/60 opacity-20" />
+            )
+          ) : null}
 
         </td>
 
@@ -364,7 +374,7 @@ function AuditRow({ entry, locale, expanded, onToggle }) {
 
           <div className="flex items-center gap-1.5">
 
-            <Icon name={actionIcon} size={14} className="text-base-content/60 opacity-40" />
+            <ActionIcon size={14} className="text-base-content/60 opacity-40" />
 
             <code className="text-[11px] font-black uppercase tracking-widest text-base-content/80">{entry.action}</code>
 

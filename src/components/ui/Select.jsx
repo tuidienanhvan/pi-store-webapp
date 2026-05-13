@@ -1,6 +1,6 @@
-﻿import React, { forwardRef, useId } from "react";
+import React, { forwardRef, useId } from "react";
 
-import { Icon } from "./icons";
+import { ChevronDown } from "lucide-react";
 
 import "./Input.css";
 
@@ -106,7 +106,7 @@ export const Select = forwardRef(({
 
         <div style={{ position: "absolute", right: "12px", top: "50%", transform: "translateY(-50%)", pointerEvents: "none", color: "color-mix(in srgb, var(--base-content) 60%, transparent)", display: "flex" }}>
 
-          <Icon name="chevron-down" size={14} />
+          <ChevronDown size={14} />
 
         </div>
 

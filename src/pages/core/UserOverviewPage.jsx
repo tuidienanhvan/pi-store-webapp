@@ -1,4 +1,4 @@
-﻿import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -6,7 +6,8 @@ import { api } from "@/lib/api-client";
 
 import { useAuth } from "@/context/AuthContext";
 
-import { Alert, Badge, Button, Card, EmptyState, Icon, Skeleton } from "@/components/ui";
+import { Alert, Badge, Button, Card, EmptyState, Skeleton } from "@/components/ui";
+import { Bolt, Zap, Layers, ArrowRight } from "lucide-react";
 
 
 
@@ -100,11 +101,9 @@ export function UserOverviewPage() {
 
 <div className="grid grid-cols-3 gap-4">
 
-            <MiniStat label="Calls this month" value={pkg.current_period_requests} icon="bolt" />
-
-            <MiniStat label="Lifetime tokens" value={formatNum(pkg.lifetime_tokens_used)} icon="zap" />
-
-            <MiniStat label="License sites" value={`${stats?.activated_sites || 0} / ${stats?.max_sites || "-"}`} icon="layers" />
+            <MiniStat label="Calls this month" value={pkg.current_period_requests} icon={Bolt} />
+            <MiniStat label="Lifetime tokens" value={formatNum(pkg.lifetime_tokens_used)} icon={Zap} />
+            <MiniStat label="License sites" value={`${stats?.activated_sites || 0} / ${stats?.max_sites || "-"}`} icon={Layers} />
 
           </div>
 
@@ -170,7 +169,7 @@ function QuotaCard({ pkg }) {
 
         <Button as={Link} to="/pricing" variant="ghost">
 
-          Upgrade <Icon name="arrow-right" size={14} />
+          Upgrade <ArrowRight size={14} />
 
         </Button>
 
@@ -210,7 +209,7 @@ function QuotaCard({ pkg }) {
 
 
 
-function MiniStat({ label, value, icon }) {
+function MiniStat({ label, value, icon: IconComponent }) {
 
   return (
 
@@ -226,7 +225,7 @@ function MiniStat({ label, value, icon }) {
 
         </div>
 
-        <Icon name={icon} size={20} className="text-base-content/60" />
+        <IconComponent size={20} className="text-base-content/60" />
 
       </div>
 

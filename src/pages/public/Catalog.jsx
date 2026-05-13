@@ -1,394 +1,307 @@
-﻿import React, { useState, useMemo } from "react";
-
+import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-
 import { useLocale } from "@/context/LocaleContext";
-
-import { Input, Button, Card, Badge, Icon } from "@/components/ui";
-
+import { Input, Button, Card, Badge } from "@/components/ui";
+import { 
+  Search, Layers, Zap, X, Package, Check, 
+  Loader2, ArrowRight, MousePointer2, Info,
+  Filter, Grid3x3, ArrowUpRight, Cpu, Activity
+} from "lucide-react";
 import "./catalog.css";
 
+const CatalogEmptyState = ({ onReset }) => (
+  <div className="catalog-empty-quantum">
+    <div className="empty-hud-radar">
+      <div className="radar-circle" />
+      <div className="radar-circle" />
+      <div className="radar-line" />
+      <Package size={48} className="radar-icon" />
+    </div>
+    
+    <div className="empty-content">
+      <h3 className="empty-title">
+        <span className="text-gradient">NO_PRODUCTS_FOUND</span>
+      </h3>
+      <p className="empty-desc">
+        Hệ thống không tìm thấy sản phẩm nào khớp với bộ lọc hiện tại. 
+        Vui lòng thử từ khóa khác hoặc làm mới bộ lọc.
+      </p>
+      
+      <div className="empty-actions">
+        <Button variant="ghost" className="reset-btn" onClick={onReset}>
+          <Activity size={16} className="mr-2" />
+          <span>LÀM MỚI QUÉT DỮ LIỆU</span>
+        </Button>
+      </div>
+    </div>
 
+    <div className="empty-meta-hud">
+      <div className="meta-unit">
+        <Cpu size={12} />
+        <span>CORE_SCAN: ACTIVE</span>
+      </div>
+      <div className="divider" />
+      <span>ERR_CODE: 0x404_NOT_FOUND</span>
+    </div>
+  </div>
+);
 
 export function Catalog({ products = [] }) {
-
   const { dict } = useLocale();
-
   const t = dict.catalog;
-
   
-
   const [search, setSearch] = useState("");
-
   const [category, setCategory] = useState("all");
-
   const [leadProduct, setLeadProduct] = useState(null);
 
-
-
   const filtered = useMemo(() => {
-
     return products.filter(p => {
-
       const haystack = `${p.name} ${p.tagline} ${p.type}`.toLowerCase();
-
       const matchSearch = haystack.includes(search.toLowerCase());
-
       const matchCat = category === "all" || p.type === category;
-
       return matchSearch && matchCat;
-
     });
-
   }, [products, search, category]);
 
-
-
   const categories = [
-
     { id: "all", label: t.categories.all },
-
     { id: "platform", label: t.categories.platform },
-
     { id: "addon", label: t.categories.addon },
-
     { id: "theme", label: t.categories.theme },
-
   ];
 
-
-
-  return (
-
-    <div className="catalog-page page-enter">
-
-      <header className="catalog-hero">
-
-        <div className="container">
-
-          <div className="catalog-hero__inner">
-
-            <h1 className="catalog-title">{t.heading}</h1>
-
-            <p className="catalog-subtitle">{t.shelfHint}</p>
-
-            
-
-            <div className="catalog-search-container">
-
-              <div className="catalog-search-box group">
-
-                <Icon name="search" className="search-icon" size={24} />
-
-                <input 
-
-                  type="text" 
-
-                  placeholder={t.searchPlaceholder}
-
-                  value={search}
-
-                  onChange={(e) => setSearch(e.target.value)}
-
-                  className="catalog-search-input"
-
-                />
-
-              </div>
-
-              
-
-              <div className="catalog-filter-row">
-
-                {categories.map(cat => (
-
-                  <button
-
-                    key={cat.id}
-
-                    className={`cat-pill ${category === cat.id ? "is-active" : ""}`}
-
-                    onClick={() => setCategory(cat.id)}
-
-                  >
-
-                    {cat.label}
-
-                  </button>
-
-                ))}
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </header>
-
-
-
-      <main className="container py-24">
-
-        <div className="catalog-header-meta">
-
-          <span className="results-count">
-
-            {t.resultCount(filtered.length)}
-
-          </span>
-
-        </div>
-
-
-
-        <div className="catalog-grid">
-
-          {filtered.map(p => (
-
-            <Card key={p.id} className="catalog-item-card">
-
-              <div className="catalog-item-card__visual">
-
-                <div className="catalog-item-icon">
-
-                  <Icon name={p.type === "platform" ? "layers" : "zap"} size={32} />
-
-                </div>
-
-                <Badge tone={p.type === "platform" ? "brand" : "info"}>{p.type}</Badge>
-
-              </div>
-
-              
-
-              <div className="catalog-item-card__content stack gap-4">
-
-                <h3 className="catalog-item-name">{p.name}</h3>
-
-                <p className="catalog-item-tagline">{p.tagline}</p>
-
-              </div>
-
-
-
-              <div className="catalog-item-card__footer">
-
-                <div className="catalog-item-price">
-
-                  {p.priceUsd != null ? (
-
-                    <>
-
-                      <span className="price-val">${p.priceUsd}</span>
-
-                      <span className="price-unit">/ once</span>
-
-                    </>
-
-                  ) : (
-
-                    <span className="price-val">{p.tiers ? "Sub" : "Contact"}</span>
-
-                  )}
-
-                </div>
-
-                
-
-                <div className="catalog-item-actions">
-
-                  <Button as={Link} to={p.id === "pi-ecosystem" ? "/product/pi-ecosystem" : "/pricing"} variant="ghost" size="sm" className="w-full">
-
-                    Details
-
-                  </Button>
-
-                  <Button variant="primary" size="sm" className="w-full" onClick={() => setLeadProduct(p)}>
-
-                    Inquire
-
-                  </Button>
-
-                </div>
-
-              </div>
-
-            </Card>
-
-          ))}
-
-        </div>
-
-      </main>
-
-
-
-      {leadProduct && (
-
-        <LeadModal 
-
-          product={leadProduct} 
-
-          onClose={() => setLeadProduct(null)} 
-
-          t={t.leadForm}
-
-        />
-
-      )}
-
-    </div>
-
-  );
-
-}
-
-
-
-function LeadModal({ product, onClose, t }) {
-
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-
-  const [status, setStatus] = useState("idle");
-
-
-
-  const handleSubmit = async (e) => {
-
-    e.preventDefault();
-
-    setStatus("submitting");
-
-    try {
-
-      // Mock API call
-
-      await new Promise(r => setTimeout(r, 1000));
-
-      setStatus("success");
-
-      setTimeout(onClose, 2000);
-
-    } catch {
-
-      setStatus("error");
-
-    }
-
+  const handleReset = () => {
+    setSearch("");
+    setCategory("all");
   };
 
-
-
   return (
-
-    <div className="lead-modal-overlay" onClick={onClose}>
-
-      <div className="lead-modal-card animate-in" onClick={e => e.stopPropagation()}>
-
-        <button className="modal-close-btn" onClick={onClose}><Icon name="x" size={20} /></button>
-
-        <div className="stack gap-8">
-
-          <header className="stack gap-2">
-
-            <h2 className="modal-title">{t.title}</h2>
-
-            <p className="modal-desc">{t.desc}</p>
-
-            <div className="modal-product-tag">
-
-              <Icon name="package" className="text-primary" size={18} />
-
-              <span>{product.name}</span>
-
-            </div>
-
-          </header>
-
-
-
-          {status === "success" ? (
-
-            <div className="modal-success-state">
-
-              <div className="success-icon-wrap">
-
-                <Icon name="check" size={32} />
-
-              </div>
-
-              <p className="success-msg">{t.success}</p>
-
-            </div>
-
-          ) : (
-
-            <form className="stack gap-6" onSubmit={handleSubmit}>
-
-              <div className="stack gap-4">
-
-                <label className="field-label stack gap-2">
-
-                  <span>{t.name}</span>
-
-                  <Input required value={form.name} onChange={e => setForm({...form, name: e.target.value})} placeholder="Jane Doe" />
-
-                </label>
-
-                <label className="field-label stack gap-2">
-
-                  <span>{t.email}</span>
-
-                  <Input type="email" required value={form.email} onChange={e => setForm({...form, email: e.target.value})} placeholder="jane@example.com" />
-
-                </label>
-
-                <label className="field-label stack gap-2">
-
-                  <span>{t.message}</span>
-
-                  <textarea 
-
-                    required 
-
-                    rows={4}
-
-                    className="catalog-textarea"
-
-                    placeholder="..."
-
-                    value={form.message} 
-
-                    onChange={e => setForm({...form, message: e.target.value})} 
-
-                  />
-
-                </label>
-
-              </div>
-
-              <Button type="submit" variant="primary" size="lg" className="w-full" disabled={status === "submitting"}>
-
-                {status === "submitting" ? <Icon name="loader" className="animate-spin" size={20} /> : t.submit}
-
-              </Button>
-
-            </form>
-
-          )}
-
+    <div className="catalog-page">
+      <div className="quantum-mesh-bg" />
+      
+      <header className="catalog-hero-premium">
+        <div className="hero-hud-decorators">
+          <div className="hud-line top" />
+          <div className="hud-corner tl" />
+          <div className="hud-corner tr" />
         </div>
 
-      </div>
+        <div className="mx-auto w-full max-w-[1400px] px-6 relative z-10">
+          <div className="catalog-hero-inner">
+            <div className="hero-badge-quantum stagger-1">
+              <Activity size={12} className="text-primary pulse" />
+              <span>PI_MARKETPLACE_V2.0</span>
+            </div>
 
+            <h1 className="catalog-title-quantum stagger-2">
+              <span className="text-gradient">Hệ Sinh Thái</span><br />
+              <span>WordPress AI</span>
+            </h1>
+            
+            <p className="catalog-subtitle-quantum stagger-3">
+              {t.shelfHint}
+            </p>
+            
+            <div className="catalog-search-quantum stagger-4">
+              <div className="search-box-wrapper-quantum glass-panel">
+                <Search className="search-icon" size={20} />
+                <input 
+                  type="text" 
+                  placeholder={t.searchPlaceholder}
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  className="search-input-quantum"
+                />
+                <div className="search-shimmer" />
+              </div>
+              
+              <div className="filter-pills-quantum">
+                {categories.map(cat => (
+                  <button
+                    key={cat.id}
+                    className={`filter-pill ${category === cat.id ? "active" : ""}`}
+                    onClick={() => setCategory(cat.id)}
+                  >
+                    <div className="pill-bg" />
+                    <span>{cat.label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main className="mx-auto w-full max-w-[1400px] px-6 py-24 relative z-10">
+        <div className="catalog-meta-hud">
+          <div className="meta-left">
+            <div className="results-badge">
+              <div className="dot" />
+              <span>{filtered.length} UNITS_DETECTED</span>
+            </div>
+          </div>
+          <div className="meta-right">
+             <div className="sort-box-quantum">
+               <Filter size={14} className="text-primary" />
+               <span className="label">SORT_BY:</span>
+               <span className="value">LATEST_SYNC</span>
+             </div>
+          </div>
+        </div>
+
+        {filtered.length > 0 ? (
+          <div className="catalog-grid-quantum">
+            {filtered.map((p, idx) => (
+              <Card key={p.id} className={`catalog-item-card-quantum glass-panel stagger-${(idx % 4) + 1}`}>
+                <div className="card-hud-index">0{idx + 1}</div>
+                <div className="card-scan-line" />
+                
+                <div className="card-header">
+                  <div className="icon-unit">
+                    <div className="icon-glow" />
+                    <div className="icon-wrap">
+                      {p.type === "platform" ? <Layers size={22} /> : <Zap size={22} />}
+                    </div>
+                  </div>
+                  <Badge className="type-badge" tone={p.type === "platform" ? "brand" : "info"}>
+                    {p.type.toUpperCase()}
+                  </Badge>
+                </div>
+                
+                <div className="card-body">
+                  <h3 className="item-name">{p.name}</h3>
+                  <p className="item-tagline">{p.tagline}</p>
+                </div>
+
+                <div className="card-footer-quantum">
+                  <div className="price-unit-quantum">
+                    {p.priceUsd != null ? (
+                      <>
+                        <span className="currency">$</span>
+                        <span className="amount">{p.priceUsd}</span>
+                        <span className="period">/LIFETIME</span>
+                      </>
+                    ) : (
+                      <span className="amount-text">{p.tiers ? "SUBSCRIPTION" : "CONTACT"}</span>
+                    )}
+                  </div>
+                  
+                  <div className="card-actions">
+                    <Button 
+                      as={Link} 
+                      to={p.id === "pi-ecosystem" ? "/product/pi-ecosystem" : "/pricing"} 
+                      variant="ghost" 
+                      className="btn-details"
+                    >
+                      <Info size={14} className="mr-2" />
+                      <span>INFO</span>
+                    </Button>
+                    <Button 
+                      variant="primary" 
+                      className="btn-buy" 
+                      onClick={() => setLeadProduct(p)}
+                    >
+                      <span>MUA NGAY</span>
+                      <ArrowUpRight size={14} className="ml-2" />
+                    </Button>
+                  </div>
+                </div>
+                <div className="card-border-glow" />
+              </Card>
+            ))}
+          </div>
+        ) : (
+          <CatalogEmptyState onReset={handleReset} t={t} />
+        )}
+      </main>
+
+      {leadProduct && (
+        <LeadModal 
+          product={leadProduct} 
+          onClose={() => setLeadProduct(null)} 
+          t={t.leadForm}
+        />
+      )}
     </div>
-
   );
-
 }
 
+function LeadModal({ product, onClose, t }) {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState("idle");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("submitting");
+    try {
+      await new Promise(r => setTimeout(r, 1000));
+      setStatus("success");
+      setTimeout(onClose, 2000);
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  return (
+    <div className="lead-modal-overlay" onClick={onClose}>
+      <div className="lead-modal-quantum animate-in" onClick={e => e.stopPropagation()}>
+        <div className="modal-hud-decorators">
+          <div className="hud-corner tl" />
+          <div className="hud-corner tr" />
+        </div>
+        
+        <button className="modal-close-quantum" onClick={onClose}><X size={20} /></button>
+
+        <div className="modal-content-stack">
+          <header className="modal-header-quantum">
+            <Badge tone="brand" className="mb-4">LEAD_ENQUIRY_SYSTEM</Badge>
+            <h2 className="modal-title-quantum">{t.title}</h2>
+            <div className="product-info-bar">
+              <Package size={16} className="text-primary" />
+              <span>TARGET: {product.name}</span>
+            </div>
+          </header>
+
+          {status === "success" ? (
+            <div className="modal-success-quantum">
+              <div className="success-icon-quantum">
+                <Check size={32} />
+              </div>
+              <p className="success-msg-quantum">{t.success}</p>
+            </div>
+          ) : (
+            <form className="modal-form-quantum" onSubmit={handleSubmit}>
+              <div className="form-grid">
+                <div className="form-field">
+                  <label>{t.name}</label>
+                  <Input required value={form.name} onChange={e => setForm({...form, name: e.target.value})} placeholder="Full Name" />
+                </div>
+                <div className="form-field">
+                  <label>{t.email}</label>
+                  <Input type="email" required value={form.email} onChange={e => setForm({...form, email: e.target.value})} placeholder="email@address.com" />
+                </div>
+                <div className="form-field full">
+                  <label>{t.message}</label>
+                  <textarea 
+                    required 
+                    rows={3}
+                    className="quantum-textarea"
+                    placeholder="Describe your requirements..."
+                    value={form.message} 
+                    onChange={e => setForm({...form, message: e.target.value})} 
+                  />
+                </div>
+              </div>
+
+              <Button type="submit" variant="primary" className="w-full mt-4" disabled={status === "submitting"}>
+                {status === "submitting" ? <Loader2 className="animate-spin" size={20} /> : t.submit}
+              </Button>
+            </form>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default Catalog;

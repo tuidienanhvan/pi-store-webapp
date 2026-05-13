@@ -1,73 +1,90 @@
-
+/* -------------------------------------------------------------
+   AdminStatCard.css - Quantum HUD Stat Module
+   ------------------------------------------------------------- */
 
 .admin-stat-card {
-  padding: var(--spacing-8);
+  padding: 1.75rem;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-4);
-  transition: all 0.5s ease;
-  border-radius: var(--rounded-3xl);
-  border: 1px solid;
+  gap: 1.25rem;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 1.75rem;
+  border: 1px solid color-mix(in srgb, var(--bc) 8%, transparent);
   overflow: hidden;
   position: relative;
   text-decoration: none !important;
+  min-height: 180px;
+  background: color-mix(in srgb, var(--b2) 40%, transparent);
+  backdrop-filter: blur(20px);
 }
 
+.admin-stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--bc) 10%, transparent), transparent);
+  z-index: 2;
+}
 
+/* Glass Variant */
 .admin-stat-card--glass {
-
-  background: color-mix(in srgb, var(--base-200) 45%, transparent);
-
-  backdrop-filter: blur(40px);
-
-  -webkit-backdrop-filter: blur(40px);
-
-  border-color: var(--base-border-subtle);
-
-  box-shadow: var(--shadow-md);
-
+  background: color-mix(in srgb, var(--b2) 35%, transparent);
+  border-color: color-mix(in srgb, var(--bc) 5%, transparent);
 }
 
-
+/* Brand Variant (High Fidelity) */
 .admin-stat-card--brand {
-
-  background: linear-gradient(135deg, var(--primary) 0%, color-mix(in srgb, var(--primary) 80%, #000) 100%);
-
-  border-color: rgba(255, 255, 255, 0.1);
-
-  color: var(--on-brand);
-
-  box-shadow: 0 20px 40px -15px color-mix(in srgb, var(--primary) 25%, transparent);
-
+  background: linear-gradient(135deg, color-mix(in srgb, var(--p) 20%, var(--b1)) 0%, var(--b2) 100%);
+  border-color: color-mix(in srgb, var(--p) 25%, transparent);
+  box-shadow: 
+    0 20px 40px -15px rgba(0, 0, 0, 0.4),
+    inset 0 0 20px color-mix(in srgb, var(--p) 5%, transparent);
 }
 
+.admin-stat-card--brand::after {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, color-mix(in srgb, var(--p) 15%, transparent) 0%, transparent 70%);
+  filter: blur(30px);
+  pointer-events: none;
+}
 
+/* Hover States */
 .admin-stat-card--link:hover {
-  transform: translateY(-0.25rem);
-  border-color: var(--base-border);
-  box-shadow: var(--shadow-2xl);
-
+  transform: translateY(-8px) scale(1.02);
+  border-color: color-mix(in srgb, var(--p) 40%, transparent);
+  box-shadow: 
+    0 30px 60px -20px rgba(0, 0, 0, 0.6),
+    0 0 30px color-mix(in srgb, var(--p) 15%, transparent);
+  z-index: 10;
 }
-
 
 .admin-stat-card--brand.admin-stat-card--link:hover {
-
-  box-shadow: 0 25px 50px -12px color-mix(in srgb, var(--primary) 40%, transparent);
-
+  border-color: var(--p);
+  box-shadow: 
+    0 30px 70px -15px rgba(0, 0, 0, 0.7),
+    0 0 40px color-mix(in srgb, var(--p) 25%, transparent);
 }
 
-
+/* Components */
 .admin-stat-card__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  opacity: 0.6;
+  letter-spacing: 0.3em;
+  color: var(--bc);
+  opacity: 0.5;
 }
-
 
 .admin-stat-card__title {
   overflow: hidden;
@@ -75,85 +92,62 @@
   white-space: nowrap;
 }
 
-
-.admin-stat-card__arrow {
-  transition: transform 0.3s ease;
-}
-
-
-.admin-stat-card--link:hover .admin-stat-card__arrow {
-  transform: translateX(0.25rem);
-}
-
-
 .admin-stat-card__value {
-  font-size: 3rem;
+  font-size: 2.75rem;
   font-weight: 900;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.04em;
   font-family: var(--font-display);
+  color: var(--bc);
+  line-height: 1;
+  background: linear-gradient(to bottom, var(--bc), color-mix(in srgb, var(--bc) 70%, transparent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
+.admin-stat-card--brand .admin-stat-card__value {
+  background: linear-gradient(to bottom, #fff, color-mix(in srgb, #fff 80%, var(--p)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 .admin-stat-card__footer {
   margin-top: auto;
-  padding-top: var(--spacing-4);
-  border-top: 1px solid;
+  padding-top: 1.25rem;
+  border-top: 1px solid color-mix(in srgb, var(--bc) 5%, transparent);
   display: flex;
   flex-direction: column;
-  gap: 0.375rem;
-  border-color: var(--base-border-subtle);
+  gap: 0.5rem;
 }
-
-
-.admin-stat-card--brand .admin-stat-card__footer {
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-
-.admin-stat-card__subvalue {
-  font-size: 11px;
-  font-weight: 700;
-  opacity: 0.5;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
 
 .admin-stat-card__trend {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
-
 
 .admin-stat-card__trend--up {
-  color: var(--success);
+  color: var(--su);
+  text-shadow: 0 0 10px color-mix(in srgb, var(--su) 40%, transparent);
 }
-
 
 .admin-stat-card__trend--down {
-  color: var(--danger);
+  color: var(--er);
+  text-shadow: 0 0 10px color-mix(in srgb, var(--er) 40%, transparent);
 }
 
-
-.admin-stat-card--brand .admin-stat-card__trend {
-  color: var(--on-brand);
-  opacity: 0.9;
-}
-
-
-.admin-stat-card--brand::before {
+/* HUD Corner Brackets for Cards */
+.admin-stat-card::after {
   content: '';
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
-  pointer-events: none;
+  top: 10px;
+  right: 10px;
+  width: 4px;
+  height: 4px;
+  border-top: 1px solid color-mix(in srgb, var(--bc) 20%, transparent);
+  border-right: 1px solid color-mix(in srgb, var(--bc) 20%, transparent);
+  opacity: 0.5;
 }
-
-
-

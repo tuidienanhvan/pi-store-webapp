@@ -1,0 +1,243 @@
+/* --- BENTO METRICS CARD: FULL CONTEXT EDITION --- */
+.cost-engine {
+  position: relative;
+  width: 100%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* 1. Comparison Bars */
+.comparison-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.bar-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.bar-label {
+  width: 90px;
+  font-size: 0.55rem;
+  font-weight: 900;
+  color: var(--bc3);
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+}
+
+.bar-rail {
+  flex: 1;
+  height: 10px;
+  background: color-mix(in srgb, var(--bc) 5%, transparent);
+  border-radius: 5px;
+  position: relative;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.traditional .bar-fill {
+  width: 90%;
+  background: color-mix(in srgb, var(--bc) 15%, transparent);
+}
+
+.pi-optimized .bar-fill {
+  width: 15%;
+  background: var(--p);
+  box-shadow: 0 0 15px color-mix(in srgb, var(--p) 30%, transparent);
+}
+
+.bar-value {
+  width: 50px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: var(--bc);
+  text-align: right;
+}
+
+.savings-badge {
+  position: absolute;
+  left: 15%;
+  top: 50%;
+  transform: translate(15px, -50%);
+  background: var(--p);
+  color: var(--pc);
+  font-size: 0.65rem;
+  font-weight: 950;
+  padding: 3px 8px;
+  border-radius: 4px;
+  box-shadow: 0 5px 15px color-mix(in srgb, var(--p) 40%, transparent);
+}
+
+/* 2. Breakdown HUD */
+.savings-breakdown {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 15px 0;
+  border-top: 1px solid color-mix(in srgb, var(--bc) 5%, transparent);
+}
+
+.breakdown-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.breakdown-item .label {
+  font-size: 0.6rem;
+  color: var(--bc3);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.breakdown-item .val {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--p);
+}
+
+/* 3. Smart Routing SVG */
+.savings-accumulator {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0 0 0;
+  margin-top: 5px;
+}
+
+.flow-meta {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: var(--bc);
+  opacity: 0.6;
+}
+
+.flow-meta.right { color: var(--p); opacity: 1; }
+
+.prism-container {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 15px;
+}
+
+.flow-svg {
+  width: 100%;
+  height: 60px;
+  overflow: visible;
+}
+
+.flow-line {
+  fill: none;
+  stroke: color-mix(in srgb, var(--bc) 10%, transparent);
+  stroke-width: 1.5;
+  stroke-dasharray: 4, 4;
+}
+
+/* Smart Router Hexagon */
+.router-node {
+  animation: floatRouter 4s infinite ease-in-out;
+}
+
+@keyframes floatRouter {
+  0%, 100% { transform: translate(80px, 10px) scale(1); }
+  50% { transform: translate(80px, 10px) scale(1.05); }
+}
+
+.router-ring {
+  fill: none;
+  stroke: color-mix(in srgb, var(--p) 30%, transparent);
+  stroke-width: 1;
+  stroke-dasharray: 20 10;
+  animation: spinRing 6s infinite linear;
+}
+
+@keyframes spinRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.router-hex-outer {
+  fill: color-mix(in srgb, var(--b1) 80%, transparent);
+  stroke: var(--p);
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--p) 60%, transparent));
+}
+
+.router-hex-inner {
+  fill: color-mix(in srgb, var(--p) 20%, transparent);
+  stroke: var(--pc);
+  stroke-width: 0.5;
+  opacity: 0.8;
+}
+
+.router-dot {
+  fill: var(--pc);
+  filter: drop-shadow(0 0 4px var(--pc));
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Particles */
+.flow-particle {
+  offset-path: path("M0,25 L65,25 L80,10 L95,25 L160,25");
+}
+
+.p-in {
+  fill: var(--bc3);
+  opacity: 0.6;
+  filter: drop-shadow(0 0 4px var(--bc3));
+  animation: travelIn 3s infinite linear;
+}
+
+.p-out {
+  fill: var(--p);
+  filter: drop-shadow(0 0 6px var(--p));
+  animation: travelOut 3s infinite linear;
+}
+
+@keyframes travelIn {
+  0% { offset-distance: 0%; opacity: 0; }
+  10% { opacity: 0.8; }
+  48% { offset-distance: 48%; opacity: 0.8; transform: scale(1); }
+  50% { offset-distance: 50%; opacity: 0; transform: scale(0); }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+
+@keyframes travelOut {
+  0% { offset-distance: 0%; opacity: 0; }
+  50% { offset-distance: 50%; opacity: 0; transform: scale(0); }
+  52% { offset-distance: 52%; opacity: 1; transform: scale(1.5); }
+  60% { opacity: 1; transform: scale(1); }
+  90% { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+
+.prism-label {
+  font-family: var(--font-mono);
+  font-size: 0.45rem;
+  font-weight: 900;
+  color: var(--p);
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+}

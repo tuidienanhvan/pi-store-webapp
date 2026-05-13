@@ -1,12 +1,13 @@
-﻿import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { AdminTableSkeleton } from "@/components/skeletons/AdminTableSkeleton";
 import { api, withDelay } from "@/lib/api-client";
 import { useListFilters, useDebouncedValue } from "@/hooks/useListFilters";
-import { useAdminT } from "@/lib/adminI18n";
+import { useAdminT } from "@/lib/translations";
 import {
-  Alert, Badge, Button, Card, Checkbox, EmptyState, Icon, Input,
+  Alert, Badge, Button, Card, Checkbox, EmptyState, Input,
   Modal, Select, Table, Textarea,
 } from "@/components/ui";
+import { Loader2, Upload, Plus, Key, Search, X, EyeOff, Eye, Check, Copy } from "lucide-react";
 import { AdminStatCard } from "@/pages/core/components/AdminStatCard";
 import "./AdminKeysPage.css";
 
@@ -152,14 +153,14 @@ export function AdminKeysPage() {
         <div className="flex items-center gap-3">
           {totals.total > 0 && (
             <Button variant="ghost" onClick={handleResetPeriod} className="h-[48px] px-6 rounded-2xl border border-base-border-subtle font-black uppercase tracking-widest text-[10px]">
-              <Icon name="loader" size={16} className="mr-2" /> {t.reset_period}
+              <Loader2 size={16} className="mr-2 animate-spin" /> {t.reset_period}
             </Button>
           )}
           <Button variant="ghost" onClick={() => setShowBulk(true)} className="h-[48px] px-6 rounded-2xl border border-base-border-subtle font-black uppercase tracking-widest text-[10px]">
-            <Icon name="upload" size={16} className="mr-2" /> {t.bulk_import}
+            <Upload size={16} className="mr-2" /> {t.bulk_import}
           </Button>
           <Button variant="primary" onClick={() => setAddModal({})} className="h-[48px] px-8 rounded-2xl shadow-brand/20 shadow-lg font-black uppercase tracking-widest text-xs">
-            <Icon name="plus" size={18} className="mr-2" /> {t.add_key_btn}
+            <Plus size={18} className="mr-2" /> {t.add_key_btn}
           </Button>
         </div>
       </header>
@@ -178,7 +179,7 @@ export function AdminKeysPage() {
         <Card className="onboard-card stagger-3">
           <div className="onboard-content">
             <div className="onboard-icon-wrap">
-              <Icon name="key" size={32} />
+              <Key size={32} />
             </div>
             <h2 className="premium-title text-2xl text-center mb-2">{t.pool_empty_title}</h2>
             <p className="onboard-desc">{t.pool_empty_desc}</p>
@@ -245,7 +246,7 @@ export function AdminKeysPage() {
                       <td className={`text-right ${r.banned > 0 ? "text-danger" : "opacity-30"}`}>{r.banned}</td>
                       <td className="text-right">
                         <Button size="sm" variant="ghost" onClick={() => setAddModal({ provider_id: r.provider_id })} className="rounded-xl border border-base-border hover:border-primary-soft text-[10px] font-black uppercase tracking-widest">
-                          <Icon name="plus" size={14} className="mr-1.5" /> Key
+                          <Plus size={14} className="mr-1.5" /> Key
                         </Button>
                       </td>
                     </tr>
@@ -264,7 +265,7 @@ export function AdminKeysPage() {
             <div className="flex flex-wrap items-center gap-3">
               <Input type="search" placeholder="Tm label/notes"
                 value={searchInput} onChange={(e) => setSearchInput(e.target.value)}
-                leadingIcon="search" className="w-56" />
+                leadingIcon={Search} className="w-56" />
               <Input type="number" placeholder="License ID"
                 value={filters.license_id || ""} onChange={(e) => setFilters({ license_id: e.target.value, offset: 0 })}
                 className="w-32" />
@@ -301,7 +302,7 @@ export function AdminKeysPage() {
                 ]} />
               {hasActive && (
                 <Button variant="ghost" size="sm" onClick={() => { setSearchInput(""); reset(); }} className="rounded-xl font-black uppercase text-[10px]">
-                  <Icon name="x" size={14} className="mr-1" /> Clear
+                  <X size={14} className="mr-1" /> Clear
                 </Button>
               )}
             </div>
@@ -371,7 +372,7 @@ export function AdminKeysPage() {
                   </tr>
                 ))}
                 {keys.length === 0 && !loading && (
-                  <tr><td colSpan="7" className="py-20"><EmptyState title="Khng c key match filter" description="?i filter." /></td></tr>
+                  <tr><td colSpan="7" className="py-20"><EmptyState icon={Key} title="Khng c key match filter" description="?i filter." /></td></tr>
                 )}
               </tbody>
             </Table>
@@ -485,16 +486,24 @@ function KeyCell({ k }) {
           {fullKey || k.key_masked}
         </code>
         <div className="flex items-center gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
-          <button type="button" onClick={toggle} disabled={loading}
-            title={fullKey ? "?n key" : "Hi?n full key"}
-            className="p-1.5 rounded-lg hover:bg-base-content/[0.05] text-base-content/60 transition-colors">
-            <Icon name={fullKey ? "eye-off" : "eye"} size={14} />
-          </button>
-          <button type="button" onClick={copy}
-            title={copied ? " copy" : "Copy key"}
-            className={`p-1.5 rounded-lg hover:bg-base-content/[0.05] transition-colors ${copied ? "text-success" : "text-base-content/60"}`}>
-            <Icon name={copied ? "check" : "copy"} size={14} />
-          </button>
+          {(() => {
+            const IconComponent = fullKey ? EyeOff : Eye;
+            const CopyIcon = copied ? Check : Copy;
+            return (
+              <>
+                <button type="button" onClick={toggle} disabled={loading}
+                  title={fullKey ? "?n key" : "Hi?n full key"}
+                  className="p-1.5 rounded-lg hover:bg-base-content/[0.05] text-base-content/60 transition-colors">
+                  <IconComponent size={14} />
+                </button>
+                <button type="button" onClick={copy}
+                  title={copied ? " copy" : "Copy key"}
+                  className={`p-1.5 rounded-lg hover:bg-base-content/[0.05] transition-colors ${copied ? "text-success" : "text-base-content/60"}`}>
+                  <CopyIcon size={14} />
+                </button>
+              </>
+            );
+          })()}
         </div>
       </div>
       {err && <div className="text-[10px] text-danger mt-1">{err}</div>}

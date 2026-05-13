@@ -1,7 +1,8 @@
-﻿import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { api, withDelay } from "@/lib/api-client";
-import { useAdminT } from "@/lib/adminI18n";
-import { Card, Table, Badge, Button, Input, Select, Textarea, Modal, Icon, Alert, IconButton } from "@/components/ui";
+import { useAdminT } from "@/lib/translations";
+import { Card, Table, Badge, Button, Input, Select, Textarea, Modal, Alert, IconButton } from "@/components/ui";
+import { Plus, Grid, Bolt, X, Download, Edit2 } from "lucide-react";
 import { AdminTableSkeleton } from "@/components/skeletons/AdminTableSkeleton";
 import "./AdminReleasesPage.css";
 
@@ -40,7 +41,7 @@ export function AdminReleasesPage() {
           </p>
         </div>
         <Button variant="primary" onClick={() => setShowUpload(true)} className="h-[48px] px-8 rounded-2xl shadow-brand/20 shadow-lg font-black uppercase tracking-widest text-xs">
-          <Icon name="plus" size={18} className="mr-2" />
+          <Plus size={18} className="mr-2" />
           {t.upload_release_btn}
         </Button>
       </header>
@@ -62,7 +63,7 @@ export function AdminReleasesPage() {
               <tr>
                 <td colSpan={6} className="py-20">
                   <div className="flex flex-col items-center gap-4 opacity-30">
-                    <Icon name="grid" size={48} className="text-base-content/60" />
+                    <Grid size={48} className="text-base-content/60" />
                     <p className="text-[10px] font-black uppercase tracking-[0.2em]">{t.no_releases}</p>
                   </div>
                 </td>
@@ -76,7 +77,7 @@ export function AdminReleasesPage() {
                   <td>
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-2xl bg-primary/5 flex items-center justify-center border border-primary/10 group-hover:bg-primary/10 transition-colors">
-                        <Icon name="bolt" size={18} className="text-primary shadow-brand/20 shadow-lg" />
+                        <Bolt size={18} className="text-primary shadow-brand/20 shadow-lg" />
                       </div>
                       <span className="text-sm font-bold text-base-content group-hover:text-primary transition-colors lowercase font-mono tracking-tight">
                         {r.plugin_slug}
@@ -104,7 +105,7 @@ export function AdminReleasesPage() {
                   <td className="text-center">
                     {r.is_yanked ? (
                       <div className="inline-flex items-center gap-1.5 text-[9px] font-black text-danger uppercase tracking-[0.15em] bg-danger/10 px-2.5 py-1 rounded-full">
-                        <Icon name="x" size={10} className="text-danger" />
+                        <X size={10} className="text-danger" />
                         YANKED
                       </div>
                     ) : (
@@ -119,7 +120,7 @@ export function AdminReleasesPage() {
                         onClick={() => window.open(`/v1/updates/download/${r.plugin_slug}/${r.version}`, "_blank")}
                         className="h-9 w-9 rounded-xl border border-base-border hover:text-primary"
                       >
-                        <Icon name="download" size={16} />
+                        <Download size={16} />
                       </Button>
                       <Button 
                         variant="ghost" 
@@ -127,7 +128,7 @@ export function AdminReleasesPage() {
                         onClick={() => {}}
                         className="h-9 w-9 rounded-xl border border-base-border hover:text-base-content"
                       >
-                        <Icon name="edit" size={16} />
+                        <Edit2 size={16} />
                       </Button>
                     </div>
                   </td>
@@ -238,7 +239,7 @@ function UploadReleaseModal({ open, onClose, onUploaded }) {
             />
             <div className="flex items-center justify-center gap-4 h-32 rounded-2xl border border-dashed border-base-border bg-base-content/[0.02] group-hover:bg-base-content/[0.05] group-hover:border-primary/30 transition-all">
               <div className="w-12 h-12 rounded-xl bg-base-400/50 flex items-center justify-center border border-base-border group-hover:text-primary transition-colors">
-                <Icon name="download" size={24} className="transform rotate-180" />
+                <Download size={24} className="transform rotate-180" />
               </div>
               <div className="flex flex-col gap-1">
                 <span className="text-sm font-bold text-base-content/80 group-hover:text-base-content transition-colors">

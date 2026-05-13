@@ -1,4 +1,4 @@
-﻿/**
+/**
 
  * Number / currency / time formatting ? single source of truth.
 
@@ -98,19 +98,19 @@ export function formatRelative(iso, now = new Date()) {
 
   const year = Math.floor(day / 365);
 
-  const suffix = diffMs >= 0 ? " tru?c" : " n?a";
+  const suffix = diffMs >= 0 ? " trước" : " nữa";
 
-  if (sec < 45) return "v?a xong";
+  if (sec < 45) return "vừa xong";
 
   if (min < 60) return `${min}p${suffix}`;
 
   if (hr < 24) return `${hr}h${suffix}`;
 
-  if (day < 30) return `${day} ng?y${suffix}`;
+  if (day < 30) return `${day} ngày${suffix}`;
 
-  if (month < 12) return `${month} th?ng${suffix}`;
+  if (month < 12) return `${month} tháng${suffix}`;
 
-  return `${year} nam${suffix}`;
+  return `${year} năm${suffix}`;
 
 }
 

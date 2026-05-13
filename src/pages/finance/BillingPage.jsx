@@ -1,24 +1,25 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Alert, Badge, Button, Card, EmptyState, Skeleton } from "@/components/ui";
+import { Sparkles } from "lucide-react";
 import { billing } from "@/api/billing";
 
 const TIER_META = {
-  free:       { label: "Free",       quota: 5_000,     color: "var(--pi-tier-free)" },
-  pro:        { label: "Pro",        quota: 100_000,   color: "var(--pi-tier-pro)" },
-  max:        { label: "Max",        quota: 500_000,   color: "var(--pi-tier-max)" },
+  free:       { label: "Free",       quota: 5000,     color: "var(--pi-tier-free)" },
+  pro:        { label: "Pro",        quota: 100000,   color: "var(--pi-tier-pro)" },
+  max:        { label: "Max",        quota: 500000,   color: "var(--pi-tier-max)" },
   enterprise: { label: "Enterprise", quota: Infinity,  color: "var(--pi-tier-enterprise)" },
 };
 
 function formatDate(v) {
-  if (!v) return "Chua c";
+  if (!v) return "Ch\u01B0a c\u00F3";
   return new Intl.DateTimeFormat("vi-VN", { dateStyle: "long" }).format(new Date(v));
 }
 
 function formatTokens(n) {
   if (!n && n !== 0) return "";
-  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
-  if (n >= 1_000) return `${(n / 1_000).toFixed(0)}K`;
+  if (n >= 1000000) return `${(n / 1000000).toFixed(1)}M`;
+  if (n >= 1000) return `${(n / 1000).toFixed(0)}K`;
   return String(n);
 }
 
@@ -33,8 +34,13 @@ export function BillingPage() {
   const load = async () => {
     setLoading(true);
     setError("");
-    try { setStatus(await billing.status()); }
-    catch (err) { setError(err.message || "Khng ti du?c tr?ng thi subscription."); }
+    try { 
+      const data = await billing.status();
+      setStatus(data); 
+    }
+    catch (err) { 
+      setError(err.message || "Kh\u00F4ng t\u1EA3i \u0111\u01B0\u1EE3c tr\u1EA1ng th\u00E1i subscription."); 
+    }
     finally { setLoading(false); }
   };
      
@@ -43,17 +49,27 @@ export function BillingPage() {
   const changeTier = async (tier) => {
     setBusy(tier);
     setError("");
-    try { await billing.changeTier(tier); await load(); }
-    catch (err) { setError(err.message || "Khng d?i du?c gi."); }
+    try { 
+      await billing.changeTier(tier); 
+      await load(); 
+    }
+    catch (err) { 
+      setError(err.message || "Kh\u00F4ng \u0111\u1ED5i \u0111\u01B0\u1EE3c g\u00F3i."); 
+    }
     finally { setBusy(""); }
   };
 
   const cancelSubscription = async () => {
-    if (!confirm("H?y subscription ? cu?i chu k? hi?n ti?")) return;
+    if (!confirm("H\u1EE7y subscription \u1EDF cu\u1ED1i chu k\u1EF3 hi\u1EC7n t\u1EA1i?")) return;
     setBusy("cancel");
     setError("");
-    try { await billing.cancel(); await load(); }
-    catch (err) { setError(err.message || "Khng h?y du?c subscription."); }
+    try { 
+      await billing.cancel(); 
+      await load(); 
+    }
+    catch (err) { 
+      setError(err.message || "Kh\u00F4ng h\u1EE7y \u0111\u01B0\u1EE3c subscription."); 
+    }
     finally { setBusy(""); }
   };
 
@@ -75,7 +91,7 @@ export function BillingPage() {
       <header className="stack" style={{ gap: "var(--s-2)" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "var(--s-3)", flexWrap: "wrap" }}>
           <h1 style={{ margin: 0, fontSize: "var(--fs-32)", fontFamily: "var(--font-ui)", fontWeight: 800, letterSpacing: "-0.02em" }}>
-            Thanh ton
+            Thanh to\u00E1n
           </h1>
           <span style={{
             padding: "3px 12px",
@@ -88,23 +104,23 @@ export function BillingPage() {
           }}>{meta.label}</span>
         </div>
         <p style={{ margin: 0, color: "color-mix(in srgb, var(--base-content) 80%, transparent)", fontSize: "var(--fs-16)" }}>
-          Qu?n l subscription, nng c?p v theo di token quota.
+          Qu\u1EA3n l\u00FD subscription, n\u00E2ng c\u1EA5p v\u00E0 theo d\u00F5i token quota.
         </p>
       </header>
 
       {success && (
-        <Alert tone="success" title="Subscription d kch ho?t!">
-          Gi c?a anh dang ho?t d?ng. Email license v link dashboard s? du?c g?i sau khi Stripe webhook x? l.
+        <Alert tone="success" title="Subscription \u0111\u00E3 k\u00EDch ho\u1EA1t!">
+          G\u00F3i c\u1EE7a anh \u0111ang ho\u1EA1t \u0111\u1ED9ng. Email license v\u00E0 link dashboard s\u1EBD \u0111\u01B0\u1EE3c g\u1EEDi sau khi Stripe webhook x\u1EED l\u00FD.
         </Alert>
       )}
       {error && <Alert tone="danger" onDismiss={() => setError("")}>{error}</Alert>}
 
       {tier === "free" ? (
         <EmptyState
-          icon="spark"
-          title="Anh dang dng gi Free"
-          description="Nng c?p d? m? kha AI Chatbot, Analytics, Lead Pipeline v quota tokens l?n hon."
-          action={<Button as={Link} to="/pricing" variant="primary">Xem cc gi ?</Button>}
+          icon={Sparkles}
+          title="Anh \u0111ang d\u00F9ng g\u00F3i Free"
+          description="N\u00E2ng c\u1EA5p \u0111\u1EC3 m\u1EDF kh\u00F3a AI Chatbot, Analytics, Lead Pipeline v\u00E0 quota tokens l\u1EDBn h\u01A1n."
+          action={<Button as={Link} to="/pricing" variant="primary">Xem c\u00E1c g\u00F3i \u1EDF \u0111\u00E2y</Button>}
         />
       ) : (
         <>
@@ -113,10 +129,10 @@ export function BillingPage() {
             <div className="stack" style={{ gap: "var(--s-4)" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "var(--s-2)" }}>
                 <h3 style={{ margin: 0, fontSize: "var(--fs-16)", fontWeight: 700, color: "color-mix(in srgb, var(--base-content) 80%, transparent)" }}>
-                  AI Token Quota  Thng ny
+                  AI Token Quota - Th\u00E1ng n\u00E0y
                 </h3>
                 <span style={{ fontSize: "var(--fs-13)", color: "color-mix(in srgb, var(--base-content) 60%, transparent)" }}>
-                  Reset lc d?u thng
+                  Reset l\u00FAc \u0111\u1EA7u th\u00E1ng
                 </span>
               </div>
 
@@ -129,7 +145,7 @@ export function BillingPage() {
                 </span>
                 {meta.quota !== Infinity && (
                   <span style={{ fontSize: "var(--fs-14)", color: quotaPct >= 90 ? "var(--danger)" : "color-mix(in srgb, var(--base-content) 60%, transparent)", marginLeft: "auto", fontWeight: 600 }}>
-                    {quotaPct}% dng
+                    {quotaPct}% \u0111\u00E3 d\u00F9ng
                   </span>
                 )}
               </div>
@@ -145,8 +161,8 @@ export function BillingPage() {
 
               {quotaPct >= 80 && (
                 <Alert tone={quotaPct >= 90 ? "danger" : "warning"}>
-                  {quotaPct >= 90 ? " G?n h?t quota! " : " dng hon 80% quota. "}
-                  <Link to="/pricing" style={{ fontWeight: 700, color: "inherit" }}>Nng c?p gi</Link> ho?c <Link to="/app/wallet" style={{ fontWeight: 700, color: "inherit" }}>top-up token</Link>.
+                  {quotaPct >= 90 ? "G\u1EA7n h\u1EBFt quota!" : " \u0110\u00E3 d\u00F9ng h\u01A1n 80% quota. "}
+                  <Link to="/pricing" style={{ fontWeight: 700, color: "inherit" }}>N\u00E2ng c\u1EA5p g\u00F3i</Link> ho\u1EB7c <Link to="/app/wallet" style={{ fontWeight: 700, color: "inherit" }}>top-up token</Link>.
                 </Alert>
               )}
             </div>
@@ -158,14 +174,14 @@ export function BillingPage() {
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "var(--s-4)" }}>
                 <div>
                   <Badge tone={status?.status === "past_due" ? "danger" : status?.cancel_at_period_end ? "warning" : "success"}>
-                    {status?.status === "past_due" ? "Qu h?n" : status?.cancel_at_period_end ? "ang ch? h?y" : "ang ho?t d?ng"}
+                    {status?.status === "past_due" ? "Qu\u00E1 h\u1EA1n" : status?.cancel_at_period_end ? "\u0110ang ch\u1EDD h\u1EE7y" : "\u0110ang ho\u1EB7t \u0111\u1ED9ng"}
                   </Badge>
                   <h2 style={{ margin: "var(--s-2) 0 0", fontSize: "var(--fs-24)", fontFamily: "var(--font-ui)", fontWeight: 800, letterSpacing: "-0.01em" }}>
-                    Gi {meta.label}
+                    G\u00F3i {meta.label}
                   </h2>
                 </div>
                 <div style={{ textAlign: "right" }}>
-                  <div style={{ fontSize: "var(--fs-12)", color: "color-mix(in srgb, var(--base-content) 60%, transparent)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em" }}>Gia h?n</div>
+                  <div style={{ fontSize: "var(--fs-12)", color: "color-mix(in srgb, var(--base-content) 60%, transparent)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em" }}>Gia h\u1EA1n</div>
                   <div style={{ fontSize: "var(--fs-18)", fontWeight: 700, color: "var(--base-content)", marginTop: 2 }}>{formatDate(status?.period_end)}</div>
                 </div>
               </div>
@@ -182,17 +198,17 @@ export function BillingPage() {
                   fontSize: 9, color: "white", fontWeight: 800, letterSpacing: "0.5px", flexShrink: 0,
                 }}>VISA</div>
                 <div>
-                  <div style={{ fontSize: "var(--fs-14)", fontWeight: 600, color: "var(--base-content)" }}>   4242</div>
-                  <div style={{ fontSize: "var(--fs-12)", color: "color-mix(in srgb, var(--base-content) 60%, transparent)" }}>H?t h?n 12/2026</div>
+                  <div style={{ fontSize: "var(--fs-14)", fontWeight: 600, color: "var(--base-content)" }}>**** 4242</div>
+                  <div style={{ fontSize: "var(--fs-12)", color: "color-mix(in srgb, var(--base-content) 60%, transparent)" }}>H\u1EBFt h\u1EA1n 12/2026</div>
                 </div>
-                <Button variant="ghost" size="sm" style={{ marginLeft: "auto", fontSize: "var(--fs-13)" }}>C?p nh?t</Button>
+                <Button variant="ghost" size="sm" style={{ marginLeft: "auto", fontSize: "var(--fs-13)" }}>C\u1EADp nh\u1EADt</Button>
               </div>
 
               {status?.cancel_at_period_end && (
-                <Alert tone="warning" title="ang ch? h?y">
-                  Subscription s? h?t h?n vo {formatDate(status.period_end)}.{" "}
+                <Alert tone="warning" title="\u0110ang ch\u1EDD h\u1EE7y">
+                  Subscription s\u1EBD h\u1EBFt h\u1EA1n v\u00E0o {formatDate(status.period_end)}.{" "}
                   <button onClick={() => changeTier(tier)} disabled={busy === tier} style={{ background: "none", border: "none", color: "inherit", fontWeight: 700, cursor: "pointer", textDecoration: "underline" }}>
-                    Khi ph?c gia h?n
+                    Kh\u00F4i ph\u1EE5c gia h\u1EA1n
                   </button>
                 </Alert>
               )}
@@ -202,30 +218,30 @@ export function BillingPage() {
           {/* --- Manage Subscription --- */}
           <Card style={{ padding: "var(--s-6)" }}>
             <h3 style={{ margin: "0 0 var(--s-5)", fontSize: "var(--fs-16)", fontWeight: 700, color: "color-mix(in srgb, var(--base-content) 80%, transparent)" }}>
-              Qu?n l gi
+              Qu\u1EA3n l\u00FD g\u00F3i
             </h3>
             <div style={{ display: "flex", gap: "var(--s-3)", flexWrap: "wrap" }}>
               {tier === "pro" && (
                 <Button variant="primary" size="sm" isLoading={busy === "max"} onClick={() => changeTier("max")}>
-                  ? Nng c?p ln Max ($49/mo)
+                  \u2191 N\u00E2ng c\u1EA5p l\u00EAn Max ($199/mo)
                 </Button>
               )}
               {tier === "max" && (
                 <Button variant="ghost" size="sm" isLoading={busy === "pro"} onClick={() => changeTier("pro")}>
-                  ? H? xu?ng Pro ($19/mo)
+                  \u2193 H\u1EA1 xu\u1ED1ng Pro ($50/mo)
                 </Button>
               )}
               {status?.cancel_at_period_end ? (
                 <Button variant="primary" size="sm" isLoading={busy === tier} onClick={() => changeTier(tier)}>
-                  Khi ph?c gia h?n
+                  Kh\u00F4i ph\u1EE5c gia h\u1EA1n
                 </Button>
               ) : (
                 <Button variant="danger" size="sm" isLoading={busy === "cancel"} onClick={cancelSubscription}>
-                  H?y subscription
+                  H\u1EE7y subscription
                 </Button>
               )}
               <Button as={Link} to="/pricing" variant="ghost" size="sm">
-                Xem so snh cc gi
+                Xem so s\u00E1nh c\u00E1c g\u00F3i
               </Button>
             </div>
           </Card>

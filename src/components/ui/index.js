@@ -1,4 +1,4 @@
-﻿export { Button, IconButton } from "./Button";
+export { Button, IconButton } from "./Button";
 
 export { Card } from "./Card";
 
@@ -33,6 +33,3 @@ export { ThemeToggle } from "./ThemeToggle";
 export { Avatar } from "./Avatar";
 
 export { Spinner } from "./Spinner";
-
-export { Icon } from "./icons";
-

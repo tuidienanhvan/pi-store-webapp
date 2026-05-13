@@ -112,6 +112,43 @@ export const messages = {
     common: {
       emptyHint: "Không tìm thấy sản phẩm phù hợp.",
       loading: "Đang tải dữ liệu...",
+    },
+    docs: {
+      title: "Trung tâm Tài liệu",
+      description: "Hướng dẫn toàn diện về cách vận hành website WordPress bằng AI và Tokenomics.",
+      searchPlaceholder: "Tìm kiếm tài liệu...",
+      empty: "Nội dung đang được cập nhật...",
+      sections: [
+        {
+          title: "Bắt đầu nhanh",
+          docs: [
+            { label: "Cài đặt Pi Plugin", to: "/docs/install" },
+            { label: "Cấu hình AI Cloud", to: "/docs/config" },
+            { label: "Mua Token đầu tiên", to: "/docs/tokens" },
+          ]
+        },
+        {
+          title: "Tài liệu API",
+          docs: [
+            { label: "Xác thực OAuth2", to: "/docs/api/auth" },
+            { label: "Endpoint AI Chat", to: "/docs/api/chat" },
+            { label: "Webhook Events", to: "/docs/api/webhooks" },
+          ]
+        },
+        {
+          title: "Hướng dẫn sử dụng",
+          docs: [
+            { label: "Tối ưu SEO với AI", to: "/docs/guides/seo" },
+            { label: "Quản lý License", to: "/docs/guides/license" },
+            { label: "Tích hợp Chatbot", to: "/docs/guides/chatbot" },
+          ]
+        }
+      ]
+    },
+    notFound: {
+      title: "Lỗi 404",
+      description: "Trang bạn tìm kiếm không tồn tại hoặc đã bị di chuyển. Vui lòng kiểm tra lại đường dẫn.",
+      back: "Quay về trang chủ"
     }
   },
   en: {
@@ -166,6 +203,38 @@ export const messages = {
     common: {
       emptyHint: "No matching products found.",
       loading: "Loading data...",
+    },
+    docs: {
+      title: "Documentation Center",
+      description: "Comprehensive guides on operating WordPress websites with AI and Tokenomics.",
+      searchPlaceholder: "Search documentation...",
+      empty: "Content coming soon...",
+      sections: [
+        {
+          title: "Getting Started",
+          docs: [
+            { label: "Install Pi Plugin", to: "/docs/install" },
+            { label: "AI Cloud Configuration", to: "/docs/config" },
+            { label: "Buy Your First Tokens", to: "/docs/tokens" },
+          ]
+        },
+        {
+          title: "API Reference",
+          docs: [
+            { label: "OAuth2 Authentication", to: "/docs/api/auth" },
+            { label: "AI Chat Endpoints", to: "/docs/api/chat" },
+            { label: "Webhook Events", to: "/docs/api/webhooks" },
+          ]
+        },
+        {
+          title: "Usage Guides",
+          docs: [
+            { label: "AI SEO Optimization", to: "/docs/guides/seo" },
+            { label: "License Management", to: "/docs/guides/license" },
+            { label: "Chatbot Integration", to: "/docs/guides/chatbot" },
+          ]
+        }
+      ]
     }
   }
 };

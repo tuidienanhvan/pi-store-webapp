@@ -1,9 +1,10 @@
-﻿import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { api, withDelay } from "@/lib/api-client";
 import { useLocale } from "@/context/LocaleContext";
-import { useAdminT, formatDate, formatCurrencyUSD } from "@/lib/adminI18n";
-import { Card, Table, Alert, Badge, Button, Input, Icon, Avatar, IconButton } from "@/components/ui";
+import { useAdminT, formatDate, formatCurrencyUSD } from "@/lib/translations";
+import { Card, Table, Alert, Badge, Button, Input, Avatar, IconButton } from "@/components/ui";
+import { Search, Plus, User, ChevronDown, Bolt, Slash, Check } from "lucide-react";
 import { AdminTableSkeleton } from "@/components/skeletons/AdminTableSkeleton";
 
 import "./AdminUsersPage.css";
@@ -77,13 +78,13 @@ export function AdminUsersPage() {
           <Input
             type="search"
             placeholder={locale === "en" ? "Search email or name..." : "Tm email hoc tn..."}
-            leadingIcon="search"
+            leadingIcon={Search}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="w-80 h-[48px]"
           />
           <Button variant="primary" className="h-[48px] px-8 rounded-2xl shadow-brand/20 shadow-lg font-black uppercase tracking-widest text-xs">
-            <Icon name="plus" size={18} className="mr-2" />
+            <Plus size={18} className="mr-2" />
             {t.create_user_btn}
           </Button>
         </div>
@@ -109,7 +110,7 @@ export function AdminUsersPage() {
               <tr>
                 <td colSpan={7} className="px-6 py-32 text-center">
                   <div className="flex flex-col items-center gap-4 opacity-20">
-                    <Icon name="user" size={64} />
+                    <User size={64} />
                     <p className="text-xs font-black tracking-[0.2em] uppercase">{t.no_users}</p>
                   </div>
                 </td>
@@ -183,15 +184,15 @@ export function AdminUsersPage() {
                   <td className="px-6 py-5 text-right">
                     <div className="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
                       <Link to={`/admin/users/${u.id}`}>
-                        <IconButton icon="user" label="H s" size="sm" className="hover:text-primary" />
+                        <IconButton icon={User} label="H s" size="sm" className="hover:text-primary" />
                       </Link>
                       {u.role === "admin" ? (
-                        <IconButton icon="chevron-down" label="H quyn" size="sm" onClick={() => handleDemote(u.id)} className="hover:text-warning" />
+                        <IconButton icon={ChevronDown} label="H quyn" size="sm" onClick={() => handleDemote(u.id)} className="hover:text-warning" />
                       ) : (
-                        <IconButton icon="bolt" label="Nng quyn" size="sm" onClick={() => handlePromote(u.id)} className="hover:text-primary" />
+                        <IconButton icon={Bolt} label="Nng quyn" size="sm" onClick={() => handlePromote(u.id)} className="hover:text-primary" />
                       )}
                       <IconButton 
-                        icon={u.status === "active" ? "slash" : "check"} 
+                        icon={u.status === "active" ? Slash : Check} 
                         label={u.status === "active" ? "Kha" : "M kha"} 
                         size="sm" 
                         onClick={() => handleDeactivate(u.id, u.status)}

@@ -1,10 +1,11 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { api, withDelay } from "@/lib/api-client";
 import { useListFilters } from "@/hooks/useListFilters";
 import { useLocale } from "@/context/LocaleContext";
-import { useAdminT, formatCurrency, formatTokens } from "@/lib/adminI18n";
+import { useAdminT, formatCurrency, formatTokens } from "@/lib/translations";
 import { formatPct } from "@/lib/format";
-import { Alert, Badge, Button, Card, EmptyState, Icon, Select, Table } from "@/components/ui";
+import { Alert, Badge, Button, Card, EmptyState, Select, Table } from "@/components/ui";
+import { Bolt, Zap, CreditCard, Shield, Sparkles, Loader2 } from "lucide-react";
 import { AdminUsageSkeleton } from "@/components/skeletons/AdminUsageSkeleton";
 
 import "./AdminUsagePage.css";
@@ -109,12 +110,12 @@ export function AdminUsagePage() {
 
       {/* --- Stat cards --- */}
       <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-6 w-full">
-        <Stat label={t.total_calls}      value={totalCalls.toLocaleString()}            icon="bolt" />
-        <Stat label={t.pi_tokens_spent}  value={formatTokens(totalTokens)}              icon="zap"         accent />
-        <Stat label={t.revenue_est}      value={formatCurrency(revenueCents, locale)}   icon="credit-card" success />
-        <Stat label={t.upstream_cost}    value={formatCurrency(upstreamCostCents, locale)} icon="shield"   warning />
-        <Stat label={t.margin}           value={formatPct(marginPct)}                   icon="spark"       success />
-        <Stat label={t.avg_latency}      value={`${data?.avg_latency_ms || 0}ms`}       icon="loader" />
+        <Stat label={t.total_calls}      value={totalCalls.toLocaleString()}            icon={Bolt} />
+        <Stat label={t.pi_tokens_spent}  value={formatTokens(totalTokens)}              icon={Zap}         accent />
+        <Stat label={t.revenue_est}      value={formatCurrency(revenueCents, locale)}   icon={CreditCard} success />
+        <Stat label={t.upstream_cost}    value={formatCurrency(upstreamCostCents, locale)} icon={Shield}   warning />
+        <Stat label={t.margin}           value={formatPct(marginPct)}                   icon={Sparkles}       success />
+        <Stat label={t.avg_latency}      value={`${data?.avg_latency_ms || 0}ms`}       icon={Loader2} />
       </div>
 
       {/* --- Daily Bar Chart --- */}
@@ -137,7 +138,7 @@ export function AdminUsagePage() {
             if (!hasAnyData) {
               return (
                 <div className="flex flex-col items-center justify-center h-full gap-4 text-base-content/60">
-                  <Icon name="bolt" size={32} className="opacity-30" />
+                  <Bolt size={32} className="opacity-30" />
                   <div className="font-black uppercase tracking-[0.2em] text-[11px]">
                     {locale === "en" ? "No API calls recorded" : "Chua c AI call no"}
                   </div>
@@ -185,7 +186,7 @@ export function AdminUsagePage() {
                   <tr><td colSpan="5" className="p-10 text-center opacity-30 animate-pulse">Syncing...</td></tr>
                 )}
                 {!loading && byPlugin.length === 0 && (
-                  <tr><td colSpan="5" className="p-10 text-center"><EmptyState icon="bolt" title="Chua c d liu" /></td></tr>
+                  <tr><td colSpan="5" className="p-10 text-center"><EmptyState icon={Bolt} title="Chua c d liu" /></td></tr>
                 )}
                 {byPlugin.map((row) => {
                   const sharePct = totalTokens > 0 ? (row.tokens / totalTokens) * 100 : 0;
@@ -246,7 +247,7 @@ export function AdminUsagePage() {
   );
 }
 
-function Stat({ label, value, icon, accent, success, warning }) {
+function Stat({ label, value, icon: IconComponent, accent, success, warning }) {
   const valueColor = accent   ? "text-primary"   :
                      success  ? "text-success"  :
                      warning  ? "text-warning"  : "text-base-content";
@@ -256,7 +257,7 @@ function Stat({ label, value, icon, accent, success, warning }) {
       <div className="flex justify-between items-center">
         <div className="text-[10px] font-black uppercase tracking-[0.15em] text-base-content/60">{label}</div>
         <div className="text-base-content/60 opacity-40 transition-opacity duration-300 group-hover:opacity-100 group-hover:text-primary">
-          <Icon name={icon} size={14} />
+          <IconComponent size={14} />
         </div>
       </div>
       <div className={`text-3xl font-black font-display -tracking-tight leading-none ${valueColor}`}>{value}</div>

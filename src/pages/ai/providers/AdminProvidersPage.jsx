@@ -1,7 +1,8 @@
-﻿import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { api, withDelay } from "@/lib/api-client";
-import { useAdminT } from "@/lib/adminI18n";
-import { Card, Table, Badge, Button, Input, Select, Modal, Alert, Icon, Switch } from "@/components/ui";
+import { useAdminT } from "@/lib/translations";
+import { Card, Table, Badge, Button, Input, Select, Modal, Alert, Switch } from "@/components/ui";
+import { Plus, Check, X } from "lucide-react";
 import { AdminTableSkeleton } from "@/components/skeletons/AdminTableSkeleton";
 import { AdminStatCard } from "@/pages/core/components/AdminStatCard";
 
@@ -99,7 +100,7 @@ export function AdminProvidersPage() {
           <p className="text-base-content/60 opacity-60 font-medium tracking-wide">{t.providers_subtitle}</p>
         </div>
         <Button variant="primary" onClick={() => setEditing("new")} className="h-[48px] px-8 rounded-2xl shadow-brand/20 shadow-lg font-black uppercase tracking-widest text-xs">
-          <Icon name="plus" size={18} className="mr-2" />
+          <Plus size={18} className="mr-2" />
           {t.add_provider}
         </Button>
       </header>
@@ -168,9 +169,9 @@ export function AdminProvidersPage() {
                   </td>
                   <td>
                     {p.has_api_key ? (
-                      <Badge tone="success" className="badge-premium"><Icon name="check" size={12} className="mr-1" /> {t.has_key}</Badge>
+                      <Badge tone="success" className="badge-premium"><Check size={12} className="mr-1" /> {t.has_key}</Badge>
                     ) : (
-                      <Badge tone="danger" className="badge-premium"><Icon name="x" size={12} className="mr-1" /> {t.no_key}</Badge>
+                      <Badge tone="danger" className="badge-premium"><X size={12} className="mr-1" /> {t.no_key}</Badge>
                     )}
                   </td>
                   <td className="text-center">
@@ -204,11 +205,11 @@ export function AdminProvidersPage() {
                           <span className="text-base-content/60 text-[10px] uppercase font-bold tracking-widest animate-pulse">ang test</span>
                         ) : testResult.ok ? (
                           <Badge tone="success" title={testResult.sample} className="badge-premium">
-                            <Icon name="check" size={12} className="mr-1" /> {testResult.latency_ms}ms
+                            <Check size={12} className="mr-1" /> {testResult.latency_ms}ms
                           </Badge>
                         ) : (
                           <Badge tone="danger" title={testResult.error} className="badge-premium">
-                            <Icon name="x" size={12} className="mr-1" /> Error
+                            <X size={12} className="mr-1" /> Error
                           </Badge>
                         )}
                       </div>

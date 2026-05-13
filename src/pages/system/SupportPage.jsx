@@ -1,6 +1,7 @@
-﻿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import { Badge, Card, Icon, Table } from "@/components/ui";
+import { Badge, Card, Table } from "@/components/ui";
+import { Mail, MessageCircle, Book, Info, Activity, Check } from "lucide-react";
 
 
 
@@ -22,17 +23,12 @@ export function SupportPage() {
 
       <div className="grid grid-cols-3 gap-4">
 
-        <SupportLink href="mailto:support@piwebagency.com" icon="mail" title="Email" desc="support@piwebagency.com - response within 24h." />
-
-        <SupportLink href="https://zalo.me/pi-ecosystem" icon="chat" title="Zalo chat" desc="Priority support for Pro/Max." external />
-
-        <SupportLink to="/docs" icon="book" title="Documentation" desc="Setup, API and troubleshooting." />
-
-        <SupportLink to="/faq" icon="info" title="FAQ" desc="Common questions and answers." />
-
-        <SupportLink href="https://github.com/piwebagency/issues" icon="activity" title="Bug tracker" desc="Public GitHub issues." external />
-
-        <SupportLink href="https://status.piwebagency.com" icon="check" title="System status" desc="Live uptime and incidents." external />
+        <SupportLink href="mailto:support@piwebagency.com" icon={Mail} title="Email" desc="support@piwebagency.com - response within 24h." />
+        <SupportLink href="https://zalo.me/pi-ecosystem" icon={MessageCircle} title="Zalo chat" desc="Priority support for Pro/Max." external />
+        <SupportLink to="/docs" icon={Book} title="Documentation" desc="Setup, API and troubleshooting." />
+        <SupportLink to="/faq" icon={Info} title="FAQ" desc="Common questions and answers." />
+        <SupportLink href="https://github.com/piwebagency/issues" icon={Activity} title="Bug tracker" desc="Public GitHub issues." external />
+        <SupportLink href="https://status.piwebagency.com" icon={Check} title="System status" desc="Live uptime and incidents." external />
 
       </div>
 
@@ -78,7 +74,7 @@ export function SupportPage() {
 
 
 
-function SupportLink({ href, to, icon, title, desc, external = false }) {
+function SupportLink({ href, to, icon: IconComponent, title, desc, external = false }) {
 
   const Comp = to ? Link : "a";
 
@@ -90,7 +86,7 @@ function SupportLink({ href, to, icon, title, desc, external = false }) {
 
       <div className="w-10 h-10 rounded-md bg-base-200-2 flex items-center justify-center text-primary">
 
-        <Icon name={icon} size={20} />
+        <IconComponent size={20} />
 
       </div>
 

@@ -1,6 +1,7 @@
-﻿import React from "react";
+import React from "react";
 
 import { IconButton, ThemeToggle } from "../ui";
+import { Menu } from "lucide-react";
 
 
 export function DashboardHeader({ currentRouteName, setMobileMenuOpen }) {
@@ -9,7 +10,7 @@ export function DashboardHeader({ currentRouteName, setMobileMenuOpen }) {
 
     <header className="dash__mobile-header">
 
-      <IconButton icon="menu" label="Menu" onClick={() => setMobileMenuOpen(true)} variant="ghost" />
+      <IconButton icon={Menu} label="Menu" onClick={() => setMobileMenuOpen(true)} variant="ghost" />
 
       <div className="text-[11px] font-black uppercase tracking-[0.2em] text-primary">{currentRouteName}</div>
 

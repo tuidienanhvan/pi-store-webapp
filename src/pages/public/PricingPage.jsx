@@ -1,193 +1,344 @@
-﻿import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { useAuth } from "@/context/AuthContext";
 import { useLocale } from "@/context/LocaleContext";
-import { Alert } from "@/components/ui";
+import { useAuth } from "@/context/AuthContext";
 import { billing } from "@/api/billing";
-import { PricingHero } from "@/components/pricing/PricingHero";
-import { PricingGrid } from "@/components/pricing/PricingGrid";
-import { PricingEnterprise } from "@/components/pricing/PricingEnterprise";
+import { Badge, Alert } from "@/components/ui";
+import { Info, Cpu, Zap, Activity, ShieldCheck, ArrowRight } from "lucide-react";
+import PricingCard from "@/components/pricing/PricingCard";
 import "./PricingPage.css";
 
 const getTiers = (isVi) => [
   {
     id: "free",
     name: "Free",
-    priceMonthly: 0,
-    priceYearly: 0,
-    monthlyTokens: "5,000",
-    badge: null,
-    accentVar: "--pi-tier-free",
-    description: isVi ? "Kh?i d?ng m?t site v?i SEO audit v AI tokens co b?n." : "Start one site with SEO audit and essential AI tokens.",
+    price_monthly: 0,
+    price_yearly: 0,
+    description: isVi 
+      ? "Khởi động một site với SEO audit và AI tokens cơ bản." 
+      : "Start one site with basic SEO audit and AI tokens.",
     features: [
-      { text: isVi ? "1 site" : "1 site", included: true },
-      { text: isVi ? "SEO audit co b?n" : "Basic SEO audit", included: true },
-      { text: isVi ? "50,000 AI tokens/thng" : "50,000 AI tokens/month", included: true },
-      { text: "AI Chatbot", included: false },
-      { text: "Lead pipeline", included: false },
-      { text: "Analytics dashboard", included: false },
-      { text: isVi ? "Uu tin h? tr?" : "Priority support", included: false },
+      "1 site",
+      "5,000 PI_TKN",
+      "SEO Audit (Basic)",
+      "Community Support"
     ],
-    cta: isVi ? "B?t d?u mi?n ph" : "Start free",
+    cta: isVi ? "Bắt đầu miễn phí" : "Start for Free",
+    popular: false
   },
   {
     id: "pro",
     name: "Pro",
-    priceMonthly: 19,
-    priceYearly: 15,
-    monthlyTokens: "100,000",
-    badge: isVi ? "Ph? bi?n nh?t" : "Most popular",
-    popular: true,
-    accentVar: "--pi-tier-pro",
-    description: isVi ? "Gi v?n hnh cho site thuong mi c?n chatbot, lead v analytics." : "Operating plan for commerce sites that need chatbot, lead and analytics.",
+    price_monthly: 50,
+    price_yearly: 480, // $40/mo
+    description: isVi 
+      ? "Gói vận hành cho site thương mại cần chatbot, lead và analytics." 
+      : "Professional operations for e-commerce sites needing chatbots and analytics.",
     features: [
-      { text: isVi ? "5 sites" : "5 sites", included: true },
-      { text: isVi ? "Tt c tnh nang Free" : "All Free features", included: true },
-      { text: "AI Chatbot", included: true },
-      { text: "Lead pipeline", included: true },
-      { text: "Analytics dashboard", included: true },
-      { text: isVi ? "1,000,000 AI tokens/thng" : "1,000,000 AI tokens/month", included: true },
-      { text: isVi ? "N?p thm token" : "Top-up extra tokens", included: true },
+      "5 sites",
+      "100,000 PI_TKN",
+      "SEO Audit (Pro)",
+      "Priority Support",
+      "Custom Branding"
     ],
-    cta: isVi ? "Nng c?p Pro" : "Upgrade Pro",
+    cta: isVi ? "Nâng cấp Pro" : "Upgrade to Pro",
+    popular: true
   },
   {
     id: "max",
     name: "Max",
-    priceMonthly: 49,
-    priceYearly: 39,
-    monthlyTokens: "500,000",
-    badge: isVi ? "Cho d?i v?n hnh" : "For operations teams",
-    accentVar: "--pi-tier-max",
-    description: isVi ? "Multi-site, white-label v quota l?n cho d?i chuyn nghi?p." : "Multi-site, white-label and larger quotas for advanced teams.",
+    price_monthly: 199,
+    price_yearly: 1908, // $159/mo
+    description: isVi 
+      ? "Cho đội vận hành chuyên nghiệp với nhu cầu lớn." 
+      : "For professional teams with high-scale AI operational needs.",
     features: [
-      { text: isVi ? "25 sites" : "25 sites", included: true },
-      { text: isVi ? "Tt c tnh nang Pro" : "All Pro features", included: true },
-      { text: "Multi-site management", included: true },
-      { text: "White-label branding", included: true },
-      { text: isVi ? "3,000,000 AI tokens/thng" : "3,000,000 AI tokens/month", included: true },
-      { text: isVi ? "H? tr? uu tin 24/7" : "Priority support 24/7", included: true },
-      { text: "Custom integrations", included: true },
+      "25 sites",
+      "500,000 PI_TKN",
+      "Full SEO Suite",
+      "24/7 Support",
+      "API Access",
+      "SLA Guarantee"
     ],
-    cta: isVi ? "Nng c?p Max" : "Upgrade Max",
-  },
+    cta: isVi ? "Liên hệ Max" : "Contact for Max",
+    popular: false
+  }
 ];
 
-export function PricingPage() {
-  const { isAuthed } = useAuth();
+const HeroHUD = () => {
+  // Tạo mảng ngẫu nhiên cho Grid Matrix
+  const matrixNodes = Array.from({ length: 24 }).map((_, i) => ({
+    id: i,
+    opacity: Math.random() > 0.4 ? 0.8 : 0.2,
+    delay: `${Math.random() * 2}s`
+  }));
+
+  return (
+    <div className="hero-hud-decorators">
+      {/* Top Schematic Border */}
+      <svg className="hud-schematic-border top" viewBox="0 0 1200 40" preserveAspectRatio="none">
+        <path d="M0,10 L40,10 L60,30 L1140,30 L1160,10 L1200,10" fill="none" stroke="currentColor" strokeWidth="1" strokeOpacity="0.2" />
+        {/* Tick marks left */}
+        <g stroke="currentColor" strokeOpacity="0.4" strokeWidth="1">
+          <line x1="80" y1="30" x2="80" y2="35" />
+          <line x1="90" y1="30" x2="90" y2="33" />
+          <line x1="100" y1="30" x2="100" y2="38" />
+          <line x1="110" y1="30" x2="110" y2="33" />
+          <line x1="120" y1="30" x2="120" y2="35" />
+        </g>
+        {/* Center Tech Patterns instead of text */}
+        <g stroke="currentColor" strokeOpacity="0.3" strokeWidth="1" transform="translate(540, 15)">
+          <path d="M0,5 L20,5 M30,5 L50,5 M60,5 L120,5" strokeDasharray="4 2" />
+          <polygon points="55,2 65,2 60,8" fill="currentColor" opacity="0.5" />
+        </g>
+        {/* Tick marks right */}
+        <g stroke="currentColor" strokeOpacity="0.4" strokeWidth="1">
+          <line x1="1120" y1="30" x2="1120" y2="35" />
+          <line x1="1110" y1="30" x2="1110" y2="33" />
+          <line x1="1100" y1="30" x2="1100" y2="38" />
+          <line x1="1090" y1="30" x2="1090" y2="33" />
+          <line x1="1080" y1="30" x2="1080" y2="35" />
+        </g>
+      </svg>
+
+      {/* Left Stat: Animated Nodes Matrix */}
+      <div className="hud-stat tl">
+        <svg className="node-matrix-svg" width="140" height="60">
+          {/* Decorative scanner frame */}
+          <path d="M0,10 L0,0 L10,0 M130,0 L140,0 L140,10 M0,50 L0,60 L10,60 M130,60 L140,60 L140,50" fill="none" stroke="currentColor" strokeWidth="1" strokeOpacity="0.5"/>
+          <g transform="translate(14, 10)">
+            {matrixNodes.map(node => (
+              <rect 
+                key={node.id} 
+                x={(node.id % 8) * 14} 
+                y={Math.floor(node.id / 8) * 14} 
+                width="10" 
+                height="10" 
+                fill="currentColor" 
+                className="matrix-rect"
+                style={{ opacity: node.opacity, animationDelay: node.delay }}
+              />
+            ))}
+          </g>
+        </svg>
+      </div>
+
+      {/* Right Stat: AI Token Waveform */}
+      <div className="hud-stat tr">
+        <svg className="token-wave-svg" width="140" height="60" viewBox="0 0 140 60">
+          {/* Decorative frame */}
+          <path d="M0,10 L0,0 L10,0 M130,0 L140,0 L140,10 M0,50 L0,60 L10,60 M130,60 L140,60 L140,50" fill="none" stroke="currentColor" strokeWidth="1" strokeOpacity="0.5"/>
+          {/* Grid bg */}
+          <g transform="translate(10, 10)">
+            <path d="M0,10 L120,10 M0,20 L120,20 M0,30 L120,30" stroke="currentColor" strokeOpacity="0.1" strokeWidth="0.5" />
+            <path d="M20,0 L20,40 M40,0 L40,40 M60,0 L60,40 M80,0 L80,40 M100,0 L100,40" stroke="currentColor" strokeOpacity="0.1" strokeWidth="0.5" />
+            {/* Sine wave */}
+            <polyline 
+              points="0,20 15,20 25,10 35,30 45,15 55,25 70,5 80,35 95,20 120,20" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="1.5" 
+              className="wave-line" 
+            />
+            <circle cx="120" cy="20" r="3" fill="currentColor" className="wave-dot" />
+          </g>
+        </svg>
+      </div>
+
+      <div className="hud-corners">
+        <svg className="corner-svg tl" viewBox="0 0 40 40">
+          <path d="M0,20 L0,0 L20,0" fill="none" stroke="currentColor" strokeWidth="1.5" />
+          <circle cx="5" cy="5" r="1.5" fill="currentColor" />
+        </svg>
+        <svg className="corner-svg tr" viewBox="0 0 40 40">
+          <path d="M20,0 L40,0 L40,20" fill="none" stroke="currentColor" strokeWidth="1.5" />
+          <circle cx="35" cy="5" r="1.5" fill="currentColor" />
+        </svg>
+      </div>
+    </div>
+  );
+};
+
+export default function PricingPage() {
   const { locale } = useLocale();
+  const { isAuthed } = useAuth();
   const navigate = useNavigate();
   const [sp] = useSearchParams();
   const [billingCycle, setBillingCycle] = useState("monthly");
   const [loadingTier, setLoadingTier] = useState("");
-  const [error, setError] = useState("");
-  const canceled = sp.get("status") === "canceled";
+  const [_error, setError] = useState("");
   const isVi = locale === "vi";
   const tiers = getTiers(isVi);
 
   const copy = isVi
     ? {
         hero: {
-          title: "Pricing r rng cho WordPress AI operations",
-          subtitle: "Tr? ti?n theo m?c s? d?ng. Nng c?p ho?c h?y b?t c? lc no. Free d? d? th? nghi?m, Pro v Max d? d? v?n hnh production.",
-          monthly: "Thng",
-          yearly: "Nam",
+          title: "Bảng giá rõ ràng cho",
+          titleHighlight: "WordPress AI Operations",
+          subtitle: "Trả tiền theo mức sử dụng. Nâng cấp hoặc hủy bất cứ lúc nào. Free đủ để thử nghiệm, Pro và Max đủ để vận hành sản xuất (production).",
+          monthly: "HÀNG THÁNG",
+          yearly: "HÀNG NĂM",
         },
         card: {
-          pricePeriod: "/ thng",
-          yearlyPayPrefix: "thanh ton",
-          yearlyUnit: "nam",
-          yearlySavePrefix: "ti?t ki?m",
-          tokensPerMonth: "AI tokens/thng",
-          monthlyBilled: "theo thng",
-          yearlyBilled: "theo nam",
+          pricePeriod: "THÁNG",
+          yearlyPayPrefix: "thanh toán",
+          yearlyUnit: "năm",
+          yearlySavePrefix: "tiết kiệm",
+          tokensPerMonth: "AI tokens/tháng",
+          monthlyBilled: "thanh toán hàng tháng",
+          yearlyBilled: "thanh toán hàng năm",
         },
-        enterprise: {
-          title: "C?n solution ring?",
-          description: "Custom token limits, dedicated infrastructure, SLA cam k?t, SSO, white-label v tri?n khai ring cho d?i 50+ ngu?i.",
-          features: ["Unlimited sites", "Custom SLA", "SSO / SAML", "Dedicated infrastructure", "24/7 premium support", "Custom integrations"],
-          cta: "Lin h? sales",
-          note: "Ph?n h?i trong 2 gi? lm vi?c",
-        },
+        savingsLabel: "TIẾT KIỆM 20%",
         alerts: {
-          canceled: "Thanh ton d h?y. B?n c th? ch?n l?i gi b?t c? lc no.",
-          stripeError: "Khng t?o du?c phin thanh ton Stripe.",
-        },
+          canceled: "Thanh toán đã hủy. Bạn có thể chọn lại gói bất cứ lúc nào.",
+        }
       }
     : {
         hero: {
-          title: "Clear pricing for WordPress AI operations",
+          title: "Clear pricing for",
+          titleHighlight: "WordPress AI Operations",
           subtitle: "Pay based on usage. Upgrade or cancel anytime. Free is enough to test, Pro and Max are ready for production.",
-          monthly: "Monthly",
-          yearly: "Yearly",
+          monthly: "MONTHLY",
+          yearly: "YEARLY",
         },
         card: {
-          pricePeriod: "/ month",
-          yearlyPayPrefix: "billed",
+          pricePeriod: "mo",
+          yearlyPayPrefix: "pay",
           yearlyUnit: "year",
           yearlySavePrefix: "save",
           tokensPerMonth: "AI tokens/month",
-          monthlyBilled: "monthly",
-          yearlyBilled: "yearly",
+          monthlyBilled: "billed monthly",
+          yearlyBilled: "billed yearly",
         },
-        enterprise: {
-          title: "Need a custom solution?",
-          description: "Custom token limits, dedicated infrastructure, SLA commitments, SSO, white-label, and dedicated rollout for teams of 50+.",
-          features: ["Unlimited sites", "Custom SLA", "SSO / SAML", "Dedicated infrastructure", "24/7 premium support", "Custom integrations"],
-          cta: "Contact sales",
-          note: "Response within 2 business hours",
-        },
+        savingsLabel: "SAVE 20%",
         alerts: {
           canceled: "Payment canceled. You can choose a plan again anytime.",
-          stripeError: "Could not create Stripe checkout session.",
-        },
+        }
       };
 
-  const startCheckout = async (tier) => {
+  const startCheckout = async (tierId) => {
     setError("");
-    if (tier === "free") {
+    if (tierId === "free") {
       navigate("/signup?plan=free");
       return;
     }
     if (!isAuthed) {
-      navigate(`/signup?plan=${tier}`);
+      navigate(`/signup?plan=${tierId}`);
       return;
     }
-    setLoadingTier(tier);
+    setLoadingTier(tierId);
     try {
-      // Simulation mode bypasses Stripe
       if (import.meta.env.VITE_DEMO_MODE === "true") {
-        await billing.simulateSuccess({ tier });
-        navigate("/app/billing/success?tier=" + tier);
+        await billing.simulateSuccess({ tier: tierId });
+        navigate("/app/billing/success?tier=" + tierId);
         return;
       }
-
-      const res = await billing.subscribeCheckout({ tier });
-      window.location.href = res.checkout_url;
+      const { url } = await billing.subscribeCheckout({
+        tier: tierId,
+        cycle: billingCycle,
+      });
+      window.location.href = url;
     } catch (err) {
-      setError(err.message || copy.alerts.stripeError);
-    } finally {
+      console.error(err);
+      setError("stripeError");
       setLoadingTier("");
     }
   };
 
+  const handleCheckout = (tierId) => {
+    startCheckout(tierId);
+  };
+
   return (
     <div className="pricing-page">
-      <PricingHero billingCycle={billingCycle} setBillingCycle={setBillingCycle} copy={copy.hero} />
+      <div className="pricing-hero">
+        <div className="hero-glow-back" />
+        <div className="mx-auto w-full max-w-[1200px] px-8 relative">
+          <HeroHUD />
+          
+          <div className="hero-content">
+            <Badge tone="brand" className="pricing-badge">
+              <Zap size={12} className="mr-2" />
+              <span>PI_INFRA_V2_PRICING</span>
+            </Badge>
+            
+            <h1 className="pricing-headline">
+              {copy.hero.title}<br />
+              <span className="text-gradient">{copy.hero.titleHighlight}</span>
+            </h1>
+            
+            <p className="pricing-subline">
+              {copy.hero.subtitle}
+            </p>
 
-      <div className="pricing-alerts">
-        {canceled && <Alert tone="warning">{copy.alerts.canceled}</Alert>}
-        {error && (
-          <Alert tone="danger" onDismiss={() => setError("")}>
-            {error}
-          </Alert>
-        )}
+            <div className="billing-switcher-quantum">
+              <button 
+                className={`switcher-tab ${billingCycle === "monthly" ? "active" : ""}`}
+                onClick={() => setBillingCycle("monthly")}
+              >
+                <div className="tab-bg" />
+                <span>{copy.hero.monthly}</span>
+              </button>
+              <button 
+                className={`switcher-tab ${billingCycle === "yearly" ? "active" : ""}`}
+                onClick={() => setBillingCycle("yearly")}
+              >
+                <div className="tab-bg" />
+                <span>{copy.hero.yearly}</span>
+                <Badge tone="success" className="save-badge">{copy.savingsLabel}</Badge>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <PricingGrid tiers={tiers} billingCycle={billingCycle} loadingTier={loadingTier} onCheckout={startCheckout} copy={copy.card} />
-      <PricingEnterprise copy={copy.enterprise} />
+      <div className="mx-auto w-full max-w-[1400px] px-8 lg:px-20 py-20">
+        {sp.get("status") === "canceled" && (
+          <div className="mb-12">
+            <Alert tone="warning" title="THÔNG BÁO HỆ THỐNG" icon={Info}>
+              {copy.alerts.canceled}
+            </Alert>
+          </div>
+        )}
+
+        <div className="pricing-grid">
+          {tiers.map((tier) => (
+            <PricingCard
+              key={tier.id}
+              tier={tier}
+              billingCycle={billingCycle}
+              loadingTier={loadingTier}
+              onCheckout={handleCheckout}
+              copy={copy.card}
+            />
+          ))}
+        </div>
+        
+        {/* Support Footer */}
+        <div className="pricing-footer-hud">
+          <div className="footer-hud-unit">
+             <ShieldCheck size={20} className="text-primary" />
+             <div className="unit-text">
+                <span className="label">SECURE_PAYMENTS</span>
+                <span className="desc">ENCRYPTED VIA STRIPE GATEWAY</span>
+             </div>
+          </div>
+          <div className="footer-hud-unit">
+             <Activity size={20} className="text-primary" />
+             <div className="unit-text">
+                <span className="label">SLA_GUARANTEE</span>
+                <span className="desc">99.9% UPTIME FOR PRO/MAX</span>
+             </div>
+          </div>
+          <div className="footer-hud-unit clickable">
+             <div className="unit-text text-right">
+                <span className="label">NEED_CUSTOM_PLAN?</span>
+                <span className="desc">CONTACT ENTERPRISE SUPPORT</span>
+             </div>
+             <ArrowRight size={20} className="text-primary" />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
-
-export default PricingPage;

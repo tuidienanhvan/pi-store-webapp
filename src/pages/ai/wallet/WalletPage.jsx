@@ -1,6 +1,7 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { api } from "@/lib/api-client";
-import { Card, Alert, Button, Badge, Icon } from "@/components/ui";
+import { Card, Alert, Button, Badge } from "@/components/ui";
+import { Loader2 } from "lucide-react";
 
 import "./WalletPage.css";
 
@@ -44,7 +45,7 @@ export function WalletPage() {
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center p-20 gap-4 opacity-40">
-        <Icon name="loader" size={40} className="animate-spin" />
+        <Loader2 size={40} className="animate-spin" />
         <div className="font-bold uppercase tracking-[0.2em] text-[12px]">ang ti v...</div>
       </div>
     );

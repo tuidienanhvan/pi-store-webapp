@@ -1,8 +1,9 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { api } from "@/lib/api-client";
 
-import { Alert, Badge, Button, Card, Input, Icon } from "@/components/ui";
+import { Alert, Badge, Button, Card, Input } from "@/components/ui";
+import { Monitor } from "lucide-react";
 
 
 
@@ -74,7 +75,7 @@ export function LicensesPage() {
 
               <Cell label="Email"><strong>{stats.email}</strong></Cell>
 
-              <Cell label="Activated sites"><span className="row gap-2"><Icon name="monitor" size={16} /> {stats.activated_sites} / {stats.max_sites}</span></Cell>
+              <Cell label="Activated sites"><span className="row gap-2"><Monitor size={16} /> {stats.activated_sites} / {stats.max_sites}</span></Cell>
 
               <Cell label="Expires">{stats.expires_at ? new Date(stats.expires_at).toLocaleDateString() : "Never"}</Cell>
 

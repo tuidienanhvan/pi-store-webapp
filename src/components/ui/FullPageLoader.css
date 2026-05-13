@@ -1,130 +1,276 @@
-.full-page-loader {
+/* --- PI STORE CYBERNETIC LOADER (REFINED) --- */
+
+.pi-loader-container {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background-color: var(--b1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.loader-bg-glow {
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, color-mix(in srgb, var(--p) 15%, transparent) 0%, transparent 70%);
-  filter: blur(60px);
-  z-index: 1;
-  animation: breathe-glow 4s ease-in-out infinite;
-}
-
-.loader-content {
-  position: relative;
-  z-index: 10;
+  background-color: #050608;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2.5rem;
+  justify-content: center;
+  overflow: hidden;
+  font-family: var(--font-mono, monospace);
 }
 
-/* --- ORBITS --- */
-.loader-orbits {
+/* 1. Subtle Cyber Grid Background */
+.pi-loader-grid {
+  position: absolute;
+  inset: 0;
+  perspective: 1000px;
+  opacity: 0.06;
+  pointer-events: none;
+  background: radial-gradient(circle at center, transparent 30%, #050608 80%);
+}
+
+.grid-horizontal, .grid-vertical {
+  position: absolute;
+  inset: -50%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transform-origin: center;
+}
+
+.grid-horizontal {
+  transform: rotateX(75deg) translateZ(-200px);
+  animation: gridMove 15s linear infinite;
+}
+
+.grid-vertical {
+  transform: rotateX(75deg) rotateY(90deg) translateZ(-200px);
+  animation: gridMove 20s linear infinite reverse;
+}
+
+@keyframes gridMove {
+  0% { transform: rotateX(75deg) translateY(0); }
+  100% { transform: rotateX(75deg) translateY(40px); }
+}
+
+/* 2. Core SVG Container */
+.pi-loader-core {
   position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.pi-svg-rings {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+/* Orbit Animations */
+.orbit-outer {
+  transform-origin: center;
+  animation: spinOuter 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.orbit-radar {
+  transform-origin: center;
+  animation: spinRadar 15s linear infinite;
+}
+
+.orbit-hex {
+  transform-origin: center;
+  animation: floatHex 5s ease-in-out infinite alternate;
+}
+
+.hex-tracer {
+  animation: dashHex 4s linear infinite;
+}
+
+.reticle-pulse {
+  animation: reticlePulse 2.5s ease-in-out infinite;
+}
+
+@keyframes spinOuter {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spinRadar {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes floatHex {
+  0% { transform: rotate(-3deg) scale(0.99); }
+  100% { transform: rotate(3deg) scale(1.01); }
+}
+
+@keyframes dashHex {
+  to { stroke-dashoffset: -160; }
+}
+
+@keyframes reticlePulse {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.4; }
+}
+
+/* 3. Central Logo & Energy Core */
+.pi-core-energy {
+  position: relative;
+  z-index: 3;
   width: 100px;
   height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.loader-logo {
-  position: relative;
-  z-index: 5;
-  color: var(--p);
-  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--p) 50%, transparent));
-  animation: logo-pulse 2s ease-in-out infinite;
-}
-
-.orbit {
-  position: absolute;
   border-radius: 50%;
-  border: 1.5px solid transparent;
-  mask-image: radial-gradient(circle, transparent 40%, black 100%);
 }
 
-.orbit-1 {
-  width: 50px;
-  height: 50px;
-  border-top: 1.5px solid var(--p);
-  border-right: 1.5px solid var(--p);
-  animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+.core-pulse-1, .core-pulse-2 {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(224, 49, 84, 0.15) 0%, transparent 70%);
+  animation: corePulse 3s ease-out infinite;
 }
 
-.orbit-2 {
-  width: 80px;
-  height: 80px;
-  border-bottom: 1.5px solid color-mix(in srgb, var(--p) 60%, transparent);
-  border-left: 1.5px solid color-mix(in srgb, var(--p) 60%, transparent);
-  animation: spin 2s cubic-bezier(0.5, 0, 0.5, 1) infinite reverse;
+.core-pulse-2 {
+  animation-delay: 1.5s;
 }
 
-.orbit-3 {
-  width: 110px;
-  height: 110px;
-  border: 1.5px solid color-mix(in srgb, var(--p) 20%, transparent);
-  border-top: 1.5px solid color-mix(in srgb, var(--p) 40%, transparent);
-  animation: spin 3.5s linear infinite;
+@keyframes corePulse {
+  0% { transform: scale(0.6); opacity: 0.6; }
+  100% { transform: scale(2.2); opacity: 0; }
 }
 
-/* --- TEXT --- */
-.loader-text {
+.pi-logo-wrapper {
+  position: relative;
+  z-index: 4;
+  color: #ffffff;
+  filter: drop-shadow(0 0 8px rgba(224, 49, 84, 0.4));
+  animation: logoGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow {
+  0% { filter: drop-shadow(0 0 5px rgba(224, 49, 84, 0.2)); transform: scale(0.98); }
+  100% { filter: drop-shadow(0 0 12px rgba(224, 49, 84, 0.5)); transform: scale(1.02); }
+}
+
+/* 4. Cyberpunk HUD Display */
+.pi-hud-display {
+  position: relative;
+  z-index: 10;
+  width: 280px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
+  gap: 12px;
 }
 
-.brand-text {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 900;
-  letter-spacing: 0.5em;
-  color: var(--bc);
-  margin-right: -0.5em; /* Offset for letter spacing */
-  animation: letter-reveal 2s ease-in-out infinite alternate;
+.hud-title {
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: #c4cad6;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.15);
+  position: relative;
+  text-align: center;
 }
 
-.shimmer-bar {
-  width: 40px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--p), transparent);
-  border-radius: 1px;
-  animation: slide-shimmer 2s ease-in-out infinite;
+/* Subtle Glitch Effect on Title */
+.hud-title::before, .hud-title::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
 }
 
-/* --- KEYFRAMES --- */
-@keyframes spin {
-  to { transform: rotate(360deg); }
+.hud-title::before {
+  left: 1px;
+  text-shadow: -1px 0 rgba(255, 51, 102, 0.3);
+  clip: rect(24px, 550px, 90px, 0);
+  animation: glitch-anim-2 4s infinite linear alternate-reverse;
 }
 
-@keyframes logo-pulse {
-  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px color-mix(in srgb, var(--p) 50%, transparent)); }
-  50% { transform: scale(1.1); filter: drop-shadow(0 0 20px color-mix(in srgb, var(--p) 80%, transparent)); }
+.hud-title::after {
+  left: -1px;
+  text-shadow: -1px 0 rgba(56, 189, 248, 0.3);
+  clip: rect(85px, 550px, 140px, 0);
+  animation: glitch-anim 3.5s infinite linear alternate-reverse;
 }
 
-@keyframes breathe-glow {
-  0%, 100% { transform: scale(1); opacity: 0.3; }
-  50% { transform: scale(1.4); opacity: 0.5; }
+@keyframes glitch-anim {
+  0% { clip: rect(15px, 9999px, 71px, 0); }
+  20% { clip: rect(66px, 9999px, 8px, 0); }
+  40% { clip: rect(85px, 9999px, 91px, 0); }
+  60% { clip: rect(10px, 9999px, 43px, 0); }
+  80% { clip: rect(54px, 9999px, 16px, 0); }
+  100% { clip: rect(72px, 9999px, 59px, 0); }
 }
 
-@keyframes letter-reveal {
-  0% { letter-spacing: 0.3em; opacity: 0.5; }
-  100% { letter-spacing: 0.6em; opacity: 1; }
+@keyframes glitch-anim-2 {
+  0% { clip: rect(65px, 9999px, 100px, 0); }
+  20% { clip: rect(12px, 9999px, 55px, 0); }
+  40% { clip: rect(89px, 9999px, 34px, 0); }
+  60% { clip: rect(5px, 9999px, 76px, 0); }
+  80% { clip: rect(44px, 9999px, 22px, 0); }
+  100% { clip: rect(90px, 9999px, 11px, 0); }
 }
 
-@keyframes slide-shimmer {
-  0% { transform: scaleX(0.5); opacity: 0; }
-  50% { transform: scaleX(2); opacity: 1; }
-  100% { transform: scaleX(0.5); opacity: 0; }
+/* Progress Bar */
+.hud-progress-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
 }
+
+.hud-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 30%;
+  background: linear-gradient(90deg, #e03154, #ffbd2e);
+  border-radius: 2px;
+  box-shadow: 0 0 6px rgba(224, 49, 84, 0.4);
+  animation: loadProgress 3.5s ease-out forwards;
+}
+
+@keyframes loadProgress {
+  0% { width: 0%; }
+  50% { width: 65%; }
+  80% { width: 85%; }
+  100% { width: 99.9%; }
+}
+
+/* HUD Details */
+.hud-details {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #8992a3;
+  letter-spacing: 1px;
+}
+
+.hud-counter {
+  color: #e03154;
+  font-weight: 800;
+  text-shadow: 0 0 3px rgba(224, 49, 84, 0.3);
+}
+
+.dot-blink {
+  animation: blinkDots 1.8s steps(4, end) infinite;
+}
+
+@keyframes blinkDots {
+  0%, 20% { opacity: 0; }
+  40% { opacity: 1; }
+}
+
+

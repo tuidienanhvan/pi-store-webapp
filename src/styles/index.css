@@ -18,13 +18,11 @@
   --color-primary:         var(--p);
   --color-primary-hover:   var(--ph);
   --color-primary-content: var(--pc);
+  
   --color-secondary:       var(--in);
   --color-accent:          var(--su);
   --color-neutral:         var(--bc3);
   
-  --color-brand:           var(--p);
-  --color-brand-hover:     var(--ph);
-
   --color-base-100:        var(--b1);
   --color-base-200:        var(--b2);
   --color-base-300:        var(--b3);
@@ -36,15 +34,10 @@
 
   --color-success:         var(--su);
   --color-warning:         var(--wa);
-  --color-danger:          var(--er);
   --color-error:           var(--er);
   --color-info:            var(--in);
 
-  --color-base-border:        var(--bd);
-  --color-base-border-subtle: var(--bs);
-  --color-base-border-strong: var(--bt);
-  
-  --color-border-default:  var(--bd);
+  --color-border:          var(--bd);
   --color-border-subtle:   var(--bs);
   --color-border-strong:   var(--bt);
 
@@ -127,7 +120,7 @@ html, body {
   scroll-behavior: smooth;
   font-family: var(--font-sans); 
 }
-body {
+body { 
   display: flex;
   flex-direction: column;
   position: relative;
@@ -152,34 +145,49 @@ body::after {
 [data-theme="light"] body::before, .light body::before { opacity: 0.5; }
 [data-theme="light"] body::after,  .light body::after  { opacity: 0.18; }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6 { 
   font-family: var(--font-display);
   color: var(--color-base-content);
   line-height: 1.25;
 }
 
-/* --- CUSTOM SCROLLBAR (Premium) --- */
+/* --- UNIFIED PREMIUM SCROLLBAR (Quantum HUD) --- */
+:root {
+  --sb-width: 4px;
+  --sb-thumb-color: color-mix(in srgb, var(--bc3) 30%, transparent);
+  --sb-thumb-hover: color-mix(in srgb, var(--p) 80%, transparent);
+}
+
+/* 1. Chrome, Edge, Safari (Webkit) */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: var(--sb-width) !important;
+  height: var(--sb-width) !important;
+  cursor: default !important;
 }
+
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: transparent !important;
+  cursor: default !important;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--bc) 10%, transparent);
-  border-radius: 10px;
+  background: var(--sb-thumb-color) !important; /* Luôn hiển thị thumb */
+  border-radius: 10px !important;
+  cursor: default !important;
 }
+
+/* Màu đỏ thương hiệu khi hover trực tiếp vào thumb */
 ::-webkit-scrollbar-thumb:hover {
-  background: color-mix(in srgb, var(--p) 40%, transparent);
+  background: var(--sb-thumb-hover) !important;
 }
 
-/* Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: color-mix(in srgb, var(--bc) 10%, transparent) transparent;
+/* 2. Firefox (Standard) - Chỉ áp dụng nếu KHÔNG hỗ trợ Webkit */
+@supports not selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--sb-thumb-color) transparent;
+  }
 }
-
 
 /* --- 6. ANIMATIONS --- */
 @import "./animations.css";

@@ -1,21 +1,296 @@
-
-
 .pricing-page {
-  padding-bottom: 5rem;
+  min-height: 100vh;
+  background: var(--b1);
+  position: relative;
+  overflow: hidden;
 }
 
-.pricing-alerts {
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1.25rem;
+.pricing-hero {
+  position: relative;
+  padding: 120px 0 80px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--p) 8%, transparent), transparent 70%);
+}
+
+.hero-glow-back {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
-  max-width: 820px;
+  height: 600px;
+  background: 
+    radial-gradient(circle at 20% 30%, color-mix(in srgb, var(--p) 5%, transparent), transparent 40%),
+    radial-gradient(circle at 80% 60%, color-mix(in srgb, var(--p) 3%, transparent), transparent 40%);
+  filter: blur(80px);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+}
+
+.pricing-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  margin-bottom: 2rem;
+  border: 1px solid color-mix(in srgb, var(--p) 30%, transparent);
+  background: color-mix(in srgb, var(--p) 5%, transparent);
+}
+
+.pricing-headline {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 84px);
+  font-weight: 950;
+  line-height: 0.95;
+  color: var(--bc);
+  margin-bottom: 2rem;
+  letter-spacing: -0.04em;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--bc) 20%, var(--p) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 20px color-mix(in srgb, var(--p) 30%, transparent));
+}
+
+.pricing-subline {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--bc);
+  opacity: 0.6;
+  max-width: 720px;
+  margin: 0 auto 3.5rem;
+}
+
+/* HERO HUD RE-DESIGN */
+.hero-hud-decorators {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hud-schematic-border {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1200px;
+  color: var(--p);
+}
+
+.hud-schematic-border.top {
+  top: -40px;
+  height: 40px;
+}
+
+.hud-stat {
+  position: absolute;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  gap: 6px;
+  color: var(--p);
 }
 
+.hud-stat.tl { top: -20px; left: 0; text-align: left; }
+.hud-stat.tr { top: -20px; right: 0; text-align: right; align-items: flex-end; }
 
+/* Matrix Nodes */
+.node-matrix-svg {
+  margin-top: 4px;
+}
 
+.matrix-rect {
+  animation: matrix-flicker 3s infinite alternate;
+}
+
+@keyframes matrix-flicker {
+  0% { opacity: 0.1; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.3; }
+}
+
+/* Token Wave */
+.token-wave-svg {
+  margin-top: 4px;
+  overflow: visible;
+}
+
+.wave-line {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: wave-flow 2s linear infinite;
+  filter: drop-shadow(0 0 4px var(--p));
+}
+
+@keyframes wave-flow {
+  to { stroke-dashoffset: 0; }
+}
+
+.wave-dot {
+  animation: wave-pulse 1s infinite alternate;
+}
+
+@keyframes wave-pulse {
+  from { filter: drop-shadow(0 0 2px var(--p)); transform: scale(1); }
+  to { filter: drop-shadow(0 0 8px var(--p)); transform: scale(1.5); }
+}
+
+.hud-corners {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.corner-svg {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  color: var(--p);
+  opacity: 0.6;
+}
+
+.corner-svg.tl { top: -40px; left: -20px; }
+.corner-svg.tr { top: -40px; right: -20px; }
+
+/* BILLING SWITCHER */
+.billing-switcher-quantum {
+  display: inline-flex;
+  padding: 6px;
+  background: color-mix(in srgb, var(--bc) 4%, transparent);
+  border: 1px solid color-mix(in srgb, var(--bc) 10%, transparent);
+  border-radius: 100px;
+  position: relative;
+}
+
+.switcher-tab {
+  position: relative;
+  padding: 12px 32px;
+  border: none;
+  background: transparent;
+  color: var(--bc);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.switcher-tab .tab-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--p);
+  border-radius: 100px;
+  opacity: 0;
+  z-index: -1;
+  transform: scale(0.9);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.switcher-tab.active {
+  color: var(--pc);
+}
+
+.switcher-tab.active .tab-bg {
+  opacity: 1;
+  transform: scale(1);
+  box-shadow: 0 4px 15px color-mix(in srgb, var(--p) 50%, transparent);
+}
+
+.save-badge {
+  font-size: 8px !important;
+  padding: 2px 6px !important;
+  border-radius: 6px !important;
+}
+
+/* PRICING GRID */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  position: relative;
+  z-index: 5;
+}
+
+/* FOOTER HUD */
+.pricing-footer-hud {
+  margin-top: 80px;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  background: color-mix(in srgb, var(--bc) 2%, transparent);
+  border: 1px solid color-mix(in srgb, var(--bc) 5%, transparent);
+  border-radius: 32px;
+}
+
+.footer-hud-unit {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-hud-unit.clickable {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.footer-hud-unit.clickable:hover {
+  transform: translateX(8px);
+}
+
+.unit-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.unit-text .label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: var(--bc);
+  letter-spacing: 0.1em;
+}
+
+.unit-text .desc {
+  font-size: 0.7rem;
+  color: var(--bc);
+  opacity: 0.4;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+@media (max-width: 1024px) {
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pricing-footer-hud {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+  .hud-stat {
+    display: none;
+  }
+  .pricing-headline {
+    font-size: 40px;
+  }
+}

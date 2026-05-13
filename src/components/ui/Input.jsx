@@ -1,6 +1,6 @@
-﻿import React, { forwardRef, useId } from "react";
+import React, { forwardRef, useId } from "react";
 
-import { Icon } from "./icons";
+
 
 import "./Input.css";
 
@@ -14,7 +14,7 @@ export const Input = forwardRef(({
 
   error,
 
-  leadingIcon,
+  leadingIcon: LeadingIconComponent,
 
   className = "",
 
@@ -40,7 +40,7 @@ export const Input = forwardRef(({
 
   const resolvedInputStyle = {
 
-    ...(leadingIcon ? { paddingLeft: "40px" } : {}),
+    ...(LeadingIconComponent ? { paddingLeft: "40px" } : {}),
 
     ...inputStyle,
 
@@ -64,14 +64,10 @@ export const Input = forwardRef(({
 
       <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
 
-        {leadingIcon && (
-
-          <div style={{ position: "absolute", left: "12px", color: "color-mix(in srgb, var(--base-content) 60%, transparent)", display: "flex", pointerEvents: "none" }}>
-
-            <Icon name={leadingIcon} size={15} />
-
+        {LeadingIconComponent && (
+          <div style={{ position: "absolute", left: "12px", color: "color-mix(in srgb, var(--bc) 60%, transparent)", display: "flex", pointerEvents: "none" }}>
+            <LeadingIconComponent size={15} />
           </div>
-
         )}
 
         <input

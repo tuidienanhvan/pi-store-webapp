@@ -1,8 +1,9 @@
-﻿import "./HomeFeatured.css";
+import "./HomeFeatured.css";
 
 import { Link } from "react-router-dom";
 
-import { Button, Icon } from "../ui";
+import { Button } from "../ui";
+import { Check, ArrowRight } from "lucide-react";
 
 
 export function HomeFeatured({ tiers = [], t }) {
@@ -81,7 +82,7 @@ export function HomeFeatured({ tiers = [], t }) {
 
                   <li key={i} className="home-featured__feature">
 
-                    <Icon name="check" size={16} className="feature-icon" />
+                    <Check size={16} className="feature-icon" />
 
                     <span>{f.replace(/^\+\s*/, "")}</span>
 
@@ -119,7 +120,7 @@ export function HomeFeatured({ tiers = [], t }) {
 
           <Button as={Link} to="/pricing" variant="ghost" className="comparison-btn">
 
-            {t?.featured?.ctaAll || "So sánh đầy đủ"} <Icon name="arrow-right" size={16} />
+            {t?.featured?.ctaAll || "So sánh đầy đủ"} <ArrowRight size={16} />
 
           </Button>
 

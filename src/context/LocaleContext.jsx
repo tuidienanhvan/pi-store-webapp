@@ -1,4 +1,4 @@
-﻿import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { messages } from '../i18n/messages';
 
 const STORAGE_KEY = 'pi-store-locale';

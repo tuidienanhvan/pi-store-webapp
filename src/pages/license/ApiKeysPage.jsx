@@ -1,8 +1,9 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { api } from "@/lib/api-client";
 
-import { Card, Button, Alert, Icon, Table, Badge } from "@/components/ui";
+import { Card, Button, Alert, Table, Badge } from "@/components/ui";
+import { Check, Copy, ExternalLink } from "lucide-react";
 
 
 
@@ -84,8 +85,7 @@ Content-Type: application/json`}
 
               <Button variant="secondary" onClick={copyKey}>
 
-                <Icon name={copied ? "check" : "copy"} size={16} style={{ marginRight: "8px" }} />
-
+                {copied ? <Check size={16} style={{ marginRight: "8px" }} /> : <Copy size={16} style={{ marginRight: "8px" }} />}
                 {copied ? " copy!" : "Copy"}
 
               </Button>
@@ -126,7 +126,7 @@ Content-Type: application/json`}
 
             <Button as="a" href="https://api.piwebagency.com/docs" target="_blank" rel="noreferrer" variant="ghost">
 
-              Full API docs (Swagger) <Icon name="external-link" size={16} style={{ marginLeft: "4px" }} />
+              Full API docs (Swagger) <ExternalLink size={16} style={{ marginLeft: "4px" }} />
 
             </Button>
 

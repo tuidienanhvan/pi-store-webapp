@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import "./PricingFAQ.css";
 
 export function PricingFAQ() {

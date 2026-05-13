@@ -1,5 +1,6 @@
+// Trigger reload for admin-i18n.js fix v2
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import react from "@vitejs/plugin-react"; // Triggering dev server restart
 import tailwindcss from "@tailwindcss/vite";
 import path from "node:path";
 

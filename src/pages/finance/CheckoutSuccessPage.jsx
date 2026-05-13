@@ -1,6 +1,7 @@
-﻿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import { Button, Card, Icon } from "@/components/ui";
+import { Button, Card } from "@/components/ui";
+import { Check } from "lucide-react";
 
 
 
@@ -14,7 +15,7 @@ export function CheckoutSuccessPage() {
 
         <div style={{ margin: "0 auto", width: 64, height: 64, borderRadius: 18, background: "var(--success-soft)", color: "var(--success)", display: "grid", placeItems: "center" }}>
 
-          <Icon name="check" size={32} />
+          <Check size={32} />
 
         </div>
 

@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { api } from "@/lib/api-client";
 
@@ -6,7 +6,8 @@ import { useListFilters } from "@/hooks/useListFilters";
 
 import { formatTokens } from "@/lib/format";
 
-import { Alert, Badge, Button, Card, EmptyState, Icon, Skeleton, Table } from "@/components/ui";
+import { Alert, Badge, Button, Card, EmptyState, Skeleton, Table } from "@/components/ui";
+import { X, Zap } from "lucide-react";
 
 
 
@@ -144,7 +145,7 @@ export function UserUsagePage() {
 
             <Button variant="ghost" size="sm" onClick={reset} className="rounded-lg text-danger/70 hover:text-danger ml-auto">
 
-              <Icon name="x" size={14} className="mr-1" /> Clear
+              <X size={14} className="mr-1" /> Clear
 
             </Button>
 
@@ -196,7 +197,7 @@ export function UserUsagePage() {
 
         ) : daily.length === 0 ? (
 
-          <EmptyState title="No calls yet" description="Call APIs to see chart data." icon="zap" />
+          <EmptyState title="No calls yet" description="Call APIs to see chart data." icon={Zap} />
 
         ) : (
 

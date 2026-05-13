@@ -1,8 +1,9 @@
-﻿import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useLocale } from "@/context/LocaleContext";
-import { useAdminT, formatCurrencyUSD } from "@/lib/adminI18n";
+import { useAdminT, formatCurrencyUSD } from "@/lib/translations";
 import { api, withDelay } from "@/lib/api-client";
-import { Card, Table, Badge, Alert, Icon } from "@/components/ui";
+import { Card, Table, Badge, Alert } from "@/components/ui";
+import { PieChart } from "lucide-react";
 import { AdminRevenueSkeleton } from "@/components/skeletons/AdminRevenueSkeleton";
 import { AdminStatCard } from "@/pages/core/components/AdminStatCard";
 import "./AdminRevenuePage.css";
@@ -103,7 +104,7 @@ export function AdminRevenuePage() {
                   <div className="absolute inset-0 rounded-full shadow-inner" style={{ background: conicGradient }} />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-[68%] h-[68%] bg-base-200 rounded-full shadow-2xl flex items-center justify-center border border-base-border-subtle">
-                      <Icon name="pie-chart" size={24} className="text-base-content/60 opacity-20" />
+                      <PieChart size={24} className="text-base-content/60 opacity-20" />
                     </div>
                   </div>
                 </div>

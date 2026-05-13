@@ -1,10 +1,11 @@
-﻿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { useLocale } from "../context/LocaleContext";
 
 import { getLocalizedProduct } from "../lib/catalog";
 
-import { Button, Card, Badge, Icon } from "./ui";
+import { Button, Card, Badge } from "./ui";
+import { Check } from "lucide-react";
 
 
 
@@ -54,7 +55,7 @@ export function HeroSection({ featuredProduct, billingCycle, detailSearch = "" }
 
               <li key={point} className="row gap-2 items-center">
 
-                <Icon name="check" size={16} className="text-primary" />
+                <Check size={16} className="text-primary" />
 
                 <span>{point}</span>
 

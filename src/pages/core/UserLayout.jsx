@@ -1,34 +1,28 @@
-﻿import { DashboardLayout } from "@/components/core/DashboardLayout";
-
-
+import { DashboardLayout } from "@/components/core/DashboardLayout";
+import { 
+  Home, 
+  Monitor, 
+  Key, 
+  Download, 
+  Zap, 
+  CreditCard, 
+  Headset, 
+  User 
+} from "lucide-react";
 
 const USER_NAV = [
-
-  { to: "/app",           label: "T?ng quan",    icon: "home", end: true },
-
-  { to: "/app/usage",     label: "Usage",        icon: "monitor" },
-
-  { to: "/app/licenses",  label: "License",      icon: "key" },
-
-  { to: "/app/downloads", label: "T?i plugin",   icon: "download" },
-
-  { to: "/app/api-keys",  label: "API keys",     icon: "zap" },
-
-  { to: "/app/billing",   label: "Thanh ton",   icon: "credit-card" },
-
-  { to: "/app/support",   label: "H? tr?",       icon: "headset" },
-
-  { to: "/app/profile",   label: "H? so",        icon: "user" },
-
+  { to: "/app",           label: "Tổng quan",    icon: Home, end: true },
+  { to: "/app/usage",     label: "Usage",        icon: Monitor },
+  { to: "/app/licenses",  label: "License",      icon: Key },
+  { to: "/app/downloads", label: "Tải plugin",   icon: Download },
+  { to: "/app/api-keys",  label: "API keys",     icon: Zap },
+  { to: "/app/billing",   label: "Thanh toán",   icon: CreditCard },
+  { to: "/app/support",   label: "Hỗ trợ",       icon: Headset },
+  { to: "/app/profile",   label: "Hồ sơ",        icon: User },
 ];
 
-
-
 export function UserLayout() {
-
   return <DashboardLayout variant="user" nav={USER_NAV} />;
-
 }
-
 
 export default UserLayout;
