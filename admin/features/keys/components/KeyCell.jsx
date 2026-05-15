@@ -39,11 +39,11 @@ export function KeyCell({ k }) {
   };
 
   return (
-    <div className="flex flex-col gap-1.5">
-      <div className="text-xs font-bold text-base-content/80 group-hover:text-primary transition-colors truncate max-w-[150px]">
+    <div className="pi-key-cell flex flex-col gap-1.5">
+      <div className="pi-key-cell__label text-xs font-bold group-hover:text-primary transition-colors truncate max-w-[150px]">
         {k.label || <span className="opacity-10 italic">CHƯA ĐẶT TÊN</span>}
       </div>
-      <div className="flex items-center gap-3 bg-white/5 border border-white/5 rounded-lg px-3 py-1.5 w-fit group/key">
+      <div className="pi-key-cell__shell flex items-center gap-3 rounded-lg px-3 py-1.5 w-fit group/key">
         <code className={`text-xs font-mono font-bold transition-all ${fullKey ?"text-primary" : "text-base-content/40"}`}>
           {fullKey || k.key_masked}
         </code>
@@ -56,11 +56,10 @@ export function KeyCell({ k }) {
           </button>
         </div>
       </div>
-      {err && <div className="text-xs text-danger font-semibold mt-1">{err}</div>}
+      {err && <div className="pi-key-cell__error text-xs text-danger font-semibold mt-1">{err}</div>}
     </div>
   );
 }
-
 
 
 

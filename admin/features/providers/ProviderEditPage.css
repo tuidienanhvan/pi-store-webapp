@@ -1,3 +1,13 @@
 .pi-provider-edit-page {
   color: var(--bc);
 }
+
+.pi-provider-edit-page__form {
+  align-items: start;
+}
+
+.pi-provider-edit-page .form-section {
+  border: 1px solid color-mix(in srgb, var(--bc) 6%, transparent);
+  background: color-mix(in srgb, var(--b2) 92%, transparent);
+  box-shadow: var(--shadow-md);
+}

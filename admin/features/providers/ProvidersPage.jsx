@@ -105,7 +105,7 @@ export function ProvidersPage() {
   if (loading && providers.length === 0) return <AdminTableSkeleton />;
 
   return (
-    <div className="p-6 lg:p-10 flex flex-col gap-8">
+    <div className="pi-providers-page p-6 lg:p-10 flex flex-col gap-8">
       <AdminPageHeader 
         title="Nhà cung cấp AI"
         tagline="Quản lý kết nối, model và trung tâm điều phối lưu lượng AI"
@@ -128,7 +128,7 @@ export function ProvidersPage() {
       {error && <Alert tone="warning" onDismiss={() => setError("")}>{error}</Alert>}
 
       {/* Bảng danh sách nhà cung cấp */}
-      <AdminTable>
+      <AdminTable className="pi-providers-page__table">
         <thead>
           <tr className="bg-white/[0.02]">
             <th className="py-5 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Mã / Tên</th>
@@ -141,9 +141,9 @@ export function ProvidersPage() {
             <th className="py-5 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Thao tác</th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-white/5">
+        <tbody className="pi-providers-page__tbody divide-y divide-white/5">
           {providers.map((p) => (
-            <tr key={p.id} className="group hover:bg-white/[0.01] transition-all duration-300">
+            <tr key={p.id} className="pi-providers-page__row group hover:bg-white/[0.01] transition-all duration-300">
               <td className="py-6 px-6">
                 <div className="flex flex-col">
                   <span className="text-sm font-bold text-base-content group-hover:text-primary transition-colors">{p.slug}</span>
@@ -228,7 +228,6 @@ export function ProvidersPage() {
 }
 
 export default ProvidersPage;
-
 
 
 

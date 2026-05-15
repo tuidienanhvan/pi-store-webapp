@@ -51,7 +51,7 @@ export function LicenseCreatePage() {
   };
 
   return (
-    <div className="flex flex-col gap-10 pb-20">
+    <div className="pi-license-create-page flex flex-col gap-10 pb-20">
       <AdminPageHeader
         title="Cấp giấy phép mới"
         tagline="Khởi tạo mã kích hoạt và quyền truy cập cho khách hàng"
@@ -62,7 +62,7 @@ export function LicenseCreatePage() {
         }
       />
 
-      <form onSubmit={submit} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <form onSubmit={submit} className="pi-license-create-page__form grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Cột chính: Thông tin cốt lõi */}
         <div className="lg:col-span-2 flex flex-col gap-8">
           <FormSection title="Định danh & Sản phẩm" icon={ShieldPlus}>

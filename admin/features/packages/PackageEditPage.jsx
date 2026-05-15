@@ -101,7 +101,7 @@ export function PackageEditPage() {
   if (loading) return <AdminTableSkeleton />;
 
   return (
-    <div className="max-w-5xl mx-auto flex flex-col gap-6 pb-12">
+    <div className="pi-package-edit-page max-w-5xl mx-auto flex flex-col gap-6 pb-12">
       <AdminPageHeader
         title={isNew ? "Tạo gói dịch vụ" : `Cấu hình: ${form.display_name || form.slug}`}
         tagline={isNew ? "Định giá, hạn mức và chính sách định tuyến" : `Mã: ${form.slug}`}
@@ -112,7 +112,7 @@ export function PackageEditPage() {
         }
       />
 
-      <form onSubmit={submit} className="flex flex-col gap-5">
+      <form onSubmit={submit} className="pi-package-edit-page__form flex flex-col gap-5">
         {/* ─── Định danh ─── */}
         <FormSection title="Định danh" icon={ShieldCheck}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -339,7 +339,7 @@ export function PackageEditPage() {
         {err && <Alert tone="danger" onDismiss={() => setErr("")}>{err}</Alert>}
 
         {/* Sticky footer */}
-        <div className="flex items-center gap-3 pt-3 sticky bottom-0 bg-base-100 py-3 border-t border-white/5">
+        <div className="pi-package-edit-page__footer flex items-center gap-3 pt-3 sticky bottom-0 py-3">
           <Button as={Link} to="/admin/packages" type="button" variant="ghost" className="flex-1">
             Huỷ
           </Button>

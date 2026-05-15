@@ -76,7 +76,7 @@ export function PackagesPage() {
   if (loading && items.length === 0) return <AdminTableSkeleton />;
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="pi-packages-page flex flex-col gap-8">
       <AdminPageHeader 
         title="Danh mục Gói dịch vụ"
         tagline="Quản lý cấu hình, định giá và hạn mức cho các sản phẩm hệ thống"
@@ -89,7 +89,7 @@ export function PackagesPage() {
 
       {err && <Alert tone="danger" onDismiss={() => setErr("")}>{err}</Alert>}
 
-      <AdminTable>
+      <AdminTable className="pi-packages-page__table">
         <thead>
           <tr className="bg-white/[0.02]">
             <th className="py-5 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Mã / Tên hiển thị</th>
@@ -102,9 +102,9 @@ export function PackagesPage() {
             <th className="py-5 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Thao tác</th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-white/5">
+        <tbody className="pi-packages-page__tbody divide-y divide-white/5">
           {items.map((p) => (
-            <tr key={p.slug} className="group hover:bg-white/[0.01] transition-all duration-300">
+            <tr key={p.slug} className="pi-packages-page__row group hover:bg-white/[0.01] transition-all duration-300">
               <td className="py-6 px-6">
                 <div className="flex flex-col gap-1">
                   <span className="text-xs font-mono font-bold text-primary tracking-tighter">MÃ: {p.slug}</span>
@@ -185,7 +185,6 @@ export function PackagesPage() {
 }
 
 export default PackagesPage;
-
 
 
 

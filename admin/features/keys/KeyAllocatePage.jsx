@@ -41,7 +41,7 @@ export function KeyAllocatePage() {
   if (!keyObj) return <div className="p-10 text-center">Đang tải dữ liệu...</div>;
 
   return (
-    <div className="flex flex-col gap-6 pb-12 max-w-7xl">
+    <div className="pi-key-allocate-page flex flex-col gap-6 pb-12 max-w-7xl">
       <AdminPageHeader 
         title="Cấp phát khóa bảo mật"
         tagline="Gán khóa API cho một giấy phép cụ thể"
@@ -52,9 +52,9 @@ export function KeyAllocatePage() {
         }
       />
 
-      <form onSubmit={submit} className="flex flex-col gap-5">
+      <form onSubmit={submit} className="pi-key-allocate-page__form flex flex-col gap-5">
         <FormSection title="Thông tin khóa">
-          <div className="p-4 rounded-xl bg-white/[0.03] border border-white/5 flex items-center gap-3">
+          <div className="pi-key-allocate-page__key-card p-4 rounded-xl flex items-center gap-3">
             <div className="p-2 rounded-lg bg-primary/10 border border-primary/20 text-primary">
               <Key size={16} />
             </div>
@@ -81,7 +81,7 @@ export function KeyAllocatePage() {
 
         {err && <Alert tone="danger" onDismiss={() => setErr("")}>{err}</Alert>}
 
-        <div className="flex items-center gap-3 pt-3 sticky bottom-0 bg-base-100 py-4 -mx-6 px-6 border-t border-white/5">
+        <div className="pi-key-allocate-page__footer flex items-center gap-3 pt-3 sticky py-4 -mx-6 px-6">
           <Button as={Link} to="/admin/keys" type="button" variant="ghost" className="flex-1">
             Hủy bỏ
           </Button>
@@ -95,7 +95,6 @@ export function KeyAllocatePage() {
 }
 
 export default KeyAllocatePage;
-
 
 
 

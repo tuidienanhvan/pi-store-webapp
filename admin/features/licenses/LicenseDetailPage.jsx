@@ -335,7 +335,7 @@ export function LicenseDetailPage() {
   );
 
   return (
-    <div className="flex flex-col gap-8 pb-12">
+    <div className="pi-license-detail-page flex flex-col gap-8 pb-12">
       <AdminPageHeader 
         title={`Chi tiết Giấy phép: #${license.id}`}
         tagline={license.email}
@@ -351,7 +351,7 @@ export function LicenseDetailPage() {
         }
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <div className="pi-license-detail-page__grid grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Left Column: Readonly Summary - Sticky if possible */}
         <div className="lg:col-span-1">
           <AdminCard className="p-8 flex flex-col gap-6 border-primary/10 bg-primary/[0.02]">
@@ -414,7 +414,6 @@ export function LicenseDetailPage() {
 }
 
 export default LicenseDetailPage;
-
 
 
 

@@ -148,7 +148,7 @@ export function ProviderEditPage() {
   if (loading) return <div className="p-10 text-center">Đang tải dữ liệu...</div>;
 
   return (
-    <div className="flex flex-col gap-10 pb-20">
+    <div className="pi-provider-edit-page flex flex-col gap-10 pb-20">
       <AdminPageHeader 
         title={isNew ? "Thêm nhà cung cấp" : `Cấu hình: ${form.display_name || form.slug}`}
         tagline="Định nghĩa kết nối và mô hình học máy cho bộ định tuyến"
@@ -159,7 +159,7 @@ export function ProviderEditPage() {
         }
       />
 
-      <form onSubmit={submit} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <form onSubmit={submit} className="pi-provider-edit-page__form grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Cột chính: Thông tin & Kết nối */}
         <div className="lg:col-span-2 flex flex-col gap-8">
           <FormSection title="Thông tin định danh">
@@ -420,7 +420,6 @@ export function ProviderEditPage() {
 }
 
 export default ProviderEditPage;
-
 
 
 

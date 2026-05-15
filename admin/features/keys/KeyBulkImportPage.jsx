@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Alert, Button, Textarea } from "@/_shared/components/ui";
 import { Info, ArrowLeft } from "lucide-react";
@@ -54,7 +54,7 @@ export function KeyBulkImportPage() {
   };
 
   return (
-    <div className="flex flex-col gap-10 pb-20">
+    <div className="pi-key-bulk-import-page flex flex-col gap-10 pb-20">
       <AdminPageHeader 
         title="Nhập khóa (Bulk Import)"
         tagline="Nhập danh sách khóa API số lượng lớn từ định dạng CSV"
@@ -65,7 +65,7 @@ export function KeyBulkImportPage() {
         }
       />
 
-      <form onSubmit={submit} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <form onSubmit={submit} className="pi-key-bulk-import-page__form grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Cột chính: Khu vực nhập liệu */}
         <div className="lg:col-span-2 flex flex-col gap-8">
           <FormSection title="Dữ liệu CSV đầu vào">
@@ -81,7 +81,7 @@ export function KeyBulkImportPage() {
 
         {/* Cột phụ: Hướng dẫn & Thông tin */}
         <div className="flex flex-col gap-8">
-          <div className="flex items-start gap-4 p-5 rounded-2xl bg-primary/10 border border-primary/20 text-primary">
+          <div className="pi-key-bulk-import-page__help-card flex items-start gap-4 p-5 rounded-2xl text-primary">
             <Info size={18} className="shrink-0 mt-0.5" />
             <div className="flex flex-col gap-1">
               <span className="text-xs font-bold tracking-wider uppercase">Định dạng CSV chuẩn</span>
@@ -97,7 +97,7 @@ export function KeyBulkImportPage() {
           <FormSection title="Mã Nhà Cung Cấp Hỗ Trợ" description="Sử dụng các ID này trong cột provider_slug">
             <div className="flex flex-wrap gap-2 mt-2">
               {providers.map(p => (
-                <span key={p.slug} className="text-xs font-bold tracking-wider uppercase text-base-content/60 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">
+                <span key={p.slug} className="pi-key-bulk-import-page__provider-chip text-xs font-bold tracking-wider uppercase text-base-content/60 px-3 py-1.5 rounded-lg">
                   {p.slug}
                 </span>
               ))}
@@ -137,7 +137,6 @@ export function KeyBulkImportPage() {
 }
 
 export default KeyBulkImportPage;
-
 
 
 

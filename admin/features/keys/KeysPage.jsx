@@ -137,7 +137,7 @@ export function KeysPage() {
   if (loading && keys.length === 0) return <AdminTableSkeleton />;
 
   return (
-    <div className="p-6 lg:p-10 flex flex-col gap-8">
+    <div className="pi-keys-page p-6 lg:p-10 flex flex-col gap-8">
       <AdminPageHeader 
         title="Kho khóa API"
         tagline="Quản lý tài nguyên, cấp phát và giám sát mức độ tiêu thụ của các API Key"
@@ -174,7 +174,7 @@ export function KeysPage() {
                <Cpu size={16} className="text-primary/60" />
                <h2 className="text-xs font-semibold tracking-wider text-base-content/40">Hạ tầng nhà cung cấp</h2>
             </div>
-            <AdminTable>
+            <AdminTable className="pi-keys-page__summary-table">
                <thead>
                   <tr className="bg-white/[0.02]">
                      <th className="py-4 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Nhà cung cấp</th>
@@ -186,7 +186,7 @@ export function KeysPage() {
                      <th className="py-4 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Thao tác</th>
                   </tr>
                </thead>
-               <tbody className="divide-y divide-white/5">
+               <tbody className="pi-keys-page__tbody divide-y divide-white/5">
                   {summary.map((r) => (
                     <tr key={r.provider_id} className="hover:bg-white/[0.01] transition-colors">
                       <td className="py-4 px-6">
@@ -227,6 +227,7 @@ export function KeysPage() {
             </div>
 
             <AdminFilterBar
+              className="pi-keys-page__filters"
               search={searchInput}
               onSearchChange={setSearchInput}
               onClear={() => { setSearchInput(""); reset(); }}
@@ -266,7 +267,7 @@ export function KeysPage() {
               />
             </AdminFilterBar>
 
-            <AdminTable>
+            <AdminTable className="pi-keys-page__table">
                <thead>
                   <tr className="bg-white/[0.02]">
                      <th className="py-4 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Nhà cung cấp</th>
@@ -278,7 +279,7 @@ export function KeysPage() {
                      <th className="py-4 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Thao tác</th>
                   </tr>
                </thead>
-               <tbody className="divide-y divide-white/5">
+               <tbody className="pi-keys-page__tbody divide-y divide-white/5">
                   {keys.length === 0 && !loading ? (
                     <tr><td colSpan="7" className="py-32"><AdminEmptyState title="Không tìm thấy khóa" description="Thử thay đổi bộ lọc tìm kiếm của bạn." /></td></tr>
                   ) : (
@@ -361,7 +362,6 @@ export function KeysPage() {
 }
 
 export default KeysPage;
-
 
 
 

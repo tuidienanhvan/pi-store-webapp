@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Alert, Button, Input, Select, Textarea } from "@/_shared/components/ui";
 import { ArrowLeft } from "lucide-react";
@@ -45,7 +45,7 @@ export function KeyCreatePage() {
   };
 
   return (
-    <div className="flex flex-col gap-10 pb-20">
+    <div className="pi-key-create-page flex flex-col gap-10 pb-20">
       <AdminPageHeader 
         title="Đăng ký khóa bảo mật"
         tagline="Thêm khóa API mới vào hệ thống điều phối"
@@ -56,7 +56,7 @@ export function KeyCreatePage() {
         }
       />
 
-      <form onSubmit={submit} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <form onSubmit={submit} className="pi-key-create-page__form grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Cột chính: Thông tin cốt lõi */}
         <div className="lg:col-span-2 flex flex-col gap-8">
           <FormSection title="Cấu hình khóa API chính">
@@ -146,7 +146,6 @@ export function KeyCreatePage() {
 }
 
 export default KeyCreatePage;
-
 
 
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { api } from "@/_shared/api/api-client";
 import { Alert, Button, Input, Textarea } from "@/_shared/components/ui";
@@ -52,7 +52,7 @@ export function LicenseAdjustTokensPage() {
   };
 
   return (
-    <div className="flex flex-col gap-6 pb-12 max-w-7xl">
+    <div className="pi-license-adjust-tokens-page flex flex-col gap-6 pb-12 max-w-7xl">
       <AdminPageHeader 
         title="Điều chỉnh Token"
         tagline={`Thay đổi hạn mức cho giấy phép #${id}`}
@@ -63,9 +63,9 @@ export function LicenseAdjustTokensPage() {
         }
       />
 
-      <form onSubmit={handleOpenConfirm} className="flex flex-col gap-5">
+      <form onSubmit={handleOpenConfirm} className="pi-license-adjust-tokens-page__form flex flex-col gap-5">
         <FormSection title="Thông tin giấy phép">
-          <div className="p-4 rounded-xl bg-white/[0.03] border border-white/5 flex flex-col gap-3">
+          <div className="pi-license-adjust-tokens-page__target-card p-4 rounded-xl flex flex-col gap-3">
             <div className="flex items-center justify-between">
               <span className="text-xs font-medium text-primary/60">Giấy phép mục tiêu</span>
               <AdminBadge tone="brand">{license.tier}</AdminBadge>
@@ -115,7 +115,7 @@ export function LicenseAdjustTokensPage() {
 
         {err && <Alert tone="danger" onDismiss={() => setErr("")}>{err}</Alert>}
 
-        <div className="flex items-center gap-3 pt-3 sticky bottom-0 bg-base-100 py-4 -mx-6 px-6 border-t border-white/5">
+        <div className="pi-license-adjust-tokens-page__footer flex items-center gap-3 pt-3 sticky py-4 -mx-6 px-6">
           <Button as={Link} to={`/admin/licenses/${id}`} type="button" variant="ghost" className="flex-1">
             Hủy bỏ
           </Button>
@@ -139,7 +139,6 @@ export function LicenseAdjustTokensPage() {
 }
 
 export default LicenseAdjustTokensPage;
-
 
 
 

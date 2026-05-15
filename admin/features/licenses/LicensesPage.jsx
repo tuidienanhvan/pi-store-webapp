@@ -97,7 +97,7 @@ export function LicensesPage() {
   if (loading && data.items.length === 0) return <AdminTableSkeleton />;
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="pi-licenses-page flex flex-col gap-8">
       <AdminPageHeader 
         title="Quản lý Giấy phép"
         tagline="Danh sách mã kích hoạt và quyền truy cập của khách hàng"
@@ -112,6 +112,7 @@ export function LicensesPage() {
 
       {/* Thanh lọc dữ liệu */}
       <AdminFilterBar 
+        className="pi-licenses-page__filters"
         search={searchInput} 
         onSearchChange={setSearchInput}
         onClear={() => { setSearchInput(""); reset(); }}
@@ -165,7 +166,7 @@ export function LicensesPage() {
       </div>
 
       {/* Bảng dữ liệu */}
-      <AdminTable>
+      <AdminTable className="pi-licenses-page__table">
         {data.items.length === 0 && !loading ? (
           <AdminEmptyState 
             icon={Key}
@@ -190,7 +191,7 @@ export function LicensesPage() {
                 <th className="py-5 px-6 text-right font-semibold tracking-wider text-xs opacity-50">Thao tác</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-white/5">
+            <tbody className="pi-licenses-page__tbody divide-y divide-white/5">
                {data.items.map((l) => (
                  <LicenseRow 
                    key={l.id} 
@@ -230,7 +231,6 @@ export function LicensesPage() {
 }
 
 export default LicensesPage;
-
 
 
 

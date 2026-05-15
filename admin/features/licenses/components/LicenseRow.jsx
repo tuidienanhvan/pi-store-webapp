@@ -31,10 +31,10 @@ export function LicenseRow({ l, onOpen, onRevoke, onReactivate, onDelete }) {
   }[l.status] || l.status;
 
   return (
-    <tr className="group hover:bg-white/[0.01] transition-all duration-300">
+    <tr className="pi-license-row group transition-all duration-300">
       <td className="py-6 px-6 font-mono text-xs text-base-content/40">#{l.id}</td>
       <td className="py-6 px-6">
-        <div className="flex items-center gap-3 bg-white/5 border border-white/5 rounded-lg px-3 py-2 w-fit group/key">
+        <div className="pi-license-row__key-shell flex items-center gap-3 rounded-lg px-3 py-2 w-fit group/key">
           <code className="text-xs font-mono font-bold text-primary/80">
             {showKey ? l.key : maskKey(l.key, 8, 4)}
           </code>
@@ -63,7 +63,7 @@ export function LicenseRow({ l, onOpen, onRevoke, onReactivate, onDelete }) {
                 {formatTokens(l.quota_used)}/{formatTokens(l.quota_limit)}
               </span>
             </div>
-            <div className="w-32 h-1 bg-white/5 rounded-full overflow-hidden">
+            <div className="pi-license-row__quota-track w-32 h-1 rounded-full overflow-hidden">
                <div 
                  className={`h-full transition-all duration-1000 ${quotaPct > 90 ?'bg-danger' : quotaPct > 70 ? 'bg-warning' : 'bg-primary'}`} 
                  style={{ width: `${quotaPct}%` }} 
@@ -79,7 +79,7 @@ export function LicenseRow({ l, onOpen, onRevoke, onReactivate, onDelete }) {
           <span className={`text-sm font-bold ${l.activated_sites >= l.max_sites ?"text-warning" : "text-base-content/80"}`}>
             {l.activated_sites}
           </span>
-          <div className="w-8 h-[1px] bg-white/10 my-1" />
+          <div className="pi-license-row__site-divider w-8 h-[1px] my-1" />
           <span className="text-xs font-bold text-base-content/30">{l.max_sites} Lượt</span>
         </div>
       </td>
@@ -87,7 +87,7 @@ export function LicenseRow({ l, onOpen, onRevoke, onReactivate, onDelete }) {
         <AdminBadge tone={statusTone}>{statusLabel}</AdminBadge>
       </td>
       <td className="py-6 px-6">
-        <div className="flex items-center justify-end gap-1 opacity-60 group-hover:opacity-100 transition-all duration-300">
+        <div className="pi-license-row__actions flex items-center justify-end gap-1 transition-all duration-300">
                    <IconButton as={Link} to={`/admin/licenses/${l.id}`} icon={Edit2} label="Chỉnh sửa" size="sm" className="hover:bg-primary/10 hover:text-primary border border-transparent hover:border-primary/20" />
 
           {l.status === "active" ? (
@@ -101,7 +101,6 @@ export function LicenseRow({ l, onOpen, onRevoke, onReactivate, onDelete }) {
     </tr>
   );
 }
-
 
 
 

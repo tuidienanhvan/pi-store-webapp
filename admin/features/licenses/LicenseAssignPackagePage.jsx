@@ -92,7 +92,7 @@ export function LicenseAssignPackagePage() {
   const selectedPackage = packages.find((item) => item.slug === packageSlug);
 
   return (
-    <div className="flex flex-col gap-10 pb-20">
+    <div className="pi-license-assign-package-page flex flex-col gap-10 pb-20">
       <AdminPageHeader 
         title="Gán gói dịch vụ"
         tagline={`Cấp quyền truy cập cho giấy phép #${id}`}
@@ -103,12 +103,12 @@ export function LicenseAssignPackagePage() {
         }
       />
 
-      <form onSubmit={submit} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <form onSubmit={submit} className="pi-license-assign-package-page__form grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Cột chính: Cấu hình Gói Dịch Vụ */}
         <div className="lg:col-span-2 flex flex-col gap-8">
           <FormSection title="Thiết lập Gói Dịch Vụ">
             {loading ? (
-              <div className="py-20 flex flex-col items-center justify-center gap-4 text-primary/40 bg-white/[0.02] rounded-3xl border border-white/5">
+              <div className="pi-license-assign-package-page__loading py-20 flex flex-col items-center justify-center gap-4 text-primary/40 rounded-3xl">
                 <RefreshCw className="animate-spin" size={32} />
                 <span className="text-xs font-medium tracking-widest uppercase">Đang tải danh sách gói...</span>
               </div>
@@ -150,7 +150,7 @@ export function LicenseAssignPackagePage() {
                 </div>
 
                 {selectedPackage && (
-                  <div className="mt-2 p-6 rounded-2xl bg-white/[0.02] border border-white/5">
+                  <div className="pi-license-assign-package-page__package-card mt-2 p-6 rounded-2xl">
                     <div className="text-xs font-bold tracking-wider text-base-content/50 uppercase mb-4">Chi tiết gói được chọn</div>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                       {[
@@ -159,7 +159,7 @@ export function LicenseAssignPackagePage() {
                         { label: 'Số khóa riêng', val: selectedPackage.dedicated_key_count || 0, icon: Package },
                         { label: 'Chất lượng AI', val: (selectedPackage.allowed_qualities || []).join(", ") || "TẤT CẢ", icon: Cpu },
                       ].map(stat => (
-                        <div key={stat.label} className="flex flex-col gap-1 p-3 rounded-xl bg-white/5 border border-white/5">
+                        <div key={stat.label} className="pi-license-assign-package-page__package-stat flex flex-col gap-1 p-3 rounded-xl">
                           <div className="text-xs font-semibold text-base-content/40 uppercase tracking-wider flex items-center gap-1.5">
                             <stat.icon size={12} className="text-primary/70" /> {stat.label}
                           </div>
@@ -177,7 +177,7 @@ export function LicenseAssignPackagePage() {
         {/* Cột phụ: Thông tin License & Vận hành */}
         <div className="flex flex-col gap-8">
           <FormSection title="Thông tin Mục Tiêu">
-            <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/5 flex flex-col gap-4">
+            <div className="pi-license-assign-package-page__target-card p-5 rounded-2xl flex flex-col gap-4">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold tracking-wider text-base-content/50 uppercase">Giấy phép đích</span>
                 <div className="flex gap-2">
@@ -198,7 +198,7 @@ export function LicenseAssignPackagePage() {
 
           {currentPackage && (
             <FormSection title="Tình trạng chu kỳ">
-              <div className="p-5 rounded-2xl bg-primary/5 border border-primary/20 flex flex-col gap-4">
+              <div className="pi-license-assign-package-page__cycle-card p-5 rounded-2xl flex flex-col gap-4">
                 <div className="flex items-center justify-between">
                   <div className="text-xs font-bold tracking-wider text-primary uppercase">Hiệu năng tiêu thụ</div>
                   <Button type="button" variant="ghost" onClick={() => setShowResetConfirm(true)} className="h-8 px-2 rounded-lg border border-primary/20 hover:bg-primary/10 text-xs font-bold text-primary">
@@ -216,8 +216,8 @@ export function LicenseAssignPackagePage() {
                       {Math.round((currentPackage.current_period_tokens_used / (currentPackage.token_quota_monthly || 1)) * 100)}%
                     </span>
                   </div>
-                  <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden mt-1">
-                    <div className="h-full bg-primary transition-all duration-1000" style={{ width: `${Math.min(100, (currentPackage.current_period_tokens_used / (currentPackage.token_quota_monthly || 1)) * 100)}%` }} />
+                  <div className="pi-license-assign-package-page__progress-track w-full h-1.5 rounded-full overflow-hidden mt-1">
+                    <div className="pi-license-assign-package-page__progress-bar h-full transition-all duration-1000" style={{ width: `${Math.min(100, (currentPackage.current_period_tokens_used / (currentPackage.token_quota_monthly || 1)) * 100)}%` }} />
                   </div>
                 </div>
               </div>
@@ -257,7 +257,6 @@ export function LicenseAssignPackagePage() {
 }
 
 export default LicenseAssignPackagePage;
-
 
 
 

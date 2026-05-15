@@ -1,3 +1,16 @@
 .pi-key-cell {
   color: var(--bc);
 }
+
+.pi-key-cell__label {
+  color: color-mix(in srgb, var(--bc) 82%, transparent);
+}
+
+.pi-key-cell__shell {
+  border: 1px solid color-mix(in srgb, var(--bc) 6%, transparent);
+  background: color-mix(in srgb, var(--b3) 88%, transparent);
+}
+
+.pi-key-cell__error {
+  color: var(--er);
+}

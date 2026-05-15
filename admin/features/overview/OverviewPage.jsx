@@ -114,7 +114,7 @@ export function OverviewPage() {
   const tokenPctOfCap = Math.min(100, Math.round((data.tokens.projected_month_end / Math.max(data.tokens.spent_30d, 1)) * 100));
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="pi-overview-page flex flex-col gap-6">
       <AdminPageHeader
         title="Tổng quan"
         tagline="Tình trạng hạ tầng và kinh doanh"
@@ -131,7 +131,7 @@ export function OverviewPage() {
       />
 
       {/* KPI row — 4 thẻ gọn */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="pi-overview-page__kpis grid grid-cols-2 lg:grid-cols-4 gap-4">
         <Kpi
           to="/admin/revenue"
           icon={DollarSign}
@@ -164,7 +164,7 @@ export function OverviewPage() {
       </div>
 
       {/* Row 2: system status + alerts + expiring */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      <div className="pi-overview-page__status-grid grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* System status */}
         <AdminCard className="p-5">
           <div className="flex items-center justify-between mb-4">
@@ -231,7 +231,7 @@ export function OverviewPage() {
       </div>
 
       {/* Expiring licenses */}
-      <section className="flex flex-col gap-3">
+      <section className="pi-overview-page__section flex flex-col gap-3">
         <div className="flex items-center justify-between">
           <h2 className="text-sm font-semibold flex items-center gap-2">
             <Calendar size={14} className="text-base-content/50" /> Giấy phép sắp hết hạn
@@ -269,7 +269,7 @@ export function OverviewPage() {
       </section>
 
       {/* Provider chips */}
-      <section className="flex flex-col gap-3">
+      <section className="pi-overview-page__section flex flex-col gap-3">
         <div className="flex items-center justify-between">
           <h2 className="text-sm font-semibold">Nhà cung cấp AI</h2>
           <Link to="/admin/providers" className="text-xs text-primary hover:underline">
@@ -293,7 +293,6 @@ export function OverviewPage() {
 }
 
 export default OverviewPage;
-
 
 
 
