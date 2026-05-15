@@ -95,8 +95,8 @@ export function SignupPage() {
             <div className="flex items-center gap-4 mb-6 lg:mb-0">
               <PiLogo size={56} />
               <div className="flex flex-col">
-                <span className="text-[11px] font-black uppercase tracking-[0.4em] text-primary opacity-90 leading-none">Pi Ecosystem</span>
-                <h1 className="text-2xl font-black tracking-tight text-base-content leading-none mt-1">Store <span className="text-primary/50 font-medium">V2</span></h1>
+                <span className="text-xs font-semibold tracking-wide text-primary opacity-90 leading-none">Pi Ecosystem</span>
+                <h1 className="text-2xl font-semibold tracking-tight text-base-content leading-none mt-1">Store <span className="text-primary/50 font-medium">V2</span></h1>
               </div>
             </div>
           </header>
@@ -190,7 +190,7 @@ export function SignupPage() {
              Đã có tài khoản? <Link to="/login">Đăng nhập</Link>
           </p>
 
-          <footer className="flex items-center justify-between text-[10px] font-black uppercase tracking-[0.4em] text-base-content/20 mt-6 mb-2">
+          <footer className="flex items-center justify-between text-xs font-semibold tracking-wide text-base-content/20 mt-6 mb-2">
             <span>PI ECOSYSTEM  2026</span>
             <span>KERNEL V2.0 PRO</span>
           </footer>

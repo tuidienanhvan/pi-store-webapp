@@ -21,7 +21,7 @@ export function AdminStatCard({
   const CardContent = (
     <div className="flex flex-col gap-4">
       <div className="flex items-center justify-between">
-        <span className="text-[11px] font-semibold tracking-wider text-base-content/40">
+        <span className="text-xs font-semibold tracking-wider text-base-content/40">
           {title}
         </span>
         {Icon && (
@@ -36,7 +36,7 @@ export function AdminStatCard({
           {value}
         </AdminValue>
         {subValue && (
-          <div className="text-[11px] font-medium text-base-content/40">
+          <div className="text-xs font-medium text-base-content/40">
             {subValue}
           </div>
         )}
@@ -44,11 +44,11 @@ export function AdminStatCard({
 
       {trend !== undefined && (
         <div className="flex items-center gap-2 mt-auto pt-2 border-t border-white/5">
-          <div className={`flex items-center gap-1 text-[10px] font-bold ${trend >= 0 ?'text-success' : 'text-danger'}`}>
+          <div className={`flex items-center gap-1 text-xs font-bold ${trend >= 0 ?'text-success' : 'text-danger'}`}>
             {trend >= 0 ? <ArrowUpRight size={12} /> : <ArrowDownRight size={12} />}
             {Math.abs(trend)}%
           </div>
-          <span className="text-[10px] font-medium text-base-content/30 tracking-wide">
+          <span className="text-xs font-medium text-base-content/30 tracking-wide">
             {trendLabel || 'So với tháng trước'}
           </span>
         </div>

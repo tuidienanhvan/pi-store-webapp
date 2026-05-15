@@ -55,7 +55,7 @@ export function LicenseCreatePage() {
         title="Cấp giấy phép mới"
         tagline="Khởi tạo mã kích hoạt và quyền truy cập đặc quyền cho khách hàng trên hệ thống Pi"
         actions={
-          <Button as={Link} to="/admin/licenses" variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-[11px]">
+          <Button as={Link} to="/admin/licenses" variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-xs">
             <ArrowLeft size={14} className="mr-2" /> Quay lại danh sách
           </Button>
         }
@@ -73,7 +73,7 @@ export function LicenseCreatePage() {
                   value={form.email}
                   onChange={(event) => setField("email", event.target.value)}
                   placeholder="name@example.com"
-                  className="h-12 bg-white/5 border-white/10 rounded-xl focus:border-primary/50 transition-all"
+                  className="h-10 bg-white/5 border-white/10 rounded-xl focus:border-primary/50 transition-all"
                 />
               </FormField>
               <FormField label="Tên định danh (Công ty/Cá nhân)" hint="Hiển thị trên hồ sơ khách hàng">
@@ -81,7 +81,7 @@ export function LicenseCreatePage() {
                   value={form.name}
                   onChange={(event) => setField("name", event.target.value)}
                   placeholder="Ví dụ: Pi Web Agency"
-                  className="h-12 bg-white/5 border-white/10 rounded-xl focus:border-primary/50 transition-all"
+                  className="h-10 bg-white/5 border-white/10 rounded-xl focus:border-primary/50 transition-all"
                 />
               </FormField>
               
@@ -93,7 +93,7 @@ export function LicenseCreatePage() {
                   <Select
                     value={form.plugin}
                     onChange={(event) => setField("plugin", event.target.value)}
-                    className="h-12 pl-12 bg-white/5 border-white/10 rounded-xl focus:border-primary/50 transition-all font-semibold"
+                    className="h-10 pl-12 bg-white/5 border-white/10 rounded-xl focus:border-primary/50 transition-all font-semibold"
                     options={[
                       { label: "Pi-API Core", value: "pi-api" },
                       { label: "Pi-SEO Agent", value: "pi-seo" },
@@ -112,7 +112,7 @@ export function LicenseCreatePage() {
                   <Select
                     value={form.tier}
                     onChange={(event) => setField("tier", event.target.value)}
-                    className="h-12 pl-12 bg-white/5 border-white/10 rounded-xl focus:border-primary/50 transition-all font-semibold"
+                    className="h-10 pl-12 bg-white/5 border-white/10 rounded-xl focus:border-primary/50 transition-all font-semibold"
                     options={[
                       { label: "Dùng thử (Free)", value: "free" },
                       { label: "Chuyên nghiệp (Pro)", value: "pro" },
@@ -132,7 +132,7 @@ export function LicenseCreatePage() {
                     min="1"
                     value={form.max_sites}
                     onChange={(event) => setField("max_sites", event.target.value)}
-                    className="h-12 bg-white/5 border-white/10 rounded-xl"
+                    className="h-10 bg-white/5 border-white/10 rounded-xl"
                   />
                 </FormField>
                 <FormField label="Thời gian hiệu lực (Ngày)" hint="Nhập 0 để thiết lập vĩnh viễn">
@@ -141,7 +141,7 @@ export function LicenseCreatePage() {
                     min="0"
                     value={form.expires_days}
                     onChange={(event) => setField("expires_days", event.target.value)}
-                    className="h-12 bg-white/5 border-white/10 rounded-xl"
+                    className="h-10 bg-white/5 border-white/10 rounded-xl"
                   />
                 </FormField>
              </div>
@@ -163,7 +163,7 @@ export function LicenseCreatePage() {
               </FormField>
 
               <div className="p-4 rounded-2xl bg-primary/5 border border-primary/10">
-                 <p className="text-[10px] text-primary/60 leading-relaxed">
+                 <p className="text-xs text-primary/60 leading-relaxed">
                    Giấy phép sẽ được kích hoạt ngay lập tức sau khi xác nhận. Một mã định danh duy nhất sẽ được tạo cho người dùng này.
                  </p>
               </div>
@@ -182,7 +182,7 @@ export function LicenseCreatePage() {
                {saving ? "ĐANG XỬ LÝ..." : "XÁC NHẬN TẠO GIẤY PHÉP"}
              </Button>
              
-             <Button as={Link} to="/admin/licenses" variant="ghost" className="h-12 w-full rounded-xl border border-white/5 text-[11px] font-semibold text-base-content/40">
+             <Button as={Link} to="/admin/licenses" variant="ghost" className="h-10 w-full rounded-xl border border-white/5 text-xs font-semibold text-base-content/40">
                Hủy bỏ và quay lại
              </Button>
           </div>

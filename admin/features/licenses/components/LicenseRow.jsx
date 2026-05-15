@@ -31,7 +31,7 @@ export function LicenseRow({ l, onOpen, onRevoke, onReactivate, onDelete }) {
 
   return (
     <tr className="group hover:bg-white/[0.01] transition-all duration-300">
-      <td className="py-6 px-6 font-mono text-[10px] text-base-content/40">#{l.id}</td>
+      <td className="py-6 px-6 font-mono text-xs text-base-content/40">#{l.id}</td>
       <td className="py-6 px-6">
         <div className="flex items-center gap-3 bg-white/5 border border-white/5 rounded-lg px-3 py-2 w-fit group/key">
           <code className="text-xs font-mono font-bold text-primary/80">
@@ -50,7 +50,7 @@ export function LicenseRow({ l, onOpen, onRevoke, onReactivate, onDelete }) {
       <td className="py-6 px-6">
         <div className="flex flex-col">
           <span className="text-sm font-bold text-base-content group-hover:text-primary transition-colors">{l.email}</span>
-          <span className="text-[10px] font-bold text-base-content/40 tracking-wider">{l.plugin}</span>
+          <span className="text-xs font-bold text-base-content/40 tracking-wider">{l.plugin}</span>
         </div>
       </td>
       <td className="py-6 px-6">
@@ -58,7 +58,7 @@ export function LicenseRow({ l, onOpen, onRevoke, onReactivate, onDelete }) {
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-2">
               <AdminBadge tone="brand">{l.package_name}</AdminBadge>
-              <span className="text-[10px] font-mono font-bold text-base-content/60">
+              <span className="text-xs font-mono font-bold text-base-content/60">
                 {formatTokens(l.quota_used)}/{formatTokens(l.quota_limit)}
               </span>
             </div>
@@ -70,7 +70,7 @@ export function LicenseRow({ l, onOpen, onRevoke, onReactivate, onDelete }) {
             </div>
           </div>
         ) : (
-          <span className="text-[10px] font-semibold tracking-wider text-base-content/20 italic">Chưa gán gói</span>
+          <span className="text-xs font-semibold tracking-wider text-base-content/20 italic">Chưa gán gói</span>
         )}
       </td>
       <td className="py-6 px-6 text-center">
@@ -79,7 +79,7 @@ export function LicenseRow({ l, onOpen, onRevoke, onReactivate, onDelete }) {
             {l.activated_sites}
           </span>
           <div className="w-8 h-[1px] bg-white/10 my-1" />
-          <span className="text-[10px] font-bold text-base-content/30">{l.max_sites} Lượt</span>
+          <span className="text-xs font-bold text-base-content/30">{l.max_sites} Lượt</span>
         </div>
       </td>
       <td className="py-6 px-6 text-center">

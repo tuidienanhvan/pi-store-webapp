@@ -21,7 +21,7 @@ export function AdminSidebar({ nav = [], onLinkClick }) {
             </h2>
             <div className="flex items-center gap-1.5 mt-0.5">
               <div className="w-1 h-1 rounded-full bg-success" />
-              <span className="text-[9px] font-bold tracking-[0.2em] text-primary/60">Hệ thống lõi</span>
+              <span className="text-xs font-bold tracking-[0.2em] text-primary/60">Hệ thống lõi</span>
             </div>
           </div>
         </div>

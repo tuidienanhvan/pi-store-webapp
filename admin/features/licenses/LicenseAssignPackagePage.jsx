@@ -172,7 +172,7 @@ export function LicenseAssignPackagePage() {
                   { label: 'Chất lượng', val: (selectedPackage.allowed_qualities || []).join(", ") || "TẤT CẢ", icon: Cpu },
                 ].map(stat => (
                   <AdminCard key={stat.label} className="p-4 bg-white/[0.01]">
-                    <div className="text-[10px] font-medium text-base-content/30 mb-1 flex items-center gap-2">
+                    <div className="text-xs font-medium text-base-content/30 mb-1 flex items-center gap-2">
                       <stat.icon size={10} /> {stat.label}
                     </div>
                     <AdminValue className="text-xs truncate block">{stat.val}</AdminValue>
@@ -185,7 +185,7 @@ export function LicenseAssignPackagePage() {
               <AdminCard className="p-6 bg-primary/5 border-primary/20">
                 <div className="flex items-center justify-between mb-4">
                   <div className="text-xs font-medium text-primary">Hiệu năng chu kỳ hiện tại</div>
-                  <Button type="button" variant="ghost" size="sm" onClick={() => setShowResetConfirm(true)} className="h-8 rounded-lg border-primary/20 hover:bg-primary/10 text-[10px] font-medium">
+                  <Button type="button" variant="ghost" size="sm" onClick={() => setShowResetConfirm(true)} className="h-8 rounded-lg border-primary/20 hover:bg-primary/10 text-xs font-medium">
                     <RefreshCw size={12} className="mr-2" /> Đặt lại chu kỳ
                   </Button>
                 </div>

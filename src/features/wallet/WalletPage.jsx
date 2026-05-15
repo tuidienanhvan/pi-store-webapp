@@ -46,7 +46,7 @@ export function WalletPage() {
     return (
       <div className="flex flex-col items-center justify-center p-20 gap-4 opacity-40">
         <Loader2 size={40} className="animate-spin" />
-        <div className="font-bold uppercase tracking-[0.2em] text-[12px]">ang ti v...</div>
+        <div className="font-semibold tracking-[0.2em] text-xs">ang ti v...</div>
       </div>
     );
   }
@@ -106,7 +106,7 @@ export function WalletPage() {
                   variant={isFeatured ? "primary" : "ghost"}
                   onClick={() => onBuy(p.id)}
                   isLoading={checkoutLoading === p.id}
-                  className={`w-full mt-auto rounded-xl font-bold uppercase tracking-widest text-[11px] ${isFeatured ?"glow-brand" : "border border-base-border-subtle hover:border-primary-soft"}`}
+                  className={`w-full mt-auto rounded-xl font-bold tracking-wide text-xs ${isFeatured ?"glow-brand" : "border border-base-border-subtle hover:border-primary-soft"}`}
                 >
                   Mua ngay
                 </Button>

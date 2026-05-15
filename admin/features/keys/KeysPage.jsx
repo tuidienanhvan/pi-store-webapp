@@ -142,13 +142,13 @@ export function KeysPage() {
         tagline="Quản lý tài nguyên, cấp phát và giám sát mức độ tiêu thụ của các API Key"
         actions={
           <div className="flex items-center gap-3">
-             <Button variant="ghost" onClick={() => setConfirmAction({ type: 'reset_all' })} className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-[9px]">
+             <Button variant="ghost" onClick={() => setConfirmAction({ type: 'reset_all' })} className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-xs">
                 <RefreshCw size={14} className="mr-2" /> Làm mới hạn mức
              </Button>
-             <Button as={Link} to="/admin/keys/bulk-import" variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-[9px]">
+             <Button as={Link} to="/admin/keys/bulk-import" variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-xs">
                 <Upload size={14} className="mr-2" /> Nhập Bulk
              </Button>
-             <Button as={Link} to="/admin/keys/new" variant="primary" className="h-10 px-6 rounded-xl font-semibold tracking-wider text-[10px]">
+             <Button as={Link} to="/admin/keys/new" variant="primary" className="h-10 px-6 rounded-xl font-semibold tracking-wider text-xs">
                 <Plus size={14} className="mr-2" /> {t.add_key_btn}
              </Button>
           </div>
@@ -171,18 +171,18 @@ export function KeysPage() {
          <section className="flex flex-col gap-4">
             <div className="flex items-center gap-3 px-2">
                <Cpu size={16} className="text-primary/60" />
-               <h2 className="text-[10px] font-semibold tracking-wider text-base-content/40">Hạ tầng nhà cung cấp</h2>
+               <h2 className="text-xs font-semibold tracking-wider text-base-content/40">Hạ tầng nhà cung cấp</h2>
             </div>
             <AdminTable>
                <thead>
                   <tr className="bg-white/[0.02]">
-                     <th className="py-4 px-6 text-left font-semibold tracking-wider text-[9px] opacity-40">Nhà cung cấp</th>
-                     <th className="py-4 px-6 text-right font-semibold tracking-wider text-[9px] opacity-40">Tổng</th>
-                     <th className="py-4 px-6 text-right font-semibold tracking-wider text-[9px] opacity-40">Sẵn sàng</th>
-                     <th className="py-4 px-6 text-right font-semibold tracking-wider text-[9px] opacity-40">Đã cấp</th>
-                     <th className="py-4 px-6 text-right font-semibold tracking-wider text-[9px] opacity-40">Hết hạn</th>
-                     <th className="py-4 px-6 text-right font-semibold tracking-wider text-[9px] opacity-40">Bị khóa</th>
-                     <th className="py-4 px-6 text-right font-semibold tracking-wider text-[9px] opacity-40">Thao tác</th>
+                     <th className="py-4 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Nhà cung cấp</th>
+                     <th className="py-4 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Tổng</th>
+                     <th className="py-4 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Sẵn sàng</th>
+                     <th className="py-4 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Đã cấp</th>
+                     <th className="py-4 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Hết hạn</th>
+                     <th className="py-4 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Bị khóa</th>
+                     <th className="py-4 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Thao tác</th>
                   </tr>
                </thead>
                <tbody className="divide-y divide-white/5">
@@ -192,7 +192,7 @@ export function KeysPage() {
                          <div className="flex flex-col gap-1">
                             <span className="text-xs font-bold text-base-content tracking-tight">{r.slug}</span>
                             {PROVIDER_SIGNUP_LINKS[r.slug] && (
-                              <a href={PROVIDER_SIGNUP_LINKS[r.slug]} target="_blank" rel="noreferrer" className="text-[9px] font-bold text-primary flex items-center gap-1 hover:gap-2 transition-all">
+                              <a href={PROVIDER_SIGNUP_LINKS[r.slug]} target="_blank" rel="noreferrer" className="text-xs font-bold text-primary flex items-center gap-1 hover:gap-2 transition-all">
                                  LẤY KHÓA <ExternalLink size={8} />
                               </a>
                             )}
@@ -204,7 +204,7 @@ export function KeysPage() {
                       <td className={`py-4 px-6 text-right font-mono text-xs ${r.exhausted > 0 ?"text-warning font-bold" : "opacity-20"}`}>{r.exhausted}</td>
                       <td className={`py-4 px-6 text-right font-mono text-xs ${r.banned > 0 ?"text-danger font-bold" : "opacity-20"}`}>{r.banned}</td>
                       <td className="py-4 px-6 text-right">
-                       <Button as={Link} to={`/admin/keys/new?provider_id=${r.provider_id}`} size="sm" variant="ghost" className="h-8 rounded-lg border border-white/5 text-[9px] font-semibold tracking-wider bg-white/[0.02]">
+                       <Button as={Link} to={`/admin/keys/new?provider_id=${r.provider_id}`} size="sm" variant="ghost" className="h-8 rounded-lg border border-white/5 text-xs font-semibold tracking-wider bg-white/[0.02]">
                           <Plus size={12} className="mr-1" /> Thêm khóa
                        </Button>
 
@@ -220,7 +220,7 @@ export function KeysPage() {
             <div className="flex items-center justify-between px-2">
                <div className="flex items-center gap-3">
                   <BarChart3 size={16} className="text-primary/60" />
-                  <h2 className="text-[10px] font-semibold tracking-wider text-base-content/40">Danh sách khóa hệ thống ({keys.length})</h2>
+                  <h2 className="text-xs font-semibold tracking-wider text-base-content/40">Danh sách khóa hệ thống ({keys.length})</h2>
                </div>
                {loading && <Activity size={14} className="text-primary" />}
             </div>
@@ -238,14 +238,14 @@ export function KeysPage() {
                 className="w-32 bg-white/5 border-white/5 rounded-xl font-bold text-xs" 
               />
               {filters.license_id && (
-                <Button size="sm" variant="ghost" onClick={() => setConfirmAction({ type: 'release_license' })} className="h-10 px-4 rounded-xl border border-warning/20 text-warning font-semibold tracking-wider text-[9px]">
+                <Button size="sm" variant="ghost" onClick={() => setConfirmAction({ type: 'release_license' })} className="h-10 px-4 rounded-xl border border-warning/20 text-warning font-semibold tracking-wider text-xs">
                   Giải phóng tất cả
                 </Button>
               )}
               <Select 
                 value={filters.provider_id}
                 onChange={(e) => setFilters({ provider_id: e.target.value, offset: 0 })}
-                className="h-12 min-w-[160px] bg-white/5 border-white/5 rounded-xl font-semibold tracking-wider text-[10px]"
+                className="h-10 min-w-[160px] bg-white/5 border-white/5 rounded-xl font-semibold tracking-wider text-xs"
                 options={[
                   { label: "TẤT CẢ NHÀ CUNG CẤP", value: "" },
                   ...providers.map((p) => ({ value: String(p.id), label: p.slug })),
@@ -254,7 +254,7 @@ export function KeysPage() {
               <Select 
                 value={filters.status}
                 onChange={(e) => setFilters({ status: e.target.value, offset: 0 })}
-                className="h-12 min-w-[140px] bg-white/5 border-white/5 rounded-xl font-semibold tracking-wider text-[10px]"
+                className="h-10 min-w-[140px] bg-white/5 border-white/5 rounded-xl font-semibold tracking-wider text-xs"
                 options={[
                   { label: "TẤT CẢ TRẠNG THÁI", value: "" },
                   { label: "SẴN SÀNG", value: "available" },
@@ -268,13 +268,13 @@ export function KeysPage() {
             <AdminTable>
                <thead>
                   <tr className="bg-white/[0.02]">
-                     <th className="py-4 px-6 text-left font-semibold tracking-wider text-[9px] opacity-40">Nhà cung cấp</th>
-                     <th className="py-4 px-6 text-left font-semibold tracking-wider text-[9px] opacity-40">Định danh bảo mật</th>
-                     <th className="py-4 px-6 text-center font-semibold tracking-wider text-[9px] opacity-40">Trạng thái</th>
-                     <th className="py-4 px-6 text-center font-semibold tracking-wider text-[9px] opacity-40">Cấp cho</th>
-                     <th className="py-4 px-6 text-center font-semibold tracking-wider text-[9px] opacity-40">Sức khỏe</th>
-                     <th className="py-4 px-6 text-center font-semibold tracking-wider text-[9px] opacity-40">Tiêu thụ</th>
-                     <th className="py-4 px-6 text-right font-semibold tracking-wider text-[9px] opacity-40">Thao tác</th>
+                     <th className="py-4 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Nhà cung cấp</th>
+                     <th className="py-4 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Định danh bảo mật</th>
+                     <th className="py-4 px-6 text-center font-semibold tracking-wider text-xs opacity-40">Trạng thái</th>
+                     <th className="py-4 px-6 text-center font-semibold tracking-wider text-xs opacity-40">Cấp cho</th>
+                     <th className="py-4 px-6 text-center font-semibold tracking-wider text-xs opacity-40">Sức khỏe</th>
+                     <th className="py-4 px-6 text-center font-semibold tracking-wider text-xs opacity-40">Tiêu thụ</th>
+                     <th className="py-4 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Thao tác</th>
                   </tr>
                </thead>
                <tbody className="divide-y divide-white/5">
@@ -283,7 +283,7 @@ export function KeysPage() {
                   ) : (
                     keys.map((k) => (
                       <tr key={k.id} className="group hover:bg-white/[0.01] transition-colors">
-                        <td className="py-5 px-6 font-mono text-[10px] opacity-40">#{k.id} <br/> <span className="font-bold text-primary text-[9px] tracking-widest">{k.provider_slug}</span></td>
+                        <td className="py-5 px-6 font-mono text-xs opacity-40">#{k.id} <br/> <span className="font-bold text-primary text-xs tracking-widest">{k.provider_slug}</span></td>
                         <td className="py-5 px-6"><KeyCell k={k} /></td>
                         <td className="py-5 px-6 text-center">
                           <AdminBadge tone={STATUS_TONES[k.status] || "neutral"}>
@@ -293,24 +293,24 @@ export function KeysPage() {
                         <td className="py-5 px-6 text-center">
                           {k.allocated_to_license_id ? (
                              <div className="flex flex-col items-center gap-1">
-                                <span className="text-[10px] font-bold text-primary tracking-tighter">LIC-#{k.allocated_to_license_id}</span>
-                                <span className="text-[9px] font-bold text-base-content/30 truncate max-w-[100px]">{k.allocated_to_email}</span>
+                                <span className="text-xs font-bold text-primary tracking-tighter">LIC-#{k.allocated_to_license_id}</span>
+                                <span className="text-xs font-bold text-base-content/30 truncate max-w-[100px]">{k.allocated_to_email}</span>
                              </div>
-                          ) : <span className="text-[10px] font-bold text-base-content/10">—</span>}
+                          ) : <span className="text-xs font-bold text-base-content/10">—</span>}
                         </td>
                         <td className="py-5 px-6 text-center">
                           <div className="flex flex-col items-center gap-1">
                              <AdminBadge tone={k.health_status === "healthy" ? "success" : k.health_status === "down" ? "danger" : "warning"}>
                                {k.health_status === 'healthy' ? 'ỔN ĐỊNH' : k.health_status === 'down' ? 'NGOẠI TUYẾN' : 'CẢNH BÁO'}
                              </AdminBadge>
-                             {k.consecutive_failures > 0 && <span className="text-[9px] font-bold text-danger/60">{k.consecutive_failures} LỖI</span>}
+                             {k.consecutive_failures > 0 && <span className="text-xs font-bold text-danger/60">{k.consecutive_failures} LỖI</span>}
                           </div>
                         </td>
                         <td className="py-5 px-6 text-center font-mono">
                            <div className="flex flex-col items-center">
                               <span className="text-xs font-bold text-base-content/80">{formatNum(k.monthly_used_tokens)}</span>
                               {k.monthly_quota_tokens > 0 && (
-                                <span className="text-[9px] font-bold text-base-content/20 tracking-tighter">HẠN MỨC: {formatNum(k.monthly_quota_tokens)}</span>
+                                <span className="text-xs font-bold text-base-content/20 tracking-tighter">HẠN MỨC: {formatNum(k.monthly_quota_tokens)}</span>
                               )}
                            </div>
                         </td>
@@ -332,7 +332,7 @@ export function KeysPage() {
                </tbody>
             </AdminTable>
 
-            <div className="flex items-center justify-between px-2 text-[10px] font-semibold tracking-wider text-base-content/20">
+            <div className="flex items-center justify-between px-2 text-xs font-semibold tracking-wider text-base-content/20">
                <span>Hiển thị {keys.length} bản ghi</span>
                <div className="flex items-center gap-4">
                   <span className="text-primary italic">Dữ liệu trực tuyến đang hoạt động</span>

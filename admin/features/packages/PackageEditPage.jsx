@@ -115,7 +115,7 @@ export function PackageEditPage() {
         title={isNew ? "Tạo gói dịch vụ mới" : `Cấu hình gói: ${form.display_name || form.slug}`}
         tagline={isNew ? "Định nghĩa giá, hạn mức và chính sách định tuyến sản phẩm" : `Quản lý thông số kỹ thuật cho mã hệ thống: ${form.slug}`}
         actions={
-          <Button as={Link} to="/admin/packages" variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-[11px]">
+          <Button as={Link} to="/admin/packages" variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-xs">
             <ArrowLeft size={14} className="mr-2" /> Quay lại danh sách
           </Button>
         }
@@ -133,7 +133,7 @@ export function PackageEditPage() {
                   placeholder="pro-tier"
                   disabled={!isNew}
                   required
-                  className="h-12 bg-white/5 border-white/10 rounded-xl"
+                  className="h-10 bg-white/5 border-white/10 rounded-xl"
                 />
               </FormField>
               <FormField label="Tên hiển thị" required hint="Tên gói trên bảng giá">
@@ -142,7 +142,7 @@ export function PackageEditPage() {
                   onChange={(e) => setForm({ ...form, display_name: e.target.value })}
                   placeholder="Gói Chuyên Nghiệp"
                   required
-                  className="h-12 bg-white/5 border-white/10 rounded-xl"
+                  className="h-10 bg-white/5 border-white/10 rounded-xl"
                 />
               </FormField>
             </div>
@@ -166,7 +166,7 @@ export function PackageEditPage() {
                   type="number"
                   value={form.price_cents_monthly}
                   onChange={(e) => setForm({ ...form, price_cents_monthly: Number(e.target.value) })}
-                  className="h-12 bg-white/5 border-white/10 rounded-xl"
+                  className="h-10 bg-white/5 border-white/10 rounded-xl"
                 />
               </FormField>
               <FormField label="Giá hàng năm (¢)">
@@ -174,7 +174,7 @@ export function PackageEditPage() {
                   type="number"
                   value={form.price_cents_yearly}
                   onChange={(e) => setForm({ ...form, price_cents_yearly: Number(e.target.value) })}
-                  className="h-12 bg-white/5 border-white/10 rounded-xl"
+                  className="h-10 bg-white/5 border-white/10 rounded-xl"
                 />
               </FormField>
               <FormField label="Hạn mức Token tháng" hint="0 = Không giới hạn">
@@ -182,7 +182,7 @@ export function PackageEditPage() {
                   type="number"
                   value={form.token_quota_monthly}
                   onChange={(e) => setForm({ ...form, token_quota_monthly: Number(e.target.value) })}
-                  className="h-12 bg-white/5 border-white/10 rounded-xl"
+                  className="h-10 bg-white/5 border-white/10 rounded-xl"
                 />
               </FormField>
               <FormField label="Ưu tiên định tuyến (0-100)" hint="Độ ưu tiên xử lý trong pool">
@@ -192,7 +192,7 @@ export function PackageEditPage() {
                   max={100}
                   value={form.priority_boost}
                   onChange={(e) => setForm({ ...form, priority_boost: Number(e.target.value) })}
-                  className="h-12 bg-white/5 border-white/10 rounded-xl"
+                  className="h-10 bg-white/5 border-white/10 rounded-xl"
                 />
               </FormField>
             </div>
@@ -225,7 +225,7 @@ export function PackageEditPage() {
                           nf[i] = e.target.value;
                           setForm({ ...form, features: nf });
                         }}
-                        className="flex-1 h-12 bg-white/5 border-white/10 rounded-xl"
+                        className="flex-1 h-10 bg-white/5 border-white/10 rounded-xl"
                         placeholder="VD: Support 24/7"
                       />
                       <IconButton
@@ -237,7 +237,7 @@ export function PackageEditPage() {
                           nf.splice(i, 1);
                           setForm({ ...form, features: nf });
                         }}
-                        className="h-12 w-12 rounded-xl bg-danger/5 text-danger hover:bg-danger/10 border border-danger/10"
+                        className="h-10 w-12 rounded-xl bg-danger/5 text-danger hover:bg-danger/10 border border-danger/10"
                       />
                     </div>
                   ))}
@@ -277,7 +277,7 @@ export function PackageEditPage() {
                       />
                       <div className="flex flex-col">
                         <span className={`text-sm font-bold ${form.routing_mode === m.val ? "text-primary" : "text-white"}`}>{m.lab}</span>
-                        <span className="text-[11px] text-base-content/40 leading-snug mt-0.5">{m.desc}</span>
+                        <span className="text-xs text-base-content/40 leading-snug mt-0.5">{m.desc}</span>
                       </div>
                     </label>
                   ))}
@@ -319,7 +319,7 @@ export function PackageEditPage() {
                   type="number"
                   value={form.sort_order}
                   onChange={(e) => setForm({ ...form, sort_order: Number(e.target.value) })}
-                  className="h-12 bg-white/5 border-white/10 rounded-xl"
+                  className="h-10 bg-white/5 border-white/10 rounded-xl"
                 />
               </FormField>
             </div>
@@ -337,7 +337,7 @@ export function PackageEditPage() {
                {saving ? "ĐANG LƯU..." : isNew ? "XÁC NHẬN TẠO GÓI" : "LƯU THAY ĐỔI CẤU HÌNH"}
              </Button>
              
-             <Button as={Link} to="/admin/packages" variant="ghost" className="h-12 w-full rounded-xl border border-white/5 text-[11px] font-semibold text-base-content/40">
+             <Button as={Link} to="/admin/packages" variant="ghost" className="h-10 w-full rounded-xl border border-white/5 text-xs font-semibold text-base-content/40">
                Hủy bỏ
              </Button>
           </div>

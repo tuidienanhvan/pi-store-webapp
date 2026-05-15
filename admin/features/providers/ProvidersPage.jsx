@@ -109,7 +109,7 @@ export function ProvidersPage() {
         title="Nhà cung cấp AI"
         tagline="Quản lý kết nối, model và trung tâm điều phối lưu lượng AI"
         actions={
-          <Button as={Link} to="/admin/providers/new" variant="primary" className="h-10 px-6 rounded-xl font-semibold tracking-wider text-[10px]">
+          <Button as={Link} to="/admin/providers/new" variant="primary" className="h-10 px-6 rounded-xl font-semibold tracking-wider text-xs">
             <Plus size={14} className="mr-2" />
             {t.add_provider}
           </Button>
@@ -130,14 +130,14 @@ export function ProvidersPage() {
       <AdminTable>
         <thead>
           <tr className="bg-white/[0.02]">
-            <th className="py-5 px-6 text-left font-semibold tracking-wider text-[10px] opacity-40">Mã / Tên</th>
-            <th className="py-5 px-6 text-left font-semibold tracking-wider text-[10px] opacity-40">Model ID</th>
-            <th className="py-5 px-6 text-center font-semibold tracking-wider text-[10px] opacity-40">Dịch vụ</th>
-            <th className="py-5 px-6 text-center font-semibold tracking-wider text-[10px] opacity-40">Sức khỏe</th>
-            <th className="py-5 px-6 text-center font-semibold tracking-wider text-[10px] opacity-40">Định giá (¢)</th>
-            <th className="py-5 px-6 text-center font-semibold tracking-wider text-[10px] opacity-40">Kho khóa</th>
-            <th className="py-5 px-6 text-center font-semibold tracking-wider text-[10px] opacity-40">Bật/Tắt</th>
-            <th className="py-5 px-6 text-right font-semibold tracking-wider text-[10px] opacity-40">Thao tác</th>
+            <th className="py-5 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Mã / Tên</th>
+            <th className="py-5 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Model ID</th>
+            <th className="py-5 px-6 text-center font-semibold tracking-wider text-xs opacity-40">Dịch vụ</th>
+            <th className="py-5 px-6 text-center font-semibold tracking-wider text-xs opacity-40">Sức khỏe</th>
+            <th className="py-5 px-6 text-center font-semibold tracking-wider text-xs opacity-40">Định giá (¢)</th>
+            <th className="py-5 px-6 text-center font-semibold tracking-wider text-xs opacity-40">Kho khóa</th>
+            <th className="py-5 px-6 text-center font-semibold tracking-wider text-xs opacity-40">Bật/Tắt</th>
+            <th className="py-5 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Thao tác</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-white/5">
@@ -146,11 +146,11 @@ export function ProvidersPage() {
               <td className="py-6 px-6">
                 <div className="flex flex-col">
                   <span className="text-sm font-bold text-base-content group-hover:text-primary transition-colors">{p.slug}</span>
-                  <span className="text-[10px] font-bold text-base-content/30 tracking-wider">{p.display_name}</span>
+                  <span className="text-xs font-bold text-base-content/30 tracking-wider">{p.display_name}</span>
                 </div>
               </td>
               <td className="py-6 px-6">
-                <code className="text-[11px] font-mono font-bold text-base-content/60 bg-white/5 px-2 py-1 rounded border border-white/5">{p.model_id}</code>
+                <code className="text-xs font-mono font-bold text-base-content/60 bg-white/5 px-2 py-1 rounded border border-white/5">{p.model_id}</code>
               </td>
               <td className="py-6 px-6 text-center">
                 <AdminBadge tone={p.tier === "paid" ? "brand" : "neutral"}>
@@ -163,20 +163,20 @@ export function ProvidersPage() {
                      {p.health_status === 'healthy' ? 'ỔN ĐỊNH' : p.health_status === 'down' ? 'NGOẠI TUYẾN' : p.health_status === 'degraded' ? 'SUY GIẢM' : 'KHÔNG XÁC ĐỊNH'}
                    </AdminBadge>
                    {p.last_error && (
-                     <span className="text-[8px] font-bold text-danger/40 truncate max-w-[120px]" title={p.last_error}>{p.last_error}</span>
+                     <span className="text-xs font-bold text-danger/40 truncate max-w-[120px]" title={p.last_error}>{p.last_error}</span>
                    )}
                 </div>
               </td>
               <td className="py-6 px-6 text-center">
                  <div className="flex flex-col items-center">
-                    <span className="text-[10px] font-mono font-bold text-base-content/80">VÀO: ${((p.input_cost_per_mtok_cents || 0) / 100).toFixed(2)}</span>
-                    <span className="text-[10px] font-mono font-bold text-base-content/40">RA: ${((p.output_cost_per_mtok_cents || 0) / 100).toFixed(2)}</span>
+                    <span className="text-xs font-mono font-bold text-base-content/80">VÀO: ${((p.input_cost_per_mtok_cents || 0) / 100).toFixed(2)}</span>
+                    <span className="text-xs font-mono font-bold text-base-content/40">RA: ${((p.output_cost_per_mtok_cents || 0) / 100).toFixed(2)}</span>
                  </div>
               </td>
               <td className="py-6 px-6 text-center">
                  <div className="flex flex-col items-center">
                     <AdminValue className="text-sm">{p.keys_count || 0}</AdminValue>
-                    <a href={`/admin/keys?provider_id=${p.id}`} className="text-[8px] font-bold text-primary tracking-wider opacity-40 hover:opacity-100 transition-all flex items-center gap-1">
+                    <a href={`/admin/keys?provider_id=${p.id}`} className="text-xs font-bold text-primary tracking-wider opacity-40 hover:opacity-100 transition-all flex items-center gap-1">
                        QUẢN LÝ <ExternalLink size={8} />
                     </a>
                  </div>
@@ -197,9 +197,9 @@ export function ProvidersPage() {
                     {testResult.loading ? (
                       <RefreshCw size={12} className="text-primary" />
                     ) : testResult.ok ? (
-                      <span className="text-[10px] font-bold text-success tracking-wider">{testResult.latency_ms}ms OK</span>
+                      <span className="text-xs font-bold text-success tracking-wider">{testResult.latency_ms}ms OK</span>
                     ) : (
-                      <span className="text-[10px] font-bold text-danger tracking-wider">LỖI</span>
+                      <span className="text-xs font-bold text-danger tracking-wider">LỖI</span>
                     )}
                   </div>
                 )}

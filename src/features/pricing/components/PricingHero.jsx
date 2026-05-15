@@ -16,7 +16,7 @@ export function PricingHero({ billingCycle, setBillingCycle, copy }) {
 
       <div className="mx-auto mb-6">
 
-        <Badge tone="brand" className="px-4 py-1.5 text-xs font-black uppercase tracking-widest">Pi SaaS Pricing</Badge>
+        <Badge tone="brand" className="px-4 py-1.5 text-xs font-semibold tracking-wide">Pi SaaS Pricing</Badge>
 
       </div>
 

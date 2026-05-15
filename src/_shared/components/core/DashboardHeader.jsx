@@ -12,7 +12,7 @@ export function DashboardHeader({ currentRouteName, setMobileMenuOpen }) {
 
       <IconButton icon={Menu} label="Menu" onClick={() => setMobileMenuOpen(true)} variant="ghost" />
 
-      <div className="text-[11px] font-black uppercase tracking-[0.2em] text-primary">{currentRouteName}</div>
+      <div className="text-xs font-semibold tracking-wide text-primary">{currentRouteName}</div>
 
       <div className="flex items-center gap-2">
 

@@ -112,7 +112,7 @@ export function LoginPage() {
             <div className="flex items-center gap-4 mb-6 lg:mb-0">
               <PiLogo size={56} />
               <div className="flex flex-col">
-                <span className="text-[11px] font-bold tracking-[0.3em] text-primary opacity-90 leading-none">Pi Ecosystem</span>
+                <span className="text-xs font-bold tracking-[0.3em] text-primary opacity-90 leading-none">Pi Ecosystem</span>
                 <h1 className="text-2xl font-bold tracking-tight text-base-content leading-none mt-1">Store</h1>
               </div>
             </div>
@@ -190,7 +190,7 @@ export function LoginPage() {
             Bạn mới biết đến Pi? <Link to="/signup">Tạo tài khoản</Link>
           </p>
 
-          <footer className="flex items-center justify-between text-[10px] font-bold tracking-[0.3em] text-base-content/20 mt-6 mb-2">
+          <footer className="flex items-center justify-between text-xs font-bold tracking-[0.3em] text-base-content/20 mt-6 mb-2">
             <span>Pi Ecosystem 2026</span>
             <span>Trạm điều khiển</span>
           </footer>

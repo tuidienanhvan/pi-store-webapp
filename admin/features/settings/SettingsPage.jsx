@@ -70,7 +70,7 @@ export function SettingsPage() {
     <div className="p-20 flex flex-col items-center">
        <AdminCard className="p-12 text-center max-w-md">
           <Alert tone="warning" className="mb-6">{err || "Không thể kết nối với cài đặt hệ thống."}</Alert>
-          <Button onClick={load} variant="primary" className="h-12 px-8 rounded-xl font-semibold text-[11px] tracking-widest">
+          <Button onClick={load} variant="primary" className="h-10 px-8 rounded-xl font-semibold text-xs tracking-widest">
              <RefreshCw size={14} className="mr-2" /> Thử kết nối lại
           </Button>
        </AdminCard>
@@ -104,7 +104,7 @@ export function SettingsPage() {
         <section className="flex flex-col gap-6">
           <div className="flex items-center gap-3 px-2">
              <Shield size={18} className="text-primary/60" />
-             <h2 className="text-[10px] font-semibold tracking-wider text-base-content/40">Thông số bảo mật (Chỉ đọc)</h2>
+             <h2 className="text-xs font-semibold tracking-wider text-base-content/40">Thông số bảo mật (Chỉ đọc)</h2>
           </div>
           <AdminCard className="p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -116,9 +116,9 @@ export function SettingsPage() {
                     <div key={item.val} className="flex items-center justify-between p-4 rounded-xl bg-white/[0.02] border border-white/5">
                        <div className="flex items-center gap-3">
                           <item.icon size={14} className="text-white/20" />
-                          <span className="text-[11px] font-semibold text-base-content/60 tracking-wider">{item.label}</span>
+                          <span className="text-xs font-semibold text-base-content/60 tracking-wider">{item.label}</span>
                        </div>
-                       <code className="text-[10px] font-mono font-bold text-primary bg-primary/5 px-2 py-0.5 rounded border border-primary/20">{item.val}</code>
+                       <code className="text-xs font-mono font-bold text-primary bg-primary/5 px-2 py-0.5 rounded border border-primary/20">{item.val}</code>
                     </div>
                  ))}
               </div>
@@ -130,9 +130,9 @@ export function SettingsPage() {
                     <div key={item.val} className="flex items-center justify-between p-4 rounded-xl bg-white/[0.02] border border-white/5">
                        <div className="flex items-center gap-3">
                           <item.icon size={14} className="text-white/20" />
-                          <span className="text-[11px] font-semibold text-base-content/60 tracking-wider">{item.label}</span>
+                          <span className="text-xs font-semibold text-base-content/60 tracking-wider">{item.label}</span>
                        </div>
-                       <code className="text-[10px] font-mono font-bold text-base-content/40 truncate max-w-[180px]">{item.val}</code>
+                       <code className="text-xs font-mono font-bold text-base-content/40 truncate max-w-[180px]">{item.val}</code>
                     </div>
                  ))}
               </div>

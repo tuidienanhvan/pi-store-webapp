@@ -112,13 +112,13 @@ export function UsersPage() {
       <AdminTable>
         <thead>
           <tr className="bg-white/[0.02]">
-            <th className="py-5 px-6 text-left font-semibold tracking-wider text-[11px] opacity-50">Hồ sơ người dùng</th>
-            <th className="py-5 px-6 text-center font-semibold tracking-wider text-[11px] opacity-50">Cấp độ truy cập</th>
-            <th className="py-5 px-6 text-center font-semibold tracking-wider text-[11px] opacity-50">Tài nguyên</th>
-            <th className="py-5 px-6 text-right font-semibold tracking-wider text-[11px] opacity-50">Số dư</th>
-            <th className="py-5 px-6 text-right font-semibold tracking-wider text-[11px] opacity-50">Tổng chi tiêu (LTV)</th>
-            <th className="py-5 px-6 text-left font-semibold tracking-wider text-[11px] opacity-50">Hoạt động cuối</th>
-            <th className="py-5 px-6 text-right font-semibold tracking-wider text-[11px] opacity-50">Thao tác</th>
+            <th className="py-5 px-6 text-left font-semibold tracking-wider text-xs opacity-50">Hồ sơ người dùng</th>
+            <th className="py-5 px-6 text-center font-semibold tracking-wider text-xs opacity-50">Cấp độ truy cập</th>
+            <th className="py-5 px-6 text-center font-semibold tracking-wider text-xs opacity-50">Tài nguyên</th>
+            <th className="py-5 px-6 text-right font-semibold tracking-wider text-xs opacity-50">Số dư</th>
+            <th className="py-5 px-6 text-right font-semibold tracking-wider text-xs opacity-50">Tổng chi tiêu (LTV)</th>
+            <th className="py-5 px-6 text-left font-semibold tracking-wider text-xs opacity-50">Hoạt động cuối</th>
+            <th className="py-5 px-6 text-right font-semibold tracking-wider text-xs opacity-50">Thao tác</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-white/5">
@@ -146,7 +146,7 @@ export function UsersPage() {
                       <span className="text-sm font-semibold text-base-content group-hover:text-primary transition-colors tracking-tight">
                         {u.name || u.email.split("@")[0]}
                       </span>
-                      <span className="text-[10px] font-medium text-base-content/30 flex items-center gap-1">
+                      <span className="text-xs font-medium text-base-content/30 flex items-center gap-1">
                         <Mail size={8} /> {u.email}
                       </span>
                     </Link>
@@ -160,7 +160,7 @@ export function UsersPage() {
                 <td className="py-5 px-6 text-center">
                   <div className="flex flex-col items-center">
                     <AdminValue className="text-sm">{u.keys_count || 0}</AdminValue>
-                    <span className="text-[8px] font-semibold text-white/10 tracking-wider">Khóa</span>
+                    <span className="text-xs font-semibold text-white/10 tracking-wider">Khóa</span>
                   </div>
                 </td>
                 <td className="py-5 px-6 text-right font-mono">
@@ -168,7 +168,7 @@ export function UsersPage() {
                     <span className="text-xs font-semibold text-base-content">
                       {formatCurrencyUSD(u.balance || 0, locale)}
                     </span>
-                    <span className="text-[8px] font-semibold text-white/10 tracking-wider">Khả dụng</span>
+                    <span className="text-xs font-semibold text-white/10 tracking-wider">Khả dụng</span>
                   </div>
                 </td>
                 <td className="py-5 px-6 text-right font-mono">
@@ -176,18 +176,18 @@ export function UsersPage() {
                     <span className="text-xs font-semibold text-primary">
                       {formatCurrencyUSD(u.total_spent || 0, locale)}
                     </span>
-                    <span className="text-[8px] font-semibold text-white/10 tracking-wider">Giá trị trọn đời</span>
+                    <span className="text-xs font-semibold text-white/10 tracking-wider">Giá trị trọn đời</span>
                   </div>
                 </td>
                 <td className="py-5 px-6">
                   <div className="flex flex-col gap-1.5">
                     <div className="flex items-center gap-3">
                        <UserPlus size={10} className="text-white/20" />
-                       <span className="text-[10px] font-medium text-base-content/40">{formatDate(u.created_at, locale)}</span>
+                       <span className="text-xs font-medium text-base-content/40">{formatDate(u.created_at, locale)}</span>
                     </div>
                     <div className="flex items-center gap-3">
                        <Activity size={10} className="text-white/20" />
-                       <span className="text-[10px] font-medium text-base-content/30 italic">{u.last_login_at ? formatDate(u.last_login_at, locale) : "Không hoạt động"}</span>
+                       <span className="text-xs font-medium text-base-content/30 italic">{u.last_login_at ? formatDate(u.last_login_at, locale) : "Không hoạt động"}</span>
                     </div>
                   </div>
                 </td>

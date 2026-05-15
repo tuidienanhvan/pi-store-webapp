@@ -107,7 +107,7 @@ export function UserUsagePage() {
 
         <div className="row gap-3 flex-wrap items-center">
 
-          <span className="text-[13px] font-bold uppercase tracking-widest opacity-40 mr-2">Time range:</span>
+          <span className="text-[13px] font-bold tracking-wide opacity-40 mr-2">Time range:</span>
 
           {DAYS_OPTIONS.map((d) => (
 
@@ -117,7 +117,7 @@ export function UserUsagePage() {
 
               onClick={() => setFilter("days", d)}
 
-              className="rounded-lg text-[11px] font-bold">
+              className="rounded-lg text-xs font-bold">
 
               {d} days
 
@@ -127,13 +127,13 @@ export function UserUsagePage() {
 
           <div className="w-[1px] h-4 bg-base-border-subtle mx-2" />
 
-          <span className="text-[13px] font-bold uppercase tracking-widest opacity-40 mr-2">Plugin:</span>
+          <span className="text-[13px] font-bold tracking-wide opacity-40 mr-2">Plugin:</span>
 
-          <Button size="sm" variant={!filters.plugin ? "primary" : "ghost"} onClick={() => setFilter("plugin", "")} className="rounded-lg text-[11px] font-bold">All</Button>
+          <Button size="sm" variant={!filters.plugin ? "primary" : "ghost"} onClick={() => setFilter("plugin", "")} className="rounded-lg text-xs font-bold">All</Button>
 
           {byPlugin.map((p) => (
 
-            <Button key={p.plugin} size="sm" variant={filters.plugin === p.plugin ? "primary" : "ghost"} onClick={() => setFilter("plugin", p.plugin)} className="rounded-lg text-[11px] font-bold">
+            <Button key={p.plugin} size="sm" variant={filters.plugin === p.plugin ? "primary" : "ghost"} onClick={() => setFilter("plugin", p.plugin)} className="rounded-lg text-xs font-bold">
 
               {p.plugin}
 
@@ -185,7 +185,7 @@ export function UserUsagePage() {
 
         <div className="row justify-between items-center mb-6">
 
-          <h3 className="m-0 text-[14px] font-black uppercase tracking-[0.2em] opacity-60">Daily chart</h3>
+          <h3 className="m-0 text-[14px] font-semibold tracking-wide opacity-60">Daily chart</h3>
 
           <Badge tone="brand" className="font-bold tracking-widest px-3 opacity-80">{filters.days} days</Badge>
 
@@ -213,7 +213,7 @@ export function UserUsagePage() {
 
         <section className="stack gap-4 stagger-4">
 
-          <h2 className="m-0 text-[18px] font-black uppercase tracking-widest opacity-80 px-1">Daily rows</h2>
+          <h2 className="m-0 text-[18px] font-semibold tracking-wide opacity-80 px-1">Daily rows</h2>
 
           <div className="user-table-card p-0">
 
@@ -279,7 +279,7 @@ export function UserUsagePage() {
 
         <section className="stack gap-4 stagger-4">
 
-          <h2 className="m-0 text-[18px] font-black uppercase tracking-widest opacity-80 px-1">By plugin</h2>
+          <h2 className="m-0 text-[18px] font-semibold tracking-wide opacity-80 px-1">By plugin</h2>
 
           <div className="user-table-card p-0">
 
@@ -359,7 +359,7 @@ function Progress({ pct, rounded = 1 }) {
 
       </div>
 
-      <span className="text-[10px] font-black text-base-content/60 min-w-[40px]">{pct.toFixed(rounded)}%</span>
+      <span className="text-xs font-semibold text-base-content/60 min-w-[40px]">{pct.toFixed(rounded)}%</span>
 
     </div>
 
@@ -417,7 +417,7 @@ function DailyChart({ daily }) {
 
       </div>
 
-      <div className="flex justify-between px-1 text-[10px] font-bold uppercase tracking-widest opacity-40">
+      <div className="flex justify-between px-1 text-xs font-bold tracking-wide opacity-40">
 
         <span>{daily[0]?.date?.slice(5, 10) || ""}</span>
 

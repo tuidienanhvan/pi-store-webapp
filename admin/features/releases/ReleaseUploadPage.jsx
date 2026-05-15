@@ -49,7 +49,7 @@ export function ReleaseUploadPage() {
         title="Phát hành phiên bản mới"
         tagline="Tải lên tệp thực thi và định nghĩa lộ trình cập nhật cho hệ thống ứng dụng Pi"
         actions={
-          <Button as={Link} to="/admin/releases" variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-[11px]">
+          <Button as={Link} to="/admin/releases" variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-xs">
             <ArrowLeft size={14} className="mr-2" /> Quay lại danh sách
           </Button>
         }
@@ -64,7 +64,7 @@ export function ReleaseUploadPage() {
                 <Select 
                   value={form.plugin_slug} 
                   onChange={(e) => setForm({ ...form, plugin_slug: e.target.value })}
-                  className="h-12 bg-white/5 border-white/10 rounded-xl font-semibold"
+                  className="h-10 bg-white/5 border-white/10 rounded-xl font-semibold"
                   options={[{ label: "Pi-API Core", value: "pi-api" }]}
                 />
               </FormField>
@@ -73,7 +73,7 @@ export function ReleaseUploadPage() {
                   placeholder="1.2.0" 
                   value={form.version} 
                   onChange={(e) => setForm({ ...form, version: e.target.value })} 
-                  className="h-12 font-mono bg-white/5 border-white/10 rounded-xl text-primary"
+                  className="h-10 font-mono bg-white/5 border-white/10 rounded-xl text-primary"
                   required
                 />
               </FormField>
@@ -96,7 +96,7 @@ export function ReleaseUploadPage() {
                       <span className="text-sm font-bold text-base-content/40 group-hover:text-white transition-colors tracking-wider">
                         {file ? file.name : "Kéo thả hoặc nhấn để chọn tệp .zip"}
                       </span>
-                      <span className="text-[10px] font-semibold text-white/10 uppercase tracking-[0.2em]">Yêu cầu file nén zip thực thi</span>
+                      <span className="text-xs font-semibold text-white/10 tracking-wide">Yêu cầu file nén zip thực thi</span>
                     </div>
                   </div>
                 </div>
@@ -138,7 +138,7 @@ export function ReleaseUploadPage() {
               </FormField>
               
               <div className="p-4 rounded-2xl bg-info/5 border border-info/10">
-                 <p className="text-[10px] text-info/60 leading-relaxed italic">
+                 <p className="text-xs text-info/60 leading-relaxed italic">
                    Bản phát hành sẽ được kích hoạt ngay lập tức cho các khách hàng thuộc Tier đã chọn trở lên.
                  </p>
               </div>
@@ -157,7 +157,7 @@ export function ReleaseUploadPage() {
                {loading ? "ĐANG XỬ LÝ..." : "XÁC NHẬN PHÁT HÀNH"}
              </Button>
              
-             <Button as={Link} to="/admin/releases" variant="ghost" className="h-12 w-full rounded-xl border border-white/5 text-[11px] font-semibold text-base-content/40">
+             <Button as={Link} to="/admin/releases" variant="ghost" className="h-10 w-full rounded-xl border border-white/5 text-xs font-semibold text-base-content/40">
                Hủy bỏ
              </Button>
           </div>

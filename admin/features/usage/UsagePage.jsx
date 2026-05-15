@@ -94,7 +94,7 @@ export function UsagePage() {
              {DAYS_OPTIONS.map((d) => (
                <button key={d} 
                  onClick={() => setFilter("days", d)}
-                 className={`h-8 px-4 rounded-lg text-[9px] font-semibold tracking-wider transition-all ${filters.days === d ?"bg-primary text-white" : "text-base-content/40 hover:text-base-content/60"}`}>
+                 className={`h-8 px-4 rounded-lg text-xs font-semibold tracking-wider transition-all ${filters.days === d ?"bg-primary text-white" : "text-base-content/40 hover:text-base-content/60"}`}>
                  {d} Ngày
                </button>
              ))}
@@ -104,7 +104,7 @@ export function UsagePage() {
            
            <Select value={filters.plugin}
              onChange={(e) => setFilter("plugin", e.target.value)}
-             className="h-10 min-w-[160px] bg-white/5 border-white/10 rounded-xl font-semibold text-[11px] tracking-widest"
+             className="h-10 min-w-[160px] bg-white/5 border-white/10 rounded-xl font-semibold text-xs tracking-widest"
              options={[
                { label: "Tất cả sản phẩm", value: "" },
                { label: "Pi-SEO", value: "Pi-SEO" },
@@ -118,7 +118,7 @@ export function UsagePage() {
 
            <Select value={filters.quality}
              onChange={(e) => setFilter("quality", e.target.value)}
-             className="h-10 min-w-[160px] bg-white/5 border-white/10 rounded-xl font-semibold text-[11px] tracking-widest"
+             className="h-10 min-w-[160px] bg-white/5 border-white/10 rounded-xl font-semibold text-xs tracking-widest"
              options={[
                { label: "Tất cả chất lượng", value: "" },
                { label: "Nhanh (Fast)", value: "fast" },
@@ -128,7 +128,7 @@ export function UsagePage() {
 
            <Select value={filters.status}
              onChange={(e) => setFilter("status", e.target.value)}
-             className="h-10 min-w-[160px] bg-white/5 border-white/10 rounded-xl font-semibold text-[11px] tracking-widest"
+             className="h-10 min-w-[160px] bg-white/5 border-white/10 rounded-xl font-semibold text-xs tracking-widest"
              options={[
                { label: "Tất cả trạng thái", value: "" },
                { label: "THÀNH CÔNG", value: "success" },
@@ -152,16 +152,16 @@ export function UsagePage() {
         <div className="flex items-center justify-between mb-10">
           <div className="flex items-center gap-3">
              <BarChart3 size={18} className="text-primary" />
-             <h2 className="text-[10px] font-semibold tracking-wider text-base-content/40">Lưu lượng hàng ngày</h2>
+             <h2 className="text-xs font-semibold tracking-wider text-base-content/40">Lưu lượng hàng ngày</h2>
           </div>
           <div className="flex gap-6">
             <div className="flex items-center gap-2">
                <div className="w-2 h-2 bg-primary rounded-sm"/>
-               <span className="text-[9px] font-semibold tracking-wider text-base-content/40">Thành công</span>
+               <span className="text-xs font-semibold tracking-wider text-base-content/40">Thành công</span>
             </div>
             <div className="flex items-center gap-2">
                <div className="w-2 h-2 bg-danger rounded-sm"/>
-               <span className="text-[9px] font-semibold tracking-wider text-base-content/40">Thất bại</span>
+               <span className="text-xs font-semibold tracking-wider text-base-content/40">Thất bại</span>
             </div>
           </div>
         </div>
@@ -178,7 +178,7 @@ export function UsagePage() {
                     <div className="bg-primary/30 group-hover:bg-primary/60 w-full transition-all duration-300" style={{ height: `${successHeight}%` }} />
                     
                     {/* Tooltip khi di chuột */}
-                    <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-base-300 border border-white/10 px-2 py-1 rounded text-[8px] font-bold text-base-content whitespace-nowrap opacity-60 group-hover:opacity-100 transition-opacity z-10 pointer-events-none tracking-wider shadow-xl">
+                    <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-base-300 border border-white/10 px-2 py-1 rounded text-xs font-bold text-base-content whitespace-nowrap opacity-60 group-hover:opacity-100 transition-opacity z-10 pointer-events-none tracking-wider shadow-xl">
                        {d.date}: {d.success || 0} OK / {d.fail || 0} Lỗi
                     </div>
                   </div>
@@ -188,7 +188,7 @@ export function UsagePage() {
           ) : (
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 opacity-20">
                <Activity size={48} />
-               <span className="text-[10px] font-semibold tracking-wider">Không có hoạt động API nào</span>
+               <span className="text-xs font-semibold tracking-wider">Không có hoạt động API nào</span>
             </div>
           )}
           {/* Lưới tọa độ ẩn */}
@@ -207,16 +207,16 @@ export function UsagePage() {
         <section className="flex flex-col gap-6">
            <div className="flex items-center gap-3 px-2">
               <Layers size={18} className="text-primary/60" />
-              <h2 className="text-[10px] font-semibold tracking-wider text-base-content/40">Phân bổ theo sản phẩm</h2>
+              <h2 className="text-xs font-semibold tracking-wider text-base-content/40">Phân bổ theo sản phẩm</h2>
            </div>
            <AdminTable>
              <thead>
                <tr className="bg-white/[0.02]">
-                 <th className="py-4 px-6 text-left font-semibold tracking-wider text-[11px] opacity-50">Sản phẩm</th>
-                 <th className="py-4 px-6 text-right font-semibold tracking-wider text-[11px] opacity-50">Lượt gọi</th>
-                 <th className="py-4 px-6 text-right font-semibold tracking-wider text-[11px] opacity-50">Doanh thu</th>
-                 <th className="py-4 px-6 text-right font-semibold tracking-wider text-[11px] opacity-50">Lợi nhuận</th>
-                 <th className="py-4 px-6 text-right font-semibold tracking-wider text-[11px] opacity-50">Tỷ trọng</th>
+                 <th className="py-4 px-6 text-left font-semibold tracking-wider text-xs opacity-50">Sản phẩm</th>
+                 <th className="py-4 px-6 text-right font-semibold tracking-wider text-xs opacity-50">Lượt gọi</th>
+                 <th className="py-4 px-6 text-right font-semibold tracking-wider text-xs opacity-50">Doanh thu</th>
+                 <th className="py-4 px-6 text-right font-semibold tracking-wider text-xs opacity-50">Lợi nhuận</th>
+                 <th className="py-4 px-6 text-right font-semibold tracking-wider text-xs opacity-50">Tỷ trọng</th>
                </tr>
              </thead>
              <tbody className="divide-y divide-white/5">
@@ -225,12 +225,12 @@ export function UsagePage() {
                  return (
                    <tr key={row.plugin} className="group hover:bg-white/[0.01]">
                      <td className="py-5 px-6">
-                        <span className="text-[11px] font-bold text-primary tracking-wider">{row.plugin}</span>
+                        <span className="text-xs font-bold text-primary tracking-wider">{row.plugin}</span>
                      </td>
-                     <td className="py-5 px-6 text-right font-mono text-[11px] font-bold text-base-content/60">
+                     <td className="py-5 px-6 text-right font-mono text-xs font-bold text-base-content/60">
                         {row.calls.toLocaleString()}
                      </td>
-                     <td className="py-5 px-6 text-right font-mono text-[11px] font-bold text-success">
+                     <td className="py-5 px-6 text-right font-mono text-xs font-bold text-success">
                         ${row.revenue_usd.toFixed(2)}
                      </td>
                      <td className="py-5 px-6 text-right">
@@ -241,7 +241,7 @@ export function UsagePage() {
                          <div className="h-1.5 w-20 bg-white/5 rounded-full overflow-hidden border border-white/5 relative">
                            <div className="absolute inset-0 bg-primary/40 rounded-full" style={{ width: `${sharePct}%` }} />
                          </div>
-                         <span className="text-[10px] font-bold text-base-content/20 w-8 text-right">{sharePct.toFixed(0)}%</span>
+                         <span className="text-xs font-bold text-base-content/20 w-8 text-right">{sharePct.toFixed(0)}%</span>
                        </div>
                      </td>
                    </tr>
@@ -255,14 +255,14 @@ export function UsagePage() {
         <section className="flex flex-col gap-6">
            <div className="flex items-center gap-3 px-2">
               <AlertTriangle size={18} className="text-danger/60" />
-              <h2 className="text-[10px] font-semibold tracking-wider text-base-content/40">Danh sách lỗi hệ thống</h2>
+              <h2 className="text-xs font-semibold tracking-wider text-base-content/40">Danh sách lỗi hệ thống</h2>
            </div>
            <AdminTable>
               <thead>
                 <tr className="bg-white/[0.02]">
-                  <th className="py-4 px-6 text-left font-semibold tracking-wider text-[9px] opacity-40">Mã lỗi</th>
-                  <th className="py-4 px-6 text-right font-semibold tracking-wider text-[9px] opacity-40">Số lần xuất hiện</th>
-                  <th className="py-4 px-6 text-right font-semibold tracking-wider text-[9px] opacity-40">Mức độ</th>
+                  <th className="py-4 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Mã lỗi</th>
+                  <th className="py-4 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Số lần xuất hiện</th>
+                  <th className="py-4 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Mức độ</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/5">
@@ -271,7 +271,7 @@ export function UsagePage() {
                     <td className="py-5 px-6">
                        <AdminBadge tone="danger">{e.code}</AdminBadge>
                     </td>
-                    <td className="py-5 px-6 text-right font-mono text-[11px] font-bold text-danger/60">
+                    <td className="py-5 px-6 text-right font-mono text-xs font-bold text-danger/60">
                        {e.count.toLocaleString()}
                     </td>
                     <td className="py-5 px-6 text-right">

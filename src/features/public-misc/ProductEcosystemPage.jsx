@@ -45,7 +45,7 @@ export function ProductEcosystemPage({ products, siteUrl }) {
       <section className="bg-base-200-2 border-y border-hairline py-20">
         <div className="mx-auto w-full max-w-[1400px] px-8 grid grid-cols-3 gap-8">
           <div className="stack gap-4 p-8 glass rounded-2xl border border-hairline">
-            <div className="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center">
+            <div className="w-12 h-10 bg-primary/10 text-primary rounded-xl flex items-center justify-center">
               <Box size={24} />
             </div>
             <h3 className="text-xl font-bold m-0">1 Plugin duy nhất</h3>
@@ -54,7 +54,7 @@ export function ProductEcosystemPage({ products, siteUrl }) {
             </p>
           </div>
           <div className="stack gap-4 p-8 glass rounded-2xl border border-hairline">
-            <div className="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center">
+            <div className="w-12 h-10 bg-primary/10 text-primary rounded-xl flex items-center justify-center">
               <Key size={24} />
             </div>
             <h3 className="text-xl font-bold m-0">License linh hoạt</h3>
@@ -63,7 +63,7 @@ export function ProductEcosystemPage({ products, siteUrl }) {
             </p>
           </div>
           <div className="stack gap-4 p-8 glass rounded-2xl border border-hairline">
-            <div className="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center">
+            <div className="w-12 h-10 bg-primary/10 text-primary rounded-xl flex items-center justify-center">
               <Zap size={24} />
             </div>
             <h3 className="text-xl font-bold m-0">AI Cloud Tokens</h3>

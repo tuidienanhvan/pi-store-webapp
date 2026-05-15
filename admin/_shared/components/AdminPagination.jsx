@@ -16,7 +16,7 @@ export function AdminPagination({
 
   return (
     <div className={`flex flex-wrap items-center justify-between gap-6 px-4 py-2 ${className}`}>
-      <div className="text-[10px] font-black uppercase tracking-widest text-base-content/30">
+      <div className="text-xs font-semibold tracking-wide text-base-content/30">
         Hiển thị <span className="text-base-content/60">{(page - 1) * pageSize + 1} - {Math.min(page * pageSize, total)}</span> trong tổng số <span className="text-base-content/60">{total}</span>
       </div>
 
@@ -32,7 +32,7 @@ export function AdminPagination({
             <ChevronLeft size={16} />
           </Button>
           
-          <div className="px-4 py-1.5 bg-white/5 border border-white/5 rounded-lg text-xs font-black text-primary">
+          <div className="px-4 py-1.5 bg-white/5 border border-white/5 rounded-lg text-xs font-semibold text-primary">
             {page} / {totalPages || 1}
           </div>
 
@@ -48,7 +48,7 @@ export function AdminPagination({
         </div>
 
         <select 
-          className="h-9 bg-white/5 border border-white/5 rounded-lg px-3 text-[10px] font-black uppercase tracking-widest outline-none focus:border-primary/50 transition-all cursor-pointer"
+          className="h-9 bg-white/5 border border-white/5 rounded-lg px-3 text-xs font-semibold tracking-wide outline-none focus:border-primary/50 transition-all cursor-pointer"
           value={pageSize}
           onChange={(e) => onPageSizeChange?.(Number(e.target.value))}
         >

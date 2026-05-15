@@ -70,8 +70,8 @@ export function ForgotPasswordPage() {
             <div className="flex items-center gap-4">
               <PiLogo size={56} />
               <div className="flex flex-col">
-                <span className="text-[11px] font-black uppercase tracking-[0.4em] text-primary opacity-90 leading-none">Pi Ecosystem</span>
-                <h1 className="text-2xl font-black tracking-tight text-base-content leading-none mt-1">Store <span className="text-primary/50 font-medium">V2</span></h1>
+                <span className="text-xs font-semibold tracking-wide text-primary opacity-90 leading-none">Pi Ecosystem</span>
+                <h1 className="text-2xl font-semibold tracking-tight text-base-content leading-none mt-1">Store <span className="text-primary/50 font-medium">V2</span></h1>
               </div>
             </div>
           </header>
@@ -113,7 +113,7 @@ export function ForgotPasswordPage() {
             <div className="flex flex-col gap-6 py-8">
               <Alert tone="success" className="py-6">
                 <div className="flex flex-col gap-2">
-                  <span className="font-black uppercase tracking-widest text-[10px]">Đã gửi thành công!</span>
+                  <span className="font-semibold tracking-wide text-xs">Đã gửi thành công!</span>
                   <span>Kiểm tra email <b>{email}</b> để tiếp tục quy trình khôi phục.</span>
                 </div>
               </Alert>
@@ -127,7 +127,7 @@ export function ForgotPasswordPage() {
             Bạn đã nhớ ra mật khẩu? <Link to="/login">Đăng nhập</Link>
           </p>
 
-          <footer className="flex items-center justify-between text-[10px] font-black uppercase tracking-[0.4em] text-base-content/20 mt-6 mb-2">
+          <footer className="flex items-center justify-between text-xs font-semibold tracking-wide text-base-content/20 mt-6 mb-2">
             <span>PI ECOSYSTEM  2026</span>
             <span>KERNEL V2.0 PRO</span>
           </footer>

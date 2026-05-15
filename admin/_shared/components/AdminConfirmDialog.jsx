@@ -85,7 +85,7 @@ export function AdminConfirmDialog({
           <span className={`w-8 h-8 rounded-lg border flex items-center justify-center ${BADGE_BY_TONE[tone] || BADGE_BY_TONE.danger}`}>
             <Icon size={16} />
           </span>
-          <h2 className="text-sm font-black uppercase tracking-wider text-base-content">{title}</h2>
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-base-content">{title}</h2>
           <button type="button" onClick={handleClose} disabled={loading} className="ml-auto w-7 h-7 rounded-md border border-base-border bg-base-100/70 text-content-ghost hover:text-base-content flex items-center justify-center disabled:opacity-50">
             <X size={14} />
           </button>
@@ -97,14 +97,14 @@ export function AdminConfirmDialog({
         </div>
 
         <div className="h-14 px-5 border-t border-base-border bg-base-100/60 flex items-center gap-2">
-          <button type="button" onClick={handleClose} disabled={loading} className="h-9 px-4 rounded-lg border border-base-border bg-base-100 text-xs font-black uppercase tracking-wider text-content-dim hover:text-base-content disabled:opacity-50">
+          <button type="button" onClick={handleClose} disabled={loading} className="h-9 px-4 rounded-lg border border-base-border bg-base-100 text-xs font-semibold uppercase tracking-wider text-content-dim hover:text-base-content disabled:opacity-50">
             {cancelLabel}
           </button>
           <button
             type="button"
             onClick={handleConfirm}
             disabled={loading || disabled}
-            className={`ml-auto h-9 px-4 rounded-lg text-xs font-black uppercase tracking-wider inline-flex items-center gap-2 disabled:opacity-50 ${BTN_BY_TONE[tone] || BTN_BY_TONE.danger}`}
+            className={`ml-auto h-9 px-4 rounded-lg text-xs font-semibold uppercase tracking-wider inline-flex items-center gap-2 disabled:opacity-50 ${BTN_BY_TONE[tone] || BTN_BY_TONE.danger}`}
           >
             {loading ? <Loader2 size={14} className="animate-spin" /> : null}
             {confirmLabel}

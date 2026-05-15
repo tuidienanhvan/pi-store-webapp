@@ -91,14 +91,14 @@ export function PackagesPage() {
       <AdminTable>
         <thead>
           <tr className="bg-white/[0.02]">
-            <th className="py-5 px-6 text-left font-semibold tracking-wider text-[10px] opacity-40">Mã / Tên hiển thị</th>
-            <th className="py-5 px-6 text-right font-semibold tracking-wider text-[10px] opacity-40">Giá tháng</th>
-            <th className="py-5 px-6 text-right font-semibold tracking-wider text-[10px] opacity-40">Giá năm</th>
-            <th className="py-5 px-6 text-right font-semibold tracking-wider text-[10px] opacity-40">Hạn mức Token</th>
-            <th className="py-5 px-6 text-left font-semibold tracking-wider text-[10px] opacity-40">Cấu hình định tuyến</th>
-            <th className="py-5 px-6 text-center font-semibold tracking-wider text-[10px] opacity-40">Người dùng</th>
-            <th className="py-5 px-6 text-center font-semibold tracking-wider text-[10px] opacity-40">Trạng thái</th>
-            <th className="py-5 px-6 text-right font-semibold tracking-wider text-[10px] opacity-40">Thao tác</th>
+            <th className="py-5 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Mã / Tên hiển thị</th>
+            <th className="py-5 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Giá tháng</th>
+            <th className="py-5 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Giá năm</th>
+            <th className="py-5 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Hạn mức Token</th>
+            <th className="py-5 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Cấu hình định tuyến</th>
+            <th className="py-5 px-6 text-center font-semibold tracking-wider text-xs opacity-40">Người dùng</th>
+            <th className="py-5 px-6 text-center font-semibold tracking-wider text-xs opacity-40">Trạng thái</th>
+            <th className="py-5 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Thao tác</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-white/5">
@@ -106,7 +106,7 @@ export function PackagesPage() {
             <tr key={p.slug} className="group hover:bg-white/[0.01] transition-all duration-300">
               <td className="py-6 px-6">
                 <div className="flex flex-col gap-1">
-                  <span className="text-[9px] font-mono font-bold text-primary tracking-tighter">MÃ: {p.slug}</span>
+                  <span className="text-xs font-mono font-bold text-primary tracking-tighter">MÃ: {p.slug}</span>
                   <span className="text-sm font-bold text-base-content group-hover:text-primary transition-colors">{p.display_name}</span>
                 </div>
               </td>
@@ -119,14 +119,14 @@ export function PackagesPage() {
               <td className="py-6 px-6 text-right">
                  <div className="flex flex-col items-end">
                     <span className="text-xs font-bold text-primary">{p.token_quota_monthly > 0 ? formatNum(p.token_quota_monthly) : "∞"}</span>
-                    <span className="text-[8px] font-bold text-base-content/20 tracking-wider">/ tháng</span>
+                    <span className="text-xs font-bold text-base-content/20 tracking-wider">/ tháng</span>
                  </div>
               </td>
               <td className="py-6 px-6">
                 <div className="flex flex-col gap-2">
                   <div className="flex flex-wrap gap-1">
                     {p.allowed_qualities.map((q) => (
-                      <span key={q} className="text-[8px] font-semibold px-1.5 py-0.5 rounded bg-white/5 border border-white/5 text-base-content/40 tracking-widest">{q}</span>
+                      <span key={q} className="text-xs font-semibold px-1.5 py-0.5 rounded bg-white/5 border border-white/5 text-base-content/40 tracking-widest">{q}</span>
                     ))}
                   </div>
                   {p.routing_mode && (
@@ -134,7 +134,7 @@ export function PackagesPage() {
                       <AdminBadge tone={p.routing_mode === "dedicated" ? "primary" : p.routing_mode === "hybrid" ? "warning" : "neutral"}>
                         {p.routing_mode === 'shared' ? 'Bể chung' : p.routing_mode === 'dedicated' ? 'Khóa riêng' : 'Dự phòng'}
                       </AdminBadge>
-                      {p.dedicated_key_count > 0 && <span className="text-[9px] font-mono text-base-content/30 italic">+{p.dedicated_key_count} keys</span>}
+                      {p.dedicated_key_count > 0 && <span className="text-xs font-mono text-base-content/30 italic">+{p.dedicated_key_count} keys</span>}
                     </div>
                   )}
                 </div>
@@ -142,7 +142,7 @@ export function PackagesPage() {
               <td className="py-6 px-6 text-center">
                  <div className="flex flex-col items-center">
                     <AdminValue className="text-sm">{p.subscriber_count || 0}</AdminValue>
-                    <a href={`/admin/licenses?package=${p.slug}`} className="text-[8px] font-bold text-primary tracking-wider opacity-40 hover:opacity-100 transition-all flex items-center gap-1">
+                    <a href={`/admin/licenses?package=${p.slug}`} className="text-xs font-bold text-primary tracking-wider opacity-40 hover:opacity-100 transition-all flex items-center gap-1">
                        Xem <ChevronRight size={10} />
                     </a>
                  </div>

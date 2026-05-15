@@ -97,7 +97,7 @@ export function RevenuePage() {
             {DAYS_OPTIONS.map((d) => (
               <button key={d} 
                 onClick={() => setDays(d)}
-                className={`h-8 px-4 rounded-lg text-[9px] font-semibold tracking-wider transition-all duration-300 ${days === d ?"bg-primary text-white" : "text-base-content/40 hover:text-base-content/60 hover:bg-white/5"}`}>
+                className={`h-8 px-4 rounded-lg text-xs font-semibold tracking-wider transition-all duration-300 ${days === d ?"bg-primary text-white" : "text-base-content/40 hover:text-base-content/60 hover:bg-white/5"}`}>
                 {d === 365 ? "Năm" : `${d} Ngày`}
               </button>
             ))}
@@ -145,7 +145,7 @@ export function RevenuePage() {
             <AdminCard className="p-8">
               <div className="flex items-center gap-3 mb-8">
                  <PieChart size={18} className="text-primary" />
-                 <h2 className="text-[10px] font-semibold tracking-wider text-base-content/40">Phân bổ danh mục</h2>
+                 <h2 className="text-xs font-semibold tracking-wider text-base-content/40">Phân bổ danh mục</h2>
               </div>
 
               <div className="flex flex-col md:flex-row items-center gap-12">
@@ -153,7 +153,7 @@ export function RevenuePage() {
                   <div className="absolute inset-0 rounded-full" style={{ background: conicGradient }} />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-[70%] h-[70%] bg-base-300 rounded-full flex flex-col items-center justify-center border border-white/5 shadow-inner">
-                      <span className="text-[8px] font-bold text-base-content/30 tracking-wider mb-1">Tổng cộng</span>
+                      <span className="text-xs font-bold text-base-content/30 tracking-wider mb-1">Tổng cộng</span>
                       <AdminValue className="text-lg">{formatCurrencyUSD(revenue, locale)}</AdminValue>
                     </div>
                   </div>
@@ -166,12 +166,12 @@ export function RevenuePage() {
                         <div className="w-2 h-2 rounded-full" style={{ background: item.color }} />
                         <div className="flex flex-col">
                            <span className="text-xs font-bold text-base-content group-hover:text-primary transition-colors">{item.name}</span>
-                           <span className="text-[8px] font-bold text-base-content/20 tracking-wider">{item.sku}</span>
+                           <span className="text-xs font-bold text-base-content/20 tracking-wider">{item.sku}</span>
                         </div>
                       </div>
                       <div className="flex flex-col items-end">
                         <span className="text-xs font-bold text-base-content">{formatCurrencyUSD(Number(item.revenue_cents || 0) / 100, locale)}</span>
-                        <span className="text-[9px] font-bold text-primary">{item.pct.toFixed(0)}%</span>
+                        <span className="text-xs font-bold text-primary">{item.pct.toFixed(0)}%</span>
                       </div>
                     </div>
                   ))}
@@ -184,16 +184,16 @@ export function RevenuePage() {
             <section className="flex flex-col gap-4">
                <div className="flex items-center gap-3 px-2">
                   <BarChart3 size={18} className="text-primary/60" />
-                  <h2 className="text-[10px] font-semibold tracking-wider text-base-content/40">Nhật ký doanh thu sản phẩm</h2>
+                  <h2 className="text-xs font-semibold tracking-wider text-base-content/40">Nhật ký doanh thu sản phẩm</h2>
                </div>
 
                <AdminTable>
                  <thead>
                     <tr className="bg-white/[0.02]">
-                       <th className="py-4 px-6 text-left font-semibold tracking-wider text-[9px] opacity-40">Sản phẩm / Mã</th>
-                       <th className="py-4 px-6 text-center font-semibold tracking-wider text-[9px] opacity-40">Phân loại</th>
-                       <th className="py-4 px-6 text-right font-semibold tracking-wider text-[9px] opacity-40">Số lượng</th>
-                       <th className="py-4 px-6 text-right font-semibold tracking-wider text-[9px] opacity-40">Doanh thu</th>
+                       <th className="py-4 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Sản phẩm / Mã</th>
+                       <th className="py-4 px-6 text-center font-semibold tracking-wider text-xs opacity-40">Phân loại</th>
+                       <th className="py-4 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Số lượng</th>
+                       <th className="py-4 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Doanh thu</th>
                     </tr>
                  </thead>
                  <tbody className="divide-y divide-white/5">
@@ -202,7 +202,7 @@ export function RevenuePage() {
                         <td className="py-5 px-6">
                            <div className="flex flex-col">
                               <span className="text-xs font-bold text-base-content group-hover:text-primary transition-colors">{item.name}</span>
-                              <span className="text-[9px] font-mono font-bold text-base-content/20 tracking-tighter">{item.sku}</span>
+                              <span className="text-xs font-mono font-bold text-base-content/20 tracking-tighter">{item.sku}</span>
                            </div>
                         </td>
                         <td className="py-5 px-6 text-center">
@@ -214,7 +214,7 @@ export function RevenuePage() {
                         <td className="py-5 px-6 text-right">
                            <div className="flex flex-col items-end">
                               <span className="text-xs font-bold text-primary">{formatCurrencyUSD(Number(item.revenue_cents || 0) / 100, locale)}</span>
-                              <span className="text-[8px] font-bold text-white/10 tracking-wider">Doanh thu gộp</span>
+                              <span className="text-xs font-bold text-white/10 tracking-wider">Doanh thu gộp</span>
                            </div>
                         </td>
                       </tr>

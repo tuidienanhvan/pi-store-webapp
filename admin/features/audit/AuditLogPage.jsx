@@ -106,23 +106,23 @@ export function AuditLogPage() {
       >
         <div className="flex flex-wrap items-center gap-3">
           <Select value={filters.action} onChange={(e) => setFilters({ action: e.target.value, offset: 0 })} 
-            options={ACTION_OPTIONS} className="h-10 min-w-[150px] bg-white/5 border-white/5 rounded-xl font-semibold text-[11px] tracking-widest" />
+            options={ACTION_OPTIONS} className="h-10 min-w-[150px] bg-white/5 border-white/5 rounded-xl font-semibold text-xs tracking-widest" />
           
           <Select value={filters.resource_type} onChange={(e) => setFilters({ resource_type: e.target.value, offset: 0 })} 
-            options={RESOURCE_OPTIONS} className="h-10 min-w-[150px] bg-white/5 border-white/5 rounded-xl font-semibold text-[11px] tracking-widest" />
+            options={RESOURCE_OPTIONS} className="h-10 min-w-[150px] bg-white/5 border-white/5 rounded-xl font-semibold text-xs tracking-widest" />
           
           <Select value={filters.severity} onChange={(e) => setFilters({ severity: e.target.value, offset: 0 })}
             options={[{ label: "MỨC ĐỘ: TẤT CẢ", value: "" }, { label: "THÔNG TIN", value: "info" }, { label: "CẢNH BÁO", value: "warning" }, { label: "NGHIÊM TRỌNG", value: "critical" }]}
-            className="h-10 min-w-[150px] bg-white/5 border-white/5 rounded-xl font-semibold text-[11px] tracking-widest" />
+            className="h-10 min-w-[150px] bg-white/5 border-white/5 rounded-xl font-semibold text-xs tracking-widest" />
           
           <div className="flex items-center gap-2 bg-white/5 px-4 py-1.5 rounded-xl border border-white/5">
-             <span className="text-[9px] font-bold text-base-content/20 tracking-wider">Từ</span>
+             <span className="text-xs font-bold text-base-content/20 tracking-wider">Từ</span>
              <input type="date" value={filters.from_date || ""} onChange={(e) => setFilters({ from_date: e.target.value, offset: 0 })} 
-               className="bg-transparent border-none text-[10px] font-semibold tracking-wider focus:ring-0 text-base-content/60 p-0" />
+               className="bg-transparent border-none text-xs font-semibold tracking-wider focus:ring-0 text-base-content/60 p-0" />
              <span className="text-white/10 mx-1">—</span>
-             <span className="text-[9px] font-bold text-base-content/20 tracking-wider">Đến</span>
+             <span className="text-xs font-bold text-base-content/20 tracking-wider">Đến</span>
              <input type="date" value={filters.to_date || ""} onChange={(e) => setFilters({ to_date: e.target.value, offset: 0 })} 
-               className="bg-transparent border-none text-[10px] font-semibold tracking-wider focus:ring-0 text-base-content/60 p-0" />
+               className="bg-transparent border-none text-xs font-semibold tracking-wider focus:ring-0 text-base-content/60 p-0" />
           </div>
         </div>
       </AdminFilterBar>
@@ -130,7 +130,7 @@ export function AuditLogPage() {
       <div className="flex items-center justify-between px-2">
         <div className="flex items-center gap-3">
            <Terminal size={14} className="text-primary/60" />
-           <span className="text-[10px] font-semibold tracking-wider text-base-content/30">Nhật ký: {data.total.toLocaleString()} sự kiện</span>
+           <span className="text-xs font-semibold tracking-wider text-base-content/30">Nhật ký: {data.total.toLocaleString()} sự kiện</span>
         </div>
         {loading && <Activity size={14} className="text-primary animate-pulse" />}
       </div>
@@ -139,12 +139,12 @@ export function AuditLogPage() {
         <thead>
           <tr className="bg-white/[0.02]">
             <th className="w-12" />
-            <th className="py-4 px-6 text-left font-semibold tracking-wider text-[9px] opacity-40">Thời gian / Sự kiện</th>
-            <th className="py-4 px-6 text-left font-semibold tracking-wider text-[9px] opacity-40">Người thực hiện</th>
-            <th className="py-4 px-6 text-left font-semibold tracking-wider text-[9px] opacity-40">Thao tác</th>
-            <th className="py-4 px-6 text-left font-semibold tracking-wider text-[9px] opacity-40">Tài nguyên</th>
-            <th className="py-4 px-6 text-left font-semibold tracking-wider text-[9px] opacity-40">Nội dung</th>
-            <th className="py-4 px-6 text-center font-semibold tracking-wider text-[9px] opacity-40">Mức độ</th>
+            <th className="py-4 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Thời gian / Sự kiện</th>
+            <th className="py-4 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Người thực hiện</th>
+            <th className="py-4 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Thao tác</th>
+            <th className="py-4 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Tài nguyên</th>
+            <th className="py-4 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Nội dung</th>
+            <th className="py-4 px-6 text-center font-semibold tracking-wider text-xs opacity-40">Mức độ</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-white/5">

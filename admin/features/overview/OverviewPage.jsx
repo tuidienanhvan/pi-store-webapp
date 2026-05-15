@@ -67,7 +67,7 @@ function ServiceRow({ icon: Icon, label, status }) {
       <Icon size={13} className="text-base-content/40 shrink-0" />
       <span className="text-xs text-base-content/70 flex-1 truncate">{label}</span>
       <span className={`w-1.5 h-1.5 rounded-full ${healthy ?"bg-success" : "bg-danger"}`} />
-      <span className={`text-[11px] font-medium tabular-nums w-16 text-right ${healthy ?"text-success" : "text-danger"}`}>
+      <span className={`text-xs font-medium tabular-nums w-16 text-right ${healthy ?"text-success" : "text-danger"}`}>
         {healthy ? "Tr?c tuy?n" : "Ngo?i tuy?n"}
       </span>
     </div>
