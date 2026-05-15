@@ -2,7 +2,7 @@ import React from 'react';
 
 export function AdminValue({ children, className = '' }) {
   return (
-    <span className={`hud-value ${className}`}>
+    <span className={`font-semibold tabular-nums ${className}`}>
       {children}
     </span>
   );

@@ -10,7 +10,7 @@ export function AdminFilterBar({
   className = "" 
 }) {
   return (
-    <div className={`hud-filter-bar ${className}`}>
+    <div className={`flex flex-wrap items-center gap-4 p-4 bg-base-200/40 backdrop-blur-md border border-white/10 rounded-xl ${className}`}>
       <div className="relative flex-1 min-w-[240px]">
         <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-base-content/30" />
         <input 

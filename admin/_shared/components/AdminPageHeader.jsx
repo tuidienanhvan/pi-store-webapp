@@ -7,22 +7,19 @@ import { AdminBadge } from './AdminBadge';
  */
 export function AdminPageHeader({ title, subtitle, tagline, badge, actions, className = '' }) {
   return (
-    <header className={`hud-banner ${className}`}>
+    <header className={`flex flex-col gap-2 pb-10 mb-4 ${className}`}>
       <div className="flex flex-wrap items-center justify-between gap-6">
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-4">
-            <h1 className="hud-banner__title m-0">
+            <h1 className="text-4xl font-bold tracking-tight text-white m-0">
               {title}
             </h1>
             {badge && <AdminBadge>{badge}</AdminBadge>}
           </div>
           {(subtitle || tagline) && (
-            <div className="hud-banner__subtitle">
-              <div className="hud-banner__subtitle-line" />
-              <p className="hud-banner__tagline m-0">
-                {tagline || subtitle}
-              </p>
-            </div>
+            <p className="text-xs font-semibold text-primary tracking-widest opacity-80 m-0 uppercase">
+              {tagline || subtitle}
+            </p>
           )}
         </div>
         {actions && (

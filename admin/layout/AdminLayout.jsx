@@ -23,7 +23,7 @@ import { AdminHeader } from "./AdminHeader";
 
 // Styles
 import "@/_shared/components/core/DashboardLayout.css";
-import "@/styles/quantum-hud.css";
+
 
 //  CẤU HÌNH MENU ĐIỀU HƯỚNG (ADMIN)
 const ADMIN_NAV = [

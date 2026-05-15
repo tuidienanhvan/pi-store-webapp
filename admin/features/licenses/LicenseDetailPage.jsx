@@ -396,7 +396,7 @@ export function LicenseDetailPage() {
         {/* Right Column: Tabs for detailed control */}
         <div className="lg:col-span-3">
           {err && <Alert tone="danger" onDismiss={() => setErr("")} className="mb-6">{err}</Alert>}
-          <div className="glass-panel rounded-[2rem] overflow-hidden border border-white/5">
+          <div className="rounded-xl border border-white/10 backdrop-blur-md shadow-glass rounded-[2rem] overflow-hidden">
             <Tabs
               items={[
                 { id: "general", label: "Cấu hình hệ thống", content: generalTab },

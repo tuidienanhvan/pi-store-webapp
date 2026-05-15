@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Alert, Button, Input, Select, Textarea } from "@/_shared/components/ui";
-import { UploadCloud, ArrowLeft } from "lucide-react";
+import { UploadCloud, ArrowLeft, Zap, ShieldPlus, Info } from "lucide-react";
 import { FormField, FormSection, AdminPageHeader } from "../../_shared/components";
 import { releasesApi } from "./api";
 
@@ -19,11 +19,7 @@ export function ReleaseUploadPage() {
 
   const submit = async (e) => {
     e.preventDefault();
-    if (!file) {
-      setErr("Vui lòng chọn tệp ZIP thực thi.");
-      return;
-    }
-    
+    if (!file) { setErr("Vui lòng chọn tệp ZIP."); return; }
     setLoading(true);
     setErr("");
     try {
@@ -33,134 +29,133 @@ export function ReleaseUploadPage() {
       fd.append("version", form.version);
       fd.append("tier_required", form.tier_required);
       fd.append("changelog", form.changelog);
-
       await releasesApi.upload(fd);
       navigate("/admin/releases");
-    } catch (e) {
-      setErr("Lỗi phát hành: " + e.message);
+    } catch (e2) {
+      setErr("Lỗi phát hành: " + e2.message);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="flex flex-col gap-10 pb-20">
-      <AdminPageHeader 
+    <div className="max-w-5xl mx-auto flex flex-col gap-6 pb-12">
+      <AdminPageHeader
         title="Phát hành phiên bản mới"
-        tagline="Tải lên tệp thực thi và định nghĩa lộ trình cập nhật cho hệ thống ứng dụng Pi"
+        tagline="Tải lên tệp thực thi và định nghĩa lộ trình cập nhật"
         actions={
-          <Button as={Link} to="/admin/releases" variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-xs">
-            <ArrowLeft size={14} className="mr-2" /> Quay lại danh sách
+          <Button as={Link} to="/admin/releases" variant="ghost" size="sm">
+            <ArrowLeft size={14} className="mr-1.5" /> Danh sách
           </Button>
         }
       />
 
-      <form onSubmit={submit} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Cột chính: Thông tin phiên bản & Upload */}
-        <div className="lg:col-span-2 flex flex-col gap-8">
-          <FormSection title="Thông tin phiên bản & Tệp ZIP" icon={UploadCloud}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-              <FormField label="Ứng dụng mục tiêu" required hint="Sản phẩm sẽ nhận bản cập nhật này">
-                <Select 
-                  value={form.plugin_slug} 
-                  onChange={(e) => setForm({ ...form, plugin_slug: e.target.value })}
-                  className="h-10 bg-white/5 border-white/10 rounded-xl font-semibold"
-                  options={[{ label: "Pi-API Core", value: "pi-api" }]}
-                />
-              </FormField>
-              <FormField label="Mã phiên bản (Version)" required hint="Định dạng Semantic Versioning (VD: 1.2.0)">
-                <Input 
-                  placeholder="1.2.0" 
-                  value={form.version} 
-                  onChange={(e) => setForm({ ...form, version: e.target.value })} 
-                  className="h-10 font-mono bg-white/5 border-white/10 rounded-xl text-primary"
-                  required
-                />
-              </FormField>
-            </div>
-
-            <div className="mt-8">
-              <FormField label="Tải lên tệp thực thi (.zip)">
-                <div className="relative group">
-                  <input 
-                    type="file" 
-                    accept=".zip" 
-                    onChange={(e) => setFile(e.target.files[0])}
-                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-                  />
-                  <div className="flex flex-col items-center justify-center gap-4 h-48 rounded-[2rem] border border-dashed border-white/10 bg-white/[0.02] group-hover:bg-primary/[0.04] group-hover:border-primary/40 transition-all duration-500">
-                    <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center border border-white/5 group-hover:border-primary/20 group-hover:bg-primary/10 transition-all">
-                      <UploadCloud size={32} className="text-white/20 group-hover:text-primary transition-colors" />
-                    </div>
-                    <div className="flex flex-col items-center gap-1">
-                      <span className="text-sm font-bold text-base-content/40 group-hover:text-white transition-colors tracking-wider">
-                        {file ? file.name : "Kéo thả hoặc nhấn để chọn tệp .zip"}
-                      </span>
-                      <span className="text-xs font-semibold text-white/10 tracking-wide">Yêu cầu file nén zip thực thi</span>
-                    </div>
-                  </div>
-                </div>
-              </FormField>
-            </div>
-          </FormSection>
-
-          <FormSection title="Nhật ký thay đổi" icon={Zap}>
-            <FormField label="Changelog (Markdown hỗ trợ)" hint="Thông tin này sẽ hiển thị cho người dùng khi cập nhật">
-              <Textarea 
-                rows={8} 
-                placeholder="Mô tả các tính năng mới, cải tiến và các bản sửa lỗi trong phiên bản này..." 
-                value={form.changelog} 
-                onChange={(e) => setForm({ ...form, changelog: e.target.value })} 
-                className="bg-white/5 border-white/10 rounded-2xl p-4 focus:border-primary/50 transition-all resize-none"
+      <form onSubmit={submit} className="flex flex-col gap-5">
+        {/* ─── Thông tin phiên bản ─── */}
+        <FormSection title="Thông tin phiên bản" icon={UploadCloud}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <FormField label="Ứng dụng mục tiêu" required hint="Sản phẩm sẽ nhận bản cập nhật">
+              <Select
+                value={form.plugin_slug}
+                onChange={(e) => setForm({ ...form, plugin_slug: e.target.value })}
+                options={[{ label: "Pi-API Core", value: "pi-api" }]}
               />
             </FormField>
-          </FormSection>
-        </div>
-
-        {/* Cột phụ: Phân quyền & Hành động */}
-        <div className="flex flex-col gap-8">
-          <FormSection title="Phân quyền truy cập" icon={ShieldPlus}>
-            <div className="flex flex-col gap-6">
-              <FormField label="Cấp độ tối thiểu (Tier)">
-                <div className="grid grid-cols-1 gap-2">
-                  {["free", "pro", "max"].map(tier => (
-                    <button 
-                      key={tier} 
-                      type="button" 
-                      onClick={() => setForm({...form, tier_required: tier})}
-                      className={`flex items-center justify-between h-14 px-5 rounded-2xl border transition-all ${form.tier_required === tier ? 'bg-primary/10 border-primary/30 text-primary' : 'bg-white/5 border-white/5 text-base-content/40 hover:bg-white/10'}`}
-                    >
-                      <span className="text-sm font-bold capitalize">{tier} Tier</span>
-                      <div className={`w-2 h-2 rounded-full ${form.tier_required === tier ? 'bg-primary shadow-[0_0_8px_rgba(var(--color-primary),0.8)]' : 'bg-white/10'}`} />
-                    </button>
-                  ))}
-                </div>
-              </FormField>
-              
-              <div className="p-4 rounded-2xl bg-info/5 border border-info/10">
-                 <p className="text-xs text-info/60 leading-relaxed italic">
-                   Bản phát hành sẽ được kích hoạt ngay lập tức cho các khách hàng thuộc Tier đã chọn trở lên.
-                 </p>
-              </div>
-            </div>
-          </FormSection>
-
-          <div className="flex flex-col gap-3">
-             {err && <Alert tone="danger" onDismiss={() => setErr("")}>{err}</Alert>}
-             
-             <Button 
-               type="submit" 
-               variant="primary" 
-               disabled={loading || !file} 
-               className="h-14 w-full rounded-2xl font-bold tracking-wider text-xs shadow-xl shadow-primary/10"
-             >
-               {loading ? "ĐANG XỬ LÝ..." : "XÁC NHẬN PHÁT HÀNH"}
-             </Button>
-             
-             <Button as={Link} to="/admin/releases" variant="ghost" className="h-10 w-full rounded-xl border border-white/5 text-xs font-semibold text-base-content/40">
-               Hủy bỏ
-             </Button>
+            <FormField label="Mã phiên bản" required hint="Semantic versioning, VD: 1.2.0">
+              <Input
+                placeholder="1.2.0"
+                value={form.version}
+                onChange={(e) => setForm({ ...form, version: e.target.value })}
+                className="font-mono"
+                required
+              />
+            </FormField>
           </div>
+        </FormSection>
+
+        {/* ─── Tệp ZIP ─── */}
+        <FormSection title="Tệp thực thi" icon={UploadCloud}>
+          <FormField label="Tải lên file .zip">
+            <label className="relative flex flex-col items-center justify-center gap-2 h-32 rounded-xl border border-dashed border-white/10 bg-white/[0.02] hover:bg-primary/[0.04] hover:border-primary/30 transition-colors cursor-pointer">
+              <input
+                type="file"
+                accept=".zip"
+                onChange={(e) => setFile(e.target.files[0])}
+                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+              />
+              <UploadCloud size={20} className="text-base-content/40" />
+              <div className="flex flex-col items-center gap-0.5">
+                <span className="text-sm font-medium text-base-content/70">
+                  {file ? file.name : "Kéo thả hoặc bấm chọn tệp .zip"}
+                </span>
+                <span className="text-xs text-base-content/40">
+                  {file ? `${(file.size / 1024 / 1024).toFixed(2)} MB` : "Tệp nén .zip thực thi"}
+                </span>
+              </div>
+            </label>
+          </FormField>
+        </FormSection>
+
+        {/* ─── Changelog ─── */}
+        <FormSection title="Nhật ký thay đổi" icon={Zap}>
+          <FormField label="Changelog" hint="Hỗ trợ Markdown. Hiển thị cho người dùng khi cập nhật.">
+            <Textarea
+              rows={5}
+              placeholder="Mô tả tính năng mới, cải tiến, sửa lỗi..."
+              value={form.changelog}
+              onChange={(e) => setForm({ ...form, changelog: e.target.value })}
+            />
+          </FormField>
+        </FormSection>
+
+        {/* ─── Phân quyền ─── */}
+        <FormSection title="Phân quyền truy cập" icon={ShieldPlus}>
+          <FormField label="Cấp độ tối thiểu (Tier)" hint="Khách hàng từ tier này trở lên sẽ nhận update">
+            <div className="grid grid-cols-3 gap-2">
+              {["free", "pro", "max"].map((tier) => {
+                const active = form.tier_required === tier;
+                return (
+                  <button
+                    key={tier}
+                    type="button"
+                    onClick={() => setForm({ ...form, tier_required: tier })}
+                    className={`flex items-center justify-center gap-2 h-10 px-3 rounded-md border text-sm font-medium transition-colors ${
+                      active
+                        ? "bg-primary/10 border-primary/30 text-primary"
+                        : "bg-white/[0.02] border-white/10 text-base-content/60 hover:bg-white/5 hover:text-base-content"
+                    }`}
+                  >
+                    <span className="capitalize">{tier}</span>
+                    {active && <span className="w-1.5 h-1.5 rounded-full bg-primary" />}
+                  </button>
+                );
+              })}
+            </div>
+          </FormField>
+
+          <div className="flex items-start gap-2.5 p-3 rounded-md bg-base-content/5 border border-white/5">
+            <Info size={14} className="text-base-content/50 mt-0.5 shrink-0" />
+            <p className="text-xs text-base-content/60 leading-relaxed">
+              Bản phát hành <strong className="text-base-content">kích hoạt ngay</strong> cho mọi khách hàng từ tier đã chọn trở lên.
+            </p>
+          </div>
+        </FormSection>
+
+        {err && <Alert tone="danger" onDismiss={() => setErr("")}>{err}</Alert>}
+
+        {/* Sticky footer */}
+        <div className="flex items-center gap-3 pt-3 sticky bottom-0 bg-base-100 py-3 border-t border-white/5">
+          <Button as={Link} to="/admin/releases" type="button" variant="ghost" className="flex-1">
+            Huỷ
+          </Button>
+          <Button
+            type="submit"
+            variant="primary"
+            disabled={loading || !file}
+            className="flex-1"
+          >
+            {loading ? "Đang tải lên..." : "Phát hành"}
+          </Button>
         </div>
       </form>
     </div>
@@ -168,7 +163,3 @@ export function ReleaseUploadPage() {
 }
 
 export default ReleaseUploadPage;
-
-
-
-
