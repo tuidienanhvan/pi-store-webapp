@@ -5,6 +5,7 @@ import { ArrowLeft } from "lucide-react";
 import { FormField, FormSection, AdminPageHeader } from "../../_shared/components";
 import { keysApi } from "./api";
 import { providersApi } from "../providers/api";
+import './KeyCreatePage.css';
 
 export function KeyCreatePage() {
   const navigate = useNavigate();

@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { api } from "@/_shared/api/api-client";
 import { Card, Alert, Button, Badge } from "@/_shared/components/ui";
 import { Loader2 } from "lucide-react";
+import './WalletPage.css';
 
-import "./WalletPage.css";
 
 /**
  * WalletPage  Infinity Edition

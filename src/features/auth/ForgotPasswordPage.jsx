@@ -1,10 +1,9 @@
 import { useState } from "react";
-import "./AuthLayout.css";
-import "./AuthForm.css";
 import { Link } from "react-router-dom";
 import { Alert } from "@/_shared/components/ui";
 import { Mail } from "lucide-react";
 import PiLogo from "@pi-ui/base/PiLogo";
+import './ForgotPasswordPage.css';
 
 function PiOrbitMap() {
   return (

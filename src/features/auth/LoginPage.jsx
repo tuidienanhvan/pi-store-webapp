@@ -1,11 +1,10 @@
 import { useState } from "react";
-import "./AuthLayout.css";
-import "./AuthForm.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/_shared/context/AuthContext";
 import { Alert } from "@/_shared/components/ui";
 import { Mail, Key, Eye, EyeOff, Zap, Grid, Sparkles } from "lucide-react";
 import PiLogo from "@pi-ui/base/PiLogo";
+import './LoginPage.css';
 
 function PiOrbitMap() {
   return (

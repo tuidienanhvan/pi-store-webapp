@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import { Card, Badge, Button } from "@/_shared/components/ui";
 
 import { getLocalizedProduct } from "@/_shared/lib/catalog";
+import './PricingBundles.css';
 
-import "./PricingBundles.css";
 
 
 

@@ -4,6 +4,7 @@ import { Alert, Button, Input, Select, Textarea } from "@/_shared/components/ui"
 import { UploadCloud, ArrowLeft, Zap, ShieldPlus, Info } from "lucide-react";
 import { FormField, FormSection, AdminPageHeader } from "../../_shared/components";
 import { releasesApi } from "./api";
+import './ReleaseUploadPage.css';
 
 export function ReleaseUploadPage() {
   const navigate = useNavigate();

@@ -5,6 +5,7 @@ import { Alert, Button, Input, Textarea } from "@/_shared/components/ui";
 import { AdminBadge, AdminConfirmDialog } from "../../_shared/components";
 import { Database, TrendingUp, FileText, ArrowLeft } from "lucide-react";
 import { FormField, FormSection, AdminPageHeader } from "../../_shared/components";
+import './LicenseAdjustTokensPage.css';
 
 export function LicenseAdjustTokensPage() {
   const { id } = useParams();

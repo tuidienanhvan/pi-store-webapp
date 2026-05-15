@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 import { Button, Card } from "@/_shared/components/ui";
 import { Check } from "lucide-react";
+import './CheckoutSuccessPage.css';
 
 
 

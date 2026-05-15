@@ -29,6 +29,7 @@ import {
 import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
 import { licensesApi } from "./api";
 import { LicenseRow } from "./components/LicenseRow";
+import './LicensesPage.css';
 
 const DEFAULTS = {
   q: "", status: "", tier: "", package: "",

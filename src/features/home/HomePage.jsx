@@ -1,4 +1,3 @@
-import './HomePage.css';
 import React from "react";
 import catalog from "../../_shared/data/catalog.generated.json";
 import { useLocale } from "@/_shared/context/LocaleContext";
@@ -7,6 +6,7 @@ import { HomeBento } from "./components/HomeBento";
 import { ProductOfferings } from "./components/ProductOfferings";
 import { HomeFeatured } from "./components/HomeFeatured";
 import { HomeCTA } from "./components/HomeCTA";
+import './HomePage.css';
 
 export function HomePage() {
   const { dict } = useLocale();

@@ -5,6 +5,7 @@ import {
 } from "@/_shared/components/ui";
 import { Trash2, Plus, Zap } from "lucide-react";
 import { AdminTable, AdminEmptyState } from "../../../_shared/components";
+import './PacksCard.css';
 
 /**
  * PacksCard: Quản lý các gói nạp Token của hệ thống.

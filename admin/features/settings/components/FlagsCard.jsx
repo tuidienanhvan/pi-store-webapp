@@ -5,6 +5,7 @@ import {
 } from "@/_shared/components/ui";
 import { Flag, UserPlus, CreditCard, Layers, Shield } from "lucide-react";
 import { AdminCard } from "../../../_shared/components";
+import './FlagsCard.css';
 
 /**
  * FlagsCard: Quản lý các tính năng bật/tắt của hệ thống (Feature Flags).

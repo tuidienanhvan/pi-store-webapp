@@ -6,6 +6,7 @@ import {
 import { Clock, RefreshCw, Play } from "lucide-react";
 import { AdminTable, AdminBadge } from "../../../_shared/components";
 import { settingsApi } from "../api";
+import './CronCard.css';
 
 /**
  * CronCard: Giám sát và điều khiển các tác vụ tự động chạy ngầm (Cron Jobs).

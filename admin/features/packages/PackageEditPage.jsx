@@ -18,6 +18,7 @@ import {
 } from "../../_shared/components";
 import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
 import { packagesApi } from "./api";
+import './PackageEditPage.css';
 
 const QUALITIES = ["fast", "balanced", "best"];
 

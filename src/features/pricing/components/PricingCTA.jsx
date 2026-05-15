@@ -3,8 +3,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { Card, Button } from "@/_shared/components/ui";
+import './PricingCTA.css';
 
-import "./PricingCTA.css";
 
 
 

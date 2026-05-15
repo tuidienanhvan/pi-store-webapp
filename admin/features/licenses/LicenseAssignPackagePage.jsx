@@ -5,6 +5,7 @@ import { Alert, Button, Select, Input } from "@/_shared/components/ui";
 import { AdminCard, AdminValue, AdminBadge, AdminConfirmDialog } from "../../_shared/components";
 import { Package, Calendar, Database, RefreshCw, Zap, Cpu, ArrowLeft } from "lucide-react";
 import { FormField, FormSection, AdminPageHeader } from "../../_shared/components";
+import './LicenseAssignPackagePage.css';
 
 function toDateInput(value) {
   if (!value) return "";

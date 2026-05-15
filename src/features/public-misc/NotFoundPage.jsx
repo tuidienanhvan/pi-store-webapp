@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useLocale } from "@/_shared/context/LocaleContext";
 
 import { SeoMeta } from "@/_shared/components/SeoMeta";
+import './NotFoundPage.css';
 
 
 

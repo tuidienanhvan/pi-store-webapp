@@ -1,6 +1,7 @@
 import { Navigate, useLocation } from "react-router-dom";
 
 import { useAuth } from "@/_shared/context/AuthContext";
+import './RequireAuth.css';
 
 
 

@@ -6,6 +6,7 @@ import { getLocalizedProduct } from "../lib/catalog";
 
 import { Button, Card, Badge } from "./ui";
 import { Check } from "lucide-react";
+import './HeroSection.css';
 
 
 

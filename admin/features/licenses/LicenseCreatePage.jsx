@@ -8,6 +8,7 @@ import {
   FormField,
   FormSection,
 } from "../../_shared/components";
+import './LicenseCreatePage.css';
 
 const INITIAL_FORM = {
   email: "",

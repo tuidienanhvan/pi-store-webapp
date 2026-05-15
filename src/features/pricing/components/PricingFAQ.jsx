@@ -1,5 +1,5 @@
 import React from "react";
-import "./PricingFAQ.css";
+import './PricingFAQ.css';
 
 export function PricingFAQ() {
   return (

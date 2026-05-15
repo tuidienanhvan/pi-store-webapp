@@ -25,6 +25,7 @@ import {
 
 import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
 import { cronApi } from "./api";
+import './CronPage.css';
 
 function formatDate(value) {
   if (!value) return "CHƯA TỪNG";

@@ -25,6 +25,7 @@ import {
 import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
 import { auditApi } from "./api";
 import { AuditRow } from "./components/AuditRow";
+import './AuditLogPage.css';
 
 const DEFAULTS = { q: "", action: "", resource_type: "", severity: "", from_date: "", to_date: "", limit: 50, offset: 0 };
 

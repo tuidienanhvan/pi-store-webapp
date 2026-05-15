@@ -4,6 +4,7 @@ import { api } from "@/_shared/api/api-client";
 
 import { Alert, Badge, Button, Card, Input } from "@/_shared/components/ui";
 import { Monitor } from "lucide-react";
+import './LicensePage.css';
 
 
 

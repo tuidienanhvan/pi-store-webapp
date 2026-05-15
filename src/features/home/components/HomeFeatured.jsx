@@ -1,9 +1,9 @@
-import "./HomeFeatured.css";
 
 import { Link } from "react-router-dom";
 
 import { Button } from "@/_shared/components/ui";
 import { Check, ArrowRight } from "lucide-react";
+import './HomeFeatured.css';
 
 
 export function HomeFeatured({ tiers = [], t }) {

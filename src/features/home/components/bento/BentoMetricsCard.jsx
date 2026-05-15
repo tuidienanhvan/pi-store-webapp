@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Badge } from "@/_shared/components/ui";
 import { Zap } from "lucide-react";
-import "./BentoMetricsCard.css";
+import './BentoMetricsCard.css';
 
 export function BentoMetricsCard({ title, description }) {
   return (

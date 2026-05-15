@@ -1,4 +1,3 @@
-import "./HomeHero.css";
 
 import { Link } from "react-router-dom";
 
@@ -13,6 +12,7 @@ import {
   Activity,
   MessageSquare,
 } from "lucide-react";
+import './HomeHero.css';
 
 /* ─────────────────────────────────────────────────────────────
  * Hero preview — mirror of real Pi Dashboard layout

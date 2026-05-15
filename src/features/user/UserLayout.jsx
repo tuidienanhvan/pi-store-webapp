@@ -9,6 +9,7 @@ import {
   Headset, 
   User 
 } from "lucide-react";
+import './UserLayout.css';
 
 const USER_NAV = [
   { to: "/app",           label: "Tổng quan",    icon: Home, end: true },

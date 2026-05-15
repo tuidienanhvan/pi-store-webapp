@@ -7,7 +7,7 @@ import {
   Loader2, ArrowRight, MousePointer2, Info,
   Filter, Grid3x3, ArrowUpRight, Cpu, Activity
 } from "lucide-react";
-import "./catalog.css";
+import './Catalog.css';
 
 const CatalogEmptyState = ({ onReset }) => (
   <div className="catalog-empty-quantum">

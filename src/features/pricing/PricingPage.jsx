@@ -6,7 +6,7 @@ import { billing } from "@/features/billing/api";
 import { Badge, Alert } from "@/_shared/components/ui";
 import { Info, Cpu, Zap, Activity, ShieldCheck, ArrowRight } from "lucide-react";
 import PricingCard from "./components/PricingCard";
-import "./PricingPage.css";
+import './PricingPage.css';
 
 const getTiers = (isVi) => [
   {

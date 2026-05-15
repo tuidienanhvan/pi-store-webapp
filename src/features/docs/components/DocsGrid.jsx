@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight, FileText } from "lucide-react";
-import "./DocsGrid.css";
+import './DocsGrid.css';
 
 export function DocsGrid({ sections }) {
   const handleMouseMove = (e) => {

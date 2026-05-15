@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './ContactPage.css';
 
 export function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", topic: "sales", message: "" });

@@ -1,12 +1,10 @@
 import { useState } from "react";
-import "./AuthLayout.css";
-import "./AuthForm.css";
-import "./SignupPage.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/_shared/context/AuthContext";
 import { Alert } from "@/_shared/components/ui";
 import { User, Mail, Key, Eye, EyeOff } from "lucide-react";
 import PiLogo from "@pi-ui/base/PiLogo";
+import './SignupPage.css';
 
 function QuantumDataMatrix() {
   return (

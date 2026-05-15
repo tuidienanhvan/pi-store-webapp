@@ -1,6 +1,6 @@
 import React from "react";
 import { Server } from "lucide-react";
-import "./BentoInfrastructureCard.css";
+import './BentoInfrastructureCard.css';
 
 export function BentoInfrastructureCard({ title, description }) {
   return (

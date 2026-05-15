@@ -8,6 +8,7 @@ import { useAuth } from "@/_shared/context/AuthContext";
 
 import { Alert, Badge, Button, Card, EmptyState, Skeleton } from "@/_shared/components/ui";
 import { Bolt, Zap, Layers, ArrowRight } from "lucide-react";
+import './OverviewPage.css';
 
 
 

@@ -15,6 +15,7 @@ import {
   FormSection,
 } from "../../_shared/components";
 import { providersApi } from "./api";
+import './ProviderEditPage.css';
 
 const EMPTY_FORM = {
   slug: "",

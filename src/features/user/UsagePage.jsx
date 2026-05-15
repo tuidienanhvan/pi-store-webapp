@@ -8,10 +8,10 @@ import { formatTokens } from "@/_shared/lib/format";
 
 import { Alert, Badge, Button, Card, EmptyState, Skeleton, Table } from "@/_shared/components/ui";
 import { X, Zap } from "lucide-react";
+import './UsagePage.css';
 
 
 
-import "./UsagePage.css";
 
 
 

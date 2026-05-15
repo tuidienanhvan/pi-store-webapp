@@ -1,7 +1,7 @@
-import "./ProductOfferings.css";
 import React from "react";
 import { Button, Badge } from "@/_shared/components/ui";
 import { Check, Zap } from "lucide-react";
+import './ProductOfferings.css';
 
 /**
  * ProductOfferings Component

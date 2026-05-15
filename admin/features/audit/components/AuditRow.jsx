@@ -2,6 +2,7 @@ import React from "react";
 import { ChevronRight, Plus, Edit2, Trash2, Shield, Check, Layers, Key, User, Info } from "lucide-react";
 import { AdminCard, AdminBadge } from "../../../_shared/components";
 import { formatDateTime, formatRelative } from "@/_shared/lib/translations";
+import './AuditRow.css';
 
 const SEVERITY_TONES = { info: "neutral", warning: "warning", critical: "danger" };
 const ACTION_ICONS = { create: Plus, update: Edit2, delete: Trash2, revoke: Shield, reactivate: Check, allocate: Layers, assign: Key, login: User };

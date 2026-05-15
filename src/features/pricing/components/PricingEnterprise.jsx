@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
 import { Button } from "@/_shared/components/ui";
+import './PricingEnterprise.css';
 
-import "./PricingEnterprise.css";
 
 
 

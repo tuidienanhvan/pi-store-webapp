@@ -1,6 +1,6 @@
 import React from "react";
 import { Cpu, Layers } from "lucide-react";
-import "./BentoAINexusCard.css";
+import './BentoAINexusCard.css';
 
 export function BentoAINexusCard({ title, description }) {
   return (

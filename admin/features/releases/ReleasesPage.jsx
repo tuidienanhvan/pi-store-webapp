@@ -25,6 +25,7 @@ import {
 
 import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
 import { releasesApi } from "./api";
+import './ReleasesPage.css';
 
 /**
  * ReleasesPage: Quản lý các phiên bản ứng dụng và tệp thực thi hệ thống.

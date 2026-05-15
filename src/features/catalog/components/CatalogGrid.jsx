@@ -1,5 +1,6 @@
 import React from "react";
 import { ProductCard } from "../ProductCard";
+import './CatalogGrid.css';
 
 const SECTION_META = {
   tokens: {

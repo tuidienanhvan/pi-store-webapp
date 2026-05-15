@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocale } from "@/_shared/context/LocaleContext";
-import "./HomeBento.css";
+import './HomeBento.css';
 
 // Import Bento Sub-components
 import { BentoMetricsCard } from "./bento/BentoMetricsCard";

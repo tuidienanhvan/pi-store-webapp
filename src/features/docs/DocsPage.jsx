@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useLocale } from "@/_shared/context/LocaleContext";
 import { DocsHero } from "./components/DocsHero";
 import { DocsGrid } from "./components/DocsGrid";
+import './DocsPage.css';
 
 export function DocsPage() {
   const { dict } = useLocale();

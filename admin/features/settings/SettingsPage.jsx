@@ -25,6 +25,7 @@ import { BrandingCard } from "./components/BrandingCard";
 import { PacksCard } from "./components/PacksCard";
 import { FlagsCard } from "./components/FlagsCard";
 import { CronCard } from "./components/CronCard";
+import './SettingsPage.css';
 
 /**
  * SettingsPage: Trung tâm cấu hình và vận hành hệ thống lõi.

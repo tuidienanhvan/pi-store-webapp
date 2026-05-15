@@ -34,6 +34,7 @@ import {
 
 import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
 import { usersApi } from "./api";
+import './UsersPage.css';
 
 /**
  * UsersPage: Quản lý danh bạ người dùng và các chỉ số định danh.

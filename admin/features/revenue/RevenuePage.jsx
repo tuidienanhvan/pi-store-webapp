@@ -27,6 +27,7 @@ import {
 
 import { RevenueSkeleton } from "./skeleton/RevenueSkeleton";
 import { fetchRevenueData } from "./api";
+import './RevenuePage.css';
 
 const DAYS_OPTIONS = [7, 30, 90, 365];
 const COLORS = [

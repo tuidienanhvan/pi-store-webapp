@@ -1,8 +1,8 @@
 import React from "react";
 
 import { PricingCard } from "./PricingCard";
+import './PricingGrid.css';
 
-import "./PricingGrid.css";
 
 
 

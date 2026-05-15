@@ -3,6 +3,7 @@ import { SeoMeta } from "@/_shared/components/SeoMeta";
 import { Button } from "@/_shared/components/ui";
 import { Box, Key, Zap } from "lucide-react";
 import PiLogo from "@pi-ui/base/PiLogo";
+import './ProductEcosystemPage.css';
 
 export function ProductEcosystemPage({ products, siteUrl }) {
   const product = products.find(p => p.id === "pi-ecosystem");

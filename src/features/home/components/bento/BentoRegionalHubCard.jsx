@@ -1,6 +1,6 @@
 import React from "react";
 import { Globe } from "lucide-react";
-import "./BentoRegionalHubCard.css";
+import './BentoRegionalHubCard.css';
 
 export function BentoRegionalHubCard({ title, description }) {
   return (

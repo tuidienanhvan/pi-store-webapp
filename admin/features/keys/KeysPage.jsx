@@ -43,6 +43,7 @@ import {
 import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
 import { keysApi } from "./api";
 import { KeyCell } from "./components/KeyCell";
+import './KeysPage.css';
 
 const STATUS_TONES = {
   available: "neutral",

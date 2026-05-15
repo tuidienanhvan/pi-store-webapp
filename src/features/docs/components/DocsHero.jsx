@@ -1,7 +1,7 @@
 import { useLocale } from "@/_shared/context/LocaleContext";
 import { Input, Badge } from "@/_shared/components/ui";
 import { Search, BookOpen, Cpu } from "lucide-react";
-import "./DocsHero.css";
+import './DocsHero.css';
 
 export function DocsHero() {
   const { dict } = useLocale();

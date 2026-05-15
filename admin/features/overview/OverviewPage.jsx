@@ -30,6 +30,7 @@ import {
 } from "../../_shared/components";
 
 import { fetchOverviewData } from "./api";
+import './OverviewPage.css';
 
 /* ─────────────────────────────────────────────────────────────
  * Compact KPI tile — Linear / Vercel / shadcn density.

@@ -4,6 +4,7 @@ import { Alert, Button, Input } from "@/_shared/components/ui";
 import { Key, ArrowLeft } from "lucide-react";
 import { FormField, FormSection, AdminPageHeader } from "../../_shared/components";
 import { keysApi } from "./api";
+import './KeyAllocatePage.css';
 
 export function KeyAllocatePage() {
   const { id } = useParams();

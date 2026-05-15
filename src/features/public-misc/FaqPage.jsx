@@ -1,3 +1,4 @@
+import './FaqPage.css';
 const GROUPS = [
   {
     title: "Chung",

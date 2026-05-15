@@ -35,6 +35,7 @@ import {
 
 import { UsageSkeleton } from "./skeleton/UsageSkeleton";
 import { fetchUsageData } from "./api";
+import './UsagePage.css';
 
 const DEFAULTS = { days: 30, plugin: "", quality: "", status: "" };
 const DAYS_OPTIONS = [7, 30, 90];

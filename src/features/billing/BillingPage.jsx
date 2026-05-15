@@ -3,6 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { Alert, Badge, Button, Card, EmptyState, Skeleton } from "@/_shared/components/ui";
 import { Sparkles } from "lucide-react";
 import { billing } from "@/features/billing/api";
+import './BillingPage.css';
 
 const TIER_META = {
   free:       { label: "Free",       quota: 5000,     color: "var(--pi-tier-free)" },

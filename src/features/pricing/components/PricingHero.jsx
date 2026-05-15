@@ -1,6 +1,6 @@
 import { Badge } from "@/_shared/components/ui";
+import './PricingHero.css';
 
-import "./PricingHero.css";
 
 
 

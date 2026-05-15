@@ -5,6 +5,7 @@ import { IconButton } from "@/_shared/components/ui";
 import { copyToClipboard, maskKey } from "@/_shared/lib/format";
 import { formatTokens } from "@/_shared/lib/translations";
 import { AdminBadge } from "../../../_shared/components/AdminBadge";
+import './LicenseRow.css';
 
 /**
  * LicenseRow: Hiển thị một dòng dữ liệu giấy phép trong bảng.

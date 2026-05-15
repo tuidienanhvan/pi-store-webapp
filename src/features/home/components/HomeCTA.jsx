@@ -1,8 +1,8 @@
-import './HomeCTA.css';
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/_shared/components/ui";
 import { Activity, ArrowRight, Bot, FileSearch, KeyRound, ReceiptText, Zap } from "lucide-react";
+import './HomeCTA.css';
 
 const CTA_PROOF_POINTS = [
   { icon: KeyRound, label: "Pi API", text: "Một endpoint bảo mật" },

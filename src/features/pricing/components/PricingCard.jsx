@@ -1,6 +1,6 @@
 import React from "react";
 import { Check, Loader2, ArrowRight, Zap } from "lucide-react";
-import "./PricingCard.css";
+import './PricingCard.css';
 
 const HUDCorner = () => (
   <div className="card-hud-corners">

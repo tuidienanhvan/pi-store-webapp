@@ -40,6 +40,7 @@ import {
 import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
 import { toast } from "sonner";
 import { usersApi } from "./api";
+import './UserProfilePage.css';
 
 /**
  * UserProfilePage: Hồ sơ chi tiết người dùng và cấu hình tích hợp hệ thống.

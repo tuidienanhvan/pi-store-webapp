@@ -1,6 +1,7 @@
 import { useAuth } from "@/_shared/context/AuthContext";
 
 import { Card } from "@/_shared/components/ui";
+import './ProfilePage.css';
 
 
 

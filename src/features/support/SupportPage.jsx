@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 import { Badge, Card, Table } from "@/_shared/components/ui";
 import { Mail, MessageCircle, Book, Info, Activity, Check } from "lucide-react";
+import './SupportPage.css';
 
 
 

@@ -34,6 +34,7 @@ import {
 
 import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
 import { providersApi } from "./api";
+import './ProvidersPage.css';
 
 /**
  * ProvidersPage: Quản lý các nhà cung cấp AI và trung tâm kết nối.

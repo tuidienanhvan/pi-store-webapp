@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Badge, Button, Icon, Card } from "@/_shared/components/ui";
 
 import { BillingCycleToggle } from "../finance/BillingCycleToggle";
+import './ProductHero.css';
 
 
 

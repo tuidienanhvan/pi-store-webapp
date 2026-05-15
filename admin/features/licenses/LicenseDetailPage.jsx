@@ -31,6 +31,7 @@ import {
   ArrowLeft
 } from "lucide-react";
 import { FormField, FormSection, AdminPageHeader } from "../../_shared/components";
+import './LicenseDetailPage.css';
 
 function toDateInput(value) {
   if (!value) return "";

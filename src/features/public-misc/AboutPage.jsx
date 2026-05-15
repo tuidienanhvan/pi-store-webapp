@@ -1,4 +1,5 @@
 import { useLocale } from "@/_shared/context/LocaleContext";
+import './AboutPage.css';
 
 
 

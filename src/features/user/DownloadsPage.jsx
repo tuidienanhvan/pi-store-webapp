@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { api } from "@/_shared/api/api-client";
 import { Table, Badge, Button, Card } from "@/_shared/components/ui";
 import { Zap, MessageCircle, FileText, BarChart3, Activity, Home, Cloud, Download, Box, Info } from "lucide-react";
+import './DownloadsPage.css';
 
 const CATALOG = [
   { slug: "pi-seo-v2",        label: "Pi SEO v2",        tier: "pro",    icon: Zap },

@@ -5,6 +5,7 @@ import {
 } from "@/_shared/components/ui";
 import { Palette } from "lucide-react";
 import { AdminCard } from "../../../_shared/components";
+import './BrandingCard.css';
 
 /**
  * BrandingCard: Cấu hình nhận diện thương hiệu của hệ thống.

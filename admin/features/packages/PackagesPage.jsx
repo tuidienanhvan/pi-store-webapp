@@ -26,6 +26,7 @@ import {
 
 import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
 import { packagesApi } from "./api";
+import './PackagesPage.css';
 
 /**
  * PackagesPage: Quản lý danh mục các gói dịch vụ và sản phẩm.
