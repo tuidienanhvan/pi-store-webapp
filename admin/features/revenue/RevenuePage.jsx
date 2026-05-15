@@ -25,7 +25,7 @@ import {
   AdminStatCard
 } from "../../_shared/components";
 
-import { AdminRevenueSkeleton } from "@/_shared/components/skeletons/AdminRevenueSkeleton";
+import { RevenueSkeleton } from "./skeleton/RevenueSkeleton";
 import { fetchRevenueData } from "./api";
 
 const DAYS_OPTIONS = [7, 30, 90, 365];
@@ -107,7 +107,7 @@ export function RevenuePage() {
 
       {err && <Alert tone="danger" onDismiss={() => setErr("")}>{err}</Alert>}
 
-      {loading && !data ? <AdminRevenueSkeleton /> : (
+      {loading && !data ? <RevenueSkeleton /> : (
         <div className="flex flex-col gap-8">
           {/* Chỉ số hiệu năng chính */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

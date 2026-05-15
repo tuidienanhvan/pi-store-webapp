@@ -4,6 +4,7 @@ import { createPortal } from "react-dom";
 
 import { IconButton } from "./Button";
 import { X } from "lucide-react";
+import "./Modal.css";
  // Reuses icon styling
 
 

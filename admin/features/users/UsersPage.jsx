@@ -32,7 +32,7 @@ import {
   AdminFilterBar
 } from "../../_shared/components";
 
-import { AdminTableSkeleton } from "@/_shared/components/skeletons/AdminTableSkeleton";
+import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
 import { usersApi } from "./api";
 
 /**
@@ -192,7 +192,7 @@ export function UsersPage() {
                   </div>
                 </td>
                 <td className="py-5 px-6 text-right">
-                   <Link to={`/admin/users/${u.id}`} className="opacity-0 group-hover:opacity-100 transition-all">
+                   <Link to={`/admin/users/${u.id}`} className="opacity-60 group-hover:opacity-100 transition-all">
                       <IconButton icon={ChevronRight} label="Hồ sơ" size="sm" />
                    </Link>
                 </td>

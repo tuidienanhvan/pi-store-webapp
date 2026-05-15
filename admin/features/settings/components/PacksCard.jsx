@@ -59,7 +59,7 @@ export function PacksCard({ packs, onSave, saving }) {
                  <input className="bg-transparent border-none text-xs font-mono font-bold text-primary focus:ring-0 p-0 text-right" type="number" value={r.discount_pct} onChange={(e) => updateRow(i, "discount_pct", Number(e.target.value))} />
               </td>
               <td className="py-4 px-6 text-right">
-                 <IconButton icon={Trash2} label="Xóa" size="sm" onClick={() => removeRow(i)} className="hover:text-danger opacity-0 group-hover:opacity-100 transition-opacity" />
+                 <IconButton icon={Trash2} label="Xóa" size="sm" onClick={() => removeRow(i)} className="hover:text-danger opacity-60 group-hover:opacity-100 transition-opacity" />
               </td>
             </tr>
           ))}

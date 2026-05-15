@@ -37,7 +37,7 @@ import {
   AdminStatCard
 } from "../../_shared/components";
 
-import { AdminTableSkeleton } from "@/_shared/components/skeletons/AdminTableSkeleton";
+import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
 import { toast } from "sonner";
 import { usersApi } from "./api";
 

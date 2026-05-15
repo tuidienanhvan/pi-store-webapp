@@ -159,6 +159,27 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.25;
 }
 
+/* ─── Global Interactive Pointers ───────────────────────────── */
+button, 
+[role="button"],
+a,
+label,
+select,
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input[type="checkbox"],
+input[type="radio"],
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+button:disabled,
+button[disabled],
+input:disabled {
+  cursor: not-allowed !important;
+}
+
 /* ─── Unified premium scrollbar (Quantum HUD) ───────────────── */
 :root {
   --sb-width: 4px;

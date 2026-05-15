@@ -19,7 +19,7 @@ import {
   AdminCard
 } from "../../_shared/components";
 
-import { AdminSettingsSkeleton } from "@/_shared/components/skeletons/AdminSettingsSkeleton";
+import { SettingsSkeleton } from "./skeleton/SettingsSkeleton";
 import { settingsApi } from "./api";
 import { BrandingCard } from "./components/BrandingCard";
 import { PacksCard } from "./components/PacksCard";
@@ -64,7 +64,7 @@ export function SettingsPage() {
     finally { setSaving(false); }
   };
 
-  if (loading) return <AdminSettingsSkeleton />;
+  if (loading) return <SettingsSkeleton />;
   
   if (!settings) return (
     <div className="p-20 flex flex-col items-center">

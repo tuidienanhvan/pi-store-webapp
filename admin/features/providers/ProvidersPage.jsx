@@ -19,6 +19,7 @@ import {
   Layers,
   Zap
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import { 
   AdminPageHeader, 
@@ -31,9 +32,8 @@ import {
   AdminStatCard
 } from "../../_shared/components";
 
-import { AdminTableSkeleton } from "@/_shared/components/skeletons/AdminTableSkeleton";
+import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
 import { providersApi } from "./api";
-import { ProviderModal } from "./components/ProviderModal";
 
 /**
  * ProvidersPage: Quản lý các nhà cung cấp AI và trung tâm kết nối.
@@ -43,7 +43,6 @@ export function ProvidersPage() {
   const [providers, setProviders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [editing, setEditing] = useState(null); // provider object or "new"
   const [testResult, setTestResult] = useState(null); // {id, ok, text}
   const [confirmDelete, setConfirmDelete] = useState(null);
 
@@ -110,7 +109,7 @@ export function ProvidersPage() {
         title="Nhà cung cấp AI"
         tagline="Quản lý kết nối, model và trung tâm điều phối lưu lượng AI"
         actions={
-          <Button variant="primary" onClick={() => setEditing("new")} className="h-10 px-6 rounded-xl font-bold uppercase tracking-widest text-[10px]">
+          <Button as={Link} to="/admin/providers/new" variant="primary" className="h-10 px-6 rounded-xl font-bold uppercase tracking-widest text-[10px]">
             <Plus size={14} className="mr-2" />
             {t.add_provider}
           </Button>
@@ -187,9 +186,10 @@ export function ProvidersPage() {
                     onChange={(e) => toggle(p.id, e.target.checked)} />
               </td>
               <td className="py-6 px-6 text-right">
-                <div className="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-all">
+                <div className="flex items-center justify-end gap-1 opacity-60 group-hover:opacity-100 transition-all">
                   <IconButton icon={Play} label="Test" size="sm" onClick={() => handleTest(p)} className="hover:text-success" />
-                  <IconButton icon={Edit2} label="Sửa" size="sm" onClick={() => setEditing(p)} className="hover:text-primary" />
+                   <IconButton as={Link} to={`/admin/providers/${p.id}/edit`} icon={Edit2} label="Sửa" size="sm" className="hover:text-primary" />
+
                   <IconButton icon={Trash2} label="Xóa" size="sm" onClick={() => setConfirmDelete(p)} className="hover:text-danger" />
                 </div>
                 {testResult && testResult.id === p.id && (
@@ -212,15 +212,8 @@ export function ProvidersPage() {
         </tbody>
       </AdminTable>
 
-      {editing !== null && (
-        <ProviderModal
-          provider={editing === "new" ? null : editing}
-          onClose={() => setEditing(null)}
-          onSaved={() => { setEditing(null); load(); }}
-        />
-      )}
+       {confirmDelete && (
 
-      {confirmDelete && (
         <AdminConfirmDialog 
           title="Xóa nhà cung cấp?"
           message={`Hành động này sẽ xóa vĩnh viễn nhà cung cấp ${confirmDelete.slug.toUpperCase()}. Tất cả các khóa liên quan sẽ bị mồ côi.`}

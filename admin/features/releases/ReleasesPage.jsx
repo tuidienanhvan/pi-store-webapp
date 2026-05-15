@@ -14,6 +14,7 @@ import {
   Terminal,
   Activity
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import { 
   AdminPageHeader, 
@@ -22,9 +23,8 @@ import {
   AdminEmptyState
 } from "../../_shared/components";
 
-import { AdminTableSkeleton } from "@/_shared/components/skeletons/AdminTableSkeleton";
+import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
 import { releasesApi } from "./api";
-import { UploadReleaseModal } from "./components/UploadReleaseModal";
 
 /**
  * ReleasesPage: Quản lý các phiên bản ứng dụng và tệp thực thi hệ thống.
@@ -32,7 +32,6 @@ import { UploadReleaseModal } from "./components/UploadReleaseModal";
 export function ReleasesPage() {
   const t = useAdminT();
   const [releases, setReleases] = useState([]);
-  const [showUpload, setShowUpload] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const load = useCallback(async () => {
@@ -60,7 +59,7 @@ export function ReleasesPage() {
         tagline="Kho lưu trữ tập trung cho các tệp thực thi và bản cập nhật phần mềm hệ thống"
         badge="Releases"
         actions={
-          <Button variant="primary" onClick={() => setShowUpload(true)} className="h-10 px-6 rounded-xl font-bold uppercase tracking-widest text-[10px]">
+          <Button as={Link} to="/admin/releases/new" variant="primary" className="h-10 px-6 rounded-xl font-bold uppercase tracking-widest text-[10px]">
             <Plus size={16} className="mr-2" /> {t.upload_release_btn}
           </Button>
         }
@@ -70,7 +69,7 @@ export function ReleasesPage() {
          <Activity size={14} className="text-primary/60" />
          <span className="text-[10px] font-bold uppercase tracking-widest text-base-content/30">Danh mục tệp thực thi</span>
       </div>
-
+  
       <AdminTable>
         <thead>
           <tr className="bg-white/[0.02]">
@@ -102,8 +101,8 @@ export function ReleasesPage() {
                 </td>
                 <td className="py-5 px-6">
                   <div className="flex flex-col">
-                     <span className="text-xs font-mono font-bold text-white bg-white/5 px-2 py-0.5 rounded border border-white/5 w-fit">v{r.version}</span>
-                     <span className="text-[8px] font-bold text-white/10 uppercase tracking-widest mt-1">Build Stable</span>
+                      <span className="text-xs font-mono font-bold text-white bg-white/5 px-2 py-0.5 rounded border border-white/5 w-fit">v{r.version}</span>
+                      <span className="text-[8px] font-bold text-white/10 uppercase tracking-widest mt-1">Build Stable</span>
                   </div>
                 </td>
                 <td className="py-5 px-6">
@@ -123,7 +122,7 @@ export function ReleasesPage() {
                   )}
                 </td>
                 <td className="py-5 px-6 text-right">
-                  <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  <div className="flex items-center justify-end gap-2 opacity-60 group-hover:opacity-100 transition-all duration-300">
                     <IconButton 
                       icon={Download} 
                       label="Tải về ZIP" 
@@ -144,9 +143,9 @@ export function ReleasesPage() {
         </tbody>
       </AdminTable>
 
-      <UploadReleaseModal open={showUpload} onClose={() => setShowUpload(false)} onUploaded={load} />
     </div>
   );
 }
+
 
 export default ReleasesPage;

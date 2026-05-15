@@ -1,32 +1,31 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { withDelay } from "@/_shared/api/api-client";
 import { useLocale } from "@/_shared/context/LocaleContext";
 import { useAdminT, formatCurrency } from "@/_shared/lib/translations";
-import { 
-  Alert, 
-  Button, 
+import {
+  Alert,
+  Button,
   IconButton,
 } from "@/_shared/components/ui";
-import { 
-  Plus, 
-  Edit2, 
-  Trash2, 
+import {
+  Plus,
+  Edit2,
+  Trash2,
   ChevronRight,
 } from "lucide-react";
 
-import { 
-  AdminPageHeader, 
-  AdminCard, 
-  AdminValue, 
-  AdminBadge, 
-  AdminTable, 
+import {
+  AdminPageHeader,
+  AdminValue,
+  AdminBadge,
+  AdminTable,
   AdminEmptyState,
   AdminConfirmDialog
 } from "../../_shared/components";
 
-import { AdminTableSkeleton } from "@/_shared/components/skeletons/AdminTableSkeleton";
+import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
 import { packagesApi } from "./api";
-import { PackageModal } from "./components/PackageModal";
 
 /**
  * PackagesPage: Quản lý danh mục các gói dịch vụ và sản phẩm.
@@ -37,7 +36,6 @@ export function PackagesPage() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState("");
-  const [editing, setEditing] = useState(null); // pkg obj or "new"
   const [confirmDelete, setConfirmDelete] = useState(null);
 
   const load = useCallback(async () => {
@@ -82,8 +80,8 @@ export function PackagesPage() {
         title="Danh mục Gói dịch vụ"
         tagline="Quản lý cấu hình, định giá và hạn mức cho các sản phẩm hệ thống"
         actions={
-          <Button variant="primary" onClick={() => setEditing("new")} className="h-10 px-6 rounded-xl font-bold uppercase tracking-widest text-[10px]">
-            <Plus size={14} className="mr-2" /> {t.add_package}
+          <Button as={Link} to="/admin/packages/new" variant="primary" size="sm">
+            <Plus size={14} className="mr-1.5" /> {t.add_package || "Tạo gói mới"}
           </Button>
         }
       />
@@ -159,8 +157,8 @@ export function PackagesPage() {
                 )}
               </td>
               <td className="py-6 px-6 text-right">
-                <div className="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-all">
-                  <IconButton icon={Edit2} label="Sửa" size="sm" onClick={() => setEditing(p)} className="hover:text-primary" />
+                <div className="flex items-center justify-end gap-1 opacity-60 group-hover:opacity-100 transition-all">
+                  <IconButton as={Link} to={`/admin/packages/${p.slug}/edit`} icon={Edit2} label="Sửa" size="sm" className="hover:text-primary" />
                   <IconButton icon={Trash2} label="Xóa" size="sm" onClick={() => setConfirmDelete(p)} className="hover:text-danger" />
                 </div>
               </td>
@@ -171,10 +169,6 @@ export function PackagesPage() {
           )}
         </tbody>
       </AdminTable>
-
-      {editing !== null && (
-        <PackageModal pkg={editing === "new" ? null : editing} onClose={() => setEditing(null)} onSaved={() => { setEditing(null); load(); }} />
-      )}
 
       {confirmDelete && (
         <AdminConfirmDialog 

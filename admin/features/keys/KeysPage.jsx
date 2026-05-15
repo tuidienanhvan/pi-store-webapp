@@ -26,6 +26,7 @@ import {
   BarChart3,
   Slash
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import { 
   AdminPageHeader, 
@@ -39,12 +40,9 @@ import {
   AdminFilterBar
 } from "../../_shared/components";
 
-import { AdminTableSkeleton } from "@/_shared/components/skeletons/AdminTableSkeleton";
+import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
 import { keysApi } from "./api";
 import { KeyCell } from "./components/KeyCell";
-import { AddKeyModal } from "./components/AddKeyModal";
-import { BulkImportModal } from "./components/BulkImportModal";
-import { AllocateModal } from "./components/AllocateModal";
 
 const STATUS_TONES = {
   available: "neutral",
@@ -80,9 +78,6 @@ export function KeysPage() {
   const [providers, setProviders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [addModal, setAddModal] = useState(null);
-  const [showBulk, setShowBulk] = useState(false);
-  const [allocTarget, setAllocTarget] = useState(null);
   const [confirmAction, setConfirmAction] = useState(null);
 
   useEffect(() => {
@@ -150,10 +145,10 @@ export function KeysPage() {
              <Button variant="ghost" onClick={() => setConfirmAction({ type: 'reset_all' })} className="h-10 px-4 rounded-xl border border-white/5 font-bold uppercase tracking-widest text-[9px]">
                 <RefreshCw size={14} className="mr-2" /> Làm mới hạn mức
              </Button>
-             <Button variant="ghost" onClick={() => setShowBulk(true)} className="h-10 px-4 rounded-xl border border-white/5 font-bold uppercase tracking-widest text-[9px]">
+             <Button as={Link} to="/admin/keys/bulk-import" variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-bold uppercase tracking-widest text-[9px]">
                 <Upload size={14} className="mr-2" /> Nhập Bulk
              </Button>
-             <Button variant="primary" onClick={() => setAddModal({})} className="h-10 px-6 rounded-xl font-bold uppercase tracking-widest text-[10px]">
+             <Button as={Link} to="/admin/keys/new" variant="primary" className="h-10 px-6 rounded-xl font-bold uppercase tracking-widest text-[10px]">
                 <Plus size={14} className="mr-2" /> {t.add_key_btn}
              </Button>
           </div>
@@ -209,9 +204,10 @@ export function KeysPage() {
                       <td className={`py-4 px-6 text-right font-mono text-xs ${r.exhausted > 0 ?"text-warning font-bold" : "opacity-20"}`}>{r.exhausted}</td>
                       <td className={`py-4 px-6 text-right font-mono text-xs ${r.banned > 0 ?"text-danger font-bold" : "opacity-20"}`}>{r.banned}</td>
                       <td className="py-4 px-6 text-right">
-                         <Button size="sm" variant="ghost" onClick={() => setAddModal({ provider_id: r.provider_id })} className="h-8 rounded-lg border border-white/5 text-[9px] font-bold uppercase tracking-widest bg-white/[0.02]">
-                            <Plus size={12} className="mr-1" /> Thêm khóa
-                         </Button>
+                       <Button as={Link} to={`/admin/keys/new?provider_id=${r.provider_id}`} size="sm" variant="ghost" className="h-8 rounded-lg border border-white/5 text-[9px] font-bold uppercase tracking-widest bg-white/[0.02]">
+                          <Plus size={12} className="mr-1" /> Thêm khóa
+                       </Button>
+
                       </td>
                     </tr>
                   ))}
@@ -319,13 +315,14 @@ export function KeysPage() {
                            </div>
                         </td>
                         <td className="py-5 px-6 text-right">
-                           <div className="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-all">
+                           <div className="flex items-center justify-end gap-1 opacity-60 group-hover:opacity-100 transition-all">
                               {k.status === "allocated" && (
                                 <IconButton icon={Slash} label="Thu hồi" size="sm" onClick={() => setConfirmAction({ type: 'revoke', key: k })} className="hover:text-danger" />
                               )}
-                              {k.status === "available" && (
-                                <IconButton icon={Zap} label="Cấp phát" size="sm" onClick={() => setAllocTarget(k)} className="hover:text-primary" />
-                              )}
+                               {k.status === "available" && (
+                                 <IconButton as={Link} to={`/admin/keys/${k.id}/allocate`} icon={Zap} label="Cấp phát" size="sm" className="hover:text-primary" />
+                               )}
+
                               <IconButton icon={Trash2} label="Xóa" size="sm" onClick={() => setConfirmAction({ type: 'delete', key: k })} className="hover:text-danger" />
                            </div>
                         </td>
@@ -344,31 +341,20 @@ export function KeysPage() {
          </section>
       </div>
 
-      {/* Modals */}
-      {addModal && (
-        <AddKeyModal 
-          prefillProviderId={addModal.provider_id} 
-          providers={providers}
-          onClose={() => setAddModal(null)} 
-          onSaved={load} 
-        />
-      )}
-      {showBulk && <BulkImportModal open={showBulk} onClose={() => setShowBulk(false)} onSaved={load} providers={providers} />}
-      {allocTarget && <AllocateModal keyObj={allocTarget} onClose={() => setAllocTarget(null)} onSaved={load} />}
+       {confirmAction && (
+         <AdminConfirmDialog 
+           title={
+             confirmAction.type === 'delete' ? "Xóa khóa bảo mật?" : 
+             confirmAction.type === 'revoke' ? "Thu hồi cấp phát?" : 
+             confirmAction.type === 'reset_all' ? "Làm mới hạn mức toàn cầu?" : "Giải phóng tất cả khóa?"
+           }
+           message="Hành động này sẽ can thiệp trực tiếp vào tài nguyên hệ thống và không thể hoàn tác."
+           onConfirm={() => handleAction(confirmAction.type, confirmAction.key)}
+           onCancel={() => setConfirmAction(null)}
+           tone={confirmAction.type === 'delete' ? "danger" : "warning"}
+         />
+       )}
 
-      {confirmAction && (
-        <AdminConfirmDialog 
-          title={
-            confirmAction.type === 'delete' ? "Xóa khóa bảo mật?" : 
-            confirmAction.type === 'revoke' ? "Thu hồi cấp phát?" : 
-            confirmAction.type === 'reset_all' ? "Làm mới hạn mức toàn cầu?" : "Giải phóng tất cả khóa?"
-          }
-          message="Hành động này sẽ can thiệp trực tiếp vào tài nguyên hệ thống và không thể hoàn tác."
-          onConfirm={() => handleAction(confirmAction.type, confirmAction.key)}
-          onCancel={() => setConfirmAction(null)}
-          tone={confirmAction.type === 'delete' ? "danger" : "warning"}
-        />
-      )}
     </div>
   );
 }

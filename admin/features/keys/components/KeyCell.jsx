@@ -46,7 +46,7 @@ export function KeyCell({ k }) {
         <code className={`text-[10px] font-mono font-bold transition-all ${fullKey ?"text-primary" : "text-base-content/40"}`}>
           {fullKey || k.key_masked}
         </code>
-        <div className="flex items-center gap-1 opacity-0 group-hover/key:opacity-100 transition-opacity">
+        <div className="flex items-center gap-1 opacity-60 group-hover/key:opacity-100 transition-opacity">
           <button type="button" onClick={toggle} disabled={loading} className="p-1 hover:text-primary transition-colors">
             {fullKey ? <EyeOff size={11} /> : <Eye size={11} />}
           </button>

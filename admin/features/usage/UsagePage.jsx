@@ -33,7 +33,7 @@ import {
   AdminFilterBar
 } from "../../_shared/components";
 
-import { AdminUsageSkeleton } from "@/_shared/components/skeletons/AdminUsageSkeleton";
+import { UsageSkeleton } from "./skeleton/UsageSkeleton";
 import { fetchUsageData } from "./api";
 
 const DEFAULTS = { days: 30, plugin: "", quality: "", status: "" };
@@ -72,7 +72,7 @@ export function UsagePage() {
   const revenueCents = Math.round(totalTokens * 9 / 100_000 * 100);
   const marginPct = revenueCents > 0 ? 1 - (upstreamCostCents / revenueCents) : 0;
 
-  if (loading && !data) return <AdminUsageSkeleton />;
+  if (loading && !data) return <UsageSkeleton />;
 
   return (
     <div className="p-6 lg:p-10 flex flex-col gap-8">
@@ -178,7 +178,7 @@ export function UsagePage() {
                     <div className="bg-primary/30 group-hover:bg-primary/60 w-full transition-all duration-300" style={{ height: `${successHeight}%` }} />
                     
                     {/* Tooltip khi di chuột */}
-                    <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-base-300 border border-white/10 px-2 py-1 rounded text-[8px] font-bold text-base-content whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none uppercase tracking-widest shadow-xl">
+                    <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-base-300 border border-white/10 px-2 py-1 rounded text-[8px] font-bold text-base-content whitespace-nowrap opacity-60 group-hover:opacity-100 transition-opacity z-10 pointer-events-none uppercase tracking-widest shadow-xl">
                        {d.date}: {d.success || 0} OK / {d.fail || 0} Lỗi
                     </div>
                   </div>

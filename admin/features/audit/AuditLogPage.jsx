@@ -22,7 +22,7 @@ import {
   AdminFilterBar
 } from "../../_shared/components";
 
-import { AdminTableSkeleton } from "@/_shared/components/skeletons/AdminTableSkeleton";
+import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
 import { auditApi } from "./api";
 import { AuditRow } from "./components/AuditRow";
 

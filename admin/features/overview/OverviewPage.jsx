@@ -22,7 +22,7 @@ import {
   DollarSign,
 } from "lucide-react";
 
-import { AdminOverviewSkeleton } from "@/_shared/components/skeletons/AdminOverviewSkeleton";
+import { OverviewSkeleton } from "./skeleton/OverviewSkeleton";
 import {
   AdminPageHeader,
   AdminCard,
@@ -108,7 +108,7 @@ export function OverviewPage() {
     );
   }
 
-  if (loading && !data) return <AdminOverviewSkeleton />;
+  if (loading && !data) return <OverviewSkeleton />;
 
   const tokenPctOfCap = Math.min(100, Math.round((data.tokens.projected_month_end / Math.max(data.tokens.spent_30d, 1)) * 100));
 

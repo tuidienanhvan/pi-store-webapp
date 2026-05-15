@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { EyeOff, Eye, Check, Copy, Edit2, Slash, Trash2 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { IconButton } from "@/_shared/components/ui";
 import { copyToClipboard, maskKey } from "@/_shared/lib/format";
 import { formatTokens } from "@/_shared/lib/translations";
@@ -36,7 +37,7 @@ export function LicenseRow({ l, onOpen, onRevoke, onReactivate, onDelete }) {
           <code className="text-xs font-mono font-bold text-primary/80">
             {showKey ? l.key : maskKey(l.key, 8, 4)}
           </code>
-          <div className="flex items-center gap-1 opacity-0 group-hover/key:opacity-100 transition-opacity">
+          <div className="flex items-center gap-1 opacity-60 group-hover/key:opacity-100 transition-opacity">
             <button onClick={() => setShowKey(!showKey)} className="p-1 hover:text-primary transition-colors">
               {showKey ? <EyeOff size={12} /> : <Eye size={12} />}
             </button>
@@ -85,8 +86,9 @@ export function LicenseRow({ l, onOpen, onRevoke, onReactivate, onDelete }) {
         <AdminBadge tone={statusTone}>{statusLabel}</AdminBadge>
       </td>
       <td className="py-6 px-6">
-        <div className="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-all duration-300">
-          <IconButton icon={Edit2} label="Chỉnh sửa" size="sm" onClick={onOpen} className="hover:bg-primary/10 hover:text-primary border border-transparent hover:border-primary/20" />
+        <div className="flex items-center justify-end gap-1 opacity-60 group-hover:opacity-100 transition-all duration-300">
+                   <IconButton as={Link} to={`/admin/licenses/${l.id}`} icon={Edit2} label="Chỉnh sửa" size="sm" className="hover:bg-primary/10 hover:text-primary border border-transparent hover:border-primary/20" />
+
           {l.status === "active" ? (
              <IconButton icon={Slash} label="Thu hồi" size="sm" onClick={onRevoke} className="hover:bg-danger/10 hover:text-danger border border-transparent hover:border-danger/20" />
           ) : (

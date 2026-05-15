@@ -13,6 +13,7 @@ import {
   Activity,
   History
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import { 
   AdminPageHeader, 
@@ -25,15 +26,9 @@ import {
   AdminConfirmDialog
 } from "../../_shared/components";
 
-import { AdminTableSkeleton } from "@/_shared/components/skeletons/AdminTableSkeleton";
+import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
 import { licensesApi } from "./api";
 import { LicenseRow } from "./components/LicenseRow";
-
-// Modals nội bộ
-import { CreateLicenseModal } from "./components/CreateLicenseModal";
-import { LicenseDetailModal } from "./components/LicenseDetailModal";
-import { AdjustTokensModal } from "./components/AdjustTokensModal";
-import { AssignPackageModal } from "./components/AssignPackageModal";
 
 const DEFAULTS = {
   q: "", status: "", tier: "", package: "",
@@ -54,11 +49,7 @@ export function LicensesPage() {
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState("");
   
-  // Trạng thái Modals
-  const [showCreate, setShowCreate] = useState(false);
-  const [detailLicense, setDetailLicense] = useState(null);
-  const [tokenTarget, setTokenTarget] = useState(null);
-  const [packageTarget, setPackageTarget] = useState(null);
+  // Trạng thái xác nhận
   const [confirmAction, setConfirmAction] = useState(null);
 
   useEffect(() => {
@@ -110,7 +101,7 @@ export function LicensesPage() {
         title="Quản lý Giấy phép"
         tagline="Danh sách mã kích hoạt và quyền truy cập của khách hàng"
         actions={
-          <Button variant="primary" onClick={() => setShowCreate(true)} className="rounded-xl font-bold uppercase tracking-widest text-[10px]">
+          <Button as={Link} to="/admin/licenses/new" variant="primary" className="rounded-xl font-bold uppercase tracking-widest text-[10px]">
             <Plus size={14} className="mr-2" /> Tạo giấy phép mới
           </Button>
         }
@@ -199,16 +190,16 @@ export function LicensesPage() {
               </tr>
             </thead>
             <tbody className="divide-y divide-white/5">
-              {data.items.map((l) => (
-                <LicenseRow 
-                  key={l.id} 
-                  l={l}
-                  onOpen={() => setDetailLicense(l)}
-                  onRevoke={() => setConfirmAction({ type: 'revoke', license: l })}
-                  onReactivate={() => handleAction('reactivate', l)}
-                  onDelete={() => setConfirmAction({ type: 'delete', license: l })}
-                />
-              ))}
+               {data.items.map((l) => (
+                 <LicenseRow 
+                   key={l.id} 
+                   l={l}
+                   onRevoke={() => setConfirmAction({ type: 'revoke', license: l })}
+                   onReactivate={() => handleAction('reactivate', l)}
+                   onDelete={() => setConfirmAction({ type: 'delete', license: l })}
+                 />
+               ))}
+
             </tbody>
           </>
         )}
@@ -223,46 +214,16 @@ export function LicensesPage() {
         onPageSizeChange={(s) => setFilters({ limit: s, offset: 0 })}
       />
 
-      {/* Modals nội bộ */}
-      <CreateLicenseModal open={showCreate} onClose={() => setShowCreate(false)} onCreated={load} />
-      
-      {detailLicense && (
-        <LicenseDetailModal
-          license={detailLicense}
-          packages={packages}
-          onClose={() => setDetailLicense(null)}
-          onChanged={load}
-          onAdjustTokens={(license) => setTokenTarget(license)}
-          onAssignPackage={(license) => setPackageTarget(license)}
-        />
-      )}
+       {confirmAction && (
+         <AdminConfirmDialog 
+           title={confirmAction.type === 'delete' ? "Xác nhận xóa vĩnh viễn?" : "Xác nhận thu hồi?"}
+           message={`Bạn đang thực hiện thao tác quan trọng trên giấy phép của ${confirmAction.license.email}. Hành động này không thể hoàn tác.`}
+           onConfirm={() => handleAction(confirmAction.type, confirmAction.license)}
+           onCancel={() => setConfirmAction(null)}
+           tone="danger"
+         />
+       )}
 
-      {tokenTarget && (
-        <AdjustTokensModal
-          license={tokenTarget}
-          onClose={() => setTokenTarget(null)}
-          onChanged={load}
-        />
-      )}
-
-      {packageTarget && (
-        <AssignPackageModal
-          license={packageTarget}
-          packages={packages}
-          onClose={() => setPackageTarget(null)}
-          onChanged={load}
-        />
-      )}
-
-      {confirmAction && (
-        <AdminConfirmDialog 
-          title={confirmAction.type === 'delete' ? "Xác nhận xóa vĩnh viễn?" : "Xác nhận thu hồi?"}
-          message={`Bạn đang thực hiện thao tác quan trọng trên giấy phép của ${confirmAction.license.email}. Hành động này không thể hoàn tác.`}
-          onConfirm={() => handleAction(confirmAction.type, confirmAction.license)}
-          onCancel={() => setConfirmAction(null)}
-          tone="danger"
-        />
-      )}
     </div>
   );
 }

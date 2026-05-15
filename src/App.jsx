@@ -38,14 +38,24 @@ const UserUsagePage = lazy(() => import('@/features/user/UsagePage'));
 const AdminLayout = lazy(() => import('@admin/layout/AdminLayout'));
 const OverviewPage = lazy(() => import('@admin/features/overview'));
 const ProvidersPage = lazy(() => import('@admin/features/providers'));
+const ProviderEditPage = lazy(() => import('@admin/features/providers/ProviderEditPage'));
 const UsagePage = lazy(() => import('@admin/features/usage'));
 const PackagesPage = lazy(() => import('@admin/features/packages'));
+const PackageEditPage = lazy(() => import('@admin/features/packages/PackageEditPage'));
 const RevenuePage = lazy(() => import('@admin/features/revenue'));
 const LicensesPage = lazy(() => import('@admin/features/licenses'));
+const LicenseCreatePage = lazy(() => import('@admin/features/licenses/LicenseCreatePage'));
+const LicenseDetailPage = lazy(() => import('@admin/features/licenses/LicenseDetailPage'));
+const LicenseAssignPackagePage = lazy(() => import('@admin/features/licenses/LicenseAssignPackagePage'));
+const LicenseAdjustTokensPage = lazy(() => import('@admin/features/licenses/LicenseAdjustTokensPage'));
 const KeysPage = lazy(() => import('@admin/features/keys'));
+const KeyCreatePage = lazy(() => import('@admin/features/keys/KeyCreatePage'));
+const KeyAllocatePage = lazy(() => import('@admin/features/keys/KeyAllocatePage'));
+const KeyBulkImportPage = lazy(() => import('@admin/features/keys/KeyBulkImportPage'));
 const AuditLogPage = lazy(() => import('@admin/features/audit'));
 const SettingsPage = lazy(() => import('@admin/features/settings'));
 const ReleasesPage = lazy(() => import('@admin/features/releases'));
+const ReleaseUploadPage = lazy(() => import('@admin/features/releases/ReleaseUploadPage'));
 const UsersPage = lazy(() => import('@admin/features/users').then(m => ({ default: m.UsersPage })));
 const UserProfilePage = lazy(() => import('@admin/features/users').then(m => ({ default: m.UserProfilePage })));
 const CronPage = lazy(() => import('@admin/features/cron'));
@@ -103,10 +113,20 @@ function App() {
             <Route path="usage" element={<UsagePage />} />
             <Route path="revenue" element={<RevenuePage />} />
             <Route path="packages" element={<PackagesPage />} />
+            <Route path="packages/new" element={<PackageEditPage />} />
+            <Route path="packages/:slug/edit" element={<PackageEditPage />} />
             <Route path="licenses" element={<LicensesPage />} />
+            <Route path="licenses/new" element={<LicenseCreatePage />} />
+            <Route path="licenses/:id" element={<LicenseDetailPage />} />
+            <Route path="licenses/:id/assign-package" element={<LicenseAssignPackagePage />} />
+            <Route path="licenses/:id/adjust-tokens" element={<LicenseAdjustTokensPage />} />
             <Route path="releases" element={<ReleasesPage />} />
-            <Route path="providers" element={<ProvidersPage />} />
+            <Route path="releases/new" element={<ReleaseUploadPage />} />
             <Route path="keys" element={<KeysPage />} />
+
+            <Route path="keys/new" element={<KeyCreatePage />} />
+            <Route path="keys/:id/allocate" element={<KeyAllocatePage />} />
+            <Route path="keys/bulk-import" element={<KeyBulkImportPage />} />
             <Route path="audit-log" element={<AuditLogPage />} />
             <Route path="settings" element={<SettingsPage />} />
             <Route path="users" element={<UsersPage />} />

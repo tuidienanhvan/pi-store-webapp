@@ -1,0 +1,40 @@
+/* Modal — portaled into #modal-root via createPortal. */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background-color: color-mix(in srgb, var(--b1) 70%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.modal {
+  width: 100%;
+  max-height: calc(100vh - 48px);
+  background-color: var(--b2);
+  border: 1px solid var(--bd);
+  border-radius: 20px;
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--bd);
+  background-color: color-mix(in srgb, var(--b1) 40%, transparent);
+}
+
+.modal__body {
+  padding: 20px 24px;
+  overflow-y: auto;
+  flex: 1;
+}
