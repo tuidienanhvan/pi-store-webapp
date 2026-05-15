@@ -4,7 +4,7 @@
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background-color: #050608;
+  background-color: var(--b1);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,15 +20,15 @@
   perspective: 1000px;
   opacity: 0.06;
   pointer-events: none;
-  background: radial-gradient(circle at center, transparent 30%, #050608 80%);
+  background: radial-gradient(circle at center, transparent 30%, var(--b1) 80%);
 }
 
 .grid-horizontal, .grid-vertical {
   position: absolute;
   inset: -50%;
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    linear-gradient(color-mix(in srgb, var(--bc) 10%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--bc) 10%, transparent) 1px, transparent 1px);
   background-size: 40px 40px;
   transform-origin: center;
 }
@@ -130,7 +130,7 @@
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(224, 49, 84, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, color-mix(in srgb, var(--p) 15%, transparent) 0%, transparent 70%);
   animation: corePulse 3s ease-out infinite;
 }
 
@@ -147,13 +147,13 @@
   position: relative;
   z-index: 4;
   color: #ffffff;
-  filter: drop-shadow(0 0 8px rgba(224, 49, 84, 0.4));
+  filter: drop-shadow(0 0 8px color-mix(in srgb, var(--p) 40%, transparent));
   animation: logoGlow 4s ease-in-out infinite alternate;
 }
 
 @keyframes logoGlow {
-  0% { filter: drop-shadow(0 0 5px rgba(224, 49, 84, 0.2)); transform: scale(0.98); }
-  100% { filter: drop-shadow(0 0 12px rgba(224, 49, 84, 0.5)); transform: scale(1.02); }
+  0% { filter: drop-shadow(0 0 5px color-mix(in srgb, var(--p) 20%, transparent)); transform: scale(0.98); }
+  100% { filter: drop-shadow(0 0 12px color-mix(in srgb, var(--p) 50%, transparent)); transform: scale(1.02); }
 }
 
 /* 4. Cyberpunk HUD Display */
@@ -171,7 +171,7 @@
   font-weight: 800;
   letter-spacing: 4px;
   color: #c4cad6;
-  text-shadow: 0 0 4px rgba(255, 255, 255, 0.15);
+  text-shadow: 0 0 4px color-mix(in srgb, var(--bc) 15%, transparent);
   position: relative;
   text-align: center;
 }
@@ -223,7 +223,7 @@
 .hud-progress-track {
   width: 100%;
   height: 4px;
-  background: rgba(255, 255, 255, 0.08);
+  background: color-mix(in srgb, var(--bc) 8%, transparent);
   border-radius: 2px;
   overflow: hidden;
   position: relative;
@@ -237,7 +237,7 @@
   width: 30%;
   background: linear-gradient(90deg, #e03154, #ffbd2e);
   border-radius: 2px;
-  box-shadow: 0 0 6px rgba(224, 49, 84, 0.4);
+  box-shadow: 0 0 6px color-mix(in srgb, var(--p) 40%, transparent);
   animation: loadProgress 3.5s ease-out forwards;
 }
 
@@ -261,7 +261,7 @@
 .hud-counter {
   color: #e03154;
   font-weight: 800;
-  text-shadow: 0 0 3px rgba(224, 49, 84, 0.3);
+  text-shadow: 0 0 3px color-mix(in srgb, var(--p) 30%, transparent);
 }
 
 .dot-blink {

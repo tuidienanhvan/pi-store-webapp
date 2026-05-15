@@ -23,7 +23,7 @@
 .docs-card-panel:hover {
   border-color: color-mix(in srgb, var(--p) 30%, transparent);
   transform: translateY(-5px);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 40px -15px color-mix(in srgb, transparent 50%, var(--bc));
 }
 
 .card-hud-index {

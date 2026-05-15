@@ -1,1 +1,0 @@
-import{T as e}from"./ui-Bm25Npjc.js";var t=e(`chevron-right`,[[`path`,{d:`m9 18 6-6-6-6`,key:`mthhwq`}]]);export{t};

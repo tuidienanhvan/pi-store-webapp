@@ -104,7 +104,7 @@
   left: 0;
   width: 50%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--bc) 5%, transparent), transparent);
   pointer-events: none;
   will-change: transform;
   animation: search-shimmer 6s infinite;

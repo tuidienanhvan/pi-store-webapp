@@ -243,9 +243,9 @@
 .status-indicator .dot {
   width: 6px;
   height: 6px;
-  background: #10b981;
+  background: var(--su);
   border-radius: 50%;
-  box-shadow: 0 0 10px #10b981;
+  box-shadow: 0 0 10px var(--su);
   animation: pulse-dot 2s infinite;
 }
 

@@ -1,0 +1,1 @@
+import{T as e}from"./ui-CuLpHtA4.js";var t=e(`slash`,[[`path`,{d:`M22 2 2 22`,key:`y4kqgn`}]]);export{t};
