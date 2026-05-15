@@ -95,15 +95,15 @@
   overflow: visible; /* ALLOW POP-OUTS */
   transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 
-    0 4px 24px -1px rgba(0, 0, 0, 0.2),
-    inset 0 0 20px rgba(255, 255, 255, 0.02);
+    0 4px 24px -1px color-mix(in srgb, var(--b1) 80%, var(--bc)),
+    inset 0 0 20px color-mix(in srgb, var(--bc) 2%, transparent);
 }
 
 .home-bento__card:hover .glass-shell {
   transform: translateY(-12px);
   border-color: color-mix(in srgb, var(--p) 30%, transparent);
   background: linear-gradient(135deg, color-mix(in srgb, var(--b2) 90%, transparent), color-mix(in srgb, var(--b2) 60%, transparent));
-  box-shadow: 0 40px 80px -20px rgba(0,0,0,0.7), 0 0 40px color-mix(in srgb, var(--p) 5%, transparent);
+  box-shadow: 0 40px 80px -20px color-mix(in srgb, var(--b1) 30%, var(--bc)), 0 0 40px color-mix(in srgb, var(--p) 5%, transparent);
 }
 
 .home-bento__visual-container {
@@ -132,7 +132,7 @@
   justify-content: center;
   color: var(--p);
   margin-bottom: 0.6rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--b1) 80%, var(--bc));
 }
 
 .home-bento__icon-brand svg {
