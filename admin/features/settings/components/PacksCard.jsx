@@ -22,9 +22,9 @@ export function PacksCard({ packs, onSave, saving }) {
       <div className="flex items-center justify-between px-2">
          <div className="flex items-center gap-3">
             <Zap size={18} className="text-primary/60" />
-            <h2 className="text-[10px] font-bold uppercase tracking-widest text-base-content/40">Gói nạp Token</h2>
+            <h2 className="text-[10px] font-semibold tracking-wider text-base-content/40">Gói nạp Token</h2>
          </div>
-         <Button type="button" variant="ghost" onClick={addRow} className="h-8 px-4 rounded-lg border border-white/5 bg-white/[0.02] text-[9px] font-bold uppercase tracking-widest hover:border-primary/40">
+         <Button type="button" variant="ghost" onClick={addRow} className="h-8 px-4 rounded-lg border border-white/5 bg-white/[0.02] text-[9px] font-semibold tracking-wider hover:border-primary/40">
             <Plus size={12} className="mr-1" /> Thêm gói nạp
          </Button>
       </div>
@@ -32,12 +32,12 @@ export function PacksCard({ packs, onSave, saving }) {
       <AdminTable>
         <thead>
           <tr className="bg-white/[0.02]">
-            <th className="py-4 px-6 text-left font-bold uppercase tracking-widest text-[9px] opacity-40">Mã định danh (Slug)</th>
-            <th className="py-4 px-6 text-left font-bold uppercase tracking-widest text-[9px] opacity-40">Tên hiển thị</th>
-            <th className="py-4 px-6 text-right font-bold uppercase tracking-widest text-[9px] opacity-40">Số Token nhận</th>
-            <th className="py-4 px-6 text-right font-bold uppercase tracking-widest text-[9px] opacity-40">Giá (Cents)</th>
-            <th className="py-4 px-6 text-right font-bold uppercase tracking-widest text-[9px] opacity-40">Giảm giá %</th>
-            <th className="py-4 px-6 text-right font-bold uppercase tracking-widest text-[9px] opacity-40">Thao tác</th>
+            <th className="py-4 px-6 text-left font-semibold tracking-wider text-[9px] opacity-40">Mã định danh (Slug)</th>
+            <th className="py-4 px-6 text-left font-semibold tracking-wider text-[9px] opacity-40">Tên hiển thị</th>
+            <th className="py-4 px-6 text-right font-semibold tracking-wider text-[9px] opacity-40">Số Token nhận</th>
+            <th className="py-4 px-6 text-right font-semibold tracking-wider text-[9px] opacity-40">Giá (Cents)</th>
+            <th className="py-4 px-6 text-right font-semibold tracking-wider text-[9px] opacity-40">Giảm giá %</th>
+            <th className="py-4 px-6 text-right font-semibold tracking-wider text-[9px] opacity-40">Thao tác</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-white/5">
@@ -70,10 +70,15 @@ export function PacksCard({ packs, onSave, saving }) {
       </AdminTable>
 
       <div className="flex justify-end">
-        <Button type="button" variant="primary" disabled={saving} onClick={() => onSave(rows)} className="h-11 px-10 rounded-xl font-bold uppercase tracking-widest text-[11px]">
+        <Button type="button" variant="primary" disabled={saving} onClick={() => onSave(rows)} className="h-11 px-10 rounded-xl font-semibold tracking-wider text-[11px]">
           {saving ? "Đang lưu..." : "Lưu cấu hình gói nạp"}
         </Button>
       </div>
     </section>
   );
 }
+
+
+
+
+

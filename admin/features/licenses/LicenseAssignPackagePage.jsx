@@ -91,7 +91,7 @@ export function LicenseAssignPackagePage() {
   const selectedPackage = packages.find((item) => item.slug === packageSlug);
 
   return (
-    <div className="flex flex-col gap-6 pb-12 max-w-4xl mx-auto">
+    <div className="flex flex-col gap-6 pb-12 max-w-7xl">
       <AdminPageHeader 
         title="Gán gói dịch vụ"
         tagline={`Cấp quyền truy cập cho giấy phép #${id}`}
@@ -142,7 +142,7 @@ export function LicenseAssignPackagePage() {
                       { label: "CHƯA CHỌN GÓI", value: "" },
                       ...packages.map((item) => ({
                         value: item.slug,
-                        label: `${item.display_name.toUpperCase()} (${item.slug})`,
+                        label: `${item.display_name} (${item.slug})`,
                       })),
                     ]}
                   />
@@ -167,7 +167,7 @@ export function LicenseAssignPackagePage() {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {[
                   { label: 'Hạn mức', val: Number(selectedPackage.token_quota_monthly || 0).toLocaleString(), icon: Zap },
-                  { label: 'Định tuyến', val: (selectedPackage.routing_mode || "shared").toUpperCase(), icon: RefreshCw },
+                  { label: 'Định tuyến', val: (selectedPackage.routing_mode || "shared"), icon: RefreshCw },
                   { label: 'Số khóa', val: selectedPackage.dedicated_key_count || 0, icon: Package },
                   { label: 'Chất lượng', val: (selectedPackage.allowed_qualities || []).join(", ") || "TẤT CẢ", icon: Cpu },
                 ].map(stat => (
@@ -233,3 +233,7 @@ export function LicenseAssignPackagePage() {
 }
 
 export default LicenseAssignPackagePage;
+
+
+
+

@@ -16,12 +16,12 @@ export function AdminSidebar({ nav = [], onLinkClick }) {
           </div>
 
           <div className="flex flex-col relative z-10">
-            <h2 className="text-[14px] font-bold uppercase tracking-widest text-white leading-tight">
+            <h2 className="text-[14px] font-bold tracking-widest text-white leading-tight">
               Pi <span className="text-primary">Quản trị</span>
             </h2>
             <div className="flex items-center gap-1.5 mt-0.5">
               <div className="w-1 h-1 rounded-full bg-success" />
-              <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-primary/60">Hệ thống lõi</span>
+              <span className="text-[9px] font-bold tracking-[0.2em] text-primary/60">Hệ thống lõi</span>
             </div>
           </div>
         </div>

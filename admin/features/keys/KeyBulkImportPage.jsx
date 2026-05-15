@@ -53,7 +53,7 @@ export function KeyBulkImportPage() {
   };
 
   return (
-    <div className="flex flex-col gap-6 pb-12 max-w-4xl mx-auto">
+    <div className="flex flex-col gap-6 pb-12 max-w-7xl">
       <AdminPageHeader 
         title="Nhập khóa (Bulk Import)"
         tagline="Nhập danh sách khóa API số lượng lớn từ định dạng CSV"
@@ -116,3 +116,7 @@ export function KeyBulkImportPage() {
 }
 
 export default KeyBulkImportPage;
+
+
+
+

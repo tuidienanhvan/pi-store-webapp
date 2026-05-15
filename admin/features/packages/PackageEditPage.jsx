@@ -110,168 +110,182 @@ export function PackageEditPage() {
   if (loading) return <AdminTableSkeleton />;
 
   return (
-    <div className="flex flex-col gap-6 pb-12 max-w-4xl mx-auto">
+    <div className="flex flex-col gap-10 pb-20">
       <AdminPageHeader
         title={isNew ? "Tạo gói dịch vụ mới" : `Cấu hình gói: ${form.display_name || form.slug}`}
-        tagline={isNew ? "Định nghĩa giá, hạn mức và chính sách định tuyến" : `Mã hệ thống: ${form.slug}`}
+        tagline={isNew ? "Định nghĩa giá, hạn mức và chính sách định tuyến sản phẩm" : `Quản lý thông số kỹ thuật cho mã hệ thống: ${form.slug}`}
         actions={
-          <Button as={Link} to="/admin/packages" variant="ghost" size="sm">
-            <ArrowLeft size={14} className="mr-1.5" /> Danh sách
+          <Button as={Link} to="/admin/packages" variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-[11px]">
+            <ArrowLeft size={14} className="mr-2" /> Quay lại danh sách
           </Button>
         }
       />
 
-      <form onSubmit={submit} className="flex flex-col gap-5">
-        {/* Định danh */}
-        <FormSection title="Định danh" description="Slug + tên hiển thị + mô tả gói">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <FormField label="Mã hệ thống (slug)" required hint="Chữ thường, không dấu, dùng làm khoá unique">
-              <Input
-                value={form.slug}
-                onChange={(e) => setForm({ ...form, slug: e.target.value.toLowerCase() })}
-                placeholder="pro"
-                disabled={!isNew}
-                required
-              />
-            </FormField>
-            <FormField label="Tên hiển thị" required>
-              <Input
-                value={form.display_name}
-                onChange={(e) => setForm({ ...form, display_name: e.target.value })}
-                placeholder="Gói Chuyên nghiệp"
-                required
-              />
-            </FormField>
-          </div>
-          <FormField label="Mô tả sản phẩm">
-            <Textarea
-              rows={2}
-              value={form.description}
-              onChange={(e) => setForm({ ...form, description: e.target.value })}
-              placeholder="Phù hợp cho freelancer hoặc team nhỏ. Bao gồm SEO + Chatbot..."
-            />
-          </FormField>
-        </FormSection>
+      <form onSubmit={submit} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Cột chính: Thông tin & Định giá */}
+        <div className="lg:col-span-2 flex flex-col gap-8">
+          <FormSection title="Thông tin định danh" icon={ShieldCheck}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+              <FormField label="Mã hệ thống (Slug)" required hint="Định danh duy nhất, không dấu">
+                <Input
+                  value={form.slug}
+                  onChange={(e) => setForm({ ...form, slug: e.target.value.toLowerCase() })}
+                  placeholder="pro-tier"
+                  disabled={!isNew}
+                  required
+                  className="h-12 bg-white/5 border-white/10 rounded-xl"
+                />
+              </FormField>
+              <FormField label="Tên hiển thị" required hint="Tên gói trên bảng giá">
+                <Input
+                  value={form.display_name}
+                  onChange={(e) => setForm({ ...form, display_name: e.target.value })}
+                  placeholder="Gói Chuyên Nghiệp"
+                  required
+                  className="h-12 bg-white/5 border-white/10 rounded-xl"
+                />
+              </FormField>
+            </div>
+            <div className="mt-6">
+              <FormField label="Mô tả sản phẩm">
+                <Textarea
+                  rows={3}
+                  value={form.description}
+                  onChange={(e) => setForm({ ...form, description: e.target.value })}
+                  placeholder="Mô tả chi tiết các quyền lợi của gói..."
+                  className="bg-white/5 border-white/10 rounded-2xl p-4 focus:border-primary/50 transition-all"
+                />
+              </FormField>
+            </div>
+          </FormSection>
 
-        {/* Định giá */}
-        <FormSection title="Định giá & hạn mức">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <FormField label="Giá hàng tháng (¢)">
-              <Input
-                type="number"
-                value={form.price_cents_monthly}
-                onChange={(e) => setForm({ ...form, price_cents_monthly: Number(e.target.value) })}
-              />
-            </FormField>
-            <FormField label="Giá hàng năm (¢)">
-              <Input
-                type="number"
-                value={form.price_cents_yearly}
-                onChange={(e) => setForm({ ...form, price_cents_yearly: Number(e.target.value) })}
-              />
-            </FormField>
-            <FormField label="Hạn mức token tháng" hint="Nhập 0 = không giới hạn">
-              <Input
-                type="number"
-                value={form.token_quota_monthly}
-                onChange={(e) => setForm({ ...form, token_quota_monthly: Number(e.target.value) })}
-              />
-            </FormField>
-          </div>
-        </FormSection>
+          <FormSection title="Định giá & Hạn mức Token" icon={Zap}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+              <FormField label="Giá hàng tháng (¢)">
+                <Input
+                  type="number"
+                  value={form.price_cents_monthly}
+                  onChange={(e) => setForm({ ...form, price_cents_monthly: Number(e.target.value) })}
+                  className="h-12 bg-white/5 border-white/10 rounded-xl"
+                />
+              </FormField>
+              <FormField label="Giá hàng năm (¢)">
+                <Input
+                  type="number"
+                  value={form.price_cents_yearly}
+                  onChange={(e) => setForm({ ...form, price_cents_yearly: Number(e.target.value) })}
+                  className="h-12 bg-white/5 border-white/10 rounded-xl"
+                />
+              </FormField>
+              <FormField label="Hạn mức Token tháng" hint="0 = Không giới hạn">
+                <Input
+                  type="number"
+                  value={form.token_quota_monthly}
+                  onChange={(e) => setForm({ ...form, token_quota_monthly: Number(e.target.value) })}
+                  className="h-12 bg-white/5 border-white/10 rounded-xl"
+                />
+              </FormField>
+              <FormField label="Ưu tiên định tuyến (0-100)" hint="Độ ưu tiên xử lý trong pool">
+                <Input
+                  type="number"
+                  min={0}
+                  max={100}
+                  value={form.priority_boost}
+                  onChange={(e) => setForm({ ...form, priority_boost: Number(e.target.value) })}
+                  className="h-12 bg-white/5 border-white/10 rounded-xl"
+                />
+              </FormField>
+            </div>
+          </FormSection>
 
-        {/* Quality + features */}
-        <FormSection title="Chất lượng & tính năng">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <FormField label="Chất lượng cho phép">
-              <div className="flex flex-wrap gap-3 p-3 rounded-lg bg-white/[0.02] border border-white/5">
-                {QUALITIES.map((q) => (
-                  <Checkbox
-                    key={q}
-                    label={q.charAt(0).toUpperCase() + q.slice(1)}
-                    checked={form.allowed_qualities.includes(q)}
-                    onChange={() => toggleQuality(q)}
-                  />
-                ))}
-              </div>
-            </FormField>
-
-            <FormField label="Tính năng hệ thống" hint="Hiển thị trên pricing page">
-              <div className="flex flex-col gap-2">
-                {form.features.map((f, i) => (
-                  <div key={i} className="flex gap-2">
-                    <Input
-                      value={f}
-                      onChange={(e) => {
-                        const nf = [...form.features];
-                        nf[i] = e.target.value;
-                        setForm({ ...form, features: nf });
-                      }}
-                      className="flex-1"
-                      placeholder="VD: 50K token/tháng"
+          <FormSection title="Tính năng & Chất lượng">
+            <div className="flex flex-col gap-6">
+              <FormField label="Chất lượng kết nối cho phép">
+                <div className="flex flex-wrap gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/5">
+                  {QUALITIES.map((q) => (
+                    <Checkbox
+                      key={q}
+                      label={q.charAt(0).toUpperCase() + q.slice(1)}
+                      checked={form.allowed_qualities.includes(q)}
+                      onChange={() => toggleQuality(q)}
+                      className="accent-primary"
                     />
-                    <IconButton
-                      icon={X}
-                      label="Xoá"
-                      size="sm"
-                      onClick={() => {
-                        const nf = [...form.features];
-                        nf.splice(i, 1);
-                        setForm({ ...form, features: nf });
-                      }}
-                      className="hover:text-danger"
-                    />
-                  </div>
-                ))}
-                <Button
-                  type="button"
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setForm({ ...form, features: [...form.features, ""] })}
-                  className="self-start"
-                >
-                  <Plus size={13} className="mr-1" /> Thêm tính năng
-                </Button>
-              </div>
-            </FormField>
-          </div>
-        </FormSection>
+                  ))}
+                </div>
+              </FormField>
 
-        {/* Routing policy */}
-        <FormSection
-          title="Cấu hình điều phối Gateway"
-          description="Chiến lược định tuyến + cấp độ provider"
-          icon={ShieldCheck}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <FormField label="Chiến lược định tuyến">
-              <div className="flex flex-col gap-2">
-                {[
-                  { val: "shared", lab: "Bể chung (Shared)", desc: "Mọi gói dùng chung pool" },
-                  { val: "dedicated", lab: "Khoá riêng (Dedicated)", desc: "Cấp key riêng cho gói này" },
-                  { val: "hybrid", lab: "Dự phòng (Hybrid)", desc: "Thử dedicated trước, fallback shared" },
-                ].map((m) => (
-                  <label key={m.val} className="flex items-start gap-3 p-2.5 rounded-md hover:bg-white/[0.02] cursor-pointer">
-                    <input
-                      type="radio"
-                      name="routing_mode"
-                      value={m.val}
-                      checked={form.routing_mode === m.val}
-                      onChange={() => setForm({ ...form, routing_mode: m.val })}
-                      className="mt-0.5 accent-primary"
-                    />
-                    <div className="flex flex-col">
-                      <span className={`text-sm font-medium ${form.routing_mode === m.val ? "text-primary" : "text-base-content"}`}>{m.lab}</span>
-                      <span className="text-xs text-base-content/50">{m.desc}</span>
+              <FormField label="Danh sách tính năng đi kèm" hint="Mỗi dòng là một tính năng">
+                <div className="flex flex-col gap-3">
+                  {form.features.map((f, i) => (
+                    <div key={i} className="flex gap-3">
+                      <Input
+                        value={f}
+                        onChange={(e) => {
+                          const nf = [...form.features];
+                          nf[i] = e.target.value;
+                          setForm({ ...form, features: nf });
+                        }}
+                        className="flex-1 h-12 bg-white/5 border-white/10 rounded-xl"
+                        placeholder="VD: Support 24/7"
+                      />
+                      <IconButton
+                        icon={X}
+                        label="Xoá"
+                        size="sm"
+                        onClick={() => {
+                          const nf = [...form.features];
+                          nf.splice(i, 1);
+                          setForm({ ...form, features: nf });
+                        }}
+                        className="h-12 w-12 rounded-xl bg-danger/5 text-danger hover:bg-danger/10 border border-danger/10"
+                      />
                     </div>
-                  </label>
-                ))}
-              </div>
-            </FormField>
+                  ))}
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    onClick={() => setForm({ ...form, features: [...form.features, ""] })}
+                    className="self-start h-10 px-4 rounded-xl border border-dashed border-white/10 text-xs font-semibold"
+                  >
+                    <Plus size={14} className="mr-2" /> Thêm tính năng mới
+                  </Button>
+                </div>
+              </FormField>
+            </div>
+          </FormSection>
+        </div>
 
-            <div className="flex flex-col gap-4">
-              <FormField label="Cấp độ provider cho phép">
-                <div className="flex gap-3 p-3 rounded-lg bg-white/[0.02] border border-white/5">
+        {/* Cột phụ: Gateway & Status */}
+        <div className="flex flex-col gap-8">
+          <FormSection title="Cấu hình Gateway" icon={ShieldCheck}>
+            <div className="flex flex-col gap-6">
+              <FormField label="Chế độ định tuyến">
+                <div className="flex flex-col gap-3">
+                  {[
+                    { val: "shared", lab: "Bể chung (Shared)", desc: "Mọi gói dùng chung pool keys" },
+                    { val: "dedicated", lab: "Khóa riêng (Dedicated)", desc: "Sử dụng key được cấp riêng" },
+                    { val: "hybrid", lab: "Dự phòng (Hybrid)", desc: "Thử dedicated trước, fallback shared" },
+                  ].map((m) => (
+                    <label key={m.val} className={`flex items-start gap-3 p-4 rounded-2xl border transition-all cursor-pointer ${form.routing_mode === m.val ? "bg-primary/5 border-primary/20" : "bg-white/[0.02] border-white/5 hover:border-white/10"}`}>
+                      <input
+                        type="radio"
+                        name="routing_mode"
+                        value={m.val}
+                        checked={form.routing_mode === m.val}
+                        onChange={() => setForm({ ...form, routing_mode: m.val })}
+                        className="mt-1 accent-primary"
+                      />
+                      <div className="flex flex-col">
+                        <span className={`text-sm font-bold ${form.routing_mode === m.val ? "text-primary" : "text-white"}`}>{m.lab}</span>
+                        <span className="text-[11px] text-base-content/40 leading-snug mt-0.5">{m.desc}</span>
+                      </div>
+                    </label>
+                  ))}
+                </div>
+              </FormField>
+
+              <FormField label="Cấp độ Provider">
+                <div className="flex gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/5">
                   <Checkbox
                     label="Miễn phí"
                     checked={form.allowed_tiers.includes("free")}
@@ -284,61 +298,49 @@ export function PackageEditPage() {
                   />
                 </div>
               </FormField>
-              <div className="grid grid-cols-2 gap-3">
-                <FormField label="Độ ưu tiên (0–100)">
-                  <Input
-                    type="number"
-                    min={0}
-                    max={100}
-                    value={form.priority_boost}
-                    onChange={(e) => setForm({ ...form, priority_boost: Number(e.target.value) })}
-                  />
-                </FormField>
-                <FormField label="Tự cấp khoá" hint="Số key cấp khi gán gói">
-                  <Input
-                    type="number"
-                    min={0}
-                    value={form.dedicated_key_count}
-                    onChange={(e) => setForm({ ...form, dedicated_key_count: Number(e.target.value) })}
-                  />
-                </FormField>
-              </div>
             </div>
-          </div>
-        </FormSection>
+          </FormSection>
 
-        {/* Display + status */}
-        <FormSection title="Hiển thị & trạng thái">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
-            <FormField label="Thứ tự hiển thị" hint="Số nhỏ hơn hiển thị trước">
-              <Input
-                type="number"
-                value={form.sort_order}
-                onChange={(e) => setForm({ ...form, sort_order: Number(e.target.value) })}
-              />
-            </FormField>
-            <div className="flex items-center gap-3 p-3 rounded-md bg-white/[0.02] border border-white/5">
-              <Switch
-                checked={form.is_active}
-                onChange={(e) => setForm({ ...form, is_active: e.target.checked })}
-              />
-              <div className="flex flex-col">
-                <span className="text-sm font-medium">Kích hoạt gói</span>
-                <span className="text-xs text-base-content/50">Hiển thị trên trang Pricing</span>
+          <FormSection title="Vận hành">
+            <div className="flex flex-col gap-6">
+              <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 flex items-center justify-between">
+                 <div className="flex flex-col gap-0.5">
+                    <span className="text-sm font-bold text-white">Trạng thái gói</span>
+                    <span className="text-xs text-base-content/40">Cho phép người dùng mua</span>
+                 </div>
+                 <Switch
+                    checked={form.is_active}
+                    onChange={(e) => setForm({ ...form, is_active: e.target.checked })}
+                 />
               </div>
+
+              <FormField label="Thứ tự hiển thị" hint="Số nhỏ sẽ đứng trước">
+                <Input
+                  type="number"
+                  value={form.sort_order}
+                  onChange={(e) => setForm({ ...form, sort_order: Number(e.target.value) })}
+                  className="h-12 bg-white/5 border-white/10 rounded-xl"
+                />
+              </FormField>
             </div>
+          </FormSection>
+
+          <div className="flex flex-col gap-3">
+             {err && <Alert tone="danger" onDismiss={() => setErr("")}>{err}</Alert>}
+             
+             <Button 
+               type="submit" 
+               variant="primary" 
+               disabled={saving} 
+               className="h-14 w-full rounded-2xl font-bold tracking-wider text-xs shadow-xl shadow-primary/10"
+             >
+               {saving ? "ĐANG LƯU..." : isNew ? "XÁC NHẬN TẠO GÓI" : "LƯU THAY ĐỔI CẤU HÌNH"}
+             </Button>
+             
+             <Button as={Link} to="/admin/packages" variant="ghost" className="h-12 w-full rounded-xl border border-white/5 text-[11px] font-semibold text-base-content/40">
+               Hủy bỏ
+             </Button>
           </div>
-        </FormSection>
-
-        {err && <Alert tone="danger" onDismiss={() => setErr("")}>{err}</Alert>}
-
-        <div className="flex items-center gap-3 pt-3 sticky bottom-0 bg-base-100 py-4 -mx-6 px-6 border-t border-white/5">
-          <Button as={Link} to="/admin/packages" type="button" variant="ghost" className="flex-1">
-            Huỷ
-          </Button>
-          <Button type="submit" variant="primary" disabled={saving} className="flex-1">
-            {saving ? "Đang lưu..." : isNew ? "Tạo gói" : "Lưu thay đổi"}
-          </Button>
         </div>
       </form>
     </div>
@@ -346,3 +348,7 @@ export function PackageEditPage() {
 }
 
 export default PackageEditPage;
+
+
+
+

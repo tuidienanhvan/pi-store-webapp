@@ -40,7 +40,7 @@ export function KeyAllocatePage() {
   if (!keyObj) return <div className="p-10 text-center">Đang tải dữ liệu...</div>;
 
   return (
-    <div className="flex flex-col gap-6 pb-12 max-w-4xl mx-auto">
+    <div className="flex flex-col gap-6 pb-12 max-w-7xl">
       <AdminPageHeader 
         title="Cấp phát khóa bảo mật"
         tagline="Gán khóa API cho một giấy phép cụ thể"
@@ -94,3 +94,7 @@ export function KeyAllocatePage() {
 }
 
 export default KeyAllocatePage;
+
+
+
+

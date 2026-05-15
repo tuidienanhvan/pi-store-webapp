@@ -101,7 +101,7 @@ export function LicensesPage() {
         title="Quản lý Giấy phép"
         tagline="Danh sách mã kích hoạt và quyền truy cập của khách hàng"
         actions={
-          <Button as={Link} to="/admin/licenses/new" variant="primary" className="rounded-xl font-bold uppercase tracking-widest text-[10px]">
+          <Button as={Link} to="/admin/licenses/new" variant="primary" className="rounded-xl font-semibold tracking-wider text-[11px]">
             <Plus size={14} className="mr-2" /> Tạo giấy phép mới
           </Button>
         }
@@ -118,7 +118,7 @@ export function LicensesPage() {
         <Select 
           value={filters.status}
           onChange={(e) => setFilters({ status: e.target.value, offset: 0 })}
-          className="h-10 min-w-[160px] bg-white/5 border-white/10 rounded-xl font-bold uppercase tracking-widest text-[10px]"
+          className="h-10 min-w-[160px] bg-white/5 border-white/10 rounded-xl font-semibold tracking-wider text-[11px]"
           options={[
             { label: `Trạng thái: Tất cả`, value: "" },
             { label: `Đang hoạt động (${facets.by_status?.active || 0})`, value: "active" },
@@ -129,7 +129,7 @@ export function LicensesPage() {
         <Select 
           value={filters.tier}
           onChange={(e) => setFilters({ tier: e.target.value, offset: 0 })}
-          className="h-10 min-w-[140px] bg-white/5 border-white/10 rounded-xl font-bold uppercase tracking-widest text-[10px]"
+          className="h-10 min-w-[140px] bg-white/5 border-white/10 rounded-xl font-semibold tracking-wider text-[11px]"
           options={[
             { label: `Hạng: Tất cả`, value: "" },
             { label: `FREE`, value: "free" },
@@ -140,10 +140,10 @@ export function LicensesPage() {
         <Select 
           value={filters.package}
           onChange={(e) => setFilters({ package: e.target.value, offset: 0 })}
-          className="h-10 min-w-[180px] bg-white/5 border-white/10 rounded-xl font-bold uppercase tracking-widest text-[10px]"
+          className="h-10 min-w-[180px] bg-white/5 border-white/10 rounded-xl font-semibold tracking-wider text-[11px]"
           options={[
             { label: `Gói: Tất cả`, value: "" },
-            ...packages.map((p) => ({ value: p.slug, label: p.display_name.toUpperCase() })),
+            ...packages.map((p) => ({ value: p.slug, label: p.display_name })),
           ]} 
         />
       </AdminFilterBar>
@@ -152,14 +152,14 @@ export function LicensesPage() {
       <div className="flex items-center justify-between px-2">
         <div className="flex items-center gap-6">
            <div className="flex items-center gap-2">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-base-content/30">Tổng số giấy phép</span>
+              <span className="text-[10px] font-semibold tracking-wider text-base-content/40">Tổng số giấy phép</span>
               <AdminValue className="text-sm">{data.total}</AdminValue>
            </div>
            {loading && <Activity size={14} className="text-primary animate-pulse" />}
         </div>
         <div className="flex items-center gap-2">
            <History size={14} className="text-base-content/10" />
-           <span className="text-[9px] font-bold uppercase tracking-widest text-base-content/30">Dữ liệu thời gian thực</span>
+           <span className="text-[9px] font-semibold tracking-wider text-base-content/40">Dữ liệu thời gian thực</span>
         </div>
       </div>
 
@@ -180,13 +180,13 @@ export function LicensesPage() {
           <>
             <thead>
               <tr className="bg-white/[0.02]">
-                <th className="py-5 px-6 text-left font-bold uppercase tracking-widest text-[10px] opacity-40">ID</th>
-                <th className="py-5 px-6 text-left font-bold uppercase tracking-widest text-[10px] opacity-40">Mã kích hoạt</th>
-                <th className="py-5 px-6 text-left font-bold uppercase tracking-widest text-[10px] opacity-40">Người dùng</th>
-                <th className="py-5 px-6 text-left font-bold uppercase tracking-widest text-[10px] opacity-40">Gói & Sử dụng</th>
-                <th className="py-5 px-6 text-center font-bold uppercase tracking-widest text-[10px] opacity-40">Kích hoạt</th>
-                <th className="py-5 px-6 text-center font-bold uppercase tracking-widest text-[10px] opacity-40">Trạng thái</th>
-                <th className="py-5 px-6 text-right font-bold uppercase tracking-widest text-[10px] opacity-40">Thao tác</th>
+                <th className="py-5 px-6 text-left font-semibold tracking-wider text-[11px] opacity-50">ID</th>
+                <th className="py-5 px-6 text-left font-semibold tracking-wider text-[11px] opacity-50">Mã kích hoạt</th>
+                <th className="py-5 px-6 text-left font-semibold tracking-wider text-[11px] opacity-50">Người dùng</th>
+                <th className="py-5 px-6 text-left font-semibold tracking-wider text-[11px] opacity-50">Gói & Sử dụng</th>
+                <th className="py-5 px-6 text-center font-semibold tracking-wider text-[11px] opacity-50">Kích hoạt</th>
+                <th className="py-5 px-6 text-center font-semibold tracking-wider text-[11px] opacity-50">Trạng thái</th>
+                <th className="py-5 px-6 text-right font-semibold tracking-wider text-[11px] opacity-50">Thao tác</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-white/5">
@@ -229,3 +229,7 @@ export function LicensesPage() {
 }
 
 export default LicensesPage;
+
+
+
+

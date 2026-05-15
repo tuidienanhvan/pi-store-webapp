@@ -21,7 +21,7 @@ export function AdminStatCard({
   const CardContent = (
     <div className="flex flex-col gap-4">
       <div className="flex items-center justify-between">
-        <span className="text-[11px] font-bold uppercase tracking-widest text-base-content/40">
+        <span className="text-[11px] font-semibold tracking-wider text-base-content/40">
           {title}
         </span>
         {Icon && (
@@ -48,7 +48,7 @@ export function AdminStatCard({
             {trend >= 0 ? <ArrowUpRight size={12} /> : <ArrowDownRight size={12} />}
             {Math.abs(trend)}%
           </div>
-          <span className="text-[10px] font-medium text-base-content/30 uppercase tracking-wider">
+          <span className="text-[10px] font-medium text-base-content/30 tracking-wide">
             {trendLabel || 'So với tháng trước'}
           </span>
         </div>

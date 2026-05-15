@@ -109,7 +109,7 @@ export function ProvidersPage() {
         title="Nhà cung cấp AI"
         tagline="Quản lý kết nối, model và trung tâm điều phối lưu lượng AI"
         actions={
-          <Button as={Link} to="/admin/providers/new" variant="primary" className="h-10 px-6 rounded-xl font-bold uppercase tracking-widest text-[10px]">
+          <Button as={Link} to="/admin/providers/new" variant="primary" className="h-10 px-6 rounded-xl font-semibold tracking-wider text-[10px]">
             <Plus size={14} className="mr-2" />
             {t.add_provider}
           </Button>
@@ -130,14 +130,14 @@ export function ProvidersPage() {
       <AdminTable>
         <thead>
           <tr className="bg-white/[0.02]">
-            <th className="py-5 px-6 text-left font-bold uppercase tracking-widest text-[10px] opacity-40">Mã / Tên</th>
-            <th className="py-5 px-6 text-left font-bold uppercase tracking-widest text-[10px] opacity-40">Model ID</th>
-            <th className="py-5 px-6 text-center font-bold uppercase tracking-widest text-[10px] opacity-40">Dịch vụ</th>
-            <th className="py-5 px-6 text-center font-bold uppercase tracking-widest text-[10px] opacity-40">Sức khỏe</th>
-            <th className="py-5 px-6 text-center font-bold uppercase tracking-widest text-[10px] opacity-40">Định giá (¢)</th>
-            <th className="py-5 px-6 text-center font-bold uppercase tracking-widest text-[10px] opacity-40">Kho khóa</th>
-            <th className="py-5 px-6 text-center font-bold uppercase tracking-widest text-[10px] opacity-40">Bật/Tắt</th>
-            <th className="py-5 px-6 text-right font-bold uppercase tracking-widest text-[10px] opacity-40">Thao tác</th>
+            <th className="py-5 px-6 text-left font-semibold tracking-wider text-[10px] opacity-40">Mã / Tên</th>
+            <th className="py-5 px-6 text-left font-semibold tracking-wider text-[10px] opacity-40">Model ID</th>
+            <th className="py-5 px-6 text-center font-semibold tracking-wider text-[10px] opacity-40">Dịch vụ</th>
+            <th className="py-5 px-6 text-center font-semibold tracking-wider text-[10px] opacity-40">Sức khỏe</th>
+            <th className="py-5 px-6 text-center font-semibold tracking-wider text-[10px] opacity-40">Định giá (¢)</th>
+            <th className="py-5 px-6 text-center font-semibold tracking-wider text-[10px] opacity-40">Kho khóa</th>
+            <th className="py-5 px-6 text-center font-semibold tracking-wider text-[10px] opacity-40">Bật/Tắt</th>
+            <th className="py-5 px-6 text-right font-semibold tracking-wider text-[10px] opacity-40">Thao tác</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-white/5">
@@ -145,8 +145,8 @@ export function ProvidersPage() {
             <tr key={p.id} className="group hover:bg-white/[0.01] transition-all duration-300">
               <td className="py-6 px-6">
                 <div className="flex flex-col">
-                  <span className="text-sm font-bold text-base-content group-hover:text-primary transition-colors">{p.slug.toUpperCase()}</span>
-                  <span className="text-[10px] font-bold text-base-content/30 uppercase tracking-widest">{p.display_name}</span>
+                  <span className="text-sm font-bold text-base-content group-hover:text-primary transition-colors">{p.slug}</span>
+                  <span className="text-[10px] font-bold text-base-content/30 tracking-wider">{p.display_name}</span>
                 </div>
               </td>
               <td className="py-6 px-6">
@@ -163,7 +163,7 @@ export function ProvidersPage() {
                      {p.health_status === 'healthy' ? 'ỔN ĐỊNH' : p.health_status === 'down' ? 'NGOẠI TUYẾN' : p.health_status === 'degraded' ? 'SUY GIẢM' : 'KHÔNG XÁC ĐỊNH'}
                    </AdminBadge>
                    {p.last_error && (
-                     <span className="text-[8px] font-bold text-danger/40 uppercase truncate max-w-[120px]" title={p.last_error}>{p.last_error}</span>
+                     <span className="text-[8px] font-bold text-danger/40 truncate max-w-[120px]" title={p.last_error}>{p.last_error}</span>
                    )}
                 </div>
               </td>
@@ -176,7 +176,7 @@ export function ProvidersPage() {
               <td className="py-6 px-6 text-center">
                  <div className="flex flex-col items-center">
                     <AdminValue className="text-sm">{p.keys_count || 0}</AdminValue>
-                    <a href={`/admin/keys?provider_id=${p.id}`} className="text-[8px] font-bold text-primary uppercase tracking-widest opacity-40 hover:opacity-100 transition-all flex items-center gap-1">
+                    <a href={`/admin/keys?provider_id=${p.id}`} className="text-[8px] font-bold text-primary tracking-wider opacity-40 hover:opacity-100 transition-all flex items-center gap-1">
                        QUẢN LÝ <ExternalLink size={8} />
                     </a>
                  </div>
@@ -197,9 +197,9 @@ export function ProvidersPage() {
                     {testResult.loading ? (
                       <RefreshCw size={12} className="text-primary" />
                     ) : testResult.ok ? (
-                      <span className="text-[10px] font-bold text-success uppercase tracking-widest">{testResult.latency_ms}ms OK</span>
+                      <span className="text-[10px] font-bold text-success tracking-wider">{testResult.latency_ms}ms OK</span>
                     ) : (
-                      <span className="text-[10px] font-bold text-danger uppercase tracking-widest">LỖI</span>
+                      <span className="text-[10px] font-bold text-danger tracking-wider">LỖI</span>
                     )}
                   </div>
                 )}
@@ -216,7 +216,7 @@ export function ProvidersPage() {
 
         <AdminConfirmDialog 
           title="Xóa nhà cung cấp?"
-          message={`Hành động này sẽ xóa vĩnh viễn nhà cung cấp ${confirmDelete.slug.toUpperCase()}. Tất cả các khóa liên quan sẽ bị mồ côi.`}
+          message={`Hành động này sẽ xóa vĩnh viễn nhà cung cấp ${confirmDelete.slug}. Tất cả các khóa liên quan sẽ bị mồ côi.`}
           onConfirm={handleDelete}
           onCancel={() => setConfirmDelete(null)}
           tone="danger"
@@ -227,3 +227,7 @@ export function ProvidersPage() {
 }
 
 export default ProvidersPage;
+
+
+
+

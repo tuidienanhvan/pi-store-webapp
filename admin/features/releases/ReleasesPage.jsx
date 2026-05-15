@@ -59,7 +59,7 @@ export function ReleasesPage() {
         tagline="Kho lưu trữ tập trung cho các tệp thực thi và bản cập nhật phần mềm hệ thống"
         badge="Releases"
         actions={
-          <Button as={Link} to="/admin/releases/new" variant="primary" className="h-10 px-6 rounded-xl font-bold uppercase tracking-widest text-[10px]">
+          <Button as={Link} to="/admin/releases/new" variant="primary" className="h-10 px-6 rounded-xl font-semibold tracking-wider text-[10px]">
             <Plus size={16} className="mr-2" /> {t.upload_release_btn}
           </Button>
         }
@@ -67,17 +67,17 @@ export function ReleasesPage() {
 
       <div className="flex items-center gap-3 px-2">
          <Activity size={14} className="text-primary/60" />
-         <span className="text-[10px] font-bold uppercase tracking-widest text-base-content/30">Danh mục tệp thực thi</span>
+         <span className="text-[10px] font-semibold tracking-wider text-base-content/30">Danh mục tệp thực thi</span>
       </div>
   
       <AdminTable>
         <thead>
           <tr className="bg-white/[0.02]">
-            <th className="py-4 px-6 text-left font-bold uppercase tracking-widest text-[9px] opacity-40">Mã ứng dụng (Slug)</th>
-            <th className="py-4 px-6 text-left font-bold uppercase tracking-widest text-[9px] opacity-40">Phiên bản</th>
-            <th className="py-4 px-6 text-left font-bold uppercase tracking-widest text-[9px] opacity-40">Cấp độ yêu cầu</th>
-            <th className="py-4 px-6 text-center font-bold uppercase tracking-widest text-[9px] opacity-40">Độ ổn định</th>
-            <th className="py-4 px-6 text-right font-bold uppercase tracking-widest text-[9px] opacity-40">Thao tác</th>
+            <th className="py-4 px-6 text-left font-semibold tracking-wider text-[9px] opacity-40">Mã ứng dụng (Slug)</th>
+            <th className="py-4 px-6 text-left font-semibold tracking-wider text-[9px] opacity-40">Phiên bản</th>
+            <th className="py-4 px-6 text-left font-semibold tracking-wider text-[9px] opacity-40">Cấp độ yêu cầu</th>
+            <th className="py-4 px-6 text-center font-semibold tracking-wider text-[9px] opacity-40">Độ ổn định</th>
+            <th className="py-4 px-6 text-right font-semibold tracking-wider text-[9px] opacity-40">Thao tác</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-white/5">
@@ -94,7 +94,7 @@ export function ReleasesPage() {
                     <div className="w-10 h-10 rounded-xl bg-primary/5 flex items-center justify-center border border-primary/10 group-hover:bg-primary/10 transition-all">
                       <Terminal size={18} className="text-primary" />
                     </div>
-                    <span className="text-xs font-bold text-base-content group-hover:text-primary transition-colors uppercase tracking-widest">
+                    <span className="text-xs font-bold text-base-content group-hover:text-primary transition-colors tracking-wider">
                       {r.plugin_slug}
                     </span>
                   </div>
@@ -102,21 +102,21 @@ export function ReleasesPage() {
                 <td className="py-5 px-6">
                   <div className="flex flex-col">
                       <span className="text-xs font-mono font-bold text-white bg-white/5 px-2 py-0.5 rounded border border-white/5 w-fit">v{r.version}</span>
-                      <span className="text-[8px] font-bold text-white/10 uppercase tracking-widest mt-1">Build Stable</span>
+                      <span className="text-[8px] font-bold text-white/10 tracking-wider mt-1">Build Stable</span>
                   </div>
                 </td>
                 <td className="py-5 px-6">
                   <AdminBadge tone={r.tier_required === "pro" ? "brand" : r.tier_required === "max" ? "warning" : "neutral"}>
-                    {r.tier_required.toUpperCase()}
+                    {r.tier_required}
                   </AdminBadge>
                 </td>
                 <td className="py-5 px-6 text-center">
                   {r.is_yanked ? (
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-danger/5 border border-danger/20 text-[9px] font-bold text-danger uppercase tracking-widest">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-danger/5 border border-danger/20 text-[9px] font-bold text-danger tracking-wider">
                        <X size={10} strokeWidth={4} /> ĐÃ THU HỒI
                     </div>
                   ) : (
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-success/5 border border-success/20 text-[9px] font-bold text-success uppercase tracking-widest">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-success/5 border border-success/20 text-[9px] font-bold text-success tracking-wider">
                        <div className="w-1.5 h-1.5 bg-success rounded-full" /> Ổn định
                     </div>
                   )}
@@ -149,3 +149,7 @@ export function ReleasesPage() {
 
 
 export default ReleasesPage;
+
+
+
+

@@ -68,7 +68,7 @@ function ServiceRow({ icon: Icon, label, status }) {
       <span className="text-xs text-base-content/70 flex-1 truncate">{label}</span>
       <span className={`w-1.5 h-1.5 rounded-full ${healthy ?"bg-success" : "bg-danger"}`} />
       <span className={`text-[11px] font-medium tabular-nums w-16 text-right ${healthy ?"text-success" : "text-danger"}`}>
-        {healthy ? "online" : "offline"}
+        {healthy ? "Tr?c tuy?n" : "Ngo?i tuy?n"}
       </span>
     </div>
   );
@@ -248,9 +248,9 @@ export function OverviewPage() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="text-xs text-base-content/50 bg-white/[0.02]">
-                  <th className="font-medium text-left py-2.5 px-4">Người dùng</th>
-                  <th className="font-medium text-left py-2.5 px-4">Gói</th>
-                  <th className="font-medium text-right py-2.5 px-4">Còn lại</th>
+                  <th className="font-semibold text-left py-2.5 px-4 tracking-wider">Người dùng</th>
+                  <th className="font-semibold text-left py-2.5 px-4 tracking-wider">Gói</th>
+                  <th className="font-semibold text-right py-2.5 px-4 tracking-wider">Còn lại</th>
                 </tr>
               </thead>
               <tbody>
@@ -292,3 +292,8 @@ export function OverviewPage() {
 }
 
 export default OverviewPage;
+
+
+
+
+

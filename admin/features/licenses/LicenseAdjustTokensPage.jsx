@@ -51,7 +51,7 @@ export function LicenseAdjustTokensPage() {
   };
 
   return (
-    <div className="flex flex-col gap-6 pb-12 max-w-4xl mx-auto">
+    <div className="flex flex-col gap-6 pb-12 max-w-7xl">
       <AdminPageHeader 
         title="Điều chỉnh Token"
         tagline={`Thay đổi hạn mức cho giấy phép #${id}`}
@@ -138,3 +138,7 @@ export function LicenseAdjustTokensPage() {
 }
 
 export default LicenseAdjustTokensPage;
+
+
+
+

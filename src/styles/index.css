@@ -48,6 +48,34 @@
   --color-chart-4: #e879a4;
   --color-chart-5: var(--su);
   --color-chart-6: #a78bfa;
+
+  /* ── Elevation: neutral drop shadows (dark theme baseline — Pi mặc định) ──
+   *  Light theme overrides ở [data-theme="light"] block bên dưới. */
+  --shadow-xs:  0 1px 2px 0 rgba(0,0,0,0.4);
+  --shadow-sm:  0 2px 4px -1px rgba(0,0,0,0.5), 0 1px 2px -1px rgba(0,0,0,0.3);
+  --shadow-md:  0 4px 8px -2px rgba(0,0,0,0.55), 0 2px 4px -2px rgba(0,0,0,0.35);
+  --shadow-lg:  0 12px 24px -8px rgba(0,0,0,0.6), 0 4px 8px -4px rgba(0,0,0,0.4);
+  --shadow-xl:  0 24px 48px -12px rgba(0,0,0,0.7);
+  --shadow-2xl: 0 32px 64px -16px rgba(0,0,0,0.8);
+
+  /* ── Brand-tinted shadows (semantic, replaces shadow-2xl shadow-primary/30 cluster) ── */
+  --shadow-primary: 0 8px 24px -8px color-mix(in srgb, var(--p) 30%, transparent);
+  --shadow-danger:  0 8px 24px -8px color-mix(in srgb, var(--er) 30%, transparent);
+  --shadow-success: 0 8px 24px -8px color-mix(in srgb, var(--su) 30%, transparent);
+  --shadow-warning: 0 8px 24px -8px color-mix(in srgb, var(--wa) 30%, transparent);
+
+  /* Glass shell preset (inset highlight + drop, perfect cho bento card) */
+  --shadow-glass:
+    inset 0 1px 0 0 rgba(255,255,255,0.05),
+    0 8px 32px -8px rgba(0,0,0,0.3);
+
+  /* ── Radius scale (Tailwind v4 namespace: rounded-{token}) ── */
+  --radius-sm:  6px;
+  --radius-md:  8px;
+  --radius-lg:  12px;
+  --radius-xl:  16px;
+  --radius-2xl: 24px;
+  --radius-3xl: 32px;
 }
 
 /* ─── Dark theme (default) ──────────────────────────────────── */
@@ -111,6 +139,19 @@
   --wa: #d97706;
   --er: #dc2626;
   --in: #2563eb;
+
+  /* Shadow overrides — light theme cần alpha thấp hơn để không quá nặng */
+  --shadow-xs:  0 1px 2px 0 rgba(15,23,42,0.05);
+  --shadow-sm:  0 2px 4px -1px rgba(15,23,42,0.06), 0 1px 2px -1px rgba(15,23,42,0.04);
+  --shadow-md:  0 4px 8px -2px rgba(15,23,42,0.08), 0 2px 4px -2px rgba(15,23,42,0.04);
+  --shadow-lg:  0 12px 24px -8px rgba(15,23,42,0.12), 0 4px 8px -4px rgba(15,23,42,0.06);
+  --shadow-xl:  0 24px 48px -12px rgba(15,23,42,0.18);
+  --shadow-2xl: 0 32px 64px -16px rgba(15,23,42,0.24);
+
+  /* Glass shell — light variant ít inset highlight (nền đã sáng) */
+  --shadow-glass:
+    inset 0 1px 0 0 rgba(255,255,255,0.6),
+    0 8px 32px -8px rgba(15,23,42,0.1);
 }
 
 /* ─── Global base ───────────────────────────────────────────── */

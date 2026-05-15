@@ -16,7 +16,7 @@ export function AdminFilterBar({
         <input 
           type="text"
           placeholder="Tìm kiếm..."
-          className="w-full h-12 bg-white/5 border border-white/5 rounded-xl pl-12 pr-4 text-sm font-bold focus:border-primary/50 focus:bg-white/10 outline-none transition-all"
+          className="w-full h-12 bg-white/5 border border-white/5 rounded-xl pl-12 pr-4 text-sm font-semibold focus:border-primary/50 focus:bg-white/10 outline-none transition-all"
           value={search || ""}
           onChange={(e) => onSearchChange?.(e.target.value)}
         />

@@ -105,10 +105,10 @@ export function UserProfilePage() {
       <AdminCard className="p-16 flex flex-col items-center gap-6 max-w-md">
         <UserX size={64} className="text-danger opacity-40" />
         <div className="flex flex-col gap-2">
-           <h2 className="text-xl font-bold uppercase tracking-widest text-base-content">Không tìm thấy người dùng</h2>
-           <p className="text-xs font-bold text-base-content/40 uppercase">Định danh người dùng được yêu cầu không tồn tại trong hệ thống.</p>
+           <h2 className="text-xl font-semibold tracking-wider text-base-content">Không tìm thấy người dùng</h2>
+           <p className="text-xs font-bold text-base-content/40">Định danh người dùng được yêu cầu không tồn tại trong hệ thống.</p>
         </div>
-        <Button variant="ghost" onClick={() => navigate("/admin/users")} className="h-12 px-8 rounded-xl border border-white/5 font-bold uppercase tracking-widest text-[10px]">
+        <Button variant="ghost" onClick={() => navigate("/admin/users")} className="h-12 px-8 rounded-xl border border-white/5 font-semibold tracking-wider text-[10px]">
            <ArrowLeft size={14} className="mr-2" /> Quay lại danh sách
         </Button>
       </AdminCard>
@@ -118,12 +118,12 @@ export function UserProfilePage() {
   return (
     <div className="p-6 lg:p-10 flex flex-col gap-8">
       <AdminPageHeader 
-        title={user.name || "NGƯỜI DÙNG CHƯA ĐẶT TÊN"}
+        title={user.name || "Người dùng chưa đặt tên"}
         tagline={`ID Người dùng: ${user.id} — Định danh: ${user.email}`}
         actions={
           <div className="flex items-center gap-3">
              <Link to="/admin/users">
-                <Button variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-bold uppercase tracking-widest text-[9px]">
+                <Button variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-[9px]">
                    <ChevronLeft size={14} className="mr-1" /> Danh sách
                 </Button>
              </Link>
@@ -154,8 +154,8 @@ export function UserProfilePage() {
                   </div>
                 </div>
                 
-                <h2 className="mt-4 text-lg font-bold text-white uppercase tracking-tight">{user.name || "CHƯA CÓ TÊN"}</h2>
-                <div className="flex items-center gap-2 text-[10px] font-bold text-base-content/30 uppercase tracking-widest mt-1">
+                <h2 className="mt-4 text-lg font-bold text-white tracking-tight">{user.name || "CHƯA CÓ TÊN"}</h2>
+                <div className="flex items-center gap-2 text-[10px] font-bold text-base-content/30 tracking-wider mt-1">
                    <Mail size={10} /> {user.email}
                 </div>
                 
@@ -174,8 +174,8 @@ export function UserProfilePage() {
                    <Clock size={16} />
                 </div>
                 <div className="flex flex-col gap-1">
-                   <span className="text-[9px] font-bold uppercase text-base-content/30 tracking-widest">Ngày khởi tạo</span>
-                   <span className="text-xs font-bold text-base-content/80 uppercase">{formatDate(user.created_at, "vi")}</span>
+                   <span className="text-[9px] font-semibold text-base-content/30 tracking-widest">Ngày khởi tạo</span>
+                   <span className="text-xs font-bold text-base-content/80">{formatDate(user.created_at, "vi")}</span>
                 </div>
              </div>
              
@@ -184,8 +184,8 @@ export function UserProfilePage() {
                    <LogIn size={16} />
                 </div>
                 <div className="flex flex-col gap-1">
-                   <span className="text-[9px] font-bold uppercase text-base-content/30 tracking-widest">Lần cuối đăng nhập</span>
-                   <span className="text-xs font-bold text-base-content/80 uppercase italic">{user.last_login_at ? formatDate(user.last_login_at, "vi") : "CHƯA CÓ DỮ LIỆU"}</span>
+                   <span className="text-[9px] font-semibold text-base-content/30 tracking-widest">Lần cuối đăng nhập</span>
+                   <span className="text-xs font-bold text-base-content/80 italic">{user.last_login_at ? formatDate(user.last_login_at, "vi") : "CHƯA CÓ DỮ LIỆU"}</span>
                 </div>
              </div>
           </AdminCard>
@@ -193,7 +193,7 @@ export function UserProfilePage() {
           <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 flex items-center gap-4">
              <Fingerprint size={24} className="text-primary/40" />
              <div className="flex flex-col">
-                <span className="text-[9px] font-bold uppercase tracking-widest text-base-content/30">Mã truy cập hệ thống</span>
+                <span className="text-[9px] font-semibold tracking-wider text-base-content/30">Mã truy cập hệ thống</span>
                 <code className="text-xs font-mono font-bold text-primary/60">PI-ID: {user.id.toString().padStart(8, '0')}</code>
              </div>
           </div>
@@ -205,16 +205,16 @@ export function UserProfilePage() {
             <div className="flex items-center gap-4 mb-10">
               <div className="w-1 h-8 bg-primary rounded-full" />
               <div className="flex flex-col gap-1">
-                <h3 className="text-sm font-bold uppercase tracking-widest text-white m-0">Dữ liệu tích hợp hệ thống</h3>
-                <p className="text-[10px] font-bold text-base-content/30 uppercase tracking-wide">Cấu hình các tham số kết nối REST API cho các điểm cuối của khách hàng.</p>
+                <h3 className="text-sm font-semibold tracking-wider text-white m-0">Dữ liệu tích hợp hệ thống</h3>
+                <p className="text-[10px] font-bold text-base-content/30 tracking-wide">Cấu hình các tham số kết nối REST API cho các điểm cuối của khách hàng.</p>
               </div>
             </div>
 
             <form onSubmit={handleSave} className="flex flex-col gap-10">
               <div className="grid grid-cols-1 gap-8">
                 <div className="flex flex-col gap-4">
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-primary/60 ml-1">
-                    URL TRANG WEB (NODE INTERFACE)
+                  <label className="text-[10px] font-semibold tracking-wider text-primary/60 ml-1">
+                    URL Trang web (Node Interface)
                   </label>
                   <Input 
                     placeholder="https://client-node.com"
@@ -223,13 +223,13 @@ export function UserProfilePage() {
                     onChange={(e) => setSiteUrl(e.target.value)}
                     className="h-14 bg-white/5 border-white/10 rounded-2xl focus:border-primary/50 font-bold text-sm"
                   />
-                  <p className="text-[9px] font-bold text-base-content/20 uppercase tracking-widest ml-1 flex items-center gap-2">
+                  <p className="text-[9px] font-bold text-base-content/20 tracking-wider ml-1 flex items-center gap-2">
                      <Terminal size={10} /> Trang WordPress đang chạy hệ thống Pi Plugin.
                   </p>
                 </div>
 
                 <div className="flex flex-col gap-4">
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-primary/60 ml-1">
+                  <label className="text-[10px] font-semibold tracking-wider text-primary/60 ml-1">
                     MÃ XÁC THỰC ỨNG DỤNG (AUTH TOKEN)
                   </label>
                   <div className="flex gap-3">
@@ -256,7 +256,7 @@ export function UserProfilePage() {
                       />
                     </div>
                   </div>
-                  <p className="text-[9px] font-bold text-base-content/20 uppercase tracking-widest ml-1 flex items-center gap-2">
+                  <p className="text-[9px] font-bold text-base-content/20 tracking-wider ml-1 flex items-center gap-2">
                      <Shield size={10} /> Mật khẩu ứng dụng WordPress cho các hoạt động REST API.
                   </p>
                 </div>
@@ -270,7 +270,7 @@ export function UserProfilePage() {
                   type="submit" 
                   variant="primary" 
                   disabled={saving}
-                  className="h-14 px-10 rounded-2xl font-bold uppercase tracking-widest text-[11px]"
+                  className="h-14 px-10 rounded-2xl font-semibold tracking-wider text-[11px]"
                 >
                   <Save size={16} className="mr-3" />
                   Lưu cấu hình
@@ -286,8 +286,8 @@ export function UserProfilePage() {
                 <Lightbulb size={28} />
               </div>
               <div className="flex flex-col gap-2">
-                <h4 className="text-xs font-bold uppercase tracking-widest text-primary">Hướng dẫn tích hợp hệ thống</h4>
-                <p className="text-[11px] font-bold text-primary/60 leading-relaxed uppercase tracking-tight">
+                <h4 className="text-xs font-semibold tracking-wider text-primary">Hướng dẫn tích hợp hệ thống</h4>
+                <p className="text-[11px] font-bold text-primary/60 leading-relaxed tracking-tight">
                   Mật khẩu ứng dụng cho phép Pi AI Cloud thực hiện đồng bộ hóa tự động (Bài viết mới, Kiểm tra SEO, Kiểm tra hiệu suất) mà không cần quyền truy cập root đầy đủ. Đảm bảo trang WordPress đã bật REST API để kết nối thông suốt.
                 </p>
               </div>
@@ -300,3 +300,8 @@ export function UserProfilePage() {
 }
 
 export default UserProfilePage;
+
+
+
+
+

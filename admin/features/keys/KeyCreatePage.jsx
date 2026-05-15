@@ -44,7 +44,7 @@ export function KeyCreatePage() {
   };
 
   return (
-    <div className="flex flex-col gap-6 pb-12 max-w-4xl mx-auto">
+    <div className="flex flex-col gap-6 pb-12 max-w-7xl">
       <AdminPageHeader 
         title="Đăng ký khóa bảo mật"
         tagline="Thêm khóa API mới vào hệ thống điều phối"
@@ -65,7 +65,7 @@ export function KeyCreatePage() {
                 onChange={(e) => setForm({ ...form, provider_id: e.target.value })}
                 options={[
                   { label: "CHỌN NHÀ CUNG CẤP", value: "" },
-                  ...providers.map((p) => ({ label: `${p.slug.toUpperCase()} — ${p.display_name}`, value: String(p.id) })),
+                  ...providers.map((p) => ({ label: `${p.slug} — ${p.display_name}`, value: String(p.id) })),
                 ]}
               />
             </FormField>
@@ -120,3 +120,7 @@ export function KeyCreatePage() {
 }
 
 export default KeyCreatePage;
+
+
+
+

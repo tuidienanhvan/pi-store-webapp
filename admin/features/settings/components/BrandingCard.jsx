@@ -17,7 +17,7 @@ export function BrandingCard({ branding, onSave, saving }) {
     <section className="flex flex-col gap-6">
       <div className="flex items-center gap-3 px-2">
          <Palette size={18} className="text-primary/60" />
-         <h2 className="text-[10px] font-bold uppercase tracking-widest text-base-content/40">Nhận diện thương hiệu</h2>
+         <h2 className="text-[10px] font-semibold tracking-wider text-base-content/40">Nhận diện thương hiệu</h2>
       </div>
       <AdminCard className="p-10">
         <form onSubmit={(e) => { e.preventDefault(); onSave(form); }} className="flex flex-col gap-10">
@@ -37,7 +37,7 @@ export function BrandingCard({ branding, onSave, saving }) {
               className="h-12 bg-white/5 border-white/10 rounded-xl font-mono text-xs"
             />
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] font-bold uppercase tracking-widest text-primary/60 ml-1">MÀU CHỦ ĐẠO (PRIMARY)</label>
+              <label className="text-[10px] font-semibold tracking-wider text-primary/60 ml-1">MÀU CHỦ ĐẠO (PRIMARY)</label>
               <div className="flex gap-3">
                 <input type="color" value={form.primary_color} 
                   onChange={(e) => setForm({ ...form, primary_color: e.target.value })} 
@@ -57,7 +57,7 @@ export function BrandingCard({ branding, onSave, saving }) {
             />
           </div>
           <div className="flex justify-end pt-8 border-t border-white/5">
-            <Button type="submit" variant="primary" disabled={saving} className="h-12 px-10 rounded-xl font-bold uppercase tracking-widest text-[11px]">
+            <Button type="submit" variant="primary" disabled={saving} className="h-12 px-10 rounded-xl font-semibold tracking-wider text-[11px]">
               {saving ? "Đang đồng bộ..." : "Lưu cấu hình thương hiệu"}
             </Button>
           </div>
@@ -66,3 +66,8 @@ export function BrandingCard({ branding, onSave, saving }) {
     </section>
   );
 }
+
+
+
+
+

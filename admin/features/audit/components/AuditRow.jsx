@@ -29,25 +29,25 @@ export function AuditRow({ entry, locale, expanded, onToggle }) {
         </td>
         <td className="py-5 px-6">
           <div className="flex flex-col gap-0.5">
-            <span className="text-[11px] font-bold text-base-content/80 uppercase tracking-tight">{formatRelative(entry.created_at, locale)}</span>
-            <span className="text-[9px] font-mono font-bold text-base-content/20 uppercase tracking-tighter">{formatDateTime(entry.created_at, locale)}</span>
+            <span className="text-[11px] font-bold text-base-content/80 tracking-tight">{formatRelative(entry.created_at, locale)}</span>
+            <span className="text-[9px] font-mono font-bold text-base-content/20 tracking-tighter">{formatDateTime(entry.created_at, locale)}</span>
           </div>
         </td>
         <td className="py-5 px-6 max-w-[200px]">
           <div className="flex flex-col gap-0.5">
-             <span className="text-[11px] font-bold text-primary/80 truncate uppercase tracking-tight">{entry.actor_email || "HỆ THỐNG"}</span>
+             <span className="text-[11px] font-bold text-primary/80 truncate tracking-tight">{entry.actor_email || "HỆ THỐNG"}</span>
              {entry.ip_address && <span className="text-[9px] font-mono font-bold text-base-content/20">@{entry.ip_address}</span>}
           </div>
         </td>
         <td className="py-5 px-6">
           <div className="flex items-center gap-2 px-2 py-1 rounded bg-white/5 border border-white/5 w-fit">
             <ActionIcon size={12} className="text-primary/60" />
-            <span className="text-[9px] font-bold uppercase tracking-widest text-base-content/80">{entry.action.toUpperCase()}</span>
+            <span className="text-[9px] font-semibold tracking-wider text-base-content/80">{entry.action}</span>
           </div>
         </td>
         <td className="py-5 px-6">
           <div className="flex flex-col">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-base-content/60">{entry.resource_type.toUpperCase()}</span>
+            <span className="text-[10px] font-semibold tracking-wider text-base-content/60">{entry.resource_type}</span>
             {entry.resource_id && <span className="text-[9px] font-mono font-bold text-white/10">ID: #{entry.resource_id}</span>}
           </div>
         </td>
@@ -55,7 +55,7 @@ export function AuditRow({ entry, locale, expanded, onToggle }) {
           <p className="text-[12px] font-bold text-base-content/60 leading-relaxed group-hover:text-base-content transition-colors">{entry.message}</p>
         </td>
         <td className="py-5 px-6 text-center">
-          <AdminBadge tone={severityTone}>{SEVERITY_LABELS[entry.severity] || entry.severity.toUpperCase()}</AdminBadge>
+          <AdminBadge tone={severityTone}>{SEVERITY_LABELS[entry.severity] || entry.severity}</AdminBadge>
         </td>
       </tr>
 
@@ -68,7 +68,7 @@ export function AuditRow({ entry, locale, expanded, onToggle }) {
                     <div className="flex flex-col gap-3">
                        <div className="flex items-center gap-2">
                           <div className="w-1 h-3 bg-danger rounded-full" />
-                          <span className="text-[10px] font-bold uppercase tracking-widest text-danger/60">Trạng thái cũ</span>
+                          <span className="text-[10px] font-semibold tracking-wider text-danger/60">Trạng thái cũ</span>
                        </div>
                        <pre className="p-5 rounded-xl bg-danger/5 border border-danger/10 text-[10px] font-mono text-danger/80 overflow-auto max-h-60 custom-scrollbar">
                           {JSON.stringify(entry.before, null, 2)}
@@ -79,7 +79,7 @@ export function AuditRow({ entry, locale, expanded, onToggle }) {
                     <div className="flex flex-col gap-3">
                        <div className="flex items-center gap-2">
                           <div className="w-1 h-3 bg-success rounded-full" />
-                          <span className="text-[10px] font-bold uppercase tracking-widest text-success/60">Trạng thái mới</span>
+                          <span className="text-[10px] font-semibold tracking-wider text-success/60">Trạng thái mới</span>
                        </div>
                        <pre className="p-5 rounded-xl bg-success/5 border border-success/10 text-[10px] font-mono text-success/80 overflow-auto max-h-60 custom-scrollbar">
                           {JSON.stringify(entry.after, null, 2)}
@@ -94,3 +94,7 @@ export function AuditRow({ entry, locale, expanded, onToggle }) {
     </>
   );
 }
+
+
+
+

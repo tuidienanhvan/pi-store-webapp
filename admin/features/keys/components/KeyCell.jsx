@@ -55,7 +55,11 @@ export function KeyCell({ k }) {
           </button>
         </div>
       </div>
-      {err && <div className="text-[9px] text-danger font-bold uppercase mt-1">{err}</div>}
+      {err && <div className="text-[9px] text-danger font-semibold mt-1">{err}</div>}
     </div>
   );
 }
+
+
+
+

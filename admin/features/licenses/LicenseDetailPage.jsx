@@ -215,8 +215,8 @@ export function LicenseDetailPage() {
               </div>
               <div className="flex flex-col">
                 <span className="text-xs font-medium text-primary/60 mb-0.5">Gói dịch vụ hiện tại</span>
-                <h2 className="text-lg font-bold uppercase tracking-tight m-0">{packageInfo?.package_name || license.package_name || license.package_slug}</h2>
-                <span className="text-xs font-mono text-base-content/40 uppercase mt-1">{packageInfo?.package_slug || license.package_slug}</span>
+                <h2 className="text-lg font-bold tracking-tight m-0">{packageInfo?.package_name || license.package_name || license.package_slug}</h2>
+                <span className="text-xs font-mono text-base-content/40 mt-1">{packageInfo?.package_slug || license.package_slug}</span>
               </div>
             </div>
             <AdminBadge tone={packageInfo?.status === "active" ? "success" : "neutral"}>
@@ -235,7 +235,7 @@ export function LicenseDetailPage() {
                 <span className="text-[10px] font-medium text-base-content/30 flex items-center gap-2">
                   <stat.icon size={10} /> {stat.label}
                 </span>
-                <AdminValue className="text-lg truncate">{typeof stat.val === 'number' ? formatNum(stat.val) : stat.val.toUpperCase()}</AdminValue>
+                <AdminValue className="text-lg truncate">{typeof stat.val === 'number' ? formatNum(stat.val) : stat.val}</AdminValue>
               </div>
             ))}
           </div>
@@ -278,7 +278,7 @@ export function LicenseDetailPage() {
         <tbody className="divide-y divide-white/5">
           {keys.map((key) => (
             <tr key={key.id} className="hover:bg-white/[0.01] transition-colors">
-              <td className="py-4 px-6 font-bold text-xs text-primary uppercase">{key.provider_slug}</td>
+              <td className="py-4 px-6 font-bold text-xs text-primary">{key.provider_slug}</td>
               <td className="py-4 px-6 font-mono text-xs text-base-content/60"><code>{key.key_masked}</code></td>
               <td className="py-4 px-6 text-center">
                 <AdminBadge tone={key.status === "allocated" ? "brand" : "neutral"}>{key.status === "allocated" ? "Đã cấp" : "Trống"}</AdminBadge>
@@ -309,7 +309,7 @@ export function LicenseDetailPage() {
             { label: 'Số lượt gọi', val: formatNum(usage?.total_calls), icon: Activity },
             { label: 'Token đã dùng', val: formatNum(usage?.tokens_spent), icon: Zap },
             { label: 'Độ trễ trung bình', val: `${formatNum(usage?.avg_latency_ms)}ms`, icon: RefreshCw },
-            { label: 'Sản phẩm', val: license.plugin.toUpperCase(), icon: Cpu },
+            { label: 'Sản phẩm', val: license.plugin, icon: Cpu },
           ].map(u => (
             <div key={u.label} className="flex flex-col gap-1">
               <span className="text-[10px] font-medium text-base-content/30 flex items-center gap-2">
@@ -334,70 +334,78 @@ export function LicenseDetailPage() {
   );
 
   return (
-    <div className="flex flex-col gap-6 pb-12 max-w-4xl mx-auto">
+    <div className="flex flex-col gap-8 pb-12">
       <AdminPageHeader 
         title={`Chi tiết Giấy phép: #${license.id}`}
         tagline={license.email}
         actions={
-          <Button as={Link} to="/admin/licenses" variant="ghost" size="sm">
-            <ArrowLeft size={14} className="mr-1.5" /> Danh sách
-          </Button>
+          <div className="flex items-center gap-3">
+            <Button as={Link} to="/admin/licenses" variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-[11px]">
+              <ArrowLeft size={14} className="mr-2" /> Quay lại danh sách
+            </Button>
+            <Button as={Link} to={`/admin/licenses/${id}/adjust-tokens`} variant="primary" className="h-10 px-6 rounded-xl font-bold tracking-wider text-[10px] shadow-lg shadow-primary/10">
+              <Zap size={14} className="mr-2" /> ĐIỀU CHỈNH TOKEN
+            </Button>
+          </div>
         }
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Left Column: Readonly Summary */}
-        <div className="lg:col-span-1 flex flex-col gap-4">
-          <AdminCard className="p-6 flex flex-col gap-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-primary border border-white/5">
-                <User size={20} />
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        {/* Left Column: Readonly Summary - Sticky if possible */}
+        <div className="lg:col-span-1">
+          <AdminCard className="p-8 flex flex-col gap-6 border-primary/10 bg-primary/[0.02]">
+            <div className="flex flex-col items-center text-center gap-4">
+              <div className="w-20 h-20 rounded-3xl bg-white/5 flex items-center justify-center text-primary border border-white/10 shadow-2xl">
+                <User size={36} />
               </div>
-              <div className="flex flex-col">
-                <span className="text-sm font-bold text-base-content leading-tight">{license.email}</span>
+              <div className="flex flex-col gap-1">
+                <h3 className="text-base font-bold text-white leading-tight">{license.email}</h3>
                 <span className="text-xs font-medium text-base-content/40">{license.name || 'Người dùng ẩn danh'}</span>
               </div>
             </div>
-            <div className="h-px bg-white/5 my-2" />
-            <div className="flex flex-col gap-2">
-              <div className="flex justify-between items-center">
-                <span className="text-xs font-medium text-base-content/50">Trạng thái</span>
+
+            <div className="h-px bg-white/5" />
+
+            <div className="flex flex-col gap-4">
+              <div className="flex justify-between items-center px-2">
+                <span className="text-[10px] font-semibold text-base-content/30 tracking-widest uppercase">Trạng thái</span>
                 <AdminBadge tone={license.status === "active" ? "success" : license.status === "revoked" ? "danger" : "warning"}>
-                  {license.status === "active" ? "HOẠT ĐỘNG" : license.status === "revoked" ? "THU HỒI" : "HẾT HẠN"}
+                  {license.status === "active" ? "Hoạt động" : license.status === "revoked" ? "Đã thu hồi" : "Hết hạn"}
                 </AdminBadge>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-xs font-medium text-base-content/50">Sản phẩm</span>
-                <AdminBadge tone="neutral">{license.plugin.toUpperCase()}</AdminBadge>
+              <div className="flex justify-between items-center px-2">
+                <span className="text-[10px] font-semibold text-base-content/30 tracking-widest uppercase">Sản phẩm</span>
+                <AdminBadge tone="neutral">{license.plugin}</AdminBadge>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-xs font-medium text-base-content/50">Hạng</span>
-                <AdminBadge tone="brand">{license.tier.toUpperCase()}</AdminBadge>
+              <div className="flex justify-between items-center px-2">
+                <span className="text-[10px] font-semibold text-base-content/30 tracking-widest uppercase">Hạng gói</span>
+                <AdminBadge tone="brand">{license.tier}</AdminBadge>
               </div>
             </div>
-            <div className="h-px bg-white/5 my-2" />
-            <div className="flex items-center gap-3 px-3 py-2 bg-black/20 rounded-xl border border-white/5">
-               <Key size={14} className="text-primary/60" />
-               <code className="text-xs font-mono text-base-content/60 truncate">{license.key}</code>
+
+            <div className="flex flex-col gap-2 pt-4 border-t border-white/5">
+               <span className="text-[9px] font-semibold text-primary/40 tracking-widest uppercase ml-2">Mã kích hoạt</span>
+               <div className="flex items-center gap-3 px-4 py-3 bg-black/40 rounded-2xl border border-white/5 group hover:border-primary/30 transition-all">
+                  <Key size={14} className="text-primary/60" />
+                  <code className="text-[11px] font-mono text-base-content/60 truncate">{license.key}</code>
+               </div>
             </div>
           </AdminCard>
-          
-          <Button as={Link} to={`/admin/licenses/${id}/adjust-tokens`} variant="outline" className="flex items-center justify-center gap-2">
-            <Zap size={14} /> Điều chỉnh Token
-          </Button>
         </div>
 
         {/* Right Column: Tabs for detailed control */}
-        <div className="lg:col-span-2">
-          {err && <Alert tone="danger" onDismiss={() => setErr("")} className="mb-4">{err}</Alert>}
-          <Tabs
-            items={[
-              { id: "general", label: "Cấu hình", content: generalTab },
-              { id: "package", label: "Gói dịch vụ", content: packageTab },
-              { id: "keys", label: "Mã API", content: keysTab },
-              { id: "usage", label: "Thống kê", content: usageTab },
-            ]}
-          />
+        <div className="lg:col-span-3">
+          {err && <Alert tone="danger" onDismiss={() => setErr("")} className="mb-6">{err}</Alert>}
+          <div className="glass-panel rounded-[2rem] overflow-hidden border border-white/5">
+            <Tabs
+              items={[
+                { id: "general", label: "Cấu hình hệ thống", content: generalTab },
+                { id: "package", label: "Gói dịch vụ", content: packageTab },
+                { id: "keys", label: "Hạ tầng API", content: keysTab },
+                { id: "usage", label: "Thống kê lưu lượng", content: usageTab },
+              ]}
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -405,3 +413,7 @@ export function LicenseDetailPage() {
 }
 
 export default LicenseDetailPage;
+
+
+
+

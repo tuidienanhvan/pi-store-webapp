@@ -92,7 +92,7 @@ export function CronPage() {
         title="Tác vụ tự động (Cron)"
         tagline="Quản lý các tác vụ tự động chạy ngầm của hệ thống"
         actions={
-          <Button variant="ghost" onClick={load} disabled={loading} className="h-10 px-6 rounded-xl border border-white/5 font-bold uppercase tracking-widest text-[10px]">
+          <Button variant="ghost" onClick={load} disabled={loading} className="h-10 px-6 rounded-xl border border-white/5 font-semibold tracking-wider text-[10px]">
             <RefreshCw size={14} className={`mr-2 ${loading ?"animate-spin" : ""}`} />
             Đồng bộ dữ liệu
           </Button>
@@ -109,7 +109,7 @@ export function CronPage() {
       
       {lastResult && (
         <Alert tone={lastResult.status === "success" ? "success" : "warning"} onDismiss={() => setLastResult(null)}>
-          <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest">
+          <div className="flex items-center gap-3 text-[10px] font-semibold tracking-wider">
              <Zap size={14} className="text-primary" />
              <span>Thực thi hoàn tất: {lastResult.slug} — {lastResult.status === 'success' ? 'THÀNH CÔNG' : 'CÓ LỖI'} ({lastResult.duration_ms}ms)</span>
           </div>
@@ -118,18 +118,18 @@ export function CronPage() {
 
       <div className="flex items-center gap-3 px-2">
          <Terminal size={14} className="text-primary/60" />
-         <span className="text-[10px] font-bold uppercase tracking-widest text-base-content/30">Danh sách tác vụ tự động</span>
+         <span className="text-[10px] font-semibold tracking-wider text-base-content/30">Danh sách tác vụ tự động</span>
       </div>
 
       <AdminTable>
         <thead>
           <tr className="bg-white/[0.02]">
-            <th className="py-4 px-6 text-left font-bold uppercase tracking-widest text-[9px] opacity-40">Tác vụ / Mô tả</th>
-            <th className="py-4 px-6 text-center font-bold uppercase tracking-widest text-[9px] opacity-40">Lịch chạy</th>
-            <th className="py-4 px-6 text-center font-bold uppercase tracking-widest text-[9px] opacity-40">Trạng thái</th>
-            <th className="py-4 px-6 text-center font-bold uppercase tracking-widest text-[9px] opacity-40">Lần cuối chạy</th>
-            <th className="py-4 px-6 text-center font-bold uppercase tracking-widest text-[9px] opacity-40">Dự kiến lần tới</th>
-            <th className="py-4 px-6 text-right font-bold uppercase tracking-widest text-[9px] opacity-40">Điều khiển</th>
+            <th className="py-4 px-6 text-left font-semibold tracking-wider text-[9px] opacity-40">Tác vụ / Mô tả</th>
+            <th className="py-4 px-6 text-center font-semibold tracking-wider text-[9px] opacity-40">Lịch chạy</th>
+            <th className="py-4 px-6 text-center font-semibold tracking-wider text-[9px] opacity-40">Trạng thái</th>
+            <th className="py-4 px-6 text-center font-semibold tracking-wider text-[9px] opacity-40">Lần cuối chạy</th>
+            <th className="py-4 px-6 text-center font-semibold tracking-wider text-[9px] opacity-40">Dự kiến lần tới</th>
+            <th className="py-4 px-6 text-right font-semibold tracking-wider text-[9px] opacity-40">Điều khiển</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-white/5">
@@ -141,12 +141,12 @@ export function CronPage() {
                     <Activity size={18} className="text-primary/60" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-xs font-bold text-white uppercase tracking-tight">{job.name}</span>
-                    <span className="text-[9px] font-bold text-base-content/30 uppercase tracking-widest max-w-xs">{job.description}</span>
+                    <span className="text-xs font-bold text-white tracking-tight">{job.name}</span>
+                    <span className="text-[9px] font-bold text-base-content/30 tracking-wider max-w-xs">{job.description}</span>
                     {job.last_error && (
                       <div className="mt-2 flex items-center gap-1.5 px-2 py-0.5 rounded bg-danger/5 border border-danger/10 w-fit">
                          <AlertCircle size={8} className="text-danger" />
-                         <span className="text-[8px] font-bold text-danger/80 uppercase">{job.last_error}</span>
+                         <span className="text-[8px] font-bold text-danger/80">{job.last_error}</span>
                       </div>
                     )}
                   </div>
@@ -162,12 +162,12 @@ export function CronPage() {
               </td>
               <td className="py-5 px-6 text-center">
                 <div className="flex flex-col items-center">
-                   <span className="text-[10px] font-bold text-base-content/60 uppercase">{formatDate(job.last_run_at)}</span>
+                   <span className="text-[10px] font-bold text-base-content/60">{formatDate(job.last_run_at)}</span>
                    {job.last_duration_ms > 0 && <span className="text-[8px] font-mono font-bold text-base-content/20">{job.last_duration_ms}ms</span>}
                 </div>
               </td>
               <td className="py-5 px-6 text-center">
-                <span className="text-[10px] font-bold text-white/20 uppercase">{formatDate(job.next_run_estimated_at)}</span>
+                <span className="text-[10px] font-bold text-white/20">{formatDate(job.next_run_estimated_at)}</span>
               </td>
               <td className="py-5 px-6 text-right">
                 <Button
@@ -175,7 +175,7 @@ export function CronPage() {
                   variant="ghost"
                   onClick={() => runJob(job)}
                   disabled={runningSlug === job.slug}
-                  className="h-9 px-4 rounded-xl border border-white/5 bg-white/[0.02] text-[9px] font-bold uppercase tracking-widest hover:bg-primary/10 hover:border-primary/20 transition-all"
+                  className="h-9 px-4 rounded-xl border border-white/5 bg-white/[0.02] text-[9px] font-semibold tracking-wider hover:bg-primary/10 hover:border-primary/20 transition-all"
                 >
                   {runningSlug === job.slug ? <RefreshCw size={14} className="animate-spin" /> : <Play size={14} className="mr-1.5" />}
                   {runningSlug === job.slug ? "ĐANG CHẠY" : "KÍCH HOẠT"}
@@ -193,3 +193,7 @@ export function CronPage() {
 }
 
 export default CronPage;
+
+
+
+

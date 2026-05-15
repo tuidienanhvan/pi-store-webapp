@@ -6,7 +6,7 @@ import { Circle } from "lucide-react";
  * SidebarLink: Thành phần liên kết trên thanh điều hướng.
  */
 export function SidebarLink({ to, label, icon: IconComponent, end, onClick }) {
-  const baseClass = "relative flex items-center gap-3.5 rounded-xl px-4 py-3 text-[11px] font-bold uppercase tracking-widest transition-all duration-300 border mb-1 overflow-hidden group";
+  const baseClass = "relative flex items-center gap-3.5 rounded-xl px-4 py-3 text-[11px] font-semibold tracking-widest transition-all duration-300 border mb-1 overflow-hidden group";
   const activeClass = "bg-primary/5 border-primary/20 text-primary";
   const idleClass = "text-base-content/40 border-transparent hover:bg-white/[0.03] hover:text-base-content hover:border-white/10";
 

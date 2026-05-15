@@ -1,1 +1,0 @@
-import{w as e}from"./ui-DUyktozt.js";var t=e(`slash`,[[`path`,{d:`M22 2 2 22`,key:`y4kqgn`}]]);export{t};

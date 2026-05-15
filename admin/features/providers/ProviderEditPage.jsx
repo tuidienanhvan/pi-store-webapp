@@ -147,7 +147,7 @@ export function ProviderEditPage() {
   if (loading) return <div className="p-10 text-center">Đang tải dữ liệu...</div>;
 
   return (
-    <div className="flex flex-col gap-6 pb-12 max-w-4xl mx-auto">
+    <div className="flex flex-col gap-6 pb-12 max-w-7xl">
       <AdminPageHeader 
         title={isNew ? "Thêm nhà cung cấp" : `Cấu hình: ${form.display_name || form.slug}`}
         tagline="Cấu hình nhà cung cấp OpenAI-compatible"
@@ -415,3 +415,7 @@ export function ProviderEditPage() {
 }
 
 export default ProviderEditPage;
+
+
+
+

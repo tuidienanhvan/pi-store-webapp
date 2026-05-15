@@ -25,7 +25,7 @@ export function FlagsCard({ flags, onSave, saving }) {
     <section className="flex flex-col gap-6">
       <div className="flex items-center gap-3 px-2">
          <Flag size={18} className="text-primary/60" />
-         <h2 className="text-[10px] font-bold uppercase tracking-widest text-base-content/40">Tính năng hệ thống (Flags)</h2>
+         <h2 className="text-[10px] font-semibold tracking-wider text-base-content/40">Tính năng hệ thống (Flags)</h2>
       </div>
       <AdminCard className="p-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -39,14 +39,14 @@ export function FlagsCard({ flags, onSave, saving }) {
                  <Switch checked={!!form[f.key]} onChange={() => {}} className={f.danger ? "data-[state=checked]:bg-danger" : ""} />
               </div>
               <div className="flex flex-col gap-1">
-                <span className={`text-[10px] font-bold uppercase tracking-widest ${form[f.key] ? (f.danger ?"text-danger" : "text-white") : "text-base-content/40"}`}>{f.label}</span>
+                <span className={`text-[10px] font-semibold tracking-wider ${form[f.key] ? (f.danger ?"text-danger" : "text-white") : "text-base-content/40"}`}>{f.label}</span>
                 <span className="text-[9px] font-mono font-bold opacity-20 lowercase tracking-tighter">{f.key}</span>
               </div>
             </div>
           ))}
         </div>
         <div className="flex justify-end mt-10 pt-8 border-t border-white/5">
-          <Button type="button" variant="primary" disabled={saving} onClick={() => onSave(form)} className="h-12 px-10 rounded-xl font-bold uppercase tracking-widest text-[11px]">
+          <Button type="button" variant="primary" disabled={saving} onClick={() => onSave(form)} className="h-12 px-10 rounded-xl font-semibold tracking-wider text-[11px]">
             {saving ? "Đang đồng bộ..." : "Lưu cấu hình hệ thống"}
           </Button>
         </div>
@@ -54,3 +54,8 @@ export function FlagsCard({ flags, onSave, saving }) {
     </section>
   );
 }
+
+
+
+
+
