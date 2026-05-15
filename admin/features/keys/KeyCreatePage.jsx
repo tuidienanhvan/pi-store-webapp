@@ -49,7 +49,7 @@ export function KeyCreatePage() {
         title="Đăng ký khóa bảo mật"
         tagline="Thêm khóa API mới vào hệ thống điều phối"
         actions={
-          <Button as={Link} to="/admin/keys" variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-[11px]">
+          <Button as={Link} to="/admin/keys" variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-xs">
             <ArrowLeft size={14} className="mr-2" /> Quay lại danh sách
           </Button>
         }
@@ -129,12 +129,12 @@ export function KeyCreatePage() {
                type="submit" 
                variant="primary" 
                disabled={saving || !form.provider_id || !form.key_value.trim()} 
-               className="h-14 w-full rounded-2xl font-bold tracking-wider text-xs shadow-xl shadow-primary/10"
+               className="h-14 w-full rounded-2xl font-bold tracking-wider text-xs shadow-primary"
              >
                {saving ? "ĐANG ĐĂNG KÝ..." : "XÁC NHẬN ĐĂNG KÝ KHÓA"}
              </Button>
              
-             <Button as={Link} to="/admin/keys" variant="ghost" className="h-12 w-full rounded-xl border border-white/5 text-[11px] font-semibold text-base-content/40">
+             <Button as={Link} to="/admin/keys" variant="ghost" className="h-12 w-full rounded-xl border border-white/5 text-xs font-semibold text-base-content/40">
                Hủy bỏ
              </Button>
           </div>

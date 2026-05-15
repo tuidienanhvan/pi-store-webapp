@@ -86,7 +86,7 @@ export function HomeCTA({ t }) {
               <div className="home-cta__actions stagger-4">
                 <Button as={Link} to="/pricing" variant="primary" size="lg" className="cta-btn-primary">
                   {t.cta.primary}
-                  <ArrowRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight size={18} className="ml-2 transition-transform group-" />
                 </Button>
 
                 <Button as={Link} to="/pricing" variant="ghost" size="lg" className="cta-btn-secondary">

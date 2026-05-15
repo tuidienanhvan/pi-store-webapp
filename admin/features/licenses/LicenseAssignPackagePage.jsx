@@ -91,131 +91,154 @@ export function LicenseAssignPackagePage() {
   const selectedPackage = packages.find((item) => item.slug === packageSlug);
 
   return (
-    <div className="flex flex-col gap-6 pb-12 max-w-7xl">
+    <div className="flex flex-col gap-10 pb-20">
       <AdminPageHeader 
         title="Gán gói dịch vụ"
         tagline={`Cấp quyền truy cập cho giấy phép #${id}`}
         actions={
-          <Button as={Link} to={`/admin/licenses/${id}`} variant="ghost" size="sm">
-            <ArrowLeft size={14} className="mr-1.5" /> Quay lại
+          <Button as={Link} to={`/admin/licenses/${id}`} variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-xs">
+            <ArrowLeft size={14} className="mr-2" /> Quay lại hồ sơ
           </Button>
         }
       />
 
-      <form onSubmit={submit} className="flex flex-col gap-5">
-        <FormSection title="Thông tin giấy phép">
-          <div className="p-4 rounded-xl bg-white/[0.03] border border-white/5 flex flex-col gap-3">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-medium text-primary/60">Giấy phép mục tiêu</span>
-              <div className="flex gap-2">
-                <AdminBadge tone="neutral">{license.plugin}</AdminBadge>
-                <AdminBadge tone={license.status === "active" ? "success" : "warning"}>
-                  {license.status === "active" ? "Hoạt động" : "Tạm dừng"}
-                </AdminBadge>
+      <form onSubmit={submit} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Cột chính: Cấu hình Gói Dịch Vụ */}
+        <div className="lg:col-span-2 flex flex-col gap-8">
+          <FormSection title="Thiết lập Gói Dịch Vụ">
+            {loading ? (
+              <div className="py-20 flex flex-col items-center justify-center gap-4 text-primary/40 bg-white/[0.02] rounded-3xl border border-white/5">
+                <RefreshCw className="animate-spin" size={32} />
+                <span className="text-xs font-medium tracking-widest uppercase">Đang tải danh sách gói...</span>
               </div>
-            </div>
-            <div className="font-mono text-sm font-bold flex items-center gap-3">
-              <Database size={16} className="text-base-content/20" />
-              #{id} — {license.email}
-            </div>
-          </div>
-        </FormSection>
-
-        {loading ? (
-          <div className="py-12 flex flex-col items-center justify-center gap-4 text-primary/40">
-            <RefreshCw className="animate-spin" size={32} />
-            <span className="text-xs font-medium">Đang tải danh sách gói...</span>
-          </div>
-        ) : (
-          <div className="flex flex-col gap-5">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <FormField label="Chọn gói dịch vụ" required>
-                <div className="relative">
-                  <div className="absolute left-4 top-1/2 -translate-y-1/2 text-primary z-10">
-                    <Package size={16} />
-                  </div>
-                  <Select
-                    value={packageSlug}
-                    onChange={(event) => setPackageSlug(event.target.value)}
-                    className="pl-12"
-                    options={[
-                      { label: "CHƯA CHỌN GÓI", value: "" },
-                      ...packages.map((item) => ({
-                        value: item.slug,
-                        label: `${item.display_name} (${item.slug})`,
-                      })),
-                    ]}
-                  />
-                </div>
-              </FormField>
-              <FormField label="Ngày hết hạn" hint="Để trống nếu không giới hạn thời gian.">
-                <div className="relative">
-                  <div className="absolute left-4 top-1/2 -translate-y-1/2 text-primary z-10">
-                    <Calendar size={16} />
-                  </div>
-                  <Input
-                    type="date"
-                    value={expiresAt}
-                    onChange={(event) => setExpiresAt(event.target.value)}
-                    className="pl-12"
-                  />
-                </div>
-              </FormField>
-            </div>
-
-            {selectedPackage && (
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {[
-                  { label: 'Hạn mức', val: Number(selectedPackage.token_quota_monthly || 0).toLocaleString(), icon: Zap },
-                  { label: 'Định tuyến', val: (selectedPackage.routing_mode || "shared"), icon: RefreshCw },
-                  { label: 'Số khóa', val: selectedPackage.dedicated_key_count || 0, icon: Package },
-                  { label: 'Chất lượng', val: (selectedPackage.allowed_qualities || []).join(", ") || "TẤT CẢ", icon: Cpu },
-                ].map(stat => (
-                  <AdminCard key={stat.label} className="p-4 bg-white/[0.01]">
-                    <div className="text-xs font-medium text-base-content/30 mb-1 flex items-center gap-2">
-                      <stat.icon size={10} /> {stat.label}
+            ) : (
+              <div className="flex flex-col gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <FormField label="Chọn gói dịch vụ" required hint="Gói sẽ xác định hạn mức và quyền truy cập">
+                    <div className="relative">
+                      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-primary z-10">
+                        <Package size={16} />
+                      </div>
+                      <Select
+                        value={packageSlug}
+                        onChange={(event) => setPackageSlug(event.target.value)}
+                        className="pl-12 h-14 bg-white/5 border-white/10 rounded-xl font-bold text-sm"
+                        options={[
+                          { label: "--- CHƯA CHỌN GÓI ---", value: "" },
+                          ...packages.map((item) => ({
+                            value: item.slug,
+                            label: `${item.display_name} (${item.slug})`,
+                          })),
+                        ]}
+                      />
                     </div>
-                    <AdminValue className="text-xs truncate block">{stat.val}</AdminValue>
-                  </AdminCard>
-                ))}
+                  </FormField>
+                  <FormField label="Ngày hết hạn" hint="Để trống nếu không giới hạn thời gian (Lifetime).">
+                    <div className="relative">
+                      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-primary z-10">
+                        <Calendar size={16} />
+                      </div>
+                      <Input
+                        type="date"
+                        value={expiresAt}
+                        onChange={(event) => setExpiresAt(event.target.value)}
+                        className="pl-12 h-14 bg-white/5 border-white/10 rounded-xl font-mono text-sm"
+                      />
+                    </div>
+                  </FormField>
+                </div>
+
+                {selectedPackage && (
+                  <div className="mt-2 p-6 rounded-2xl bg-white/[0.02] border border-white/5">
+                    <div className="text-xs font-bold tracking-wider text-base-content/50 uppercase mb-4">Chi tiết gói được chọn</div>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                      {[
+                        { label: 'Hạn mức / Tháng', val: Number(selectedPackage.token_quota_monthly || 0).toLocaleString(), icon: Zap },
+                        { label: 'Định tuyến', val: (selectedPackage.routing_mode || "shared"), icon: RefreshCw },
+                        { label: 'Số khóa riêng', val: selectedPackage.dedicated_key_count || 0, icon: Package },
+                        { label: 'Chất lượng AI', val: (selectedPackage.allowed_qualities || []).join(", ") || "TẤT CẢ", icon: Cpu },
+                      ].map(stat => (
+                        <div key={stat.label} className="flex flex-col gap-1 p-3 rounded-xl bg-white/5 border border-white/5">
+                          <div className="text-xs font-semibold text-base-content/40 uppercase tracking-wider flex items-center gap-1.5">
+                            <stat.icon size={12} className="text-primary/70" /> {stat.label}
+                          </div>
+                          <div className="text-sm font-bold truncate">{stat.val}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             )}
+          </FormSection>
+        </div>
 
-            {currentPackage && (
-              <AdminCard className="p-6 bg-primary/5 border-primary/20">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="text-xs font-medium text-primary">Hiệu năng chu kỳ hiện tại</div>
-                  <Button type="button" variant="ghost" size="sm" onClick={() => setShowResetConfirm(true)} className="h-8 rounded-lg border-primary/20 hover:bg-primary/10 text-xs font-medium">
-                    <RefreshCw size={12} className="mr-2" /> Đặt lại chu kỳ
+        {/* Cột phụ: Thông tin License & Vận hành */}
+        <div className="flex flex-col gap-8">
+          <FormSection title="Thông tin Mục Tiêu">
+            <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/5 flex flex-col gap-4">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold tracking-wider text-base-content/50 uppercase">Giấy phép đích</span>
+                <div className="flex gap-2">
+                  <AdminBadge tone="neutral">{license.plugin}</AdminBadge>
+                  <AdminBadge tone={license.status === "active" ? "success" : "warning"}>
+                    {license.status === "active" ? "Active" : "Paused"}
+                  </AdminBadge>
+                </div>
+              </div>
+              <div className="flex flex-col gap-1">
+                <div className="font-mono text-sm font-bold flex items-center gap-2 text-primary">
+                  <Database size={14} /> #{id}
+                </div>
+                <div className="text-sm font-medium opacity-80">{license.email}</div>
+              </div>
+            </div>
+          </FormSection>
+
+          {currentPackage && (
+            <FormSection title="Tình trạng chu kỳ">
+              <div className="p-5 rounded-2xl bg-primary/5 border border-primary/20 flex flex-col gap-4">
+                <div className="flex items-center justify-between">
+                  <div className="text-xs font-bold tracking-wider text-primary uppercase">Hiệu năng tiêu thụ</div>
+                  <Button type="button" variant="ghost" onClick={() => setShowResetConfirm(true)} className="h-8 px-2 rounded-lg border border-primary/20 hover:bg-primary/10 text-xs font-bold text-primary">
+                    <RefreshCw size={12} className="mr-1.5" /> ĐẶT LẠI CHU KỲ
                   </Button>
                 </div>
-                <div className="flex flex-col gap-3">
+                
+                <div className="flex flex-col gap-2">
                   <div className="flex justify-between items-end">
-                    <AdminValue className="text-xl">
-                      {Number(currentPackage.current_period_tokens_used || 0).toLocaleString()} <span className="text-xs opacity-40">/ {Number(currentPackage.token_quota_monthly || 0).toLocaleString()}</span>
-                    </AdminValue>
-                    <span className="text-xs font-medium text-primary">
-                      {Math.round((currentPackage.current_period_tokens_used / (currentPackage.token_quota_monthly || 1)) * 100)}% Đã dùng
+                    <div className="font-mono text-xl font-bold">
+                      {Number(currentPackage.current_period_tokens_used || 0).toLocaleString()}
+                      <span className="text-xs opacity-40 ml-1">/ {Number(currentPackage.token_quota_monthly || 0).toLocaleString()}</span>
+                    </div>
+                    <span className="text-xs font-bold text-primary px-2 py-1 bg-primary/10 rounded-md">
+                      {Math.round((currentPackage.current_period_tokens_used / (currentPackage.token_quota_monthly || 1)) * 100)}%
                     </span>
                   </div>
-                  <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                  <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden mt-1">
                     <div className="h-full bg-primary transition-all duration-1000" style={{ width: `${Math.min(100, (currentPackage.current_period_tokens_used / (currentPackage.token_quota_monthly || 1)) * 100)}%` }} />
                   </div>
                 </div>
-              </AdminCard>
-            )}
+              </div>
+            </FormSection>
+          )}
+
+          <div className="flex flex-col gap-3">
+             {err && <Alert tone="danger" onDismiss={() => setErr("")}>{err}</Alert>}
+             
+             <Button 
+               type="submit" 
+               variant="primary" 
+               disabled={saving || loading || !packageSlug} 
+               className="h-14 w-full rounded-2xl font-bold tracking-wider text-xs shadow-primary"
+             >
+               {saving ? "ĐANG XỬ LÝ..." : "XÁC NHẬN GÁN GÓI"}
+             </Button>
+             
+             <Button as={Link} to={`/admin/licenses/${id}`} variant="ghost" className="h-12 w-full rounded-xl border border-white/5 text-xs font-semibold text-base-content/40">
+               Hủy bỏ
+             </Button>
           </div>
-        )}
-
-        {err && <Alert tone="danger" onDismiss={() => setErr("")}>{err}</Alert>}
-
-        <div className="flex items-center gap-3 pt-3 sticky bottom-0 bg-base-100 py-4 -mx-6 px-6 border-t border-white/5">
-          <Button as={Link} to={`/admin/licenses/${id}`} type="button" variant="ghost" className="flex-1">
-            Hủy bỏ
-          </Button>
-          <Button type="submit" variant="primary" disabled={saving || loading || !packageSlug} className="flex-1">
-            {saving ? "Đang xử lý..." : "Xác nhận gán gói"}
-          </Button>
         </div>
       </form>
 

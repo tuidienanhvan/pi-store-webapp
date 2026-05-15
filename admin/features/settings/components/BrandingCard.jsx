@@ -41,7 +41,7 @@ export function BrandingCard({ branding, onSave, saving }) {
               <div className="flex gap-3">
                 <input type="color" value={form.primary_color} 
                   onChange={(e) => setForm({ ...form, primary_color: e.target.value })} 
-                  className="h-10 w-16 p-1 bg-[#0a0a0a] border border-white/10 rounded-xl cursor-pointer" />
+                  className="h-10 w-16 p-1 bg-base-200 border border-white/10 rounded-xl cursor-pointer" />
                 <Input className="flex-1 bg-white/5 border-white/10 rounded-xl font-mono text-sm" value={form.primary_color} 
                   onChange={(e) => setForm({ ...form, primary_color: e.target.value })} 
                   placeholder="#7c3aed" />

@@ -343,7 +343,7 @@ export function LicenseDetailPage() {
             <Button as={Link} to="/admin/licenses" variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-xs">
               <ArrowLeft size={14} className="mr-2" /> Quay lại danh sách
             </Button>
-            <Button as={Link} to={`/admin/licenses/${id}/adjust-tokens`} variant="primary" className="h-10 px-6 rounded-xl font-bold tracking-wider text-xs shadow-lg shadow-primary/10">
+            <Button as={Link} to={`/admin/licenses/${id}/adjust-tokens`} variant="primary" className="h-10 px-6 rounded-xl font-bold tracking-wider text-xs shadow-primary">
               <Zap size={14} className="mr-2" /> ĐIỀU CHỈNH TOKEN
             </Button>
           </div>

@@ -147,7 +147,7 @@ export function UserProfilePage() {
                   <img 
                     src={`https://api.dicebear.com/7.x/lorelei/svg?seed=${user.email}&backgroundColor=b6e3f4,c0aede,d1d4f9`} 
                     alt={user.name}
-                    className="relative w-24 h-24 rounded-2xl bg-[#0a0a0a] object-cover border-4 border-[#121212] shadow-2xl"
+                    className="relative w-24 h-24 rounded-2xl bg-base-200 object-cover border-4 border-[#121212] shadow-2xl"
                   />
                   <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-success rounded-lg border-4 border-[#0a0a0a] flex items-center justify-center">
                      <Zap size={10} className="text-white" />

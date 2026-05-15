@@ -58,7 +58,7 @@ export function KeyBulkImportPage() {
         title="Nhập khóa (Bulk Import)"
         tagline="Nhập danh sách khóa API số lượng lớn từ định dạng CSV"
         actions={
-          <Button as={Link} to="/admin/keys" variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-[11px]">
+          <Button as={Link} to="/admin/keys" variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-xs">
             <ArrowLeft size={14} className="mr-2" /> Quay lại danh sách
           </Button>
         }
@@ -84,10 +84,10 @@ export function KeyBulkImportPage() {
             <Info size={18} className="shrink-0 mt-0.5" />
             <div className="flex flex-col gap-1">
               <span className="text-xs font-bold tracking-wider uppercase">Định dạng CSV chuẩn</span>
-              <p className="text-[11px] font-medium leading-relaxed opacity-80 mt-1">
+              <p className="text-xs font-medium leading-relaxed opacity-80 mt-1">
                 Nhập từng dòng theo cấu trúc sau (phân tách bằng dấu phẩy):
               </p>
-              <code className="text-[10px] bg-black/20 p-2 rounded-lg mt-1 font-mono">
+              <code className="text-xs bg-black/20 p-2 rounded-lg mt-1 font-mono">
                 provider_slug, key_value, label, quota
               </code>
             </div>
@@ -96,7 +96,7 @@ export function KeyBulkImportPage() {
           <FormSection title="Mã Nhà Cung Cấp Hỗ Trợ" description="Sử dụng các ID này trong cột provider_slug">
             <div className="flex flex-wrap gap-2 mt-2">
               {providers.map(p => (
-                <span key={p.slug} className="text-[10px] font-bold tracking-wider uppercase text-base-content/60 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">
+                <span key={p.slug} className="text-xs font-bold tracking-wider uppercase text-base-content/60 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">
                   {p.slug}
                 </span>
               ))}
@@ -120,12 +120,12 @@ export function KeyBulkImportPage() {
                type="submit" 
                variant="primary" 
                disabled={saving || !text.trim()} 
-               className="h-14 w-full rounded-2xl font-bold tracking-wider text-xs shadow-xl shadow-primary/10 mt-4"
+               className="h-14 w-full rounded-2xl font-bold tracking-wider text-xs shadow-primary mt-4"
              >
                {saving ? "ĐANG XỬ LÝ DỮ LIỆU..." : "BẮT ĐẦU NHẬP DỮ LIỆU"}
              </Button>
              
-             <Button as={Link} to="/admin/keys" variant="ghost" className="h-12 w-full rounded-xl border border-white/5 text-[11px] font-semibold text-base-content/40">
+             <Button as={Link} to="/admin/keys" variant="ghost" className="h-12 w-full rounded-xl border border-white/5 text-xs font-semibold text-base-content/40">
                Đóng
              </Button>
           </div>

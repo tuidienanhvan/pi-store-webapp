@@ -21,7 +21,7 @@ export function SidebarLink({ to, label, icon: IconComponent, end, onClick }) {
       <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-4 bg-primary rounded-r-full opacity-0 transition-opacity duration-300 [.active_&]:opacity-100" />
       
       {IconComponent ? (
-        <IconComponent size={16} className="transition-transform duration-300 group-hover:scale-110" />
+        <IconComponent size={16} className="transition-transform duration-300 group-" />
       ) : (
         <Circle size={16} />
       )}

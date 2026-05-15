@@ -50,140 +50,149 @@ export function LicenseCreatePage() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto flex flex-col gap-6 pb-12">
+    <div className="flex flex-col gap-10 pb-20">
       <AdminPageHeader
         title="Cấp giấy phép mới"
         tagline="Khởi tạo mã kích hoạt và quyền truy cập cho khách hàng"
         actions={
-          <Button as={Link} to="/admin/licenses" variant="ghost" size="sm">
-            <ArrowLeft size={14} className="mr-1.5" /> Danh sách
+          <Button as={Link} to="/admin/licenses" variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-xs">
+            <ArrowLeft size={14} className="mr-2" /> Quay lại danh sách
           </Button>
         }
       />
 
-      <form onSubmit={submit} className="flex flex-col gap-5">
-        {/* ─── Định danh & Sản phẩm ─── */}
-        <FormSection title="Định danh & Sản phẩm" icon={ShieldPlus}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <FormField
-              label="Email khách hàng"
-              required
-              hint="Dùng để đăng nhập và quản lý giấy phép"
-            >
-              <Input
-                type="email"
-                required
-                value={form.email}
-                onChange={(e) => setField("email", e.target.value)}
-                placeholder="name@example.com"
-              />
-            </FormField>
+      <form onSubmit={submit} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Cột chính: Thông tin cốt lõi */}
+        <div className="lg:col-span-2 flex flex-col gap-8">
+          <FormSection title="Định danh & Sản phẩm" icon={ShieldPlus}>
+            <div className="flex flex-col gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <FormField
+                  label="Email khách hàng"
+                  required
+                  hint="Dùng để đăng nhập và quản lý giấy phép"
+                >
+                  <Input
+                    type="email"
+                    required
+                    value={form.email}
+                    onChange={(e) => setField("email", e.target.value)}
+                    placeholder="name@example.com"
+                    className="h-14 bg-white/5 border-white/10 rounded-xl"
+                  />
+                </FormField>
 
-            <FormField
-              label="Tên định danh"
-              hint="Công ty hoặc cá nhân, hiển thị trên hồ sơ"
-            >
-              <Input
-                value={form.name}
-                onChange={(e) => setField("name", e.target.value)}
-                placeholder="VD: Pi Web Agency"
-              />
-            </FormField>
+                <FormField
+                  label="Tên định danh (Tùy chọn)"
+                  hint="Công ty hoặc cá nhân, hiển thị trên hồ sơ"
+                >
+                  <Input
+                    value={form.name}
+                    onChange={(e) => setField("name", e.target.value)}
+                    placeholder="VD: Pi Web Agency"
+                    className="h-14 bg-white/5 border-white/10 rounded-xl"
+                  />
+                </FormField>
+              </div>
 
-            <FormField label="Sản phẩm tích hợp">
-              <Select
-                value={form.plugin}
-                onChange={(e) => setField("plugin", e.target.value)}
-                options={[
-                  { label: "Pi-API Core", value: "pi-api" },
-                  { label: "Pi-SEO Agent", value: "pi-seo" },
-                  { label: "Pi-Chatbot", value: "pi-chatbot" },
-                  { label: "Pi-Leads", value: "pi-leads" },
-                ]}
-              />
-            </FormField>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <FormField label="Sản phẩm tích hợp">
+                  <Select
+                    value={form.plugin}
+                    onChange={(e) => setField("plugin", e.target.value)}
+                    className="h-14 bg-white/5 border-white/10 rounded-xl font-bold text-sm"
+                    options={[
+                      { label: "Pi-API Core", value: "pi-api" },
+                      { label: "Pi-SEO Agent", value: "pi-seo" },
+                      { label: "Pi-Chatbot", value: "pi-chatbot" },
+                      { label: "Pi-Leads", value: "pi-leads" },
+                    ]}
+                  />
+                </FormField>
 
-            <FormField label="Gói dịch vụ">
-              <Select
-                value={form.tier}
-                onChange={(e) => setField("tier", e.target.value)}
-                options={[
-                  { label: "Dùng thử (Free)", value: "free" },
-                  { label: "Chuyên nghiệp (Pro)", value: "pro" },
-                  { label: "Cao cấp (Max)", value: "max" },
-                ]}
-              />
-            </FormField>
-          </div>
-        </FormSection>
+                <FormField label="Gói dịch vụ ban đầu">
+                  <Select
+                    value={form.tier}
+                    onChange={(e) => setField("tier", e.target.value)}
+                    className="h-14 bg-white/5 border-white/10 rounded-xl font-bold text-sm"
+                    options={[
+                      { label: "Dùng thử (Free)", value: "free" },
+                      { label: "Chuyên nghiệp (Pro)", value: "pro" },
+                      { label: "Cao cấp (Max)", value: "max" },
+                    ]}
+                  />
+                </FormField>
+              </div>
+              
+              <div className="flex items-start gap-3 p-5 rounded-2xl bg-white/[0.02] border border-white/5 mt-2">
+                <Info size={16} className="text-primary mt-0.5 shrink-0" />
+                <p className="text-xs text-base-content/60 leading-relaxed uppercase tracking-wider font-semibold">
+                  Giấy phép sẽ được kích hoạt <strong className="text-primary font-bold">ngay sau khi xác nhận</strong>.
+                  Mã định danh duy nhất tự sinh và gửi tới email khách hàng.
+                </p>
+              </div>
+            </div>
+          </FormSection>
+        </div>
 
-        {/* ─── Hạn mức & Hiệu lực ─── */}
-        <FormSection title="Hạn mức & Hiệu lực" icon={Zap}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <FormField
-              label="Giới hạn số tên miền"
-              hint="Số sites tối đa được phép kích hoạt"
-            >
-              <Input
-                type="number"
-                min="1"
-                value={form.max_sites}
-                onChange={(e) => setField("max_sites", e.target.value)}
-              />
-            </FormField>
+        {/* Cột phụ: Giới hạn & Quản trị */}
+        <div className="flex flex-col gap-8">
+          <FormSection title="Giới hạn & Hiệu lực" icon={Zap}>
+            <div className="flex flex-col gap-6">
+              <FormField
+                label="Giới hạn số Sites (Domains)"
+                hint="Số website tối đa được phép kích hoạt"
+              >
+                <Input
+                  type="number"
+                  min="1"
+                  value={form.max_sites}
+                  onChange={(e) => setField("max_sites", e.target.value)}
+                  className="h-12 bg-white/5 border-white/10 rounded-xl font-mono text-primary font-bold text-lg"
+                />
+              </FormField>
 
-            <FormField
-              label="Thời gian hiệu lực (ngày)"
-              hint="Nhập 0 để thiết lập vĩnh viễn"
-            >
-              <Input
-                type="number"
-                min="0"
-                value={form.expires_days}
-                onChange={(e) => setField("expires_days", e.target.value)}
-              />
-            </FormField>
-          </div>
-        </FormSection>
+              <FormField
+                label="Thời gian hiệu lực (Ngày)"
+                hint="Nhập 0 để thiết lập vĩnh viễn (Lifetime)"
+              >
+                <Input
+                  type="number"
+                  min="0"
+                  value={form.expires_days}
+                  onChange={(e) => setField("expires_days", e.target.value)}
+                  className="h-12 bg-white/5 border-white/10 rounded-xl font-mono text-lg"
+                />
+              </FormField>
+            </div>
+          </FormSection>
 
-        {/* ─── Ghi chú nội bộ ─── */}
-        <FormSection title="Ghi chú nội bộ">
-          <FormField
-            label="Ghi chú quản trị"
-            hint="Lưu ý về hợp đồng, ưu đãi riêng, yêu cầu đặc biệt"
-          >
+          <FormSection title="Ghi chú Quản Trị">
             <Textarea
-              rows={3}
+              rows={4}
               value={form.notes}
               onChange={(e) => setField("notes", e.target.value)}
-              placeholder="VD: KH cam kết thanh toán quý — ưu tiên xử lý tickets..."
+              placeholder="Ghi chú về hợp đồng, ưu đãi, yêu cầu đặc biệt... Chỉ nội bộ xem được."
+              className="bg-white/5 border-white/10 rounded-2xl p-4 focus:border-primary/50 transition-all resize-none text-sm"
             />
-          </FormField>
+          </FormSection>
 
-          <div className="flex items-start gap-2.5 p-3 rounded-md bg-base-content/5 border border-white/5">
-            <Info size={14} className="text-base-content/50 mt-0.5 shrink-0" />
-            <p className="text-xs text-base-content/60 leading-relaxed">
-              Giấy phép sẽ được kích hoạt <strong className="text-base-content">ngay sau khi xác nhận</strong>.
-              Mã định danh duy nhất tự sinh và gửi tới email khách hàng.
-            </p>
+          <div className="flex flex-col gap-3">
+             {err && <Alert tone="danger" onDismiss={() => setErr("")}>{err}</Alert>}
+             
+             <Button 
+               type="submit" 
+               variant="primary" 
+               disabled={saving || !form.email.trim()} 
+               className="h-14 w-full rounded-2xl font-bold tracking-wider text-xs shadow-primary"
+             >
+               {saving ? "ĐANG XỬ LÝ..." : "CẤP GIẤY PHÉP MỚI"}
+             </Button>
+             
+             <Button as={Link} to="/admin/licenses" variant="ghost" className="h-12 w-full rounded-xl border border-white/5 text-xs font-semibold text-base-content/40">
+               Hủy bỏ
+             </Button>
           </div>
-        </FormSection>
-
-        {err && <Alert tone="danger" onDismiss={() => setErr("")}>{err}</Alert>}
-
-        {/* Sticky footer save bar */}
-        <div className="flex items-center gap-3 pt-3 sticky bottom-0 bg-base-100 py-3 border-t border-white/5">
-          <Button as={Link} to="/admin/licenses" type="button" variant="ghost" className="flex-1">
-            Huỷ
-          </Button>
-          <Button
-            type="submit"
-            variant="primary"
-            disabled={saving || !form.email.trim()}
-            className="flex-1"
-          >
-            {saving ? "Đang xử lý..." : "Cấp giấy phép"}
-          </Button>
         </div>
       </form>
     </div>

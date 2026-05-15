@@ -152,7 +152,7 @@ export function ProviderEditPage() {
         title={isNew ? "Thêm nhà cung cấp" : `Cấu hình: ${form.display_name || form.slug}`}
         tagline="Định nghĩa kết nối và mô hình học máy cho bộ định tuyến"
         actions={
-          <Button as={Link} to="/admin/providers" variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-[11px]">
+          <Button as={Link} to="/admin/providers" variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-xs">
             <ArrowLeft size={14} className="mr-2" /> Quay lại danh sách
           </Button>
         }
@@ -230,7 +230,7 @@ export function ProviderEditPage() {
             description="Định nghĩa các mô hình học máy mà nhà cung cấp này hỗ trợ xử lý."
           >
             <div className="flex flex-col gap-3">
-              <div className="hidden md:grid grid-cols-[1.5fr_1fr_auto_auto] gap-3 px-2 text-[11px] font-bold tracking-wider text-base-content/50 uppercase">
+              <div className="hidden md:grid grid-cols-[1.5fr_1fr_auto_auto] gap-3 px-2 text-xs font-bold tracking-wider text-base-content/50 uppercase">
                 <span>Model ID</span>
                 <span>Tên hiển thị</span>
                 <span className="text-center px-4">Reasoning</span>
@@ -273,7 +273,7 @@ export function ProviderEditPage() {
                   </Button>
                 </div>
               ))}
-              <Button type="button" variant="ghost" onClick={addModel} className="self-start h-10 px-4 mt-2 rounded-xl border border-dashed border-white/10 text-[11px] font-semibold text-base-content/60 hover:text-white">
+              <Button type="button" variant="ghost" onClick={addModel} className="self-start h-10 px-4 mt-2 rounded-xl border border-dashed border-white/10 text-xs font-semibold text-base-content/60 hover:text-white">
                 <Plus size={14} className="mr-2" /> Thêm mô hình mới
               </Button>
             </div>
@@ -358,7 +358,7 @@ export function ProviderEditPage() {
                       value={h.name}
                       onChange={(e) => updateHeader(i, "name", e.target.value)}
                       placeholder="Tên Header (VD: X-Custom-Auth)"
-                      className="flex-1 font-mono text-[11px] h-10 bg-white/5 border-white/10 rounded-xl"
+                      className="flex-1 font-mono text-xs h-10 bg-white/5 border-white/10 rounded-xl"
                     />
                     <Button
                       type="button"
@@ -373,11 +373,11 @@ export function ProviderEditPage() {
                     value={h.value}
                     onChange={(e) => updateHeader(i, "value", e.target.value)}
                     placeholder="Giá trị Header..."
-                    className="font-mono text-[11px] h-10 bg-white/5 border-white/10 rounded-xl"
+                    className="font-mono text-xs h-10 bg-white/5 border-white/10 rounded-xl"
                   />
                 </div>
               ))}
-              <Button type="button" variant="ghost" onClick={addHeader} className="h-10 rounded-xl border border-dashed border-white/10 text-[11px] font-semibold text-base-content/60 hover:text-white">
+              <Button type="button" variant="ghost" onClick={addHeader} className="h-10 rounded-xl border border-dashed border-white/10 text-xs font-semibold text-base-content/60 hover:text-white">
                 <Plus size={14} className="mr-2" /> Thêm Header
               </Button>
             </div>
@@ -403,12 +403,12 @@ export function ProviderEditPage() {
                type="submit" 
                variant="primary" 
                disabled={saving} 
-               className="h-14 w-full rounded-2xl font-bold tracking-wider text-xs shadow-xl shadow-primary/10"
+               className="h-14 w-full rounded-2xl font-bold tracking-wider text-xs shadow-primary"
              >
                {saving ? "ĐANG LƯU..." : isNew ? "THÊM NHÀ CUNG CẤP" : "LƯU THAY ĐỔI CẤU HÌNH"}
              </Button>
              
-             <Button as={Link} to="/admin/providers" variant="ghost" className="h-12 w-full rounded-xl border border-white/5 text-[11px] font-semibold text-base-content/40">
+             <Button as={Link} to="/admin/providers" variant="ghost" className="h-12 w-full rounded-xl border border-white/5 text-xs font-semibold text-base-content/40">
                Hủy bỏ
              </Button>
           </div>

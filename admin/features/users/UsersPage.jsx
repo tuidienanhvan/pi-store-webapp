@@ -136,7 +136,7 @@ export function UsersPage() {
                       <img 
                         src={`https://api.dicebear.com/7.x/lorelei/svg?seed=${u.email}&backgroundColor=b6e3f4,c0aede,d1d4f9`} 
                         alt={u.name}
-                        className="relative w-11 h-11 rounded-xl bg-[#0a0a0a] object-cover border border-white/10"
+                        className="relative w-11 h-11 rounded-xl bg-base-200 object-cover border border-white/10"
                       />
                       {u.status === "active" && (
                         <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-success rounded-full border-2 border-[#0a0a0a]" />
