@@ -3,56 +3,58 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'sonner';
 
 // Public pages
-const HomePage = lazy(() => import('./pages/public/HomePage'));
-const Catalog = lazy(() => import('./pages/public/Catalog'));
-const ProductEcosystemPage = lazy(() => import('./pages/public/ProductEcosystemPage'));
-const PricingPage = lazy(() => import('./pages/public/PricingPage'));
-const AboutPage = lazy(() => import('./pages/public/AboutPage'));
-const FaqPage = lazy(() => import('./pages/public/FaqPage'));
-const DocsPage = lazy(() => import('./pages/public/DocsPage'));
-const ContactPage = lazy(() => import('./pages/public/ContactPage'));
-const NotFoundPage = lazy(() => import('./pages/public/NotFoundPage'));
+const HomePage = lazy(() => import('./features/home/HomePage'));
+const Catalog = lazy(() => import('./features/catalog/Catalog'));
+const ProductEcosystemPage = lazy(() => import('./features/public-misc/ProductEcosystemPage'));
+const PricingPage = lazy(() => import('./features/pricing/PricingPage'));
+const AboutPage = lazy(() => import('./features/public-misc/AboutPage'));
+const FaqPage = lazy(() => import('./features/public-misc/FaqPage'));
+const DocsPage = lazy(() => import('./features/docs/DocsPage'));
+const ContactPage = lazy(() => import('./features/public-misc/ContactPage'));
+const NotFoundPage = lazy(() => import('./features/public-misc/NotFoundPage'));
 
 // Auth pages
-const LoginPage = lazy(() => import('./pages/auth/LoginPage'));
-const SignupPage = lazy(() => import('./pages/auth/SignupPage'));
-const ForgotPasswordPage = lazy(() => import('./pages/auth/ForgotPasswordPage'));
+const LoginPage = lazy(() => import('./features/auth/LoginPage'));
+const SignupPage = lazy(() => import('./features/auth/SignupPage'));
+const ForgotPasswordPage = lazy(() => import('./features/auth/ForgotPasswordPage'));
 
-// User pages
-const UserLayout = lazy(() => import('@/pages/user/UserLayout'));
-const UserOverviewPage = lazy(() => import('@/pages/user/UserOverviewPage'));
+// User layout & overview
+const UserLayout = lazy(() => import('@/features/user/UserLayout'));
+const UserOverviewPage = lazy(() => import('@/features/user/OverviewPage'));
 
-// Public layout (non-lazy for shell stability)
-import PublicLayout from './pages/public/PublicLayout';
-import { FullPageLoader } from './components/ui/FullPageLoader';
+// Relocated User Pages
+const BillingPage = lazy(() => import('@/features/billing/BillingPage'));
+const CheckoutSuccessPage = lazy(() => import('@/features/checkout/CheckoutSuccessPage'));
+const ApiKeysPage = lazy(() => import('@/features/user/ApiKeysPage'));
+const UserLicensesPage = lazy(() => import('@/features/license/LicensePage'));
+const DownloadsPage = lazy(() => import('@/features/user/DownloadsPage'));
+const ProfilePage = lazy(() => import('@/features/user/ProfilePage'));
+const SupportPage = lazy(() => import('@/features/support/SupportPage'));
+const WalletPage = lazy(() => import('@/features/wallet/WalletPage'));
+const LedgerPage = lazy(() => import('@/features/ledger/LedgerPage'));
+const UserUsagePage = lazy(() => import('@/features/user/UsagePage'));
 
 // Admin pages
 const AdminLayout = lazy(() => import('@admin/layout/AdminLayout'));
-const AdminOverviewPage = lazy(() => import('@admin/pages/AdminOverviewPage'));
+const OverviewPage = lazy(() => import('@admin/features/overview'));
+const ProvidersPage = lazy(() => import('@admin/features/providers'));
+const UsagePage = lazy(() => import('@admin/features/usage'));
+const PackagesPage = lazy(() => import('@admin/features/packages'));
+const RevenuePage = lazy(() => import('@admin/features/revenue'));
+const LicensesPage = lazy(() => import('@admin/features/licenses'));
+const KeysPage = lazy(() => import('@admin/features/keys'));
+const AuditLogPage = lazy(() => import('@admin/features/audit'));
+const SettingsPage = lazy(() => import('@admin/features/settings'));
+const ReleasesPage = lazy(() => import('@admin/features/releases'));
+const UsersPage = lazy(() => import('@admin/features/users').then(m => ({ default: m.UsersPage })));
+const UserProfilePage = lazy(() => import('@admin/features/users').then(m => ({ default: m.UserProfilePage })));
+const CronPage = lazy(() => import('@admin/features/cron'));
 
-// Admin AI
-const AdminProvidersPage = lazy(() => import('@admin/pages/ai/providers/AdminProvidersPage'));
-const AdminUsagePage = lazy(() => import('@admin/pages/ai/usage/AdminUsagePage'));
-
-// Admin Finance
-const AdminPackagesPage = lazy(() => import('@admin/pages/finance/AdminPackagesPage'));
-const AdminRevenuePage = lazy(() => import('@admin/pages/finance/AdminRevenuePage'));
-const BillingPage = lazy(() => import('@admin/pages/finance/BillingPage'));
-
-// Admin License
-const AdminLicensesPage = lazy(() => import('@admin/pages/license/AdminLicensesPage'));
-const AdminKeysPage = lazy(() => import('@admin/pages/license/AdminKeysPage'));
-
-// Admin System
-const AdminAuditLogPage = lazy(() => import('@admin/pages/system/AdminAuditLogPage'));
-const AdminSettingsPage = lazy(() => import('@admin/pages/system/AdminSettingsPage'));
-const AdminReleasesPage = lazy(() => import('@admin/pages/system/AdminReleasesPage'));
-const AdminUsersPage = lazy(() => import('@admin/pages/system/AdminUsersPage'));
-const AdminUserProfilePage = lazy(() => import('@admin/pages/system/AdminUserProfilePage'));
-const AdminCronPage = lazy(() => import('@admin/pages/system/AdminCronPage'));
+// Public layout (non-lazy for shell stability)
+import PublicLayout from './features/public-misc/PublicLayout';
+import { FullPageLoader } from './_shared/components/ui/FullPageLoader';
 
 function App() {
-
   return (
     <>
       <Toaster position="top-right" richColors />
@@ -83,24 +85,33 @@ function App() {
           {/* User Routes */}
           <Route path="/app" element={<UserLayout />}>
             <Route index element={<UserOverviewPage />} />
+            <Route path="billing" element={<BillingPage />} />
+            <Route path="checkout-success" element={<CheckoutSuccessPage />} />
+            <Route path="api-keys" element={<ApiKeysPage />} />
+            <Route path="licenses" element={<UserLicensesPage />} />
+            <Route path="downloads" element={<DownloadsPage />} />
+            <Route path="profile" element={<ProfilePage />} />
+            <Route path="support" element={<SupportPage />} />
+            <Route path="wallet" element={<WalletPage />} />
+            <Route path="ledger" element={<LedgerPage />} />
+            <Route path="usage" element={<UserUsagePage />} />
           </Route>
 
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<AdminOverviewPage />} />
-            <Route path="usage" element={<AdminUsagePage />} />
-            <Route path="revenue" element={<AdminRevenuePage />} />
-            <Route path="packages" element={<AdminPackagesPage />} />
-            <Route path="licenses" element={<AdminLicensesPage />} />
-            <Route path="releases" element={<AdminReleasesPage />} />
-            <Route path="providers" element={<AdminProvidersPage />} />
-            <Route path="keys" element={<AdminKeysPage />} />
-            <Route path="audit-log" element={<AdminAuditLogPage />} />
-            <Route path="settings" element={<AdminSettingsPage />} />
-            <Route path="billing" element={<BillingPage />} />
-            <Route path="users" element={<AdminUsersPage />} />
-            <Route path="users/:id" element={<AdminUserProfilePage />} />
-            <Route path="cron" element={<AdminCronPage />} />
+            <Route index element={<OverviewPage />} />
+            <Route path="usage" element={<UsagePage />} />
+            <Route path="revenue" element={<RevenuePage />} />
+            <Route path="packages" element={<PackagesPage />} />
+            <Route path="licenses" element={<LicensesPage />} />
+            <Route path="releases" element={<ReleasesPage />} />
+            <Route path="providers" element={<ProvidersPage />} />
+            <Route path="keys" element={<KeysPage />} />
+            <Route path="audit-log" element={<AuditLogPage />} />
+            <Route path="settings" element={<SettingsPage />} />
+            <Route path="users" element={<UsersPage />} />
+            <Route path="users/:id" element={<UserProfilePage />} />
+            <Route path="cron" element={<CronPage />} />
           </Route>
 
           {/* Fallback */}

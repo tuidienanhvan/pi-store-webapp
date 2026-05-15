@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
-import { LocaleProvider } from './context/LocaleContext';
-import { AuthProvider } from './context/AuthContext';
+import { LocaleProvider } from './_shared/context/LocaleContext';
+import { AuthProvider } from './_shared/context/AuthContext';
 import './styles/index.css';
 
 const rootElement = document.getElementById('root');

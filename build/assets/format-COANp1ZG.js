@@ -1,1 +1,0 @@
-function e(e,t=1){return Number.isFinite(Number(e))?`${(Number(e)*100).toFixed(t)}%`:`?`}function t(e,t=4,n=4){return e?e.length<=t+n?`?`.repeat(e.length):`${e.slice(0,t)}?${e.slice(-n)}`:``}async function n(e){try{return await navigator.clipboard.writeText(e),!0}catch{return!1}}export{e as n,t as r,n as t};

@@ -1,0 +1,101 @@
+/* -------------------------------------------------------------
+   Admin Design System - Subtle & Functional
+   Standardized layout utilities for Admin pages.
+   ------------------------------------------------------------- */
+
+/* 1. Page Shell Decorators */
+.quantum-grid {
+  position: relative;
+  min-height: 100%;
+}
+
+/* Ambient Glows - Removed as per T-002 */
+.ambient-glow {
+  display: none !important;
+}
+
+/* 2. Admin Card (Clean & Professional) */
+.hud-card {
+  position: relative;
+  background: var(--b2) !important;
+  border: 1px solid color-mix(in srgb, var(--bc) 5%, transparent) !important;
+  border-radius: 1rem;
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.hud-card:hover {
+  border-color: color-mix(in srgb, var(--bc) 15%, transparent) !important;
+}
+
+/* 3. HUD Elements - Hidden as per T-002 */
+.hud-corner, .scan-line {
+  display: none !important;
+}
+
+/* 4. Typography & Headers */
+.hud-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-bottom: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hud-banner__title {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--bc);
+  letter-spacing: -0.01em;
+}
+
+.hud-banner__tagline {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--p);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.8;
+}
+
+.hud-value {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* 5. Filter Bar HUD */
+.hud-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: color-mix(in srgb, var(--b2) 40%, transparent);
+  backdrop-filter: blur(10px);
+  border: 1px solid color-mix(in srgb, var(--bc) 10%, transparent);
+  border-radius: 0.75rem;
+}
+
+/* 6. Section Labels */
+.section-label {
+  font-family: var(--font-display);
+  color: var(--bc);
+  letter-spacing: 0.1em;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 11px;
+  opacity: 0.5;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-label::after {
+  content: '';
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--bc) 10%, transparent), transparent);
+}

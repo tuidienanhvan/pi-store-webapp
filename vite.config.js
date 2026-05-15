@@ -10,8 +10,7 @@ export default defineConfig({
     alias: {
       "@": path.resolve(__dirname, "./src"),
       "@admin": path.resolve(__dirname, "./admin"),
-      "@shared": path.resolve(__dirname, "./shared"),
-      "@pi-ui": path.resolve(__dirname, "./shared"),
+      "@pi-ui": path.resolve(__dirname, "./src/_shared"),
     },
   },
   build: {

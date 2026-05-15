@@ -1,0 +1,143 @@
+
+/* ---------------------------------------------------------------
+   USAGE PAGE  PREMIUM UI REFINEMENT
+   -------------------------------------------------------------
+   Infinity Edition v3.2 | T-20260514-003 (Restructured)
+   --------------------------------------------------------------- */
+
+.user-usage-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-8);
+  animation: fadeIn 0.8s var(--ease-spring) both;
+}
+
+.user-usage-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.user-usage-title {
+  margin: 0;
+  font-size: var(--fs-32);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  font-family: var(--font-display);
+  color: var(--base-content);
+}
+
+.user-usage-subtitle {
+  margin: 0;
+  color: color-mix(in srgb, var(--base-content) 60%, transparent);
+  font-size: var(--fs-16);
+  font-weight: 500;
+  max-width: 800px;
+}
+
+/* Stats Grid */
+.user-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--s-6);
+}
+
+.user-stat-card {
+  background: color-mix(in srgb, var(--base-200) 40%, transparent);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--base-border-subtle);
+  padding: var(--s-6);
+  border-radius: var(--rounded-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  transition: all 0.3s var(--ease-spring);
+}
+
+.user-stat-card:hover {
+  background: color-mix(in srgb, var(--base-200) 55%, transparent);
+  transform: translateY(-2px);
+}
+
+.user-stat-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.5;
+}
+
+.user-stat-value {
+  font-size: var(--fs-24);
+  font-weight: 900;
+  font-family: var(--font-display);
+}
+
+.user-stat-sub {
+  font-size: 11px;
+  opacity: 0.6;
+  font-weight: 600;
+}
+
+/* Chart */
+.user-chart-card {
+  padding: var(--s-8);
+  background: color-mix(in srgb, var(--base-200) 30%, transparent);
+  border-radius: var(--rounded-3xl);
+  border: 1px solid var(--base-border-subtle);
+}
+
+.user-bar-container {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 160px;
+  padding-top: var(--s-4);
+}
+
+.user-bar {
+  flex: 1;
+  background: var(--primary);
+  opacity: 0.8;
+  border-radius: 4px 4px 0 0;
+  transition: all 0.3s ease;
+  min-width: 8px;
+}
+
+.user-bar:hover {
+  opacity: 1;
+  filter: brightness(1.2);
+  transform: scaleX(1.1);
+}
+
+/* Table */
+.user-table-card {
+  background: color-mix(in srgb, var(--base-200) 20%, transparent);
+  border-radius: var(--rounded-2xl);
+  border: 1px solid var(--base-border-subtle);
+  overflow: hidden;
+}
+
+.user-usage-table th {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.5;
+  padding: var(--s-4) var(--s-6);
+  background: color-mix(in srgb, var(--base-300) 50%, transparent);
+}
+
+.user-usage-table td {
+  padding: var(--s-4) var(--s-6);
+  border-top: 1px solid var(--base-border-subtle);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }

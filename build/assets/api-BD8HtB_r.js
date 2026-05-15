@@ -1,0 +1,1 @@
+import{t as e}from"./api-client-qHw0eyze.js";var t={list:()=>e.admin.providers(),toggle:(t,n)=>e.admin.toggleProvider(t,n),delete:t=>e.admin.deleteProvider(t),test:t=>e.admin.testProvider(t),create:t=>e.admin.createProvider(t),update:(t,n)=>e.admin.updateProvider(t,n)};export{t as providersApi};
