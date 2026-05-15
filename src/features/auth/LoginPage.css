@@ -1,3 +1,16 @@
 .pi-login-page {
   color: var(--bc);
 }
+
+.pi-login-page .auth-form-card {
+  border: 1px solid color-mix(in srgb, var(--bc) 8%, transparent);
+  background: color-mix(in srgb, var(--b2) 94%, transparent);
+  box-shadow: var(--shadow-xl);
+}
+
+.pi-login-page .marketing-content {
+  border: 1px solid color-mix(in srgb, var(--bc) 6%, transparent);
+  background: color-mix(in srgb, var(--b2) 42%, transparent);
+  border-radius: var(--radius-3xl, 2rem);
+  box-shadow: var(--shadow-lg);
+}

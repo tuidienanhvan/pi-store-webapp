@@ -1,6 +1,10 @@
 
+.pi-signup-page {
+  color: var(--bc);
+}
+
 /* Signup Page Specifics - Quantum Creative Style */
-.auth-split__marketing {
+.pi-signup-page .auth-split__marketing {
   background: 
     radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--p) 3%, transparent), transparent 70%),
     linear-gradient(180deg, var(--b2), var(--b1));
@@ -8,15 +12,19 @@
   overflow: hidden;
 }
 
-.marketing-content {
+.pi-signup-page .marketing-content {
   position: relative;
   width: 100%;
   max-width: 580px;
   padding: 40px;
+  border: 1px solid color-mix(in srgb, var(--bc) 8%, transparent);
+  border-radius: var(--radius-3xl, 2rem);
+  background: color-mix(in srgb, var(--b2) 34%, transparent);
+  box-shadow: var(--shadow-lg);
 }
 
 /* Quantum HUD Visualizer */
-.quantum-visualizer {
+.pi-signup-page .quantum-visualizer {
   position: relative;
   width: 100%;
   height: 120px;
@@ -63,7 +71,7 @@
 }
 
 /* HUD Corners */
-.hud-corner {
+.pi-signup-page .hud-corner {
   position: absolute;
   width: 20px;
   height: 20px;
@@ -79,14 +87,14 @@
 .hud-corner--br { bottom: 20px; right: 20px; border-left: 0; border-top: 0; }
 
 /* Tier Cards - Quantum Glass */
-.auth-tiers--premium {
+.pi-signup-page .auth-tiers--premium {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
   margin-top: 24px;
 }
 
-.tier-card--glass {
+.pi-signup-page .tier-card--glass {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -99,7 +107,7 @@
   overflow: hidden;
 }
 
-.tier-card--glass::before {
+.pi-signup-page .tier-card--glass::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -108,23 +116,23 @@
   transition: opacity 0.3s ease;
 }
 
-.tier-card--glass:hover {
+.pi-signup-page .tier-card--glass:hover {
   transform: translateY(-4px);
   border-color: var(--p);
   box-shadow: 0 12px 24px -8px color-mix(in srgb, var(--p) 20%, transparent);
 }
 
-.tier-card--glass:hover::before,
-.tier-card--glass.active::before {
+.pi-signup-page .tier-card--glass:hover::before,
+.pi-signup-page .tier-card--glass.active::before {
   opacity: 1;
 }
 
-.tier-card--glass.active {
+.pi-signup-page .tier-card--glass.active {
   border-color: var(--p);
   background: color-mix(in srgb, var(--p) 5%, var(--b2));
 }
 
-.tier-label {
+.pi-signup-page .tier-label {
   font-size: 9px;
   font-weight: 900;
   color: var(--p);
@@ -133,27 +141,27 @@
   margin-bottom: 2px;
 }
 
-.tier-name {
+.pi-signup-page .tier-name {
   font-size: 11px;
   font-weight: 700;
   color: var(--bc);
   margin-bottom: 8px;
 }
 
-.tier-tokens {
+.pi-signup-page .tier-tokens {
   font-size: 1.25rem;
   font-weight: 900;
   color: var(--bc);
   letter-spacing: -0.02em;
 }
 
-.tier-unit {
+.pi-signup-page .tier-unit {
   font-size: 10px;
   color: var(--bc3);
   font-weight: 700;
 }
 
-.tier-price {
+.pi-signup-page .tier-price {
   margin-top: auto;
   font-size: 13px;
   font-weight: 800;
@@ -161,7 +169,7 @@
 }
 
 @media (max-width: 980px) {
-  .auth-tiers--premium {
+  .pi-signup-page .auth-tiers--premium {
     grid-template-columns: 1fr;
   }
 }

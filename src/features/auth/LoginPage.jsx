@@ -102,7 +102,7 @@ export function LoginPage() {
   };
 
   return (
-    <main className="auth-split auth-split--login">
+    <main className="pi-login-page auth-split auth-split--login">
       <div className="auth-noise" aria-hidden="true" />
 
       <section className="auth-split__form" aria-label="Đăng nhập Pi Ecosystem">

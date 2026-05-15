@@ -82,7 +82,7 @@ export function SignupPage() {
   };
 
   return (
-    <main className="auth-split auth-split--signup">
+    <main className="pi-signup-page auth-split auth-split--signup">
       <div className="auth-noise" aria-hidden="true" />
       <div className="auth-decorative-blob auth-decorative-blob--1" />
       <div className="auth-decorative-blob auth-decorative-blob--2" />

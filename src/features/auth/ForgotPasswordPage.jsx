@@ -58,7 +58,7 @@ export function ForgotPasswordPage() {
   };
 
   return (
-    <main className="auth-split auth-split--login">
+    <main className="pi-forgot-password-page auth-split auth-split--login">
       <div className="auth-noise" aria-hidden="true" />
       <div className="auth-decorative-blob auth-decorative-blob--1" />
       <div className="auth-decorative-blob auth-decorative-blob--2" />
