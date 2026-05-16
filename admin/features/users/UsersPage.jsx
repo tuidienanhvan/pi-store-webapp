@@ -140,7 +140,7 @@ export function UsersPage() {
                         className="relative w-11 h-11 rounded-xl bg-base-200 object-cover border border-base-content/10"
                       />
                       {u.status === "active" && (
-                        <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-success rounded-full border-2 border-[#0a0a0a]" />
+                        <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-success rounded-full border-2 border-base-200" />
                       )}
                     </div>
                     <Link to={`/admin/users/${u.id}`} className="flex flex-col">

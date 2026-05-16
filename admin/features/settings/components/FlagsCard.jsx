@@ -40,7 +40,7 @@ export function FlagsCard({ flags, onSave, saving }) {
                  <Switch checked={!!form[f.key]} onChange={() => {}} className={f.danger ? "data-[state=checked]:bg-danger" : ""} />
               </div>
               <div className="flex flex-col gap-1">
-                <span className={`text-xs font-semibold tracking-wider ${form[f.key] ? (f.danger ?"text-danger" : "text-white") : "text-base-content/40"}`}>{f.label}</span>
+                <span className={`text-xs font-semibold tracking-wider ${form[f.key] ? (f.danger ?"text-danger" : "text-base-content") : "text-base-content/40"}`}>{f.label}</span>
                 <span className="text-xs font-mono font-bold opacity-20 lowercase tracking-tighter">{f.key}</span>
               </div>
             </div>

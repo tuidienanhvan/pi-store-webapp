@@ -10,8 +10,8 @@ function PiOrbitMap() {
     <svg className="auth-orbit" viewBox="0 0 520 420" role="img" aria-label="Bản đồ vận hành Pi Ecosystem">
       <defs>
         <linearGradient id="orbitStroke" x1="0" x2="1">
-          <stop offset="0%" stopColor="rgba(211,85,115,0.9)" />
-          <stop offset="100%" stopColor="rgba(52,211,153,0.65)" />
+          <stop offset="0%" stopColor="color-mix(in srgb, var(--p) 90%, transparent)" />
+          <stop offset="100%" stopColor="color-mix(in srgb, var(--su) 65%, transparent)" />
         </linearGradient>
         <filter id="orbitGlow" x="-40%" y="-40%" width="180%" height="180%">
           <feGaussianBlur stdDeviation="7" result="blur" />

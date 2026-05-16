@@ -23,7 +23,7 @@ export function AuditRow({ entry, locale, expanded, onToggle }) {
         onClick={hasDiff ? onToggle : undefined}>
         <td className="py-5 px-4 text-center">
           {hasDiff ? (
-            <div className={`transition-transform duration-300 ${expanded ?"rotate-90 text-primary" : "text-white/10 group-hover:text-base-content/30"}`}>
+            <div className={`transition-transform duration-300 ${expanded ?"rotate-90 text-primary" : "text-base-content/10 group-hover:text-base-content/30"}`}>
                <ChevronRight size={14} />
             </div>
           ) : null}

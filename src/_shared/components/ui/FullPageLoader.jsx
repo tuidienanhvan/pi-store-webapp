@@ -37,21 +37,21 @@ export function FullPageLoader() {
           </defs>
 
           {/* Outer Orbit (Dashed) */}
-          <circle cx="150" cy="150" r="140" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
+          <circle cx="150" cy="150" r="140" fill="none" stroke="color-mix(in srgb, var(--bc) 5%, transparent)" strokeWidth="1" />
           <circle cx="150" cy="150" r="140" fill="none" stroke="url(#neon-gradient)" strokeWidth="2" strokeDasharray="150 50 50 100" strokeLinecap="round" className="orbit-outer" filter="url(#glow-light)" />
 
           {/* Middle Radar Track */}
-          <circle cx="150" cy="150" r="110" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="10" />
+          <circle cx="150" cy="150" r="110" fill="none" stroke="color-mix(in srgb, var(--bc) 3%, transparent)" strokeWidth="10" />
           <circle cx="150" cy="150" r="110" fill="none" stroke="#e03154" strokeWidth="2" strokeDasharray="1 10" className="orbit-radar" />
           
           {/* Inner Quantum Hexagon */}
           <g className="orbit-hex">
-            <polygon points="150,55 232,102 232,198 150,245 68,198 68,102" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
+            <polygon points="150,55 232,102 232,198 150,245 68,198 68,102" fill="none" stroke="color-mix(in srgb, var(--bc) 10%, transparent)" strokeWidth="1" />
             <polygon points="150,55 232,102 232,198 150,245 68,198 68,102" fill="none" stroke="#ff3366" strokeWidth="3" strokeDasharray="40 120" strokeLinecap="round" className="hex-tracer" filter="url(#glow)" />
           </g>
 
           {/* Target Reticle Crosshairs */}
-          <path d="M150,10 L150,30 M150,270 L150,290 M10,150 L30,150 M270,150 L290,150" stroke="rgba(255,255,255,0.3)" strokeWidth="1" className="reticle-pulse" />
+          <path d="M150,10 L150,30 M150,270 L150,290 M10,150 L30,150 M270,150 L290,150" stroke="color-mix(in srgb, var(--bc) 30%, transparent)" strokeWidth="1" className="reticle-pulse" />
         </svg>
 
         {/* Central Logo & Core Energy */}
