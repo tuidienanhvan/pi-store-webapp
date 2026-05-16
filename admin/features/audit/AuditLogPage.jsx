@@ -22,7 +22,7 @@ import {
   AdminFilterBar
 } from "../../_shared/components";
 
-import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
+import { AuditLogPageSkeleton } from "./skeleton";
 import { auditApi } from "./api";
 import { AuditRow } from "./components/AuditRow";
 import './AuditLogPage.css';
@@ -89,7 +89,7 @@ export function AuditLogPage() {
   const page = Math.floor(filters.offset / filters.limit) + 1;
   const totalPages = Math.max(1, Math.ceil(data.total / filters.limit));
 
-  if (loading && data.items.length === 0) return <AdminTableSkeleton />;
+  if (loading && data.items.length === 0) return <AuditLogPageSkeleton />;
 
   return (
     <div className="p-6 lg:p-10 flex flex-col gap-8">

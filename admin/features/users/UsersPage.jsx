@@ -32,7 +32,7 @@ import {
   AdminFilterBar
 } from "../../_shared/components";
 
-import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
+import { UsersPageSkeleton } from "./skeleton";
 import { usersApi } from "./api";
 import './UsersPage.css';
 
@@ -84,7 +84,7 @@ export function UsersPage() {
     return { total, admins, deactivated, highSpenders };
   }, [users]);
 
-  if (loading && users.length === 0) return <AdminTableSkeleton />;
+  if (loading && users.length === 0) return <UsersPageSkeleton />;
 
   return (
     <div className="flex flex-col gap-8">

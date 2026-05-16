@@ -1,0 +1,1 @@
+export { CheckoutSuccessSkeleton } from "./CheckoutSuccessSkeleton";

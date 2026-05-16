@@ -24,7 +24,7 @@ import {
   AdminConfirmDialog
 } from "../../_shared/components";
 
-import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
+import { PackagesPageSkeleton } from "./skeleton";
 import { packagesApi } from "./api";
 import './PackagesPage.css';
 
@@ -73,7 +73,7 @@ export function PackagesPage() {
     return String(n);
   };
 
-  if (loading && items.length === 0) return <AdminTableSkeleton />;
+  if (loading && items.length === 0) return <PackagesPageSkeleton />;
 
   return (
     <div className="pi-packages-page flex flex-col gap-8">

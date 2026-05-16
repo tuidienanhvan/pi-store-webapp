@@ -1,16 +1,58 @@
 /* ═══════════════════════════════════════════════════════════════
    PI · THEME ANIMATIONS
-   Single source of truth — see ./base.css for full rationale.
+   Single source of truth — kept byte-identical with
+   pi-dashboard-webapp/src/animations.css. Imported via main.jsx.
    ═══════════════════════════════════════════════════════════════ */
 
 /* ─── Keyframes ─────────────────────────────────────────────── */
-@keyframes skeleton-shimmer {
-  from { transform: translateX(-100%); }
-  to   { transform: translateX(100%); }
+@keyframes pi-skeleton-shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
-/* ─── Utility classes (consumed by JSX className) ───────────── */
-.animate-skeleton  { animation: var(--animate-skeleton); }
+/* ─── Skeleton base (theme-aware, self-contained) ───────────── */
+.pi-skeleton,
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: color-mix(in srgb, var(--bc) 6%, transparent);
+  border-radius: 8px;
+}
+
+.pi-skeleton::after,
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--bc) 8%, transparent),
+    transparent
+  );
+  animation: pi-skeleton-shimmer 1.8s linear infinite;
+  pointer-events: none;
+}
+
+/* ─── Legacy alias (deprecated — prefer .pi-skeleton) ───────── */
+.animate-skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: color-mix(in srgb, var(--bc) 6%, transparent);
+}
+.animate-skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--bc) 8%, transparent),
+    transparent
+  );
+  animation: pi-skeleton-shimmer 1.8s linear infinite;
+  pointer-events: none;
+}
 
 /* prefers-reduced-motion rule intentionally disabled — brand requires
  * ambient motion (radar, pulse, float) to render regardless of OS setting. */

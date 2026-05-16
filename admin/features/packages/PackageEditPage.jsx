@@ -16,7 +16,7 @@ import {
   FormField,
   FormSection,
 } from "../../_shared/components";
-import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
+import { PackageEditSkeleton } from "./skeleton";
 import { packagesApi } from "./api";
 import './PackageEditPage.css';
 
@@ -98,7 +98,7 @@ export function PackageEditPage() {
     }
   };
 
-  if (loading) return <AdminTableSkeleton />;
+  if (loading) return <PackageEditSkeleton />;
 
   return (
     <div className="pi-package-edit-page max-w-5xl mx-auto flex flex-col gap-6 pb-12">

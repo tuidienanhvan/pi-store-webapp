@@ -23,7 +23,7 @@ import {
   AdminStatCard
 } from "../../_shared/components";
 
-import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
+import { CronPageSkeleton } from "./skeleton";
 import { cronApi } from "./api";
 import './CronPage.css';
 
@@ -85,7 +85,7 @@ export function CronPage() {
     }
   };
 
-  if (loading && jobs.length === 0) return <AdminTableSkeleton />;
+  if (loading && jobs.length === 0) return <CronPageSkeleton />;
 
   return (
     <div className="p-6 lg:p-10 flex flex-col gap-8">

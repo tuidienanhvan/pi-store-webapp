@@ -6,8 +6,9 @@ import { api } from "@/_shared/api/api-client";
 
 import { useAuth } from "@/_shared/context/AuthContext";
 
-import { Alert, Badge, Button, Card, EmptyState, Skeleton } from "@/_shared/components/ui";
+import { Alert, Badge, Button, Card, EmptyState } from "@/_shared/components/ui";
 import { Bolt, Zap, Layers, ArrowRight } from "lucide-react";
+import { UserOverviewSkeleton } from "./skeleton";
 import './OverviewPage.css';
 
 
@@ -88,7 +89,7 @@ export function UserOverviewPage() {
 
       {loading ? (
 
-        <SkeletonDashboard />
+        <UserOverviewSkeleton />
 
       ) : !pkg ? (
 
@@ -288,33 +289,7 @@ function UsageChart({ usage }) {
 
 
 
-function SkeletonDashboard() {
-
-  return (
-
-    <>
-
-      <Card className="p-6">
-
-        <Skeleton style={{ height: 120 }} />
-
-      </Card>
-
-      <div className="grid grid-cols-3 gap-4">
-
-        <Skeleton style={{ height: 88 }} />
-
-        <Skeleton style={{ height: 88 }} />
-
-        <Skeleton style={{ height: 88 }} />
-
-      </div>
-
-    </>
-
-  );
-
-}
+// Legacy inline SkeletonDashboard removed — now using UserOverviewSkeleton from ./skeleton
 
 
 

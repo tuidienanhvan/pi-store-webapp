@@ -26,7 +26,7 @@ import {
   AdminConfirmDialog
 } from "../../_shared/components";
 
-import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
+import { LicensesPageSkeleton } from "./skeleton";
 import { licensesApi } from "./api";
 import { LicenseRow } from "./components/LicenseRow";
 import './LicensesPage.css';
@@ -94,7 +94,7 @@ export function LicensesPage() {
   const page = Math.floor(filters.offset / filters.limit) + 1;
   const facets = data.facets || {};
 
-  if (loading && data.items.length === 0) return <AdminTableSkeleton />;
+  if (loading && data.items.length === 0) return <LicensesPageSkeleton />;
 
   return (
     <div className="pi-licenses-page flex flex-col gap-8">

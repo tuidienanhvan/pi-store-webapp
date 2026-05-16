@@ -31,6 +31,7 @@ import {
   ArrowLeft
 } from "lucide-react";
 import { FormField, FormSection, AdminPageHeader } from "../../_shared/components";
+import { LicenseDetailSkeleton } from "./skeleton";
 import './LicenseDetailPage.css';
 
 function toDateInput(value) {
@@ -141,7 +142,7 @@ export function LicenseDetailPage() {
     }
   };
 
-  if (loading) return <div className="p-10 text-center">Đang tải dữ liệu...</div>;
+  if (loading) return <LicenseDetailSkeleton />;
   if (!license) return <div className="p-10 text-center">{err || "Không tìm thấy dữ liệu"}</div>;
 
   const generalTab = (

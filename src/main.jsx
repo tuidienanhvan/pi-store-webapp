@@ -6,6 +6,7 @@ import App from './App';
 import { LocaleProvider } from './_shared/context/LocaleContext';
 import { AuthProvider } from './_shared/context/AuthContext';
 import './styles/index.css';
+import './styles/animations.css';
 
 const rootElement = document.getElementById('root');
 

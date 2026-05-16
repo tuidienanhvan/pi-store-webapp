@@ -37,7 +37,7 @@ import {
   AdminStatCard
 } from "../../_shared/components";
 
-import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
+import { UserProfileSkeleton } from "./skeleton";
 import { toast } from "sonner";
 import { usersApi } from "./api";
 import './UserProfilePage.css';
@@ -99,7 +99,7 @@ export function UserProfilePage() {
     toast.success("Đã sao chép mã xác thực.");
   };
 
-  if (loading) return <AdminTableSkeleton />;
+  if (loading) return <UserProfileSkeleton />;
   
   if (!user) return (
     <div className="p-20 flex flex-col items-center justify-center text-center">

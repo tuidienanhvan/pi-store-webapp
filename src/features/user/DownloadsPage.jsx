@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { api } from "@/_shared/api/api-client";
 import { Table, Badge, Button, Card } from "@/_shared/components/ui";
 import { Zap, MessageCircle, FileText, BarChart3, Activity, Home, Cloud, Download, Box, Info } from "lucide-react";
+import { DownloadsSkeleton } from "./skeleton";
 import './DownloadsPage.css';
 
 const CATALOG = [
@@ -42,7 +43,7 @@ export function DownloadsPage() {
       </header>
 
       {loading ? (
-        <div style={{ padding: "var(--s-8)", color: "color-mix(in srgb, var(--base-content) 60%, transparent)", textAlign: "center" }}>ang load version</div>
+        <DownloadsSkeleton />
       ) : (
         <Card style={{ padding: 0, overflow: "hidden" }}>
           <Table>

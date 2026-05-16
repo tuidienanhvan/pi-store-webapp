@@ -1,0 +1,1 @@
+export { LicensePageSkeleton } from "./LicensePageSkeleton";
