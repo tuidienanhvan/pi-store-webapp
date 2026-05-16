@@ -153,7 +153,7 @@ export function ProviderEditPage() {
         title={isNew ? "Thêm nhà cung cấp" : `Cấu hình: ${form.display_name || form.slug}`}
         tagline="Định nghĩa kết nối và mô hình học máy cho bộ định tuyến"
         actions={
-          <Button as={Link} to="/admin/providers" variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-xs">
+          <Button as={Link} to="/admin/providers" variant="ghost" className="h-10 px-4 rounded-xl border border-base-content/5 font-semibold tracking-wider text-xs">
             <ArrowLeft size={14} className="mr-2" /> Quay lại danh sách
           </Button>
         }
@@ -171,7 +171,7 @@ export function ProviderEditPage() {
                   placeholder="myprovider"
                   disabled={!isNew}
                   required
-                  className="h-12 bg-white/5 border-white/10 rounded-xl"
+                  className="h-12 bg-base-content/5 border-base-content/10 rounded-xl"
                 />
               </FormField>
               <FormField label="Tên hiển thị" required hint="Tên hiển thị trên giao diện">
@@ -180,7 +180,7 @@ export function ProviderEditPage() {
                   onChange={(e) => setField("display_name", e.target.value)}
                   placeholder="My AI Provider"
                   required
-                  className="h-12 bg-white/5 border-white/10 rounded-xl"
+                  className="h-12 bg-base-content/5 border-base-content/10 rounded-xl"
                 />
               </FormField>
             </div>
@@ -194,7 +194,7 @@ export function ProviderEditPage() {
                   value={form.base_url}
                   onChange={(e) => setField("base_url", e.target.value)}
                   placeholder="https://api.myprovider.com/v1"
-                  className="h-12 font-mono text-sm bg-white/5 border-white/10 rounded-xl"
+                  className="h-12 font-mono text-sm bg-base-content/5 border-base-content/10 rounded-xl"
                   required
                 />
               </FormField>
@@ -210,13 +210,13 @@ export function ProviderEditPage() {
                         : "••••••••••••••••  (để trống để giữ nguyên key cũ)"
                     }
                     autoComplete="new-password"
-                    className="flex-1 h-12 font-mono bg-white/5 border-white/10 rounded-xl"
+                    className="flex-1 h-12 font-mono bg-base-content/5 border-base-content/10 rounded-xl"
                   />
                   <Button
                     type="button"
                     variant="ghost"
                     onClick={() => setShowKey((s) => !s)}
-                    className="h-12 px-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10"
+                    className="h-12 px-4 rounded-xl border border-base-content/10 bg-base-content/5 hover:bg-base-content/10"
                     aria-label={showKey ? "Ẩn key" : "Hiện key"}
                   >
                     {showKey ? <EyeOff size={16} /> : <Eye size={16} />}
@@ -240,21 +240,21 @@ export function ProviderEditPage() {
               {form.models.map((m, i) => (
                 <div
                   key={i}
-                  className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr_auto_auto] gap-3 items-center p-3 rounded-2xl bg-white/[0.02] border border-white/5 group transition-colors hover:bg-white/[0.04]"
+                  className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr_auto_auto] gap-3 items-center p-3 rounded-2xl bg-base-content/[0.02] border border-base-content/5 group transition-colors hover:bg-base-content/[0.04]"
                 >
                   <Input
                     value={m.id}
                     onChange={(e) => updateModel(i, "id", e.target.value)}
                     placeholder="gpt-4o-mini"
-                    className="font-mono text-sm h-12 bg-white/5 border-white/10 rounded-xl"
+                    className="font-mono text-sm h-12 bg-base-content/5 border-base-content/10 rounded-xl"
                   />
                   <Input
                     value={m.name}
                     onChange={(e) => updateModel(i, "name", e.target.value)}
                     placeholder="GPT-4o Mini"
-                    className="h-12 bg-white/5 border-white/10 rounded-xl"
+                    className="h-12 bg-base-content/5 border-base-content/10 rounded-xl"
                   />
-                  <label className="flex items-center justify-center gap-2 text-xs font-medium px-4 h-12 rounded-xl bg-white/5 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors">
+                  <label className="flex items-center justify-center gap-2 text-xs font-medium px-4 h-12 rounded-xl bg-base-content/5 border border-base-content/10 cursor-pointer hover:bg-base-content/10 transition-colors">
                     <Switch
                       checked={m.reasoning}
                       onChange={(e) => updateModel(i, "reasoning", e.target.checked)}
@@ -274,7 +274,7 @@ export function ProviderEditPage() {
                   </Button>
                 </div>
               ))}
-              <Button type="button" variant="ghost" onClick={addModel} className="self-start h-10 px-4 mt-2 rounded-xl border border-dashed border-white/10 text-xs font-semibold text-base-content/60 hover:text-white">
+              <Button type="button" variant="ghost" onClick={addModel} className="self-start h-10 px-4 mt-2 rounded-xl border border-dashed border-base-content/10 text-xs font-semibold text-base-content/60 hover:text-base-content">
                 <Plus size={14} className="mr-2" /> Thêm mô hình mới
               </Button>
             </div>
@@ -289,7 +289,7 @@ export function ProviderEditPage() {
                 <Select
                   value={form.tier}
                   onChange={(e) => setField("tier", e.target.value)}
-                  className="h-12 bg-white/5 border-white/10 rounded-xl font-semibold"
+                  className="h-12 bg-base-content/5 border-base-content/10 rounded-xl font-semibold"
                   options={[
                     { label: "Dành cho gói Miễn Phí", value: "free" },
                     { label: "Dành cho gói Trả Phí", value: "paid" },
@@ -302,7 +302,7 @@ export function ProviderEditPage() {
                   type="number"
                   value={form.priority}
                   onChange={(e) => setField("priority", Number(e.target.value))}
-                  className="h-12 bg-white/5 border-white/10 rounded-xl font-mono"
+                  className="h-12 bg-base-content/5 border-base-content/10 rounded-xl font-mono"
                 />
               </FormField>
 
@@ -313,7 +313,7 @@ export function ProviderEditPage() {
                     step="0.1"
                     value={form.input_cost_per_mtok_cents}
                     onChange={(e) => setField("input_cost_per_mtok_cents", Number(e.target.value))}
-                    className="h-12 bg-white/5 border-white/10 rounded-xl"
+                    className="h-12 bg-base-content/5 border-base-content/10 rounded-xl"
                   />
                 </FormField>
                 <FormField label="Chi phí Output (¢)">
@@ -322,7 +322,7 @@ export function ProviderEditPage() {
                     step="0.1"
                     value={form.output_cost_per_mtok_cents}
                     onChange={(e) => setField("output_cost_per_mtok_cents", Number(e.target.value))}
-                    className="h-12 bg-white/5 border-white/10 rounded-xl"
+                    className="h-12 bg-base-content/5 border-base-content/10 rounded-xl"
                   />
                 </FormField>
               </div>
@@ -334,7 +334,7 @@ export function ProviderEditPage() {
                     step="0.1"
                     value={form.pi_tokens_per_input}
                     onChange={(e) => setField("pi_tokens_per_input", Number(e.target.value))}
-                    className="h-12 bg-white/5 border-white/10 rounded-xl"
+                    className="h-12 bg-base-content/5 border-base-content/10 rounded-xl"
                   />
                 </FormField>
                 <FormField label="Hệ số Token Out">
@@ -343,7 +343,7 @@ export function ProviderEditPage() {
                     step="0.1"
                     value={form.pi_tokens_per_output}
                     onChange={(e) => setField("pi_tokens_per_output", Number(e.target.value))}
-                    className="h-12 bg-white/5 border-white/10 rounded-xl"
+                    className="h-12 bg-base-content/5 border-base-content/10 rounded-xl"
                   />
                 </FormField>
               </div>
@@ -353,13 +353,13 @@ export function ProviderEditPage() {
           <FormSection title="Custom Headers" description="Header tĩnh gắn thêm vào HTTP Request">
              <div className="flex flex-col gap-3">
               {form.extra_headers.map((h, i) => (
-                <div key={i} className="flex flex-col gap-2 p-4 rounded-2xl bg-white/[0.02] border border-white/5">
+                <div key={i} className="flex flex-col gap-2 p-4 rounded-2xl bg-base-content/[0.02] border border-base-content/5">
                   <div className="flex gap-2">
                     <Input
                       value={h.name}
                       onChange={(e) => updateHeader(i, "name", e.target.value)}
                       placeholder="Tên Header (VD: X-Custom-Auth)"
-                      className="flex-1 font-mono text-xs h-10 bg-white/5 border-white/10 rounded-xl"
+                      className="flex-1 font-mono text-xs h-10 bg-base-content/5 border-base-content/10 rounded-xl"
                     />
                     <Button
                       type="button"
@@ -374,20 +374,20 @@ export function ProviderEditPage() {
                     value={h.value}
                     onChange={(e) => updateHeader(i, "value", e.target.value)}
                     placeholder="Giá trị Header..."
-                    className="font-mono text-xs h-10 bg-white/5 border-white/10 rounded-xl"
+                    className="font-mono text-xs h-10 bg-base-content/5 border-base-content/10 rounded-xl"
                   />
                 </div>
               ))}
-              <Button type="button" variant="ghost" onClick={addHeader} className="h-10 rounded-xl border border-dashed border-white/10 text-xs font-semibold text-base-content/60 hover:text-white">
+              <Button type="button" variant="ghost" onClick={addHeader} className="h-10 rounded-xl border border-dashed border-base-content/10 text-xs font-semibold text-base-content/60 hover:text-base-content">
                 <Plus size={14} className="mr-2" /> Thêm Header
               </Button>
             </div>
           </FormSection>
 
           <FormSection title="Trạng thái">
-            <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 flex items-center justify-between">
+            <div className="p-4 rounded-2xl bg-base-content/[0.02] border border-base-content/5 flex items-center justify-between">
               <div className="flex flex-col gap-0.5">
-                <span className="text-sm font-bold text-white">Kích hoạt Node</span>
+                <span className="text-sm font-bold text-base-content">Kích hoạt Node</span>
                 <span className="text-xs text-base-content/40 leading-snug">Tham gia vào mạng lưới load balancing</span>
               </div>
               <Switch
@@ -409,7 +409,7 @@ export function ProviderEditPage() {
                {saving ? "ĐANG LƯU..." : isNew ? "THÊM NHÀ CUNG CẤP" : "LƯU THAY ĐỔI CẤU HÌNH"}
              </Button>
              
-             <Button as={Link} to="/admin/providers" variant="ghost" className="h-12 w-full rounded-xl border border-white/5 text-xs font-semibold text-base-content/40">
+             <Button as={Link} to="/admin/providers" variant="ghost" className="h-12 w-full rounded-xl border border-base-content/5 text-xs font-semibold text-base-content/40">
                Hủy bỏ
              </Button>
           </div>

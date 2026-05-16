@@ -19,11 +19,11 @@ export function AuditRow({ entry, locale, expanded, onToggle }) {
 
   return (
     <>
-      <tr className={`group transition-all duration-300 ${hasDiff ?"cursor-pointer hover:bg-white/[0.02]" : ""} ${expanded ? "bg-primary/[0.03]" : ""}`} 
+      <tr className={`group transition-all duration-300 ${hasDiff ?"cursor-pointer hover:bg-base-content/[0.02]" : ""} ${expanded ? "bg-primary/[0.03]" : ""}`} 
         onClick={hasDiff ? onToggle : undefined}>
         <td className="py-5 px-4 text-center">
           {hasDiff ? (
-            <div className={`transition-transform duration-300 ${expanded ?"rotate-90 text-primary" : "text-white/10 group-hover:text-white/30"}`}>
+            <div className={`transition-transform duration-300 ${expanded ?"rotate-90 text-primary" : "text-white/10 group-hover:text-base-content/30"}`}>
                <ChevronRight size={14} />
             </div>
           ) : null}
@@ -41,7 +41,7 @@ export function AuditRow({ entry, locale, expanded, onToggle }) {
           </div>
         </td>
         <td className="py-5 px-6">
-          <div className="flex items-center gap-2 px-2 py-1 rounded bg-white/5 border border-white/5 w-fit">
+          <div className="flex items-center gap-2 px-2 py-1 rounded bg-base-content/5 border border-base-content/5 w-fit">
             <ActionIcon size={12} className="text-primary/60" />
             <span className="text-xs font-semibold tracking-wider text-base-content/80">{entry.action}</span>
           </div>
@@ -49,7 +49,7 @@ export function AuditRow({ entry, locale, expanded, onToggle }) {
         <td className="py-5 px-6">
           <div className="flex flex-col">
             <span className="text-xs font-semibold tracking-wider text-base-content/60">{entry.resource_type}</span>
-            {entry.resource_id && <span className="text-xs font-mono font-bold text-white/10">ID: #{entry.resource_id}</span>}
+            {entry.resource_id && <span className="text-xs font-mono font-bold text-base-content/10">ID: #{entry.resource_id}</span>}
           </div>
         </td>
         <td className="py-5 px-6 min-w-[250px]">
@@ -61,7 +61,7 @@ export function AuditRow({ entry, locale, expanded, onToggle }) {
       </tr>
 
       {expanded && hasDiff && (
-        <tr className="bg-black/40">
+        <tr className="bg-base-content/40">
           <td colSpan="7" className="p-8">
             <AdminCard className="p-8 border-primary/10">
                <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">

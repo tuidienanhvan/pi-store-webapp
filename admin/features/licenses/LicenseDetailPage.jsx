@@ -196,7 +196,7 @@ export function LicenseDetailPage() {
           />
         </FormField>
 
-        <div className="flex items-center justify-end gap-3 pt-4 border-t border-white/5">
+        <div className="flex items-center justify-end gap-3 pt-4 border-t border-base-content/5">
           <Button type="submit" variant="primary" disabled={saving}>
             {saving ? "Đang lưu..." : "Lưu thay đổi"}
           </Button>
@@ -225,7 +225,7 @@ export function LicenseDetailPage() {
             </AdminBadge>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 p-6 rounded-2xl bg-black/20 border border-white/5">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 p-6 rounded-2xl bg-base-content/20 border border-base-content/5">
             {[
               { label: 'Đã dùng', val: packageInfo?.current_period_tokens_used ?? license.quota_used, icon: Activity },
               { label: 'Hạn mức', val: packageInfo?.token_quota_monthly ?? license.quota_limit, icon: Zap },
@@ -269,7 +269,7 @@ export function LicenseDetailPage() {
       
       <AdminTable>
         <thead>
-          <tr className="bg-white/[0.02]">
+          <tr className="bg-base-content/[0.02]">
             <th className="py-4 px-6 text-left font-medium text-xs opacity-40">Nhà cung cấp</th>
             <th className="py-4 px-6 text-left font-medium text-xs opacity-40">Mã API</th>
             <th className="py-4 px-6 text-center font-medium text-xs opacity-40">Trạng thái</th>
@@ -278,7 +278,7 @@ export function LicenseDetailPage() {
         </thead>
         <tbody className="divide-y divide-white/5">
           {keys.map((key) => (
-            <tr key={key.id} className="hover:bg-white/[0.01] transition-colors">
+            <tr key={key.id} className="hover:bg-base-content/[0.01] transition-colors">
               <td className="py-4 px-6 font-bold text-xs text-primary">{key.provider_slug}</td>
               <td className="py-4 px-6 font-mono text-xs text-base-content/60"><code>{key.key_masked}</code></td>
               <td className="py-4 px-6 text-center">
@@ -341,7 +341,7 @@ export function LicenseDetailPage() {
         tagline={license.email}
         actions={
           <div className="flex items-center gap-3">
-            <Button as={Link} to="/admin/licenses" variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-xs">
+            <Button as={Link} to="/admin/licenses" variant="ghost" className="h-10 px-4 rounded-xl border border-base-content/5 font-semibold tracking-wider text-xs">
               <ArrowLeft size={14} className="mr-2" /> Quay lại danh sách
             </Button>
             <Button as={Link} to={`/admin/licenses/${id}/adjust-tokens`} variant="primary" className="h-10 px-6 rounded-xl font-bold tracking-wider text-xs shadow-primary">
@@ -356,16 +356,16 @@ export function LicenseDetailPage() {
         <div className="lg:col-span-1">
           <AdminCard className="p-8 flex flex-col gap-6 border-primary/10 bg-primary/[0.02]">
             <div className="flex flex-col items-center text-center gap-4">
-              <div className="w-20 h-20 rounded-3xl bg-white/5 flex items-center justify-center text-primary border border-white/10 shadow-2xl">
+              <div className="w-20 h-20 rounded-3xl bg-base-content/5 flex items-center justify-center text-primary border border-base-content/10 shadow-2xl">
                 <User size={36} />
               </div>
               <div className="flex flex-col gap-1">
-                <h3 className="text-base font-bold text-white leading-tight">{license.email}</h3>
+                <h3 className="text-base font-bold text-base-content leading-tight">{license.email}</h3>
                 <span className="text-xs font-medium text-base-content/40">{license.name || 'Người dùng ẩn danh'}</span>
               </div>
             </div>
 
-            <div className="h-px bg-white/5" />
+            <div className="h-px bg-base-content/5" />
 
             <div className="flex flex-col gap-4">
               <div className="flex justify-between items-center px-2">
@@ -384,9 +384,9 @@ export function LicenseDetailPage() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-2 pt-4 border-t border-white/5">
+            <div className="flex flex-col gap-2 pt-4 border-t border-base-content/5">
                <span className="text-xs font-semibold text-primary/40 tracking-wide ml-2">Mã kích hoạt</span>
-               <div className="flex items-center gap-3 px-4 py-3 bg-black/40 rounded-2xl border border-white/5 group hover:border-primary/30 transition-all">
+               <div className="flex items-center gap-3 px-4 py-3 bg-base-content/40 rounded-2xl border border-base-content/5 group hover:border-primary/30 transition-all">
                   <Key size={14} className="text-primary/60" />
                   <code className="text-xs font-mono text-base-content/60 truncate">{license.key}</code>
                </div>
@@ -397,7 +397,7 @@ export function LicenseDetailPage() {
         {/* Right Column: Tabs for detailed control */}
         <div className="lg:col-span-3">
           {err && <Alert tone="danger" onDismiss={() => setErr("")} className="mb-6">{err}</Alert>}
-          <div className="rounded-xl border border-white/10 backdrop-blur-md shadow-glass rounded-[2rem] overflow-hidden">
+          <div className="rounded-xl border border-base-content/10 backdrop-blur-md shadow-glass rounded-[2rem] overflow-hidden">
             <Tabs
               items={[
                 { id: "general", label: "Cấu hình hệ thống", content: generalTab },

@@ -8,7 +8,7 @@ import { Circle } from "lucide-react";
 export function SidebarLink({ to, label, icon: IconComponent, end, onClick }) {
   const baseClass = "relative flex items-center gap-3.5 rounded-xl px-4 py-3 text-xs font-semibold tracking-widest transition-all duration-300 border mb-1 overflow-hidden group";
   const activeClass = "bg-primary/5 border-primary/20 text-primary";
-  const idleClass = "text-base-content/40 border-transparent hover:bg-white/[0.03] hover:text-base-content hover:border-white/10";
+  const idleClass = "text-base-content/40 border-transparent hover:bg-base-content/[0.03] hover:text-base-content hover:border-base-content/10";
 
   return (
     <NavLink 

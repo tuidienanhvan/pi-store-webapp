@@ -28,14 +28,14 @@ export function OverviewSkeleton() {
       {/* Row 1: Bento Grid Ghost */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
         {/* Main Revenue Bento (Huge) */}
-        <div className="md:col-span-8 h-[320px] bg-base-200/20 rounded-[2.5rem] border border-white/5 p-12 flex flex-col gap-8">
+        <div className="md:col-span-8 h-[320px] bg-base-200/20 rounded-[2.5rem] border border-base-content/5 p-12 flex flex-col gap-8">
            <div className="h-4 w-32 skeleton" />
            <div className="h-16 w-64 skeleton rounded-2xl" />
            <div className="mt-auto h-24 w-full skeleton rounded-2xl opacity-20" />
         </div>
 
         {/* System Health Bento (Vertical) */}
-        <div className="md:col-span-4 h-full bg-base-200/20 rounded-[2.5rem] border border-white/5 p-10 flex flex-col gap-8">
+        <div className="md:col-span-4 h-full bg-base-200/20 rounded-[2.5rem] border border-base-content/5 p-10 flex flex-col gap-8">
            <div className="h-4 w-32 skeleton" />
            <div className="flex flex-col gap-6">
              {[1,2,3,4].map(i => (
@@ -48,14 +48,14 @@ export function OverviewSkeleton() {
         </div>
 
         {/* Licenses Bento */}
-        <div className="md:col-span-4 h-[240px] bg-base-200/20 rounded-[2.5rem] border border-white/5 p-10 flex flex-col gap-6">
+        <div className="md:col-span-4 h-[240px] bg-base-200/20 rounded-[2.5rem] border border-base-content/5 p-10 flex flex-col gap-6">
            <div className="h-4 w-32 skeleton" />
            <div className="h-12 w-48 skeleton rounded-xl" />
            <div className="mt-auto h-4 w-full skeleton rounded-full" />
         </div>
 
         {/* Usage Bento */}
-        <div className="md:col-span-8 h-[240px] bg-base-200/20 rounded-[2.5rem] border border-white/5 p-10 flex flex-col gap-6">
+        <div className="md:col-span-8 h-[240px] bg-base-200/20 rounded-[2.5rem] border border-base-content/5 p-10 flex flex-col gap-6">
            <div className="h-4 w-32 skeleton" />
            <div className="h-12 w-48 skeleton rounded-xl" />
            <div className="mt-auto h-12 w-full skeleton rounded-2xl opacity-20" />

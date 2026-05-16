@@ -143,10 +143,10 @@ export function KeysPage() {
         tagline="Quản lý tài nguyên, cấp phát và giám sát mức độ tiêu thụ của các API Key"
         actions={
           <div className="flex items-center gap-3">
-             <Button variant="ghost" onClick={() => setConfirmAction({ type: 'reset_all' })} className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-xs">
+             <Button variant="ghost" onClick={() => setConfirmAction({ type: 'reset_all' })} className="h-10 px-4 rounded-xl border border-base-content/5 font-semibold tracking-wider text-xs">
                 <RefreshCw size={14} className="mr-2" /> Làm mới hạn mức
              </Button>
-             <Button as={Link} to="/admin/keys/bulk-import" variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-xs">
+             <Button as={Link} to="/admin/keys/bulk-import" variant="ghost" className="h-10 px-4 rounded-xl border border-base-content/5 font-semibold tracking-wider text-xs">
                 <Upload size={14} className="mr-2" /> Nhập Bulk
              </Button>
              <Button as={Link} to="/admin/keys/new" variant="primary" className="h-10 px-6 rounded-xl font-semibold tracking-wider text-xs">
@@ -176,7 +176,7 @@ export function KeysPage() {
             </div>
             <AdminTable className="pi-keys-page__summary-table">
                <thead>
-                  <tr className="bg-white/[0.02]">
+                  <tr className="bg-base-content/[0.02]">
                      <th className="py-4 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Nhà cung cấp</th>
                      <th className="py-4 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Tổng</th>
                      <th className="py-4 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Sẵn sàng</th>
@@ -188,7 +188,7 @@ export function KeysPage() {
                </thead>
                <tbody className="pi-keys-page__tbody divide-y divide-white/5">
                   {summary.map((r) => (
-                    <tr key={r.provider_id} className="hover:bg-white/[0.01] transition-colors">
+                    <tr key={r.provider_id} className="hover:bg-base-content/[0.01] transition-colors">
                       <td className="py-4 px-6">
                          <div className="flex flex-col gap-1">
                             <span className="text-xs font-bold text-base-content tracking-tight">{r.slug}</span>
@@ -205,7 +205,7 @@ export function KeysPage() {
                       <td className={`py-4 px-6 text-right font-mono text-xs ${r.exhausted > 0 ?"text-warning font-bold" : "opacity-20"}`}>{r.exhausted}</td>
                       <td className={`py-4 px-6 text-right font-mono text-xs ${r.banned > 0 ?"text-danger font-bold" : "opacity-20"}`}>{r.banned}</td>
                       <td className="py-4 px-6 text-right">
-                       <Button as={Link} to={`/admin/keys/new?provider_id=${r.provider_id}`} size="sm" variant="ghost" className="h-8 rounded-lg border border-white/5 text-xs font-semibold tracking-wider bg-white/[0.02]">
+                       <Button as={Link} to={`/admin/keys/new?provider_id=${r.provider_id}`} size="sm" variant="ghost" className="h-8 rounded-lg border border-base-content/5 text-xs font-semibold tracking-wider bg-base-content/[0.02]">
                           <Plus size={12} className="mr-1" /> Thêm khóa
                        </Button>
 
@@ -237,7 +237,7 @@ export function KeysPage() {
                 placeholder="ID GIẤY PHÉP"
                 value={filters.license_id || ""} 
                 onChange={(e) => setFilters({ license_id: e.target.value, offset: 0 })}
-                className="w-32 bg-white/5 border-white/5 rounded-xl font-bold text-xs" 
+                className="w-32 bg-base-content/5 border-base-content/5 rounded-xl font-bold text-xs" 
               />
               {filters.license_id && (
                 <Button size="sm" variant="ghost" onClick={() => setConfirmAction({ type: 'release_license' })} className="h-10 px-4 rounded-xl border border-warning/20 text-warning font-semibold tracking-wider text-xs">
@@ -247,7 +247,7 @@ export function KeysPage() {
               <Select 
                 value={filters.provider_id}
                 onChange={(e) => setFilters({ provider_id: e.target.value, offset: 0 })}
-                className="h-10 min-w-[160px] bg-white/5 border-white/5 rounded-xl font-semibold tracking-wider text-xs"
+                className="h-10 min-w-[160px] bg-base-content/5 border-base-content/5 rounded-xl font-semibold tracking-wider text-xs"
                 options={[
                   { label: "TẤT CẢ NHÀ CUNG CẤP", value: "" },
                   ...providers.map((p) => ({ value: String(p.id), label: p.slug })),
@@ -256,7 +256,7 @@ export function KeysPage() {
               <Select 
                 value={filters.status}
                 onChange={(e) => setFilters({ status: e.target.value, offset: 0 })}
-                className="h-10 min-w-[140px] bg-white/5 border-white/5 rounded-xl font-semibold tracking-wider text-xs"
+                className="h-10 min-w-[140px] bg-base-content/5 border-base-content/5 rounded-xl font-semibold tracking-wider text-xs"
                 options={[
                   { label: "TẤT CẢ TRẠNG THÁI", value: "" },
                   { label: "SẴN SÀNG", value: "available" },
@@ -269,7 +269,7 @@ export function KeysPage() {
 
             <AdminTable className="pi-keys-page__table">
                <thead>
-                  <tr className="bg-white/[0.02]">
+                  <tr className="bg-base-content/[0.02]">
                      <th className="py-4 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Nhà cung cấp</th>
                      <th className="py-4 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Định danh bảo mật</th>
                      <th className="py-4 px-6 text-center font-semibold tracking-wider text-xs opacity-40">Trạng thái</th>
@@ -284,7 +284,7 @@ export function KeysPage() {
                     <tr><td colSpan="7" className="py-32"><AdminEmptyState title="Không tìm thấy khóa" description="Thử thay đổi bộ lọc tìm kiếm của bạn." /></td></tr>
                   ) : (
                     keys.map((k) => (
-                      <tr key={k.id} className="group hover:bg-white/[0.01] transition-colors">
+                      <tr key={k.id} className="group hover:bg-base-content/[0.01] transition-colors">
                         <td className="py-5 px-6 font-mono text-xs opacity-40">#{k.id} <br/> <span className="font-bold text-primary text-xs tracking-widest">{k.provider_slug}</span></td>
                         <td className="py-5 px-6"><KeyCell k={k} /></td>
                         <td className="py-5 px-6 text-center">

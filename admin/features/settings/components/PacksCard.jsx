@@ -25,14 +25,14 @@ export function PacksCard({ packs, onSave, saving }) {
             <Zap size={18} className="text-primary/60" />
             <h2 className="text-xs font-semibold tracking-wider text-base-content/40">Gói nạp Token</h2>
          </div>
-         <Button type="button" variant="ghost" onClick={addRow} className="h-8 px-4 rounded-lg border border-white/5 bg-white/[0.02] text-xs font-semibold tracking-wider hover:border-primary/40">
+         <Button type="button" variant="ghost" onClick={addRow} className="h-8 px-4 rounded-lg border border-base-content/5 bg-base-content/[0.02] text-xs font-semibold tracking-wider hover:border-primary/40">
             <Plus size={12} className="mr-1" /> Thêm gói nạp
          </Button>
       </div>
 
       <AdminTable>
         <thead>
-          <tr className="bg-white/[0.02]">
+          <tr className="bg-base-content/[0.02]">
             <th className="py-4 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Mã định danh (Slug)</th>
             <th className="py-4 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Tên hiển thị</th>
             <th className="py-4 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Số Token nhận</th>
@@ -43,7 +43,7 @@ export function PacksCard({ packs, onSave, saving }) {
         </thead>
         <tbody className="divide-y divide-white/5">
           {rows.map((r, i) => (
-            <tr key={i} className="group hover:bg-white/[0.01]">
+            <tr key={i} className="group hover:bg-base-content/[0.01]">
               <td className="py-4 px-6">
                  <input className="bg-transparent border-none text-xs font-mono font-bold text-primary focus:ring-0 p-0 lowercase" value={r.slug} onChange={(e) => updateRow(i, "slug", e.target.value)} />
               </td>
@@ -51,10 +51,10 @@ export function PacksCard({ packs, onSave, saving }) {
                  <input className="bg-transparent border-none text-xs font-bold text-base-content focus:ring-0 p-0" value={r.label} onChange={(e) => updateRow(i, "label", e.target.value)} />
               </td>
               <td className="py-4 px-6 text-right">
-                 <input className="bg-transparent border-none text-xs font-mono font-bold text-white/80 focus:ring-0 p-0 text-right" type="number" value={r.tokens} onChange={(e) => updateRow(i, "tokens", Number(e.target.value))} />
+                 <input className="bg-transparent border-none text-xs font-mono font-bold text-base-content/80 focus:ring-0 p-0 text-right" type="number" value={r.tokens} onChange={(e) => updateRow(i, "tokens", Number(e.target.value))} />
               </td>
               <td className="py-4 px-6 text-right">
-                 <input className="bg-transparent border-none text-xs font-mono font-bold text-white/80 focus:ring-0 p-0 text-right" type="number" value={r.price_cents} onChange={(e) => updateRow(i, "price_cents", Number(e.target.value))} />
+                 <input className="bg-transparent border-none text-xs font-mono font-bold text-base-content/80 focus:ring-0 p-0 text-right" type="number" value={r.price_cents} onChange={(e) => updateRow(i, "price_cents", Number(e.target.value))} />
               </td>
               <td className="py-4 px-6 text-right">
                  <input className="bg-transparent border-none text-xs font-mono font-bold text-primary focus:ring-0 p-0 text-right" type="number" value={r.discount_pct} onChange={(e) => updateRow(i, "discount_pct", Number(e.target.value))} />

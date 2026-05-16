@@ -11,7 +11,7 @@ export function AdminPageHeader({ title, subtitle, tagline, badge, actions, clas
       <div className="flex flex-wrap items-center justify-between gap-6">
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-4">
-            <h1 className="text-4xl font-bold tracking-tight text-white m-0">
+            <h1 className="text-4xl font-bold tracking-tight text-base-content m-0">
               {title}
             </h1>
             {badge && <AdminBadge>{badge}</AdminBadge>}

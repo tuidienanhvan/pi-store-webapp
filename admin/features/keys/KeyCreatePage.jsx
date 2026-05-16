@@ -50,7 +50,7 @@ export function KeyCreatePage() {
         title="Đăng ký khóa bảo mật"
         tagline="Thêm khóa API mới vào hệ thống điều phối"
         actions={
-          <Button as={Link} to="/admin/keys" variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-xs">
+          <Button as={Link} to="/admin/keys" variant="ghost" className="h-10 px-4 rounded-xl border border-base-content/5 font-semibold tracking-wider text-xs">
             <ArrowLeft size={14} className="mr-2" /> Quay lại danh sách
           </Button>
         }
@@ -66,7 +66,7 @@ export function KeyCreatePage() {
                   value={form.provider_id}
                   required
                   onChange={(e) => setForm({ ...form, provider_id: e.target.value })}
-                  className="h-12 bg-white/5 border-white/10 rounded-xl font-bold"
+                  className="h-12 bg-base-content/5 border-base-content/10 rounded-xl font-bold"
                   options={[
                     { label: "CHỌN NHÀ CUNG CẤP...", value: "" },
                     ...providers.map((p) => ({ label: `${p.slug} — ${p.display_name}`, value: String(p.id) })),
@@ -81,7 +81,7 @@ export function KeyCreatePage() {
                   value={form.key_value}
                   onChange={(e) => setForm({ ...form, key_value: e.target.value })}
                   placeholder="sk-..."
-                  className="font-mono bg-white/5 border-white/10 rounded-2xl p-4 focus:border-primary/50 transition-all resize-none text-primary"
+                  className="font-mono bg-base-content/5 border-base-content/10 rounded-2xl p-4 focus:border-primary/50 transition-all resize-none text-primary"
                 />
               </FormField>
 
@@ -91,7 +91,7 @@ export function KeyCreatePage() {
                   value={form.notes}
                   onChange={(e) => setForm({ ...form, notes: e.target.value })}
                   placeholder="Thêm ghi chú để dễ dàng quản lý sau này..."
-                  className="bg-white/5 border-white/10 rounded-2xl p-4 focus:border-primary/50 transition-all resize-none text-sm"
+                  className="bg-base-content/5 border-base-content/10 rounded-2xl p-4 focus:border-primary/50 transition-all resize-none text-sm"
                 />
               </FormField>
             </div>
@@ -107,7 +107,7 @@ export function KeyCreatePage() {
                   value={form.label}
                   onChange={(e) => setForm({ ...form, label: e.target.value })}
                   placeholder="Ví dụ: groq-main-key"
-                  className="h-12 bg-white/5 border-white/10 rounded-xl"
+                  className="h-12 bg-base-content/5 border-base-content/10 rounded-xl"
                 />
               </FormField>
               
@@ -117,7 +117,7 @@ export function KeyCreatePage() {
                   min="0"
                   value={form.monthly_quota_tokens}
                   onChange={(e) => setForm({ ...form, monthly_quota_tokens: e.target.value })}
-                  className="h-12 bg-white/5 border-white/10 rounded-xl font-mono text-primary font-bold"
+                  className="h-12 bg-base-content/5 border-base-content/10 rounded-xl font-mono text-primary font-bold"
                 />
               </FormField>
             </div>
@@ -135,7 +135,7 @@ export function KeyCreatePage() {
                {saving ? "ĐANG ĐĂNG KÝ..." : "XÁC NHẬN ĐĂNG KÝ KHÓA"}
              </Button>
              
-             <Button as={Link} to="/admin/keys" variant="ghost" className="h-12 w-full rounded-xl border border-white/5 text-xs font-semibold text-base-content/40">
+             <Button as={Link} to="/admin/keys" variant="ghost" className="h-12 w-full rounded-xl border border-base-content/5 text-xs font-semibold text-base-content/40">
                Hủy bỏ
              </Button>
           </div>

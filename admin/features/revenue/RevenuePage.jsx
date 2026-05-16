@@ -94,11 +94,11 @@ export function RevenuePage() {
         title="Báo cáo Doanh thu"
         tagline="Dữ liệu tài chính thời gian thực từ hệ thống Pi"
         actions={
-          <div className="flex items-center gap-2 bg-white/[0.03] p-1 rounded-xl border border-white/5">
+          <div className="flex items-center gap-2 bg-base-content/[0.03] p-1 rounded-xl border border-base-content/5">
             {DAYS_OPTIONS.map((d) => (
               <button key={d} 
                 onClick={() => setDays(d)}
-                className={`h-8 px-4 rounded-lg text-xs font-semibold tracking-wider transition-all duration-300 ${days === d ?"bg-primary text-white" : "text-base-content/40 hover:text-base-content/60 hover:bg-white/5"}`}>
+                className={`h-8 px-4 rounded-lg text-xs font-semibold tracking-wider transition-all duration-300 ${days === d ?"bg-primary text-white" : "text-base-content/40 hover:text-base-content/60 hover:bg-base-content/5"}`}>
                 {d === 365 ? "Năm" : `${d} Ngày`}
               </button>
             ))}
@@ -153,7 +153,7 @@ export function RevenuePage() {
                 <div className="relative w-56 h-56 shrink-0">
                   <div className="absolute inset-0 rounded-full" style={{ background: conicGradient }} />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-[70%] h-[70%] bg-base-300 rounded-full flex flex-col items-center justify-center border border-white/5 shadow-inner">
+                    <div className="w-[70%] h-[70%] bg-base-300 rounded-full flex flex-col items-center justify-center border border-base-content/5 shadow-inner">
                       <span className="text-xs font-bold text-base-content/30 tracking-wider mb-1">Tổng cộng</span>
                       <AdminValue className="text-lg">{formatCurrencyUSD(revenue, locale)}</AdminValue>
                     </div>
@@ -162,7 +162,7 @@ export function RevenuePage() {
 
                 <div className="flex flex-col gap-4 flex-1 w-full">
                   {pie.map((item) => (
-                    <div key={item.sku} className="group flex items-center justify-between p-3 rounded-xl hover:bg-white/[0.03] transition-all">
+                    <div key={item.sku} className="group flex items-center justify-between p-3 rounded-xl hover:bg-base-content/[0.03] transition-all">
                       <div className="flex items-center gap-3">
                         <div className="w-2 h-2 rounded-full" style={{ background: item.color }} />
                         <div className="flex flex-col">
@@ -190,7 +190,7 @@ export function RevenuePage() {
 
                <AdminTable>
                  <thead>
-                    <tr className="bg-white/[0.02]">
+                    <tr className="bg-base-content/[0.02]">
                        <th className="py-4 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Sản phẩm / Mã</th>
                        <th className="py-4 px-6 text-center font-semibold tracking-wider text-xs opacity-40">Phân loại</th>
                        <th className="py-4 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Số lượng</th>
@@ -199,7 +199,7 @@ export function RevenuePage() {
                  </thead>
                  <tbody className="divide-y divide-white/5">
                     {products.map((item) => (
-                      <tr key={item.sku} className="group hover:bg-white/[0.01] transition-colors">
+                      <tr key={item.sku} className="group hover:bg-base-content/[0.01] transition-colors">
                         <td className="py-5 px-6">
                            <div className="flex flex-col">
                               <span className="text-xs font-bold text-base-content group-hover:text-primary transition-colors">{item.name}</span>
@@ -215,7 +215,7 @@ export function RevenuePage() {
                         <td className="py-5 px-6 text-right">
                            <div className="flex flex-col items-end">
                               <span className="text-xs font-bold text-primary">{formatCurrencyUSD(Number(item.revenue_cents || 0) / 100, locale)}</span>
-                              <span className="text-xs font-bold text-white/10 tracking-wider">Doanh thu gộp</span>
+                              <span className="text-xs font-bold text-base-content/10 tracking-wider">Doanh thu gộp</span>
                            </div>
                         </td>
                       </tr>

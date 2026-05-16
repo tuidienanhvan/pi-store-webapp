@@ -28,22 +28,22 @@ export function BrandingCard({ branding, onSave, saving }) {
               required 
               value={form.site_name} 
               onChange={(e) => setForm({ ...form, site_name: e.target.value })} 
-              className="h-10 bg-white/5 border-white/10 rounded-xl font-bold"
+              className="h-10 bg-base-content/5 border-base-content/10 rounded-xl font-bold"
             />
             <Input 
               label="URL LOGO CHÍNH"
               value={form.logo_url} 
               onChange={(e) => setForm({ ...form, logo_url: e.target.value })} 
               placeholder="/logo.svg" 
-              className="h-10 bg-white/5 border-white/10 rounded-xl font-mono text-xs"
+              className="h-10 bg-base-content/5 border-base-content/10 rounded-xl font-mono text-xs"
             />
             <div className="flex flex-col gap-2">
               <label className="text-xs font-semibold tracking-wider text-primary/60 ml-1">MÀU CHỦ ĐẠO (PRIMARY)</label>
               <div className="flex gap-3">
                 <input type="color" value={form.primary_color} 
                   onChange={(e) => setForm({ ...form, primary_color: e.target.value })} 
-                  className="h-10 w-16 p-1 bg-base-200 border border-white/10 rounded-xl cursor-pointer" />
-                <Input className="flex-1 bg-white/5 border-white/10 rounded-xl font-mono text-sm" value={form.primary_color} 
+                  className="h-10 w-16 p-1 bg-base-200 border border-base-content/10 rounded-xl cursor-pointer" />
+                <Input className="flex-1 bg-base-content/5 border-base-content/10 rounded-xl font-mono text-sm" value={form.primary_color} 
                   onChange={(e) => setForm({ ...form, primary_color: e.target.value })} 
                   placeholder="#7c3aed" />
               </div>
@@ -54,10 +54,10 @@ export function BrandingCard({ branding, onSave, saving }) {
               value={form.support_email} 
               onChange={(e) => setForm({ ...form, support_email: e.target.value })} 
               placeholder="support@piwebagency.com" 
-              className="h-10 bg-white/5 border-white/10 rounded-xl font-bold"
+              className="h-10 bg-base-content/5 border-base-content/10 rounded-xl font-bold"
             />
           </div>
-          <div className="flex justify-end pt-8 border-t border-white/5">
+          <div className="flex justify-end pt-8 border-t border-base-content/5">
             <Button type="submit" variant="primary" disabled={saving} className="h-10 px-10 rounded-xl font-semibold tracking-wider text-xs">
               {saving ? "Đang đồng bộ..." : "Lưu cấu hình thương hiệu"}
             </Button>

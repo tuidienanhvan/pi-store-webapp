@@ -77,7 +77,7 @@ export function ReleaseUploadPage() {
         {/* ─── Tệp ZIP ─── */}
         <FormSection title="Tệp thực thi" icon={UploadCloud}>
           <FormField label="Tải lên file .zip">
-            <label className="relative flex flex-col items-center justify-center gap-2 h-32 rounded-xl border border-dashed border-white/10 bg-white/[0.02] hover:bg-primary/[0.04] hover:border-primary/30 transition-colors cursor-pointer">
+            <label className="relative flex flex-col items-center justify-center gap-2 h-32 rounded-xl border border-dashed border-base-content/10 bg-base-content/[0.02] hover:bg-primary/[0.04] hover:border-primary/30 transition-colors cursor-pointer">
               <input
                 type="file"
                 accept=".zip"
@@ -123,7 +123,7 @@ export function ReleaseUploadPage() {
                     className={`flex items-center justify-center gap-2 h-10 px-3 rounded-md border text-sm font-medium transition-colors ${
                       active
                         ? "bg-primary/10 border-primary/30 text-primary"
-                        : "bg-white/[0.02] border-white/10 text-base-content/60 hover:bg-white/5 hover:text-base-content"
+                        : "bg-base-content/[0.02] border-base-content/10 text-base-content/60 hover:bg-base-content/5 hover:text-base-content"
                     }`}
                   >
                     <span className="capitalize">{tier}</span>
@@ -134,7 +134,7 @@ export function ReleaseUploadPage() {
             </div>
           </FormField>
 
-          <div className="flex items-start gap-2.5 p-3 rounded-md bg-base-content/5 border border-white/5">
+          <div className="flex items-start gap-2.5 p-3 rounded-md bg-base-content/5 border border-base-content/5">
             <Info size={14} className="text-base-content/50 mt-0.5 shrink-0" />
             <p className="text-xs text-base-content/60 leading-relaxed">
               Bản phát hành <strong className="text-base-content">kích hoạt ngay</strong> cho mọi khách hàng từ tier đã chọn trở lên.
@@ -145,7 +145,7 @@ export function ReleaseUploadPage() {
         {err && <Alert tone="danger" onDismiss={() => setErr("")}>{err}</Alert>}
 
         {/* Sticky footer */}
-        <div className="flex items-center gap-3 pt-3 sticky bottom-0 bg-base-100 py-3 border-t border-white/5">
+        <div className="flex items-center gap-3 pt-3 sticky bottom-0 bg-base-100 py-3 border-t border-base-content/5">
           <Button as={Link} to="/admin/releases" type="button" variant="ghost" className="flex-1">
             Huỷ
           </Button>

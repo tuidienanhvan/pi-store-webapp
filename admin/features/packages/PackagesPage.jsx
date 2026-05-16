@@ -91,7 +91,7 @@ export function PackagesPage() {
 
       <AdminTable className="pi-packages-page__table">
         <thead>
-          <tr className="bg-white/[0.02]">
+          <tr className="bg-base-content/[0.02]">
             <th className="py-5 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Mã / Tên hiển thị</th>
             <th className="py-5 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Giá tháng</th>
             <th className="py-5 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Giá năm</th>
@@ -104,7 +104,7 @@ export function PackagesPage() {
         </thead>
         <tbody className="pi-packages-page__tbody divide-y divide-white/5">
           {items.map((p) => (
-            <tr key={p.slug} className="pi-packages-page__row group hover:bg-white/[0.01] transition-all duration-300">
+            <tr key={p.slug} className="pi-packages-page__row group hover:bg-base-content/[0.01] transition-all duration-300">
               <td className="py-6 px-6">
                 <div className="flex flex-col gap-1">
                   <span className="text-xs font-mono font-bold text-primary tracking-tighter">MÃ: {p.slug}</span>
@@ -127,7 +127,7 @@ export function PackagesPage() {
                 <div className="flex flex-col gap-2">
                   <div className="flex flex-wrap gap-1">
                     {p.allowed_qualities.map((q) => (
-                      <span key={q} className="text-xs font-semibold px-1.5 py-0.5 rounded bg-white/5 border border-white/5 text-base-content/40 tracking-widest">{q}</span>
+                      <span key={q} className="text-xs font-semibold px-1.5 py-0.5 rounded bg-base-content/5 border border-base-content/5 text-base-content/40 tracking-widest">{q}</span>
                     ))}
                   </div>
                   {p.routing_mode && (
@@ -154,7 +154,7 @@ export function PackagesPage() {
                      <div className="w-2 h-2 rounded-full bg-success" />
                   </div>
                 ) : (
-                  <div className="w-2 h-2 rounded-full bg-white/10 mx-auto" />
+                  <div className="w-2 h-2 rounded-full bg-base-content/10 mx-auto" />
                 )}
               </td>
               <td className="py-6 px-6 text-right">

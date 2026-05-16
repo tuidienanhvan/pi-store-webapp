@@ -7,16 +7,16 @@ export function AdminUserFooter() {
   const { user, logout } = useAuth();
 
   return (
-    <div className="mt-auto p-3 border-t border-white/5">
+    <div className="mt-auto p-3 border-t border-base-content/5">
       <div className="flex flex-col gap-3">
         <div className="flex items-center justify-between px-1">
           <ThemeToggle />
           <IconButton icon={Bell} label="Thông báo" variant="ghost" size="sm" className="text-base-content/40 hover:text-primary transition-colors" />
         </div>
 
-        <div className="group/user flex items-center gap-3 p-2.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-primary/20 transition-colors">
+        <div className="group/user flex items-center gap-3 p-2.5 rounded-lg bg-base-content/[0.02] border border-base-content/5 hover:border-primary/20 transition-colors">
           <div className="relative shrink-0">
-            <Avatar name={user?.name || user?.email || "A"} size="sm" className="rounded-md border border-white/10" />
+            <Avatar name={user?.name || user?.email || "A"} size="sm" className="rounded-md border border-base-content/10" />
             <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 bg-success rounded-full border-2 border-base-100" />
           </div>
 

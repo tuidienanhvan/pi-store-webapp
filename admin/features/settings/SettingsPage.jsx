@@ -114,9 +114,9 @@ export function SettingsPage() {
                    { label: 'Khóa mã hóa JWT', val: 'JWT_SECRET', icon: Key },
                    { label: 'Thời hạn JWT', val: 'JWT_EXPIRE_MINUTES', icon: Clock },
                  ].map(item => (
-                    <div key={item.val} className="flex items-center justify-between p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                    <div key={item.val} className="flex items-center justify-between p-4 rounded-xl bg-base-content/[0.02] border border-base-content/5">
                        <div className="flex items-center gap-3">
-                          <item.icon size={14} className="text-white/20" />
+                          <item.icon size={14} className="text-base-content/20" />
                           <span className="text-xs font-semibold text-base-content/60 tracking-wider">{item.label}</span>
                        </div>
                        <code className="text-xs font-mono font-bold text-primary bg-primary/5 px-2 py-0.5 rounded border border-primary/20">{item.val}</code>
@@ -128,9 +128,9 @@ export function SettingsPage() {
                    { label: 'Số vòng băm mật khẩu', val: '12 (Bcrypt)', icon: Shield },
                    { label: 'Nguồn CORS được phép', val: import.meta.env.VITE_PI_API_URL || "http://localhost:8000", icon: Terminal },
                  ].map(item => (
-                    <div key={item.val} className="flex items-center justify-between p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                    <div key={item.val} className="flex items-center justify-between p-4 rounded-xl bg-base-content/[0.02] border border-base-content/5">
                        <div className="flex items-center gap-3">
-                          <item.icon size={14} className="text-white/20" />
+                          <item.icon size={14} className="text-base-content/20" />
                           <span className="text-xs font-semibold text-base-content/60 tracking-wider">{item.label}</span>
                        </div>
                        <code className="text-xs font-mono font-bold text-base-content/40 truncate max-w-[180px]">{item.val}</code>

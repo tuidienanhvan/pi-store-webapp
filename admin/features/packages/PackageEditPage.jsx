@@ -185,7 +185,7 @@ export function PackageEditPage() {
         <FormSection title="Chất lượng & tính năng">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <FormField label="Chất lượng cho phép">
-              <div className="flex flex-wrap gap-3 p-3 rounded-md bg-base-content/[0.02] border border-white/5">
+              <div className="flex flex-wrap gap-3 p-3 rounded-md bg-base-content/[0.02] border border-base-content/5">
                 {QUALITIES.map((q) => (
                   <Checkbox
                     key={q}
@@ -255,7 +255,7 @@ export function PackageEditPage() {
                       className={`flex items-start gap-2.5 p-2.5 rounded-md border transition-colors cursor-pointer ${
                         active
                           ? "bg-primary/5 border-primary/30"
-                          : "bg-base-content/[0.02] border-white/5 hover:bg-white/5"
+                          : "bg-base-content/[0.02] border-base-content/5 hover:bg-base-content/5"
                       }`}
                     >
                       <input
@@ -280,7 +280,7 @@ export function PackageEditPage() {
 
             <div className="flex flex-col gap-4">
               <FormField label="Cấp độ provider cho phép">
-                <div className="flex gap-3 p-3 rounded-md bg-base-content/[0.02] border border-white/5">
+                <div className="flex gap-3 p-3 rounded-md bg-base-content/[0.02] border border-base-content/5">
                   <Checkbox
                     label="Miễn phí"
                     checked={form.allowed_tiers.includes("free")}
@@ -315,7 +315,7 @@ export function PackageEditPage() {
                 onChange={(e) => setForm({ ...form, sort_order: Number(e.target.value) })}
               />
             </FormField>
-            <div className="flex items-center gap-3 p-3 rounded-md bg-base-content/[0.02] border border-white/5">
+            <div className="flex items-center gap-3 p-3 rounded-md bg-base-content/[0.02] border border-base-content/5">
               <Switch
                 checked={form.is_active}
                 onChange={(e) => setForm({ ...form, is_active: e.target.checked })}
@@ -327,7 +327,7 @@ export function PackageEditPage() {
             </div>
           </div>
 
-          <div className="flex items-start gap-2.5 p-3 rounded-md bg-base-content/5 border border-white/5">
+          <div className="flex items-start gap-2.5 p-3 rounded-md bg-base-content/5 border border-base-content/5">
             <Info size={14} className="text-base-content/50 mt-0.5 shrink-0" />
             <p className="text-xs text-base-content/60 leading-relaxed">
               Thay đổi <strong className="text-base-content">áp dụng ngay</strong> cho mọi khách hàng đang dùng gói này.

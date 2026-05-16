@@ -130,7 +130,7 @@ export function ProvidersPage() {
       {/* Bảng danh sách nhà cung cấp */}
       <AdminTable className="pi-providers-page__table">
         <thead>
-          <tr className="bg-white/[0.02]">
+          <tr className="bg-base-content/[0.02]">
             <th className="py-5 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Mã / Tên</th>
             <th className="py-5 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Model ID</th>
             <th className="py-5 px-6 text-center font-semibold tracking-wider text-xs opacity-40">Dịch vụ</th>
@@ -143,7 +143,7 @@ export function ProvidersPage() {
         </thead>
         <tbody className="pi-providers-page__tbody divide-y divide-white/5">
           {providers.map((p) => (
-            <tr key={p.id} className="pi-providers-page__row group hover:bg-white/[0.01] transition-all duration-300">
+            <tr key={p.id} className="pi-providers-page__row group hover:bg-base-content/[0.01] transition-all duration-300">
               <td className="py-6 px-6">
                 <div className="flex flex-col">
                   <span className="text-sm font-bold text-base-content group-hover:text-primary transition-colors">{p.slug}</span>
@@ -151,7 +151,7 @@ export function ProvidersPage() {
                 </div>
               </td>
               <td className="py-6 px-6">
-                <code className="text-xs font-mono font-bold text-base-content/60 bg-white/5 px-2 py-1 rounded border border-white/5">{p.model_id}</code>
+                <code className="text-xs font-mono font-bold text-base-content/60 bg-base-content/5 px-2 py-1 rounded border border-base-content/5">{p.model_id}</code>
               </td>
               <td className="py-6 px-6 text-center">
                 <AdminBadge tone={p.tier === "paid" ? "brand" : "neutral"}>

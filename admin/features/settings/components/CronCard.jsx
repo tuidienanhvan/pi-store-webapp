@@ -51,7 +51,7 @@ export function CronCard() {
       
       <AdminTable>
         <thead>
-          <tr className="bg-white/[0.02]">
+          <tr className="bg-base-content/[0.02]">
             <th className="py-4 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Tên tác vụ / Mô tả</th>
             <th className="py-4 px-6 text-center font-semibold tracking-wider text-xs opacity-40">Lịch chạy</th>
             <th className="py-4 px-6 text-center font-semibold tracking-wider text-xs opacity-40">Lần cuối</th>
@@ -61,10 +61,10 @@ export function CronCard() {
         </thead>
         <tbody className="divide-y divide-white/5">
           {!loading && jobs.map((j) => (
-            <tr key={j.slug} className="group hover:bg-white/[0.01] transition-all">
+            <tr key={j.slug} className="group hover:bg-base-content/[0.01] transition-all">
               <td className="py-5 px-6">
                 <div className="flex flex-col gap-1">
-                  <span className="text-xs font-bold text-white tracking-tight">{j.name}</span>
+                  <span className="text-xs font-bold text-base-content tracking-tight">{j.name}</span>
                   <span className="text-xs font-bold text-base-content/30 tracking-wider">{j.description}</span>
                 </div>
               </td>
@@ -85,7 +85,7 @@ export function CronCard() {
                 </AdminBadge>
               </td>
               <td className="py-5 px-6 text-right">
-                <Button size="sm" variant="ghost" disabled={running === j.slug} onClick={() => executeJob(j.slug)} className="h-9 px-4 rounded-xl border border-white/5 text-xs font-semibold tracking-wider bg-white/[0.02] hover:bg-primary/10 hover:border-primary/20">
+                <Button size="sm" variant="ghost" disabled={running === j.slug} onClick={() => executeJob(j.slug)} className="h-9 px-4 rounded-xl border border-base-content/5 text-xs font-semibold tracking-wider bg-base-content/[0.02] hover:bg-primary/10 hover:border-primary/20">
                   {running === j.slug ? <RefreshCw size={14} className="animate-spin" /> : <Play size={14} />}
                 </Button>
               </td>

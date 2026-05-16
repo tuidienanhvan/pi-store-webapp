@@ -43,7 +43,7 @@ export function AdminStatCard({
       </div>
 
       {trend !== undefined && (
-        <div className="flex items-center gap-2 mt-auto pt-2 border-t border-white/5">
+        <div className="flex items-center gap-2 mt-auto pt-2 border-t border-base-content/5">
           <div className={`flex items-center gap-1 text-xs font-bold ${trend >= 0 ?'text-success' : 'text-danger'}`}>
             {trend >= 0 ? <ArrowUpRight size={12} /> : <ArrowDownRight size={12} />}
             {Math.abs(trend)}%

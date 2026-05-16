@@ -97,7 +97,7 @@ export function LicenseAssignPackagePage() {
         title="Gán gói dịch vụ"
         tagline={`Cấp quyền truy cập cho giấy phép #${id}`}
         actions={
-          <Button as={Link} to={`/admin/licenses/${id}`} variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-xs">
+          <Button as={Link} to={`/admin/licenses/${id}`} variant="ghost" className="h-10 px-4 rounded-xl border border-base-content/5 font-semibold tracking-wider text-xs">
             <ArrowLeft size={14} className="mr-2" /> Quay lại hồ sơ
           </Button>
         }
@@ -123,7 +123,7 @@ export function LicenseAssignPackagePage() {
                       <Select
                         value={packageSlug}
                         onChange={(event) => setPackageSlug(event.target.value)}
-                        className="pl-12 h-14 bg-white/5 border-white/10 rounded-xl font-bold text-sm"
+                        className="pl-12 h-14 bg-base-content/5 border-base-content/10 rounded-xl font-bold text-sm"
                         options={[
                           { label: "--- CHƯA CHỌN GÓI ---", value: "" },
                           ...packages.map((item) => ({
@@ -143,7 +143,7 @@ export function LicenseAssignPackagePage() {
                         type="date"
                         value={expiresAt}
                         onChange={(event) => setExpiresAt(event.target.value)}
-                        className="pl-12 h-14 bg-white/5 border-white/10 rounded-xl font-mono text-sm"
+                        className="pl-12 h-14 bg-base-content/5 border-base-content/10 rounded-xl font-mono text-sm"
                       />
                     </div>
                   </FormField>
@@ -236,7 +236,7 @@ export function LicenseAssignPackagePage() {
                {saving ? "ĐANG XỬ LÝ..." : "XÁC NHẬN GÁN GÓI"}
              </Button>
              
-             <Button as={Link} to={`/admin/licenses/${id}`} variant="ghost" className="h-12 w-full rounded-xl border border-white/5 text-xs font-semibold text-base-content/40">
+             <Button as={Link} to={`/admin/licenses/${id}`} variant="ghost" className="h-12 w-full rounded-xl border border-base-content/5 text-xs font-semibold text-base-content/40">
                Hủy bỏ
              </Button>
           </div>

@@ -214,7 +214,7 @@ export function OverviewPage() {
             <span className="text-2xl font-semibold tabular-nums">{tokenPctOfCap}%</span>
             <span className="text-xs text-base-content/40">dự báo cuối tháng</span>
           </div>
-          <div className="h-1.5 bg-white/5 rounded-full overflow-hidden mb-3">
+          <div className="h-1.5 bg-base-content/5 rounded-full overflow-hidden mb-3">
             <div className="h-full bg-primary transition-all duration-700" style={{ width: `${tokenPctOfCap}%` }} />
           </div>
           <div className="grid grid-cols-2 gap-3 text-xs mt-auto">
@@ -248,7 +248,7 @@ export function OverviewPage() {
           ) : (
             <table className="w-full text-sm">
               <thead>
-                <tr className="text-xs text-base-content/50 bg-white/[0.02]">
+                <tr className="text-xs text-base-content/50 bg-base-content/[0.02]">
                   <th className="font-semibold text-left py-2.5 px-4 tracking-wider">Người dùng</th>
                   <th className="font-semibold text-left py-2.5 px-4 tracking-wider">Gói</th>
                   <th className="font-semibold text-right py-2.5 px-4 tracking-wider">Còn lại</th>
@@ -256,7 +256,7 @@ export function OverviewPage() {
               </thead>
               <tbody>
                 {data.expiringLicenses.map(l => (
-                  <tr key={l.id} className="border-t border-white/5 hover:bg-white/[0.02] transition-colors">
+                  <tr key={l.id} className="border-t border-base-content/5 hover:bg-base-content/[0.02] transition-colors">
                     <td className="py-2.5 px-4 font-medium">{l.email}</td>
                     <td className="py-2.5 px-4"><AdminBadge tone="brand">{l.tier}</AdminBadge></td>
                     <td className="py-2.5 px-4 text-right tabular-nums text-danger font-medium">{l.daysLeft} ngày</td>
@@ -280,7 +280,7 @@ export function OverviewPage() {
           {data.providers.map(p => {
             const tone = p.status === "healthy" ? "bg-success" : p.status === "degraded" ? "bg-warning" : "bg-danger";
             return (
-              <div key={p.name} className="flex items-center gap-2 px-3 py-1.5 rounded-md border border-white/5 bg-base-300/40 text-xs">
+              <div key={p.name} className="flex items-center gap-2 px-3 py-1.5 rounded-md border border-base-content/5 bg-base-300/40 text-xs">
                 <span className={`w-1.5 h-1.5 rounded-full ${tone}`} />
                 <span className="font-medium text-base-content/80">{p.name}</span>
               </div>

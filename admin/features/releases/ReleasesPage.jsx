@@ -73,7 +73,7 @@ export function ReleasesPage() {
   
       <AdminTable>
         <thead>
-          <tr className="bg-white/[0.02]">
+          <tr className="bg-base-content/[0.02]">
             <th className="py-4 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Mã ứng dụng (Slug)</th>
             <th className="py-4 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Phiên bản</th>
             <th className="py-4 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Cấp độ yêu cầu</th>
@@ -88,7 +88,7 @@ export function ReleasesPage() {
             releases.map((r) => (
               <tr 
                 key={r.id} 
-                className={`group transition-all hover:bg-white/[0.01] ${r.is_yanked ?"opacity-30 grayscale blur-[0.5px]" : ""}`}
+                className={`group transition-all hover:bg-base-content/[0.01] ${r.is_yanked ?"opacity-30 grayscale blur-[0.5px]" : ""}`}
               >
                 <td className="py-5 px-6">
                   <div className="flex items-center gap-4">
@@ -102,8 +102,8 @@ export function ReleasesPage() {
                 </td>
                 <td className="py-5 px-6">
                   <div className="flex flex-col">
-                      <span className="text-xs font-mono font-bold text-white bg-white/5 px-2 py-0.5 rounded border border-white/5 w-fit">v{r.version}</span>
-                      <span className="text-xs font-bold text-white/10 tracking-wider mt-1">Build Stable</span>
+                      <span className="text-xs font-mono font-bold text-base-content bg-base-content/5 px-2 py-0.5 rounded border border-base-content/5 w-fit">v{r.version}</span>
+                      <span className="text-xs font-bold text-base-content/10 tracking-wider mt-1">Build Stable</span>
                   </div>
                 </td>
                 <td className="py-5 px-6">

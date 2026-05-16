@@ -120,7 +120,7 @@ export function LicensesPage() {
         <Select 
           value={filters.status}
           onChange={(e) => setFilters({ status: e.target.value, offset: 0 })}
-          className="h-10 min-w-[160px] bg-white/5 border-white/10 rounded-xl font-semibold tracking-wider text-xs"
+          className="h-10 min-w-[160px] bg-base-content/5 border-base-content/10 rounded-xl font-semibold tracking-wider text-xs"
           options={[
             { label: `Trạng thái: Tất cả`, value: "" },
             { label: `Đang hoạt động (${facets.by_status?.active || 0})`, value: "active" },
@@ -131,7 +131,7 @@ export function LicensesPage() {
         <Select 
           value={filters.tier}
           onChange={(e) => setFilters({ tier: e.target.value, offset: 0 })}
-          className="h-10 min-w-[140px] bg-white/5 border-white/10 rounded-xl font-semibold tracking-wider text-xs"
+          className="h-10 min-w-[140px] bg-base-content/5 border-base-content/10 rounded-xl font-semibold tracking-wider text-xs"
           options={[
             { label: `Hạng: Tất cả`, value: "" },
             { label: `FREE`, value: "free" },
@@ -142,7 +142,7 @@ export function LicensesPage() {
         <Select 
           value={filters.package}
           onChange={(e) => setFilters({ package: e.target.value, offset: 0 })}
-          className="h-10 min-w-[180px] bg-white/5 border-white/10 rounded-xl font-semibold tracking-wider text-xs"
+          className="h-10 min-w-[180px] bg-base-content/5 border-base-content/10 rounded-xl font-semibold tracking-wider text-xs"
           options={[
             { label: `Gói: Tất cả`, value: "" },
             ...packages.map((p) => ({ value: p.slug, label: p.display_name })),
@@ -173,7 +173,7 @@ export function LicensesPage() {
             title={hasActive ? "Không tìm thấy kết quả" : "Chưa có giấy phép nào"}
             description={hasActive ? "Hãy thử điều chỉnh lại bộ lọc tìm kiếm." : "Bắt đầu cấp giấy phép đầu tiên để khách hàng sử dụng dịch vụ."}
             action={hasActive && (
-              <Button variant="ghost" onClick={() => { setSearchInput(""); reset(); }} className="rounded-xl border border-white/10">
+              <Button variant="ghost" onClick={() => { setSearchInput(""); reset(); }} className="rounded-xl border border-base-content/10">
                 Xóa bộ lọc
               </Button>
             )}
@@ -181,7 +181,7 @@ export function LicensesPage() {
         ) : (
           <>
             <thead>
-              <tr className="bg-white/[0.02]">
+              <tr className="bg-base-content/[0.02]">
                 <th className="py-5 px-6 text-left font-semibold tracking-wider text-xs opacity-50">ID</th>
                 <th className="py-5 px-6 text-left font-semibold tracking-wider text-xs opacity-50">Mã kích hoạt</th>
                 <th className="py-5 px-6 text-left font-semibold tracking-wider text-xs opacity-50">Người dùng</th>

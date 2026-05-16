@@ -32,9 +32,9 @@ export function FlagsCard({ flags, onSave, saving }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {FLAG_SPEC.map((f) => (
             <div key={f.key} onClick={() => toggleFlag(f.key)} 
-              className={`flex flex-col gap-6 p-6 rounded-2xl border transition-all duration-300 cursor-pointer group ${form[f.key] ? (f.danger ?"bg-danger/5 border-danger/20" : "bg-primary/5 border-primary/20") : "bg-white/[0.02] border-white/5 hover:border-white/10"}`}>
+              className={`flex flex-col gap-6 p-6 rounded-2xl border transition-all duration-300 cursor-pointer group ${form[f.key] ? (f.danger ?"bg-danger/5 border-danger/20" : "bg-primary/5 border-primary/20") : "bg-base-content/[0.02] border-base-content/5 hover:border-base-content/10"}`}>
               <div className="flex items-center justify-between">
-                 <div className={`p-2 rounded-lg border ${form[f.key] ? (f.danger ?"bg-danger/10 border-danger/20 text-danger" : "bg-primary/10 border-primary/20 text-primary") : "bg-white/5 border-white/5 text-base-content/20"}`}>
+                 <div className={`p-2 rounded-lg border ${form[f.key] ? (f.danger ?"bg-danger/10 border-danger/20 text-danger" : "bg-primary/10 border-primary/20 text-primary") : "bg-base-content/5 border-base-content/5 text-base-content/20"}`}>
                     <f.icon size={16} />
                  </div>
                  <Switch checked={!!form[f.key]} onChange={() => {}} className={f.danger ? "data-[state=checked]:bg-danger" : ""} />
@@ -46,7 +46,7 @@ export function FlagsCard({ flags, onSave, saving }) {
             </div>
           ))}
         </div>
-        <div className="flex justify-end mt-10 pt-8 border-t border-white/5">
+        <div className="flex justify-end mt-10 pt-8 border-t border-base-content/5">
           <Button type="button" variant="primary" disabled={saving} onClick={() => onSave(form)} className="h-10 px-10 rounded-xl font-semibold tracking-wider text-xs">
             {saving ? "Đang đồng bộ..." : "Lưu cấu hình hệ thống"}
           </Button>

@@ -17,9 +17,9 @@ export function AdminTableSkeleton() {
       </div>
 
       {/* Toolbar Ghost */}
-      <div className="p-6 rounded-[2rem] bg-base-200/20 border border-white/5 flex flex-col gap-6">
+      <div className="p-6 rounded-[2rem] bg-base-200/20 border border-base-content/5 flex flex-col gap-6">
         <div className="h-10 w-full skeleton rounded-xl" />
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-3 pt-6 border-t border-white/5">
+        <div className="grid grid-cols-2 md:grid-cols-6 gap-3 pt-6 border-t border-base-content/5">
           {[1, 2, 3, 4, 5, 6].map((i) => (
             <div key={i} className="h-10 w-full skeleton rounded-xl" />
           ))}
@@ -27,10 +27,10 @@ export function AdminTableSkeleton() {
       </div>
 
       {/* Table Ghost */}
-      <div className="rounded-3xl border border-white/5 bg-base-200/20 overflow-hidden">
-        <div className="h-14 w-full bg-white/5 border-b border-white/5" />
+      <div className="rounded-3xl border border-base-content/5 bg-base-200/20 overflow-hidden">
+        <div className="h-14 w-full bg-base-content/5 border-b border-base-content/5" />
         {[1, 2, 3, 4, 5, 6, 7].map((i) => (
-          <div key={i} className="h-20 w-full border-b border-white/5 flex items-center px-8 gap-8">
+          <div key={i} className="h-20 w-full border-b border-base-content/5 flex items-center px-8 gap-8">
             <div className="flex items-center gap-4 flex-1">
               <div className="w-12 h-12 rounded-2xl skeleton" />
               <div className="flex flex-col gap-2">

@@ -109,7 +109,7 @@ export function UserProfilePage() {
            <h2 className="text-xl font-semibold tracking-wider text-base-content">Không tìm thấy người dùng</h2>
            <p className="text-xs font-bold text-base-content/40">Định danh người dùng được yêu cầu không tồn tại trong hệ thống.</p>
         </div>
-        <Button variant="ghost" onClick={() => navigate("/admin/users")} className="h-10 px-8 rounded-xl border border-white/5 font-semibold tracking-wider text-xs">
+        <Button variant="ghost" onClick={() => navigate("/admin/users")} className="h-10 px-8 rounded-xl border border-base-content/5 font-semibold tracking-wider text-xs">
            <ArrowLeft size={14} className="mr-2" /> Quay lại danh sách
         </Button>
       </AdminCard>
@@ -124,7 +124,7 @@ export function UserProfilePage() {
         actions={
           <div className="flex items-center gap-3">
              <Link to="/admin/users">
-                <Button variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-xs">
+                <Button variant="ghost" className="h-10 px-4 rounded-xl border border-base-content/5 font-semibold tracking-wider text-xs">
                    <ChevronLeft size={14} className="mr-1" /> Danh sách
                 </Button>
              </Link>
@@ -139,7 +139,7 @@ export function UserProfilePage() {
         {/* Thông tin tóm tắt */}
         <div className="lg:col-span-1 flex flex-col gap-6">
           <AdminCard className="p-0 overflow-hidden">
-             <div className="h-24 bg-gradient-to-br from-primary/10 to-brand/10 border-b border-white/5 relative">
+             <div className="h-24 bg-gradient-to-br from-primary/10 to-brand/10 border-b border-base-content/5 relative">
                 <div className="absolute top-4 right-4 text-xs font-medium text-primary/60">Đang hoạt động</div>
              </div>
              
@@ -151,16 +151,16 @@ export function UserProfilePage() {
                     className="relative w-24 h-24 rounded-2xl bg-base-200 object-cover border-4 border-[#121212] shadow-2xl"
                   />
                   <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-success rounded-lg border-4 border-[#0a0a0a] flex items-center justify-center">
-                     <Zap size={10} className="text-white" />
+                     <Zap size={10} className="text-base-content" />
                   </div>
                 </div>
                 
-                <h2 className="mt-4 text-lg font-bold text-white tracking-tight">{user.name || "CHƯA CÓ TÊN"}</h2>
+                <h2 className="mt-4 text-lg font-bold text-base-content tracking-tight">{user.name || "CHƯA CÓ TÊN"}</h2>
                 <div className="flex items-center gap-2 text-xs font-bold text-base-content/30 tracking-wider mt-1">
                    <Mail size={10} /> {user.email}
                 </div>
                 
-                <div className="w-full h-px bg-white/5 my-8" />
+                <div className="w-full h-px bg-base-content/5 my-8" />
                 
                 <div className="grid grid-cols-2 gap-4 w-full">
                    <AdminStatCard label="Giấy phép" value={user.license_count || 0} icon={Box} tone="primary" />
@@ -191,7 +191,7 @@ export function UserProfilePage() {
              </div>
           </AdminCard>
 
-          <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 flex items-center gap-4">
+          <div className="p-6 rounded-2xl bg-base-content/[0.02] border border-base-content/5 flex items-center gap-4">
              <Fingerprint size={24} className="text-primary/40" />
              <div className="flex flex-col">
                 <span className="text-xs font-semibold tracking-wider text-base-content/30">Mã truy cập hệ thống</span>
@@ -206,7 +206,7 @@ export function UserProfilePage() {
             <div className="flex items-center gap-4 mb-10">
               <div className="w-1 h-8 bg-primary rounded-full" />
               <div className="flex flex-col gap-1">
-                <h3 className="text-sm font-semibold tracking-wider text-white m-0">Dữ liệu tích hợp hệ thống</h3>
+                <h3 className="text-sm font-semibold tracking-wider text-base-content m-0">Dữ liệu tích hợp hệ thống</h3>
                 <p className="text-xs font-bold text-base-content/30 tracking-wide">Cấu hình các tham số kết nối REST API cho các điểm cuối của khách hàng.</p>
               </div>
             </div>
@@ -222,7 +222,7 @@ export function UserProfilePage() {
                     leadingIcon={Globe}
                     value={siteUrl}
                     onChange={(e) => setSiteUrl(e.target.value)}
-                    className="h-14 bg-white/5 border-white/10 rounded-2xl focus:border-primary/50 font-bold text-sm"
+                    className="h-14 bg-base-content/5 border-base-content/10 rounded-2xl focus:border-primary/50 font-bold text-sm"
                   />
                   <p className="text-xs font-bold text-base-content/20 tracking-wider ml-1 flex items-center gap-2">
                      <Terminal size={10} /> Trang WordPress đang chạy hệ thống Pi Plugin.
@@ -240,20 +240,20 @@ export function UserProfilePage() {
                       leadingIcon={Key}
                       value={appPassword}
                       onChange={(e) => setAppPassword(e.target.value)}
-                      className="flex-1 h-14 bg-white/5 border-white/10 rounded-2xl focus:border-primary/50 font-mono text-sm tracking-widest"
+                      className="flex-1 h-14 bg-base-content/5 border-base-content/10 rounded-2xl focus:border-primary/50 font-mono text-sm tracking-widest"
                     />
                     <div className="flex gap-2">
                       <IconButton 
                         icon={showPassword ? EyeOff : Eye} 
                         size="sm" 
                         onClick={() => setShowPassword(!showPassword)} 
-                        className="h-14 w-14 rounded-2xl bg-white/5 border border-white/10"
+                        className="h-14 w-14 rounded-2xl bg-base-content/5 border border-base-content/10"
                       />
                       <IconButton 
                         icon={Copy} 
                         size="sm" 
                         onClick={() => copyToClipboard(appPassword)}
-                        className="h-14 w-14 rounded-2xl bg-white/5 border border-white/10"
+                        className="h-14 w-14 rounded-2xl bg-base-content/5 border border-base-content/10"
                       />
                     </div>
                   </div>
@@ -263,7 +263,7 @@ export function UserProfilePage() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pt-8 border-t border-white/5">
+              <div className="flex items-center justify-between pt-8 border-t border-base-content/5">
                 <div className="flex items-center gap-3 text-primary/40">
                 </div>
                 

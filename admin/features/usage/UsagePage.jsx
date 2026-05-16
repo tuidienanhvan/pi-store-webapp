@@ -91,7 +91,7 @@ export function UsagePage() {
         hasActive={hasActive}
       >
         <div className="flex flex-wrap items-center gap-4">
-           <div className="flex items-center gap-2 bg-white/5 p-1 rounded-xl border border-white/5">
+           <div className="flex items-center gap-2 bg-base-content/5 p-1 rounded-xl border border-base-content/5">
              {DAYS_OPTIONS.map((d) => (
                <button key={d} 
                  onClick={() => setFilter("days", d)}
@@ -101,11 +101,11 @@ export function UsagePage() {
              ))}
            </div>
            
-           <div className="w-px h-6 bg-white/5 mx-2" />
+           <div className="w-px h-6 bg-base-content/5 mx-2" />
            
            <Select value={filters.plugin}
              onChange={(e) => setFilter("plugin", e.target.value)}
-             className="h-10 min-w-[160px] bg-white/5 border-white/10 rounded-xl font-semibold text-xs tracking-widest"
+             className="h-10 min-w-[160px] bg-base-content/5 border-base-content/10 rounded-xl font-semibold text-xs tracking-widest"
              options={[
                { label: "Tất cả sản phẩm", value: "" },
                { label: "Pi-SEO", value: "Pi-SEO" },
@@ -119,7 +119,7 @@ export function UsagePage() {
 
            <Select value={filters.quality}
              onChange={(e) => setFilter("quality", e.target.value)}
-             className="h-10 min-w-[160px] bg-white/5 border-white/10 rounded-xl font-semibold text-xs tracking-widest"
+             className="h-10 min-w-[160px] bg-base-content/5 border-base-content/10 rounded-xl font-semibold text-xs tracking-widest"
              options={[
                { label: "Tất cả chất lượng", value: "" },
                { label: "Nhanh (Fast)", value: "fast" },
@@ -129,7 +129,7 @@ export function UsagePage() {
 
            <Select value={filters.status}
              onChange={(e) => setFilter("status", e.target.value)}
-             className="h-10 min-w-[160px] bg-white/5 border-white/10 rounded-xl font-semibold text-xs tracking-widest"
+             className="h-10 min-w-[160px] bg-base-content/5 border-base-content/10 rounded-xl font-semibold text-xs tracking-widest"
              options={[
                { label: "Tất cả trạng thái", value: "" },
                { label: "THÀNH CÔNG", value: "success" },
@@ -179,7 +179,7 @@ export function UsagePage() {
                     <div className="bg-primary/30 group-hover:bg-primary/60 w-full transition-all duration-300" style={{ height: `${successHeight}%` }} />
                     
                     {/* Tooltip khi di chuột */}
-                    <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-base-300 border border-white/10 px-2 py-1 rounded text-xs font-bold text-base-content whitespace-nowrap opacity-60 group-hover:opacity-100 transition-opacity z-10 pointer-events-none tracking-wider shadow-xl">
+                    <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-base-300 border border-base-content/10 px-2 py-1 rounded text-xs font-bold text-base-content whitespace-nowrap opacity-60 group-hover:opacity-100 transition-opacity z-10 pointer-events-none tracking-wider shadow-xl">
                        {d.date}: {d.success || 0} OK / {d.fail || 0} Lỗi
                     </div>
                   </div>
@@ -194,10 +194,10 @@ export function UsagePage() {
           )}
           {/* Lưới tọa độ ẩn */}
           <div className="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-5">
-             <div className="w-full h-px bg-white" />
-             <div className="w-full h-px bg-white" />
-             <div className="w-full h-px bg-white" />
-             <div className="w-full h-px bg-white" />
+             <div className="w-full h-px bg-base-100" />
+             <div className="w-full h-px bg-base-100" />
+             <div className="w-full h-px bg-base-100" />
+             <div className="w-full h-px bg-base-100" />
           </div>
         </div>
       </AdminCard>
@@ -212,7 +212,7 @@ export function UsagePage() {
            </div>
            <AdminTable>
              <thead>
-               <tr className="bg-white/[0.02]">
+               <tr className="bg-base-content/[0.02]">
                  <th className="py-4 px-6 text-left font-semibold tracking-wider text-xs opacity-50">Sản phẩm</th>
                  <th className="py-4 px-6 text-right font-semibold tracking-wider text-xs opacity-50">Lượt gọi</th>
                  <th className="py-4 px-6 text-right font-semibold tracking-wider text-xs opacity-50">Doanh thu</th>
@@ -224,7 +224,7 @@ export function UsagePage() {
                {byPlugin.map((row) => {
                  const sharePct = totalTokens > 0 ? (row.tokens / totalTokens) * 100 : 0;
                  return (
-                   <tr key={row.plugin} className="group hover:bg-white/[0.01]">
+                   <tr key={row.plugin} className="group hover:bg-base-content/[0.01]">
                      <td className="py-5 px-6">
                         <span className="text-xs font-bold text-primary tracking-wider">{row.plugin}</span>
                      </td>
@@ -239,7 +239,7 @@ export function UsagePage() {
                      </td>
                      <td className="py-5 px-6">
                        <div className="flex items-center justify-end gap-3">
-                         <div className="h-1.5 w-20 bg-white/5 rounded-full overflow-hidden border border-white/5 relative">
+                         <div className="h-1.5 w-20 bg-base-content/5 rounded-full overflow-hidden border border-base-content/5 relative">
                            <div className="absolute inset-0 bg-primary/40 rounded-full" style={{ width: `${sharePct}%` }} />
                          </div>
                          <span className="text-xs font-bold text-base-content/20 w-8 text-right">{sharePct.toFixed(0)}%</span>
@@ -260,7 +260,7 @@ export function UsagePage() {
            </div>
            <AdminTable>
               <thead>
-                <tr className="bg-white/[0.02]">
+                <tr className="bg-base-content/[0.02]">
                   <th className="py-4 px-6 text-left font-semibold tracking-wider text-xs opacity-40">Mã lỗi</th>
                   <th className="py-4 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Số lần xuất hiện</th>
                   <th className="py-4 px-6 text-right font-semibold tracking-wider text-xs opacity-40">Mức độ</th>

@@ -5,18 +5,18 @@ import { AdminUserFooter } from "./AdminUserFooter";
 
 export function AdminSidebar({ nav = [], onLinkClick }) {
   return (
-    <div className="flex flex-col h-full bg-base-200/20 border-r border-white/5">
+    <div className="flex flex-col h-full bg-base-200/20 border-r border-base-content/5">
       {/* Brand Section */}
-      <div className="h-20 lg:h-24 flex items-center px-6 border-b border-white/5 bg-gradient-to-b from-white/[0.03] to-transparent relative overflow-hidden">
+      <div className="h-20 lg:h-24 flex items-center px-6 border-b border-base-content/5 bg-gradient-to-b from-white/[0.03] to-transparent relative overflow-hidden">
         <div className="absolute -top-10 -left-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
         
         <div className="flex items-center gap-4 relative">
-          <div className="relative z-10 flex items-center justify-center w-10 h-10 bg-base-300 border border-white/10 rounded-xl overflow-hidden group hover:border-primary/50 transition-all duration-500">
+          <div className="relative z-10 flex items-center justify-center w-10 h-10 bg-base-300 border border-base-content/10 rounded-xl overflow-hidden group hover:border-primary/50 transition-all duration-500">
             <PiLogo size={20} className="relative z-20 text-primary" />
           </div>
 
           <div className="flex flex-col relative z-10">
-            <h2 className="text-[14px] font-bold tracking-widest text-white leading-tight">
+            <h2 className="text-[14px] font-bold tracking-widest text-base-content leading-tight">
               Pi <span className="text-primary">Quản trị</span>
             </h2>
             <div className="flex items-center gap-1.5 mt-0.5">
@@ -41,7 +41,7 @@ export function AdminSidebar({ nav = [], onLinkClick }) {
       </nav>
 
       {/* User Footer Section */}
-      <div className="mt-auto border-t border-white/5">
+      <div className="mt-auto border-t border-base-content/5">
         <AdminUserFooter />
       </div>
     </div>

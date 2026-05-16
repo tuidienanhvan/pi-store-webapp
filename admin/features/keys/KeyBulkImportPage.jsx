@@ -59,7 +59,7 @@ export function KeyBulkImportPage() {
         title="Nhập khóa (Bulk Import)"
         tagline="Nhập danh sách khóa API số lượng lớn từ định dạng CSV"
         actions={
-          <Button as={Link} to="/admin/keys" variant="ghost" className="h-10 px-4 rounded-xl border border-white/5 font-semibold tracking-wider text-xs">
+          <Button as={Link} to="/admin/keys" variant="ghost" className="h-10 px-4 rounded-xl border border-base-content/5 font-semibold tracking-wider text-xs">
             <ArrowLeft size={14} className="mr-2" /> Quay lại danh sách
           </Button>
         }
@@ -74,7 +74,7 @@ export function KeyBulkImportPage() {
               value={text}
               onChange={(e) => setText(e.target.value)}
               placeholder={`groq-llama-70b-free, gsk_xxx, khóa-01, 1000000\nopenai-gpt4o-paid, sk_xxx, khóa-02, 0`}
-              className="font-mono text-sm bg-white/5 border-white/10 rounded-2xl p-6 focus:border-primary/50 transition-all resize-none w-full leading-relaxed"
+              className="font-mono text-sm bg-base-content/5 border-base-content/10 rounded-2xl p-6 focus:border-primary/50 transition-all resize-none w-full leading-relaxed"
             />
           </FormSection>
         </div>
@@ -88,7 +88,7 @@ export function KeyBulkImportPage() {
               <p className="text-xs font-medium leading-relaxed opacity-80 mt-1">
                 Nhập từng dòng theo cấu trúc sau (phân tách bằng dấu phẩy):
               </p>
-              <code className="text-xs bg-black/20 p-2 rounded-lg mt-1 font-mono">
+              <code className="text-xs bg-base-content/20 p-2 rounded-lg mt-1 font-mono">
                 provider_slug, key_value, label, quota
               </code>
             </div>
@@ -126,7 +126,7 @@ export function KeyBulkImportPage() {
                {saving ? "ĐANG XỬ LÝ DỮ LIỆU..." : "BẮT ĐẦU NHẬP DỮ LIỆU"}
              </Button>
              
-             <Button as={Link} to="/admin/keys" variant="ghost" className="h-12 w-full rounded-xl border border-white/5 text-xs font-semibold text-base-content/40">
+             <Button as={Link} to="/admin/keys" variant="ghost" className="h-12 w-full rounded-xl border border-base-content/5 text-xs font-semibold text-base-content/40">
                Đóng
              </Button>
           </div>

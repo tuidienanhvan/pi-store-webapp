@@ -112,7 +112,7 @@ export function UsersPage() {
 
       <AdminTable>
         <thead>
-          <tr className="bg-white/[0.02]">
+          <tr className="bg-base-content/[0.02]">
             <th className="py-5 px-6 text-left font-semibold tracking-wider text-xs opacity-50">Hồ sơ người dùng</th>
             <th className="py-5 px-6 text-center font-semibold tracking-wider text-xs opacity-50">Cấp độ truy cập</th>
             <th className="py-5 px-6 text-center font-semibold tracking-wider text-xs opacity-50">Tài nguyên</th>
@@ -129,7 +129,7 @@ export function UsersPage() {
             filteredUsers.map((u) => (
               <tr 
                 key={u.id} 
-                className={`group transition-all hover:bg-white/[0.01] ${u.status ==="deactivated" ? "opacity-30 grayscale blur-[1px]" : ""}`}
+                className={`group transition-all hover:bg-base-content/[0.01] ${u.status ==="deactivated" ? "opacity-30 grayscale blur-[1px]" : ""}`}
               >
                 <td className="py-5 px-6">
                   <div className="flex items-center gap-4">
@@ -137,7 +137,7 @@ export function UsersPage() {
                       <img 
                         src={`https://api.dicebear.com/7.x/lorelei/svg?seed=${u.email}&backgroundColor=b6e3f4,c0aede,d1d4f9`} 
                         alt={u.name}
-                        className="relative w-11 h-11 rounded-xl bg-base-200 object-cover border border-white/10"
+                        className="relative w-11 h-11 rounded-xl bg-base-200 object-cover border border-base-content/10"
                       />
                       {u.status === "active" && (
                         <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-success rounded-full border-2 border-[#0a0a0a]" />
@@ -161,7 +161,7 @@ export function UsersPage() {
                 <td className="py-5 px-6 text-center">
                   <div className="flex flex-col items-center">
                     <AdminValue className="text-sm">{u.keys_count || 0}</AdminValue>
-                    <span className="text-xs font-semibold text-white/10 tracking-wider">Khóa</span>
+                    <span className="text-xs font-semibold text-base-content/10 tracking-wider">Khóa</span>
                   </div>
                 </td>
                 <td className="py-5 px-6 text-right font-mono">
@@ -169,7 +169,7 @@ export function UsersPage() {
                     <span className="text-xs font-semibold text-base-content">
                       {formatCurrencyUSD(u.balance || 0, locale)}
                     </span>
-                    <span className="text-xs font-semibold text-white/10 tracking-wider">Khả dụng</span>
+                    <span className="text-xs font-semibold text-base-content/10 tracking-wider">Khả dụng</span>
                   </div>
                 </td>
                 <td className="py-5 px-6 text-right font-mono">
@@ -177,17 +177,17 @@ export function UsersPage() {
                     <span className="text-xs font-semibold text-primary">
                       {formatCurrencyUSD(u.total_spent || 0, locale)}
                     </span>
-                    <span className="text-xs font-semibold text-white/10 tracking-wider">Giá trị trọn đời</span>
+                    <span className="text-xs font-semibold text-base-content/10 tracking-wider">Giá trị trọn đời</span>
                   </div>
                 </td>
                 <td className="py-5 px-6">
                   <div className="flex flex-col gap-1.5">
                     <div className="flex items-center gap-3">
-                       <UserPlus size={10} className="text-white/20" />
+                       <UserPlus size={10} className="text-base-content/20" />
                        <span className="text-xs font-medium text-base-content/40">{formatDate(u.created_at, locale)}</span>
                     </div>
                     <div className="flex items-center gap-3">
-                       <Activity size={10} className="text-white/20" />
+                       <Activity size={10} className="text-base-content/20" />
                        <span className="text-xs font-medium text-base-content/30 italic">{u.last_login_at ? formatDate(u.last_login_at, locale) : "Không hoạt động"}</span>
                     </div>
                   </div>

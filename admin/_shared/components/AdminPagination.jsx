@@ -32,7 +32,7 @@ export function AdminPagination({
             <ChevronLeft size={16} />
           </Button>
           
-          <div className="px-4 py-1.5 bg-white/5 border border-white/5 rounded-lg text-xs font-semibold text-primary">
+          <div className="px-4 py-1.5 bg-base-content/5 border border-base-content/5 rounded-lg text-xs font-semibold text-primary">
             {page} / {totalPages || 1}
           </div>
 
@@ -48,7 +48,7 @@ export function AdminPagination({
         </div>
 
         <select 
-          className="h-9 bg-white/5 border border-white/5 rounded-lg px-3 text-xs font-semibold tracking-wide outline-none focus:border-primary/50 transition-all cursor-pointer"
+          className="h-9 bg-base-content/5 border border-base-content/5 rounded-lg px-3 text-xs font-semibold tracking-wide outline-none focus:border-primary/50 transition-all cursor-pointer"
           value={pageSize}
           onChange={(e) => onPageSizeChange?.(Number(e.target.value))}
         >

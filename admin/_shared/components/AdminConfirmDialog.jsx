@@ -79,7 +79,7 @@ export function AdminConfirmDialog({
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/75 backdrop-blur-sm" onClick={(e) => e.target === e.currentTarget && handleClose()}>
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-base-content/75 backdrop-blur-sm" onClick={(e) => e.target === e.currentTarget && handleClose()}>
       <div className="w-full max-w-md rounded-2xl border border-base-border bg-base-200 shadow-2xl overflow-hidden">
         <div className="h-14 px-5 border-b border-base-border flex items-center gap-3 bg-base-100/70">
           <span className={`w-8 h-8 rounded-lg border flex items-center justify-center ${BADGE_BY_TONE[tone] || BADGE_BY_TONE.danger}`}>
