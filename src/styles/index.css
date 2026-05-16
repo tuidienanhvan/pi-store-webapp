@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* Scope Tailwind source-scanning to JSX/HTML inside the webapp roots only.
+   Cuts Tailwind generate() pass by ~50-100ms by skipping node_modules,
+   build/, dist/, plugins/ etc. Without this, Tailwind walks the whole repo. */
+@source "../../index.html";
+@source "../../src/**/*.{js,jsx,ts,tsx}";
+@source "../../admin/**/*.{js,jsx,ts,tsx}";
+
 /* ═══════════════════════════════════════════════════════════════
    PI GLOBAL · THEME CONFIG (DaisyUI-inspired)
 
