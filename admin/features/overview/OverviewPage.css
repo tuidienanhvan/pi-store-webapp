@@ -14,14 +14,12 @@
 .pi-overview-page__panel {
   border: 1px solid color-mix(in srgb, var(--bc) 6%, transparent);
   background: color-mix(in srgb, var(--b2) 88%, transparent);
-  box-shadow: var(--shadow-md);
 }
 
 .pi-overview-page__table-card {
   overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--bc) 6%, transparent);
   background: color-mix(in srgb, var(--b2) 92%, transparent);
-  box-shadow: var(--shadow-md);
 }
 
 .pi-overview-page__table-card table thead tr {
@@ -36,5 +34,4 @@
   border-radius: var(--radius-lg, 0.75rem);
   border: 1px solid color-mix(in srgb, var(--bc) 6%, transparent);
   background: color-mix(in srgb, var(--b2) 72%, transparent);
-  box-shadow: var(--shadow-sm);
 }

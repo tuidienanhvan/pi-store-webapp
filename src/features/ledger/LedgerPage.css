@@ -98,8 +98,6 @@
 
   overflow: hidden;
 
-  box-shadow: 0 20px 50px -20px color-mix(in srgb, transparent 50%, var(--bc));
-
 }
 
 

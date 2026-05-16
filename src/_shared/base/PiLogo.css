@@ -1,6 +1,6 @@
 :root {
-  --pi-logo-color: #d35573;
-  --pi-logo-glow: rgba(211, 85, 115, 0.5);
+  --pi-logo-color: var(--p);
+  --pi-logo-glow: color-mix(in srgb, var(--p) 50%, transparent);
 }
 
 .pi-logo-container {
@@ -46,11 +46,11 @@
 
 @keyframes piLogoPulse {
   from { 
-    filter: drop-shadow(0 0 8px rgba(211, 85, 115, 0.25));
+    filter: drop-shadow(0 0 8px color-mix(in srgb, var(--p) 25%, transparent));
     transform: scale(1);
   }
   to { 
-    filter: drop-shadow(0 0 20px rgba(211, 85, 115, 0.55));
+    filter: drop-shadow(0 0 20px color-mix(in srgb, var(--p) 55%, transparent));
     transform: scale(1.04);
   }
 }

@@ -5,13 +5,11 @@
 .pi-licenses-page__filters {
   border: 1px solid color-mix(in srgb, var(--bc) 6%, transparent);
   background: color-mix(in srgb, var(--b2) 90%, transparent);
-  box-shadow: var(--shadow-sm);
 }
 
 .pi-licenses-page__table {
   border: 1px solid color-mix(in srgb, var(--bc) 6%, transparent);
   background: color-mix(in srgb, var(--b2) 94%, transparent);
-  box-shadow: var(--shadow-md);
 }
 
 .pi-licenses-page__table thead tr {

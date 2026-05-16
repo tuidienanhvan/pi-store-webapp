@@ -132,8 +132,6 @@
 
   padding: 2rem;
 
-  box-shadow: var(--shadow-2xl);
-
   transition: all 0.5s;
 
 }

@@ -9,7 +9,6 @@
 .pi-license-assign-package-page .form-section {
   border: 1px solid color-mix(in srgb, var(--bc) 6%, transparent);
   background: color-mix(in srgb, var(--b2) 92%, transparent);
-  box-shadow: var(--shadow-md);
 }
 
 .pi-license-assign-package-page__loading,
@@ -27,7 +26,6 @@
 .pi-license-assign-package-page__cycle-card {
   border: 1px solid color-mix(in srgb, var(--p) 28%, transparent);
   background: color-mix(in srgb, var(--p) 8%, var(--b2));
-  box-shadow: var(--shadow-md);
 }
 
 .pi-license-assign-package-page__progress-track {

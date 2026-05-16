@@ -5,14 +5,12 @@
 .pi-keys-page__filters {
   border: 1px solid color-mix(in srgb, var(--bc) 6%, transparent);
   background: color-mix(in srgb, var(--b2) 90%, transparent);
-  box-shadow: var(--shadow-sm);
 }
 
 .pi-keys-page__summary-table,
 .pi-keys-page__table {
   border: 1px solid color-mix(in srgb, var(--bc) 6%, transparent);
   background: color-mix(in srgb, var(--b2) 92%, transparent);
-  box-shadow: var(--shadow-md);
 }
 
 .pi-keys-page__summary-table thead tr,

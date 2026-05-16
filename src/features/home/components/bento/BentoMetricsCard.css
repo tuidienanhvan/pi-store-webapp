@@ -52,7 +52,6 @@
 .pi-optimized .bar-fill {
   width: 15%;
   background: var(--p);
-  box-shadow: 0 0 15px color-mix(in srgb, var(--p) 30%, transparent);
 }
 
 .bar-value {
@@ -75,7 +74,6 @@
   font-weight: 950;
   padding: 3px 8px;
   border-radius: 4px;
-  box-shadow: 0 5px 15px color-mix(in srgb, var(--p) 40%, transparent);
 }
 
 /* 2. Breakdown HUD */

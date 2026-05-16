@@ -16,8 +16,6 @@
 .pricing-card:hover {
   transform: translateY(-12px);
   border-color: color-mix(in srgb, var(--p) 30%, transparent);
-  box-shadow: 0 40px 80px -20px color-mix(in srgb, var(--b1) 50%, var(--bc)),
-              0 0 20px -10px color-mix(in srgb, var(--p) 20%, transparent);
 }
 
 .pricing-card--popular {
@@ -92,7 +90,6 @@
   border-bottom-right-radius: 12px;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  box-shadow: 0 4px 12px color-mix(in srgb, var(--p) 40%, transparent);
   display: flex;
   align-items: center;
   z-index: 10;
@@ -218,7 +215,6 @@
 .gauge-fill {
   height: 100%;
   background: var(--p);
-  box-shadow: 0 0 10px var(--p);
   border-radius: 100px;
   transition: width 1s ease-out;
 }
@@ -258,7 +254,6 @@
   border-radius: 1px;
   margin-top: 8px;
   flex-shrink: 0;
-  box-shadow: 0 0 8px var(--p);
 }
 
 .feature-text {
@@ -291,12 +286,10 @@
 .pricing-cta.primary {
   background: var(--p);
   color: var(--pc);
-  box-shadow: 0 12px 24px -6px color-mix(in srgb, var(--p) 50%, transparent);
 }
 
 .pricing-cta.primary:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px -10px color-mix(in srgb, var(--p) 60%, transparent);
 }
 
 .pricing-cta.outline {

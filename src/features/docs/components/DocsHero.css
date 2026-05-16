@@ -79,7 +79,6 @@
 .search-box-wrapper:focus-within {
   border-color: var(--p);
   background: color-mix(in srgb, var(--p) 3%, transparent);
-  box-shadow: 0 0 30px color-mix(in srgb, var(--p) 15%, transparent);
 }
 
 .search-icon {

@@ -54,7 +54,6 @@
   align-items: center;
   justify-content: center;
   color: var(--p);
-  box-shadow: 0 0 20px color-mix(in srgb, var(--p) 30%, transparent);
   transform: rotate(45deg);
 }
 
@@ -140,7 +139,6 @@
   font-weight: 900;
   color: var(--p);
   white-space: nowrap;
-  box-shadow: 0 0 10px color-mix(in srgb, var(--p) 20%, transparent);
 }
 
 .o1 .ai-orb { animation: counter1 15s infinite linear; }

@@ -12,7 +12,6 @@
   border: 1px solid var(--base-border);
   background-color: var(--base-200);
   padding: 1.5rem;
-  box-shadow: var(--shadow-xl);
 }
 
 @media (min-width: 768px) {
