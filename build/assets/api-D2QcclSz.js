@@ -1,1 +1,0 @@
-import{t as e}from"./api-client-qHw0eyze.js";var t={list:()=>e.admin.packages(),create:t=>e.admin.createPackage(t),update:(t,n)=>e.admin.updatePackage(t,n),delete:t=>e.admin.deletePackage(t)};export{t};

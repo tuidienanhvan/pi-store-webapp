@@ -1,1 +1,0 @@
-import{t as e}from"./api-client-qHw0eyze.js";var t={list:()=>e.admin.releases(),upload:t=>e.admin.uploadRelease(t)};export{t};

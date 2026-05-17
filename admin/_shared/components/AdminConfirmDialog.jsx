@@ -28,8 +28,8 @@ export function AdminConfirmDialog({
   message,
   onConfirm,
   onCancel,
-  confirmLabel = "Xac nhan",
-  cancelLabel = "Huy bo",
+  confirmLabel = "Xác nhận",
+  cancelLabel = "Hủy bỏ",
   tone = "danger",
   disabled = false,
 }) {
@@ -68,7 +68,7 @@ export function AdminConfirmDialog({
       await Promise.resolve(onConfirm?.());
       onCancel?.();
     } catch (error) {
-      setErrorText(error?.message || "Khong the hoan tat thao tac.");
+      setErrorText(error?.message || "Không thể hoàn tất thao tác.");
     } finally {
       setLoading(false);
     }
