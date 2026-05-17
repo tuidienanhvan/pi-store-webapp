@@ -388,6 +388,10 @@ export const api = {
 
     updateSettings: (payload) => request("PUT", "/v1/admin/settings", { body: payload }),
 
+    // AI usage drilldown (T-018) — per-request event log + pivot aggregates
+    usageEvents: (params) => request("GET", "/v1/admin/usage/events", { params }),
+    usageAggregate: (params) => request("GET", "/v1/admin/usage/aggregate", { params }),
+
 
 
     // Keys pool
