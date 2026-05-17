@@ -1,0 +1,21 @@
+/* TokenLedgerPage — page-scoped styles (most layout via Tailwind). */
+
+.pi-token-ledger {
+  width: 100%;
+}
+
+.pi-token-ledger .skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  background-size: 200% 100%;
+  animation: pi-ledger-shimmer 1.4s linear infinite;
+}
+
+@keyframes pi-ledger-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
