@@ -16,7 +16,8 @@ import {
   Users,
   TimerReset,
   BookText,
-  Building2
+  Building2,
+  Activity
 } from "lucide-react";
 
 // Layout Components
@@ -34,6 +35,7 @@ const ADMIN_NAV = [
     items: [
       { to: "/admin",                 label: "Tổng quan",       icon: LayoutDashboard, end: true },
       { to: "/admin/usage",           label: "Sử dụng",          icon: Monitor },
+      { to: "/admin/usage/explorer",  label: "Khám phá Usage",   icon: Activity },
       { to: "/admin/tokens/ledger",   label: "Sổ cái Token",     icon: BookText },
       { to: "/admin/revenue",         label: "Doanh thu",        icon: Zap },
     ]

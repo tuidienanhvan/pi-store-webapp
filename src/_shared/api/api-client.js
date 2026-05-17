@@ -404,6 +404,10 @@ export const api = {
     rechargeSaasTenant: (id, payload) =>
       request("POST", `/v1/admin/saas/tenants/${id}/tokens/recharge`, { body: payload }),
 
+    // AI usage drilldown (T-018) — per-request event log + pivot aggregates
+    usageEvents: (params) => request("GET", "/v1/admin/usage/events", { params }),
+    usageAggregate: (params) => request("GET", "/v1/admin/usage/aggregate", { params }),
+
 
 
     // Keys pool

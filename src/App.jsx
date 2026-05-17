@@ -63,6 +63,7 @@ const TokenLedgerPage = lazy(() => import('@admin/features/tokens').then(m => ({
 const TenantsPage = lazy(() => import('@admin/features/tenants').then(m => ({ default: m.TenantsPage })));
 const TenantCreatePage = lazy(() => import('@admin/features/tenants').then(m => ({ default: m.TenantCreatePage })));
 const TenantDetailPage = lazy(() => import('@admin/features/tenants').then(m => ({ default: m.TenantDetailPage })));
+const UsageExplorerPage = lazy(() => import('@admin/features/usage').then(m => ({ default: m.UsageExplorerPage })));
 
 // Public layout (non-lazy for shell stability)
 import PublicLayout from './features/public-misc/PublicLayout';
@@ -140,6 +141,7 @@ function App() {
             <Route path="tenants/:id" element={<TenantDetailPage />} />
             <Route path="cron" element={<CronPage />} />
             <Route path="tokens/ledger" element={<TokenLedgerPage />} />
+            <Route path="usage/explorer" element={<UsageExplorerPage />} />
           </Route>
 
           {/* Fallback */}
