@@ -1,0 +1,1 @@
+import{m as r}from"./index-CVBNb6kJ.js";const t={list:()=>r.admin.providers(),toggle:(e,d)=>r.admin.toggleProvider(e,d),delete:e=>r.admin.deleteProvider(e),test:e=>r.admin.testProvider(e),create:e=>r.admin.createProvider(e),update:(e,d)=>r.admin.updateProvider(e,d)};export{t as providersApi};

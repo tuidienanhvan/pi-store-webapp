@@ -3,7 +3,7 @@ node_modules/
 
 # Build output
 dist/
-build/
+# build/ committed for Vercel prebuilt serving (bypasses Vite/rolldown Linux build bug)
 .vite/
 *.tsbuildinfo
 

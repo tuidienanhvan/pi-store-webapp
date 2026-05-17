@@ -1,6 +1,8 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "echo 'Using prebuilt build/ from git — bypasses Vite/rolldown Linux build bug'",
   "outputDirectory": "build",
+  "installCommand": "echo 'No install needed for prebuilt'",
+  "framework": null,
   "routes": [
     {
       "src": "/api/(.*)",
@@ -15,4 +17,3 @@
     }
   ]
 }
-

@@ -1,0 +1,1 @@
+import{m as e}from"./index-CVBNb6kJ.js";const c={list:()=>e.admin.packages(),create:a=>e.admin.createPackage(a),update:(a,t)=>e.admin.updatePackage(a,t),delete:a=>e.admin.deletePackage(a)};export{c as p};

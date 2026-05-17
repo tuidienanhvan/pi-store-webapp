@@ -1,0 +1,1 @@
+import{o as s}from"./index-CVBNb6kJ.js";function x({children:t,tone:n="neutral",className:a="",icon:e}){const i=`badge--${n}`;return s.jsxs("span",{className:`inline-flex w-fit items-center gap-1 rounded-full px-2 py-1 text-xs font-extrabold tracking-wide ${i} ${a}`,children:[e&&s.jsx(e,{size:12}),t]})}export{x as B};

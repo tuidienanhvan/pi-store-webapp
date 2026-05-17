@@ -1,0 +1,1 @@
+import{o as e}from"./index-CVBNb6kJ.js";function s({children:o,className:r="",containerClassName:l=""}){return e.jsx("div",{className:`w-full overflow-x-auto custom-scrollbar rounded-xl border border-base-content/5 bg-base-content/[0.01] ${l}`,children:e.jsx("table",{className:`w-full border-collapse text-left ${r}`,children:o})})}export{s as A};

@@ -1,0 +1,1 @@
+.pi-usage-skeleton,.pi-usage-page{color:var(--bc)}.pi-usage-explorer{width:100%}.pi-usage-explorer .skeleton{background:linear-gradient(90deg,#ffffff08,#ffffff14,#ffffff08);background-size:200% 100%;animation:pi-usage-shimmer 1.4s linear infinite}@keyframes pi-usage-shimmer{0%{background-position:200% 0}to{background-position:-200% 0}}
