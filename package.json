@@ -7,7 +7,7 @@
   "scripts": {
     "sync:catalog": "node scripts/sync-catalog.mjs",
     "dev": "vite",
-    "build": "vite build && mkdir -p dist && cp -r build/* dist/",
+    "build": "vite build",
     "preview": "vite preview",
     "test": "node --test tests/*.test.mjs",
     "lint": "eslint ."
