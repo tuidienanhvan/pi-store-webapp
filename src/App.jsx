@@ -60,6 +60,9 @@ const UsersPage = lazy(() => import('@admin/features/users').then(m => ({ defaul
 const UserProfilePage = lazy(() => import('@admin/features/users').then(m => ({ default: m.UserProfilePage })));
 const CronPage = lazy(() => import('@admin/features/cron'));
 const TokenLedgerPage = lazy(() => import('@admin/features/tokens').then(m => ({ default: m.TokenLedgerPage })));
+const TenantsPage = lazy(() => import('@admin/features/tenants').then(m => ({ default: m.TenantsPage })));
+const TenantCreatePage = lazy(() => import('@admin/features/tenants').then(m => ({ default: m.TenantCreatePage })));
+const TenantDetailPage = lazy(() => import('@admin/features/tenants').then(m => ({ default: m.TenantDetailPage })));
 
 // Public layout (non-lazy for shell stability)
 import PublicLayout from './features/public-misc/PublicLayout';
@@ -132,6 +135,9 @@ function App() {
             <Route path="settings" element={<SettingsPage />} />
             <Route path="users" element={<UsersPage />} />
             <Route path="users/:id" element={<UserProfilePage />} />
+            <Route path="tenants" element={<TenantsPage />} />
+            <Route path="tenants/new" element={<TenantCreatePage />} />
+            <Route path="tenants/:id" element={<TenantDetailPage />} />
             <Route path="cron" element={<CronPage />} />
             <Route path="tokens/ledger" element={<TokenLedgerPage />} />
           </Route>

@@ -1,0 +1,21 @@
+/* TenantsPage — page-scoped styles (most layout via Tailwind utilities). */
+
+.pi-tenants-page {
+  width: 100%;
+}
+
+.pi-tenants-page .skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  background-size: 200% 100%;
+  animation: pi-shimmer 1.4s linear infinite;
+}
+
+@keyframes pi-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

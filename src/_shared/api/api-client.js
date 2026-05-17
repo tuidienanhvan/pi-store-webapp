@@ -391,6 +391,19 @@ export const api = {
     // Token ledger (T-017) — admin financial transaction log
     tokenLedger: (params) => request("GET", "/v1/admin/tokens/ledger", { params }),
 
+    // SaaS tenant management — backend routes mounted at /v1/admin/saas/tenants
+    saasTenants: (params) => request("GET", "/v1/admin/saas/tenants", { params }),
+
+    getSaasTenant: (id) => request("GET", `/v1/admin/saas/tenants/${id}`),
+
+    createSaasTenant: (payload) => request("POST", "/v1/admin/saas/tenants", { body: payload }),
+
+    updateSaasTenant: (id, payload) =>
+      request("PATCH", `/v1/admin/saas/tenants/${id}`, { body: payload }),
+
+    rechargeSaasTenant: (id, payload) =>
+      request("POST", `/v1/admin/saas/tenants/${id}/tokens/recharge`, { body: payload }),
+
 
 
     // Keys pool
