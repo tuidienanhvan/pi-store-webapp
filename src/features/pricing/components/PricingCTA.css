@@ -30,12 +30,10 @@
   border: none;
   background-color: var(--primary);
   color: var(--primary-content);
-  box-shadow: 0 10px 15px -3px color-mix(in srgb, var(--brand) 20%, transparent), 0 4px 6px -4px color-mix(in srgb, var(--brand) 20%, transparent);
 }
 
 .pricing-cta--popular:hover {
   background-color: var(--primary-hover);
-  box-shadow: 0 10px 15px -3px color-mix(in srgb, var(--brand) 30%, transparent), 0 4px 6px -4px color-mix(in srgb, var(--brand) 30%, transparent);
 }
 
 

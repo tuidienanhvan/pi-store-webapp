@@ -388,6 +388,9 @@ export const api = {
 
     updateSettings: (payload) => request("PUT", "/v1/admin/settings", { body: payload }),
 
+    // Token ledger (T-017) — admin financial transaction log
+    tokenLedger: (params) => request("GET", "/v1/admin/tokens/ledger", { params }),
+
 
 
     // Keys pool

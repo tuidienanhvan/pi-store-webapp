@@ -1,0 +1,1 @@
+export { ReleasesPageSkeleton } from "./ReleasesPageSkeleton";

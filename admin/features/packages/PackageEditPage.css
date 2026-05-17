@@ -7,7 +7,6 @@
   border-radius: var(--radius-2xl, 1.5rem);
   border: 1px solid color-mix(in srgb, var(--bc) 6%, transparent);
   background: color-mix(in srgb, var(--b2) 90%, transparent);
-  box-shadow: var(--shadow-md);
 }
 
 .pi-package-edit-page__footer {

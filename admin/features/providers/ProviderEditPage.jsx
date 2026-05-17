@@ -15,6 +15,7 @@ import {
   FormSection,
 } from "../../_shared/components";
 import { providersApi } from "./api";
+import { ProviderEditSkeleton } from "./skeleton";
 import './ProviderEditPage.css';
 
 const EMPTY_FORM = {
@@ -145,7 +146,7 @@ export function ProviderEditPage() {
     }
   };
 
-  if (loading) return <div className="p-10 text-center">Đang tải dữ liệu...</div>;
+  if (loading) return <ProviderEditSkeleton />;
 
   return (
     <div className="pi-provider-edit-page flex flex-col gap-10 pb-20">

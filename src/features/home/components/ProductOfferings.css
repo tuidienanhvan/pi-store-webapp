@@ -98,7 +98,6 @@
 .offering-card:hover {
   transform: translateY(-10px) scale(1.02);
   border-color: color-mix(in srgb, var(--p) 30%, transparent);
-  box-shadow: 0 20px 40px -10px color-mix(in srgb, var(--p) 10%, transparent);
 }
 
 .offering-card.popular {

@@ -2,19 +2,20 @@ import React, { useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { useAuth } from "@/_shared/context/AuthContext";
 import { Alert, Drawer } from "@/_shared/components/ui";
-import { 
-  LayoutDashboard, 
-  Monitor, 
-  Zap, 
-  CreditCard, 
-  Key, 
-  Grid, 
-  Bolt, 
-  Layers, 
-  FileText, 
+import {
+  LayoutDashboard,
+  Monitor,
+  Zap,
+  CreditCard,
+  Key,
+  Grid,
+  Bolt,
+  Layers,
+  FileText,
   Settings,
   Users,
-  TimerReset
+  TimerReset,
+  BookText
 } from "lucide-react";
 
 // Layout Components
@@ -30,9 +31,10 @@ const ADMIN_NAV = [
   {
     group: "Chung",
     items: [
-      { to: "/admin",            label: "Tổng quan",       icon: LayoutDashboard, end: true },
-      { to: "/admin/usage",      label: "Sử dụng",          icon: Monitor },
-      { to: "/admin/revenue",    label: "Doanh thu",        icon: Zap },
+      { to: "/admin",                 label: "Tổng quan",       icon: LayoutDashboard, end: true },
+      { to: "/admin/usage",           label: "Sử dụng",          icon: Monitor },
+      { to: "/admin/tokens/ledger",   label: "Sổ cái Token",     icon: BookText },
+      { to: "/admin/revenue",         label: "Doanh thu",        icon: Zap },
     ]
   },
   {

@@ -23,7 +23,7 @@ import {
   AdminEmptyState
 } from "../../_shared/components";
 
-import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
+import { ReleasesPageSkeleton } from "./skeleton";
 import { releasesApi } from "./api";
 import './ReleasesPage.css';
 
@@ -51,7 +51,7 @@ export function ReleasesPage() {
     load();
   }, [load]);
 
-  if (loading && releases.length === 0) return <AdminTableSkeleton />;
+  if (loading && releases.length === 0) return <ReleasesPageSkeleton />;
 
   return (
     <div className="p-6 lg:p-10 flex flex-col gap-8">

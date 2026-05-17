@@ -8,7 +8,7 @@ import { useAuth } from "../../context/AuthContext";
 const navLinkClass = ({ isActive }) =>
   `flex items-center gap-4 rounded-xl px-5 py-2.5 text-xs font-semibold tracking-wide transition-all duration-300 border ${
     isActive
-      ? "bg-primary/15 border-primary/30 text-primary shadow-[0_4px_12px_-2px_rgba(163,29,56,0.2)]"
+      ? "bg-primary/15 border-primary/30 text-primary "
       : "text-base-content/60 border-transparent hover:bg-primary/5 hover:text-base-content hover:border-base-border-subtle"
   }`;
 

@@ -40,7 +40,7 @@ import {
   AdminFilterBar
 } from "../../_shared/components";
 
-import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
+import { KeysPageSkeleton } from "./skeleton";
 import { keysApi } from "./api";
 import { KeyCell } from "./components/KeyCell";
 import './KeysPage.css';
@@ -134,7 +134,7 @@ export function KeysPage() {
 
   const formatNum = (num) => Number(num || 0).toLocaleString("vi-VN");
 
-  if (loading && keys.length === 0) return <AdminTableSkeleton />;
+  if (loading && keys.length === 0) return <KeysPageSkeleton />;
 
   return (
     <div className="pi-keys-page p-6 lg:p-10 flex flex-col gap-8">

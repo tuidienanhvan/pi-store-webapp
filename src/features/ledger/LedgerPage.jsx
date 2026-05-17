@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { api } from "@/_shared/api/api-client";
 import { Table, Button, Card } from "@/_shared/components/ui";
-import { Loader2 } from "lucide-react";
+import { LedgerPageSkeleton } from "./skeleton";
 import './LedgerPage.css';
 
 
@@ -45,12 +45,7 @@ export function LedgerPage() {
   };
 
   if (loading && entries.length === 0) {
-    return (
-      <div className="flex flex-col items-center justify-center p-20 gap-4 opacity-40">
-        <Loader2 size={40} className="animate-spin" />
-        <div className="font-semibold tracking-[0.2em] text-xs">ang ti l?ch s?...</div>
-      </div>
-    );
+    return <LedgerPageSkeleton />;
   }
 
   return (

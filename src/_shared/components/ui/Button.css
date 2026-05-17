@@ -9,7 +9,6 @@
 
   .btn--primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px color-mix(in srgb, var(--p) 20%, transparent);
     background-color: var(--ph);
   }
 

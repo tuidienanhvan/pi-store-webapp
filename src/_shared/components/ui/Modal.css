@@ -18,7 +18,6 @@
   background-color: var(--b2);
   border: 1px solid var(--bd);
   border-radius: 20px;
-  box-shadow: 0 30px 80px -20px color-mix(in srgb, transparent 50%, var(--bc));
   display: flex;
   flex-direction: column;
   overflow: hidden;

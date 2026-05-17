@@ -59,6 +59,7 @@ const ReleaseUploadPage = lazy(() => import('@admin/features/releases/ReleaseUpl
 const UsersPage = lazy(() => import('@admin/features/users').then(m => ({ default: m.UsersPage })));
 const UserProfilePage = lazy(() => import('@admin/features/users').then(m => ({ default: m.UserProfilePage })));
 const CronPage = lazy(() => import('@admin/features/cron'));
+const TokenLedgerPage = lazy(() => import('@admin/features/tokens').then(m => ({ default: m.TokenLedgerPage })));
 
 // Public layout (non-lazy for shell stability)
 import PublicLayout from './features/public-misc/PublicLayout';
@@ -132,6 +133,7 @@ function App() {
             <Route path="users" element={<UsersPage />} />
             <Route path="users/:id" element={<UserProfilePage />} />
             <Route path="cron" element={<CronPage />} />
+            <Route path="tokens/ledger" element={<TokenLedgerPage />} />
           </Route>
 
           {/* Fallback */}

@@ -237,7 +237,6 @@
   width: 30%;
   background: linear-gradient(90deg, #e03154, #ffbd2e);
   border-radius: 2px;
-  box-shadow: 0 0 6px color-mix(in srgb, var(--p) 40%, transparent);
   animation: loadProgress 3.5s ease-out forwards;
 }
 

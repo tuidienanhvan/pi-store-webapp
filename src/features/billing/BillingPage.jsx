@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { Alert, Badge, Button, Card, EmptyState, Skeleton } from "@/_shared/components/ui";
+import { Alert, Badge, Button, Card, EmptyState } from "@/_shared/components/ui";
 import { Sparkles } from "lucide-react";
 import { billing } from "@/features/billing/api";
+import { BillingPageSkeleton } from "./skeleton";
 import './BillingPage.css';
 
 const TIER_META = {
@@ -74,11 +75,7 @@ export function BillingPage() {
     finally { setBusy(""); }
   };
 
-  if (loading) return (
-    <div className="stack" style={{ gap: "var(--s-6)" }}>
-      <Skeleton height={80} /> <Skeleton height={160} /> <Skeleton height={140} />
-    </div>
-  );
+  if (loading) return <BillingPageSkeleton />;
 
   const tier = status?.tier || "free";
   const meta = TIER_META[tier] || TIER_META.free;

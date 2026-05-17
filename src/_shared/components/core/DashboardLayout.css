@@ -54,7 +54,6 @@
   backdrop-filter: blur(24px);
   z-index: 30;
   flex-shrink: 0;
-  box-shadow: 1px 0 10px color-mix(in srgb, transparent 90%, var(--bc));
 }
 
 @media (min-width: 1024px) {
@@ -185,7 +184,6 @@
   width: 8px;
   height: 8px;
   background: var(--p);
-  box-shadow: 0 0 10px var(--p);
 }
 
 .hud-corner--tl { 
@@ -212,6 +210,5 @@
 .dash__sidebar.glass {
   background: color-mix(in srgb, var(--color-base-200) 80%, transparent);
   border-right: 1px solid color-mix(in srgb, var(--p) 10%, transparent);
-  box-shadow: 20px 0 50px color-mix(in srgb, transparent 70%, var(--bc));
   backdrop-filter: blur(40px) saturate(180%);
 }

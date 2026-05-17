@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* Scope Tailwind source-scanning to JSX/HTML inside the webapp roots only.
+   Cuts Tailwind generate() pass by ~50-100ms by skipping node_modules,
+   build/, dist/, plugins/ etc. Without this, Tailwind walks the whole repo. */
+@source "../../index.html";
+@source "../../src/**/*.{js,jsx,ts,tsx}";
+@source "../../admin/**/*.{js,jsx,ts,tsx}";
+
 /* ═══════════════════════════════════════════════════════════════
    PI GLOBAL · THEME CONFIG (DaisyUI-inspired)
 
@@ -49,29 +56,21 @@
   --color-chart-5: var(--su);
   --color-chart-6: #a78bfa;
 
-  /* ── Elevation: shadows tinted với brand primary (dark theme baseline) ──
-   *  Light theme overrides ở [data-theme="light"] block bên dưới.
-   *  Dùng color-mix với var(--p) thay vì hardcode rgba(0,0,0,...). */
-  --shadow-xs:  0 1px 2px 0 color-mix(in srgb, var(--p) 15%, transparent);
-  --shadow-sm:  0 2px 4px -1px color-mix(in srgb, var(--p) 20%, transparent),
-                0 1px 2px -1px color-mix(in srgb, var(--p) 12%, transparent);
-  --shadow-md:  0 4px 8px -2px color-mix(in srgb, var(--p) 25%, transparent),
-                0 2px 4px -2px color-mix(in srgb, var(--p) 15%, transparent);
-  --shadow-lg:  0 12px 24px -8px color-mix(in srgb, var(--p) 30%, transparent),
-                0 4px 8px -4px color-mix(in srgb, var(--p) 18%, transparent);
-  --shadow-xl:  0 24px 48px -12px color-mix(in srgb, var(--p) 35%, transparent);
-  --shadow-2xl: 0 32px 64px -16px color-mix(in srgb, var(--p) 40%, transparent);
-
-  /* ── Brand-tinted shadows (semantic, replaces shadow-2xl shadow-primary/30 cluster) ── */
-  --shadow-primary: 0 8px 24px -8px color-mix(in srgb, var(--p) 30%, transparent);
-  --shadow-danger:  0 8px 24px -8px color-mix(in srgb, var(--er) 30%, transparent);
-  --shadow-success: 0 8px 24px -8px color-mix(in srgb, var(--su) 30%, transparent);
-  --shadow-warning: 0 8px 24px -8px color-mix(in srgb, var(--wa) 30%, transparent);
-
-  /* Glass shell preset (inset highlight + drop tinted, perfect cho bento card) */
-  --shadow-glass:
-    inset 0 1px 0 0 color-mix(in srgb, var(--bc) 5%, transparent),
-    0 8px 32px -8px color-mix(in srgb, var(--p) 25%, transparent);
+  /* ── Elevation: shadows REMOVED (T-20260517-001).
+   *  User feedback: shadows look ugly on dark backgrounds, kill all of them.
+   *  Tokens kept but resolve to `none` so Tailwind `shadow-*` utilities and
+   *  any `var(--shadow-*)` reference become no-op without touching JSX. */
+  --shadow-xs:      none;
+  --shadow-sm:      none;
+  --shadow-md:      none;
+  --shadow-lg:      none;
+  --shadow-xl:      none;
+  --shadow-2xl:     none;
+  --shadow-primary: none;
+  --shadow-danger:  none;
+  --shadow-success: none;
+  --shadow-warning: none;
+  --shadow-glass:   none;
 
   /* ── Radius scale (Tailwind v4 namespace: rounded-{token}) ── */
   --radius-sm:  6px;
@@ -144,22 +143,7 @@
   --er: #dc2626;
   --in: #2563eb;
 
-  /* Shadow overrides — light theme: tint shadow bằng brand primary thay vì black
-   * (black trên nền trắng tạo cảm giác bị "đè", brand tint nhẹ giữ identity Pi). */
-  --shadow-xs:  0 1px 2px 0 color-mix(in srgb, var(--p) 6%, transparent);
-  --shadow-sm:  0 2px 4px -1px color-mix(in srgb, var(--p) 8%, transparent),
-                0 1px 2px -1px color-mix(in srgb, var(--p) 5%, transparent);
-  --shadow-md:  0 4px 8px -2px color-mix(in srgb, var(--p) 10%, transparent),
-                0 2px 4px -2px color-mix(in srgb, var(--p) 6%, transparent);
-  --shadow-lg:  0 12px 24px -8px color-mix(in srgb, var(--p) 14%, transparent),
-                0 4px 8px -4px color-mix(in srgb, var(--p) 8%, transparent);
-  --shadow-xl:  0 24px 48px -12px color-mix(in srgb, var(--p) 18%, transparent);
-  --shadow-2xl: 0 32px 64px -16px color-mix(in srgb, var(--p) 22%, transparent);
-
-  /* Glass shell — light variant: tint glass với primary */
-  --shadow-glass:
-    inset 0 1px 0 0 rgba(255,255,255,0.6),
-    0 8px 32px -8px color-mix(in srgb, var(--p) 12%, transparent);
+  /* Shadow overrides — REMOVED per T-20260517-001. Tokens already `none`. */
 }
 
 /* ─── Global base ───────────────────────────────────────────── */

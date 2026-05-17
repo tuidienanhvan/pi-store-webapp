@@ -1,0 +1,1 @@
+export { WalletPageSkeleton } from "./WalletPageSkeleton";

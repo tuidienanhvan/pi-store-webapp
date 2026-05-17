@@ -5,7 +5,6 @@
 .pi-packages-page__table {
   border: 1px solid color-mix(in srgb, var(--bc) 6%, transparent);
   background: color-mix(in srgb, var(--b2) 92%, transparent);
-  box-shadow: var(--shadow-md);
 }
 
 .pi-packages-page__table thead tr {

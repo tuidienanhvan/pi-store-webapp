@@ -32,7 +32,7 @@ import {
   AdminStatCard
 } from "../../_shared/components";
 
-import { AdminTableSkeleton } from "@/_shared/skeletons/AdminTableSkeleton";
+import { ProvidersPageSkeleton } from "./skeleton";
 import { providersApi } from "./api";
 import './ProvidersPage.css';
 
@@ -102,7 +102,7 @@ export function ProvidersPage() {
     }
   };
 
-  if (loading && providers.length === 0) return <AdminTableSkeleton />;
+  if (loading && providers.length === 0) return <ProvidersPageSkeleton />;
 
   return (
     <div className="pi-providers-page p-6 lg:p-10 flex flex-col gap-8">

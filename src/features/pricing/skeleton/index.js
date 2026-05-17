@@ -1,0 +1,1 @@
+export { PricingPageSkeleton } from "./PricingPageSkeleton";
